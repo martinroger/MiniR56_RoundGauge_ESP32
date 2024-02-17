@@ -1,6 +1,7 @@
 #include <Arduino.h>
 #include <SPI.h>
 #include <TFT_eSPI.h>
+#include "CST816S.h"
 
 TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
 // put function declarations here:
