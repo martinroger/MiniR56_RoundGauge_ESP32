@@ -4,6 +4,7 @@
 #include <TFT_eSPI.h>
 #include "CST816S.h"
 #include "SensorQMI8658.hpp"
+#include <lvgl.h>
 
 #define TP_INT 5
 #define TP_SDA 6
@@ -19,16 +20,61 @@
 #define SENSOR_SDA 6
 #define SENSOR_SCL 7
 
+//Not sure if useful
+#define TFT_HOR_RES 240
+#define TFT_VER_RES 240
 
-TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
+#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
+uint32_t draw_buf[DRAW_BUF_SIZE];
+
+//TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 SensorQMI8658 qmi;
 IMUdata acc;
 IMUdata gyr;
 
+#if LV_USE_LOG != 0
+void my_print( lv_log_level_t level, const char * buf )
+{
+    LV_UNUSED(level);
+    Serial.println(buf);
+    Serial.flush();
+}
+#endif
+
+void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
+{
+  if(touch.available()) {
+    data->state = LV_INDEV_STATE_PRESSED;
+    data->point.x = touch.data.x;
+    data->point.y = touch.data.y;
+  }
+  else {
+    data->state = LV_INDEV_STATE_RELEASED;
+  }
+}
+
+
+
+
 void setup() {
+  String LVGL_Arduino = "Hello Arduino! ";
+  LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
+  
   Serial.begin(115200);
   while(!Serial.available()) {}
+  Serial.println( LVGL_Arduino );
+  lv_init();
+  #if LV_USE_LOG != 0
+    lv_log_register_print_cb( my_print );
+  #endif
+  lv_display_t * disp;
+  disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
+  lv_indev_t *indev = lv_indev_create();
+  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+  lv_indev_set_read_cb(indev,touchRead);
+
+
 
   if (!qmi.begin(Wire, QMI8658_L_SLAVE_ADDRESS, SENSOR_SDA, SENSOR_SCL)) {
     Serial.println("Failed to find QMI8658 - check your wiring!");
@@ -107,8 +153,8 @@ void setup() {
   
   pinMode(TFT_BL,OUTPUT);
   digitalWrite(TFT_BL,HIGH);
-  tft.begin();
-  tft.fillScreen(TFT_WHITE);
+  //tft.begin();
+  //tft.fillScreen(TFT_WHITE);
 
   //These GPIOs are available
   // pinMode(15,OUTPUT);
@@ -133,12 +179,24 @@ void setup() {
   Serial.print(touch.data.versionInfo[1]);
   Serial.print("-");
   Serial.println(touch.data.versionInfo[2]);
+
+  lv_obj_t *label = lv_label_create( lv_scr_act() );
+  lv_label_set_text( label, "Hello Arduino, I'm LVGL!" );
+  lv_obj_align( label, LV_ALIGN_CENTER, 0, 0 );
+
+  Serial.println( "Setup done" );
+
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
 
-  if (touch.available()) {
+  lv_task_handler();
+  lv_tick_inc(5);
+  delay(5);
+
+
+/*   if (touch.available()) {
     Serial.print(touch.gesture());
     Serial.print("\t");
     Serial.print(touch.data.points);
@@ -171,6 +229,6 @@ void loop() {
       }
       Serial.printf("\t\t\t\t > %lu  %.2f *C\n", qmi.getTimestamp(), qmi.getTemperature_C());
     }
-  }
+  } */
 
 }
