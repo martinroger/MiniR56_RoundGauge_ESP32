@@ -26,6 +26,9 @@ SensorQMI8658 qmi;
 IMUdata acc;
 IMUdata gyr;
 
+TFT_eSprite background = TFT_eSprite(&tft);
+
+
 void setup() {
   Serial.begin(115200);
   #ifdef SERIALDEBUG
@@ -109,7 +112,10 @@ void setup() {
   
   pinMode(TFT_BL,OUTPUT);
   digitalWrite(TFT_BL,HIGH);
+
   tft.begin();
+  //tft.initDMA();
+
   tft.fillScreen(TFT_WHITE);
 
   //These GPIOs are available
@@ -137,6 +143,14 @@ void setup() {
     Serial.print("-");
     Serial.println(touch.data.versionInfo[2]);
   #endif
+
+  background.createSprite(240,240);
+  background.fillSprite(TFT_DARKCYAN);
+  background.setTextColor(TFT_WHITE);
+  background.setCursor(20,120,2);
+  background.print("X:");background.print(0.5);background.print(" Y:");background.print(0.5);background.print(" Z:");background.print(0.5);
+  background.pushSprite(0,0);
+
 }
 
 void loop() {
@@ -177,7 +191,15 @@ void loop() {
     }
   }
   #endif
-  
-
+  if(qmi.getDataReady()) {
+    if(qmi.getAccelerometer(acc.x,acc.y,acc.z)) {
+      background.fillSprite(TFT_DARKCYAN);
+      background.setTextColor(TFT_WHITE);
+      background.setCursor(20,120,2);
+      background.print("X:");background.print(acc.x);background.print(" Y:");background.print(acc.y);background.print(" Z:");background.print(acc.z);
+      background.pushSprite(0,0);
+    }
+  }
+  delay(10);
 
 }
