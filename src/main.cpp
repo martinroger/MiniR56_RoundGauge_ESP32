@@ -51,7 +51,7 @@ void setup() {
       * ACC_RANGE_8G
       * ACC_RANGE_16G
       * */
-    SensorQMI8658::ACC_RANGE_4G,
+    SensorQMI8658::ACC_RANGE_2G,
     /*
       * ACC_ODR_1000H
       * ACC_ODR_500Hz
@@ -64,14 +64,14 @@ void setup() {
       * ACC_ODR_LOWPOWER_11Hz
       * ACC_ODR_LOWPOWER_3H
     * */
-    SensorQMI8658::ACC_ODR_1000Hz,
+    SensorQMI8658::ACC_ODR_62_5Hz,
     /*
     *  LPF_MODE_0     //2.66% of ODR
     *  LPF_MODE_1     //3.63% of ODR
     *  LPF_MODE_2     //5.39% of ODR
     *  LPF_MODE_3     //13.37% of ODR
     * */
-    SensorQMI8658::LPF_MODE_0,
+    SensorQMI8658::LPF_MODE_2,
     // selfTest enable
     true);
   qmi.configGyroscope(
@@ -194,12 +194,13 @@ void loop() {
   if(qmi.getDataReady()) {
     if(qmi.getAccelerometer(acc.x,acc.y,acc.z)) {
       background.fillSprite(TFT_DARKCYAN);
-      background.setTextColor(TFT_WHITE);
+      background.setTextColor(TFT_CYAN);
       background.setCursor(20,120,2);
       background.print("X:");background.print(acc.x);background.print(" Y:");background.print(acc.y);background.print(" Z:");background.print(acc.z);
+      background.fillSmoothCircle(120+(int32_t)(acc.y*80),120-(int32_t)(acc.x*80),10,TFT_RED);
       background.pushSprite(0,0);
     }
   }
-  delay(10);
+  delay(5);
 
 }
