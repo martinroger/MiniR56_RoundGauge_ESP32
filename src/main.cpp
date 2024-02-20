@@ -28,17 +28,19 @@ IMUdata gyr;
 
 void setup() {
   Serial.begin(115200);
-  while(!Serial.available()) {}
-
+  #ifdef SERIALDEBUG
+    while(!Serial.available()) {}
+  #endif
   if (!qmi.begin(Wire, QMI8658_L_SLAVE_ADDRESS, SENSOR_SDA, SENSOR_SCL)) {
     Serial.println("Failed to find QMI8658 - check your wiring!");
     while (1) {
       delay(1000);
     }
   }
-  Serial.print("Device ID:");
-  Serial.println(qmi.getChipID(), HEX);
-  
+  #ifdef SERIALDEBUG
+    Serial.print("Device ID:");
+    Serial.println(qmi.getChipID(), HEX);
+  #endif
   qmi.configAccelerometer(
     /*
       * ACC_RANGE_2G
@@ -126,18 +128,20 @@ void setup() {
 
   //Touch screen setup to Serial
   touch.begin();
-  Serial.print(touch.data.version);
-  Serial.print("\t");
-  Serial.print(touch.data.versionInfo[0]);
-  Serial.print("-");
-  Serial.print(touch.data.versionInfo[1]);
-  Serial.print("-");
-  Serial.println(touch.data.versionInfo[2]);
+  #ifdef SERIALDEBUG
+    Serial.print(touch.data.version);
+    Serial.print("\t");
+    Serial.print(touch.data.versionInfo[0]);
+    Serial.print("-");
+    Serial.print(touch.data.versionInfo[1]);
+    Serial.print("-");
+    Serial.println(touch.data.versionInfo[2]);
+  #endif
 }
 
 void loop() {
   // put your main code here, to run repeatedly:
-
+  #ifdef SERIALDEBUG
   if (touch.available()) {
     Serial.print(touch.gesture());
     Serial.print("\t");
@@ -172,5 +176,8 @@ void loop() {
       Serial.printf("\t\t\t\t > %lu  %.2f *C\n", qmi.getTimestamp(), qmi.getTemperature_C());
     }
   }
+  #endif
+  
+
 
 }
