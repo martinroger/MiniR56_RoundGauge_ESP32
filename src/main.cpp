@@ -5,6 +5,7 @@
 #include "CST816S.h"
 #include "SensorQMI8658.hpp"
 #include <lvgl.h>
+#include <ui.h>
 
 #define TP_INT 5
 #define TP_SDA 6
@@ -26,12 +27,18 @@
 
 #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE];
+//static lv_draw_buf_t draw_buf;
+//static lv_color_t buf[240*240/10];
 
 //TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 SensorQMI8658 qmi;
 IMUdata acc;
 IMUdata gyr;
+
+int oilTemp;
+long boostPressure;
+int waterTemp;
 
 #if LV_USE_LOG != 0
 void my_print( lv_log_level_t level, const char * buf )
@@ -41,6 +48,7 @@ void my_print( lv_log_level_t level, const char * buf )
     Serial.flush();
 }
 #endif
+
 
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
@@ -58,18 +66,20 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 
 void setup() {
-  String LVGL_Arduino = "Hello Arduino! ";
-  LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
   
   Serial.begin(115200);
-  while(!Serial.available()) {}
-  Serial.println( LVGL_Arduino );
+  String LVGL_Arduino = "Hello Arduino! ";
+  LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
+  Serial.println(LVGL_Arduino);
   lv_init();
+
   #if LV_USE_LOG != 0
     lv_log_register_print_cb( my_print );
   #endif
+
   lv_display_t * disp;
   disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
+
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
@@ -153,8 +163,6 @@ void setup() {
   
   pinMode(TFT_BL,OUTPUT);
   digitalWrite(TFT_BL,HIGH);
-  //tft.begin();
-  //tft.fillScreen(TFT_WHITE);
 
   //These GPIOs are available
   // pinMode(15,OUTPUT);
@@ -170,7 +178,7 @@ void setup() {
   // pinMode(33,OUTPUT);
   // digitalWrite(33,LOW);
 
-  //Touch screen setup to Serial
+  //Touch controller setup to Serial
   touch.begin();
   Serial.print(touch.data.version);
   Serial.print("\t");
@@ -180,9 +188,7 @@ void setup() {
   Serial.print("-");
   Serial.println(touch.data.versionInfo[2]);
 
-  lv_obj_t *label = lv_label_create( lv_scr_act() );
-  lv_label_set_text( label, "Hello Arduino, I'm LVGL!" );
-  lv_obj_align( label, LV_ALIGN_CENTER, 0, 0 );
+  ui_init();
 
   Serial.println( "Setup done" );
 
@@ -191,9 +197,17 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
 
+
+  // oilTemp = 50+25*(int)sin(2*PI*millis());
+   waterTemp = 70 + 10*(int)sin(2*PI*millis());
+  // boostPressure = 1000 + 500*(long)sin(2*PI*millis());
+  // lv_arc_set_value(ui_oilTempArc,oilTemp);
+  // lv_arc_set_value(ui_waterTempArc,waterTemp);
+  // lv_bar_set_value(ui_boostBar,boostPressure,LV_ANIM_OFF);
   lv_task_handler();
   lv_tick_inc(5);
   delay(5);
+
 
 
 /*   if (touch.available()) {
