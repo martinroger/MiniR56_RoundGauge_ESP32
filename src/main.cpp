@@ -199,10 +199,23 @@ void loop() {
 
 
   // oilTemp = 50+25*(int)sin(2*PI*millis());
-   waterTemp = 70 + 10*(int)sin(2*PI*millis());
+  //waterTemp = 70 + (int)(10.0*sin(2*PI*millis()));
+    if (qmi.getDataReady()) {
+      if (qmi.getAccelerometer(acc.x, acc.y, acc.z)) {
+        Serial.print("{ACCEL: ");
+        Serial.print(acc.x);
+        Serial.print(",");
+        Serial.print(acc.y);
+        Serial.print(",");
+        Serial.print(acc.z);
+        Serial.println("}");
+      }
+    }
+   waterTemp = 70 + millis()%30;
+   Serial.println(waterTemp);
   // boostPressure = 1000 + 500*(long)sin(2*PI*millis());
   // lv_arc_set_value(ui_oilTempArc,oilTemp);
-  // lv_arc_set_value(ui_waterTempArc,waterTemp);
+  lv_arc_set_value(ui_waterTempArc,waterTemp);
   // lv_bar_set_value(ui_boostBar,boostPressure,LV_ANIM_OFF);
   lv_task_handler();
   lv_tick_inc(5);
