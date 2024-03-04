@@ -211,11 +211,11 @@ void loop() {
         Serial.println("}");
       }
     }
-   waterTemp = 70 + millis()%30;
+   waterTemp = 30 + millis()%30;
    Serial.println(waterTemp);
 
   lv_arc_set_value(ui_coolantArc,waterTemp);
-
+  lv_label_set_text_fmt(ui_coolantVal, "%03u",waterTemp);
   lv_task_handler();
   lv_tick_inc(5);
   delay(5);

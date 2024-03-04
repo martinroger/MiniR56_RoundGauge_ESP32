@@ -65,7 +65,7 @@ void ui_event_coolantTemp(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_boostPressure, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_boostPressure_screen_init);
+        _ui_screen_change(&ui_boostPressure, LV_SCR_LOAD_ANIM_FADE_ON, 150, 0, &ui_boostPressure_screen_init);
     }
 }
 void ui_event_boostPressure(lv_event_t * e)
@@ -73,7 +73,7 @@ void ui_event_boostPressure(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_intakeTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_intakeTemp_screen_init);
+        _ui_screen_change(&ui_intakeTemp, LV_SCR_LOAD_ANIM_FADE_ON, 150, 0, &ui_intakeTemp_screen_init);
     }
 }
 void ui_event_intakeTemp(lv_event_t * e)
@@ -81,7 +81,7 @@ void ui_event_intakeTemp(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_moduleVoltage, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_moduleVoltage_screen_init);
+        _ui_screen_change(&ui_moduleVoltage, LV_SCR_LOAD_ANIM_FADE_ON, 150, 0, &ui_moduleVoltage_screen_init);
     }
 }
 void ui_event_moduleVoltage(lv_event_t * e)
@@ -89,7 +89,7 @@ void ui_event_moduleVoltage(lv_event_t * e)
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_coolantTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_coolantTemp_screen_init);
+        _ui_screen_change(&ui_coolantTemp, LV_SCR_LOAD_ANIM_FADE_ON, 150, 0, &ui_coolantTemp_screen_init);
     }
 }
 
