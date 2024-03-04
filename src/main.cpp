@@ -205,10 +205,11 @@ void loop() {
   #endif
 
   //current placeholder for waterTemp, should be a CAN.available()
-  waterTemp = 30 + millis()%13;
+  //waterTemp = 30 + millis()%13;
+  waterTemp = 30 + (int)(50*sin(2*PI*millis()/5000));
   if(sendOBDQuery) {
     lv_arc_set_value(ui_coolantArc,waterTemp);
-    lv_label_set_text_fmt(ui_coolantVal, "%03u",waterTemp);
+    lv_label_set_text_fmt(ui_coolantVal, "%03d",waterTemp);
   }
   //Stuff for LVGL. Should be able to do something better than delays
   if(tickerLVGL) {
