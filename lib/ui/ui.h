@@ -24,30 +24,44 @@ extern "C" {
 
 #include "ui_helpers.h"
 #include "ui_events.h"
-// SCREEN: ui_oilTemp
-void ui_oilTemp_screen_init(void);
-void ui_event_oilTemp(lv_event_t * e);
-extern lv_obj_t * ui_oilTemp;
-void ui_event_oilTempArc(lv_event_t * e);
-extern lv_obj_t * ui_oilTempArc;
-extern lv_obj_t * ui_oilTempNum;
-// SCREEN: ui_waterTemp
-void ui_waterTemp_screen_init(void);
-void ui_event_waterTemp(lv_event_t * e);
-extern lv_obj_t * ui_waterTemp;
-void ui_event_waterTempArc(lv_event_t * e);
-extern lv_obj_t * ui_waterTempArc;
-extern lv_obj_t * ui_waterTempNum;
-// SCREEN: ui_Boost
-void ui_Boost_screen_init(void);
-void ui_event_Boost(lv_event_t * e);
-extern lv_obj_t * ui_Boost;
-void ui_event_boostBar(lv_event_t * e);
-extern lv_obj_t * ui_boostBar;
+// SCREEN: ui_coolantTemp
+void ui_coolantTemp_screen_init(void);
+void ui_event_coolantTemp(lv_event_t * e);
+extern lv_obj_t * ui_coolantTemp;
+extern lv_obj_t * ui_coolantArc;
+extern lv_obj_t * ui_coolantVal;
+extern lv_obj_t * ui_coolantUnit;
+extern lv_obj_t * ui_coolantLabel;
+// SCREEN: ui_boostPressure
+void ui_boostPressure_screen_init(void);
+void ui_event_boostPressure(lv_event_t * e);
 extern lv_obj_t * ui_boostPressure;
+extern lv_obj_t * ui_boostArc;
+extern lv_obj_t * ui_boostVal;
+extern lv_obj_t * ui_boostUnit;
+extern lv_obj_t * ui_boostLabel;
+// SCREEN: ui_intakeTemp
+void ui_intakeTemp_screen_init(void);
+void ui_event_intakeTemp(lv_event_t * e);
+extern lv_obj_t * ui_intakeTemp;
+extern lv_obj_t * ui_iatArc;
+extern lv_obj_t * ui_iatVal;
+extern lv_obj_t * ui_iatUnit;
+extern lv_obj_t * ui_iatLabel;
+// SCREEN: ui_moduleVoltage
+void ui_moduleVoltage_screen_init(void);
+void ui_event_moduleVoltage(lv_event_t * e);
+extern lv_obj_t * ui_moduleVoltage;
+extern lv_obj_t * ui_voltageArc;
+extern lv_obj_t * ui_voltageVal;
+extern lv_obj_t * ui_voltageUnit;
+extern lv_obj_t * ui_voltageLabel;
+extern lv_obj_t * ui____initial_actions0;
 
 
 
+LV_FONT_DECLARE(ui_font_center60);
+LV_FONT_DECLARE(ui_font_unit16);
 
 void ui_init(void);
 

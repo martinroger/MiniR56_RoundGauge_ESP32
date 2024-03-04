@@ -213,10 +213,9 @@ void loop() {
     }
    waterTemp = 70 + millis()%30;
    Serial.println(waterTemp);
-  // boostPressure = 1000 + 500*(long)sin(2*PI*millis());
-  // lv_arc_set_value(ui_oilTempArc,oilTemp);
-  lv_arc_set_value(ui_waterTempArc,waterTemp);
-  // lv_bar_set_value(ui_boostBar,boostPressure,LV_ANIM_OFF);
+
+  lv_arc_set_value(ui_coolantArc,waterTemp);
+
   lv_task_handler();
   lv_tick_inc(5);
   delay(5);

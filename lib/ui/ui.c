@@ -9,33 +9,44 @@
 ///////////////////// VARIABLES ////////////////////
 
 
-// SCREEN: ui_oilTemp
-void ui_oilTemp_screen_init(void);
-void ui_event_oilTemp(lv_event_t * e);
-lv_obj_t * ui_oilTemp;
-void ui_event_oilTempArc(lv_event_t * e);
-lv_obj_t * ui_oilTempArc;
-lv_obj_t * ui_oilTempNum;
+// SCREEN: ui_coolantTemp
+void ui_coolantTemp_screen_init(void);
+void ui_event_coolantTemp(lv_event_t * e);
+lv_obj_t * ui_coolantTemp;
+lv_obj_t * ui_coolantArc;
+lv_obj_t * ui_coolantVal;
+lv_obj_t * ui_coolantUnit;
+lv_obj_t * ui_coolantLabel;
 
 
-// SCREEN: ui_waterTemp
-void ui_waterTemp_screen_init(void);
-void ui_event_waterTemp(lv_event_t * e);
-lv_obj_t * ui_waterTemp;
-void ui_event_waterTempArc(lv_event_t * e);
-lv_obj_t * ui_waterTempArc;
-lv_obj_t * ui_waterTempNum;
-
-
-// SCREEN: ui_Boost
-void ui_Boost_screen_init(void);
-void ui_event_Boost(lv_event_t * e);
-lv_obj_t * ui_Boost;
-void ui_event_boostBar(lv_event_t * e);
-lv_obj_t * ui_boostBar;
+// SCREEN: ui_boostPressure
+void ui_boostPressure_screen_init(void);
+void ui_event_boostPressure(lv_event_t * e);
 lv_obj_t * ui_boostPressure;
-void ui_event_Chart1(lv_event_t * e);
-lv_obj_t * ui_Chart1;
+lv_obj_t * ui_boostArc;
+lv_obj_t * ui_boostVal;
+lv_obj_t * ui_boostUnit;
+lv_obj_t * ui_boostLabel;
+
+
+// SCREEN: ui_intakeTemp
+void ui_intakeTemp_screen_init(void);
+void ui_event_intakeTemp(lv_event_t * e);
+lv_obj_t * ui_intakeTemp;
+lv_obj_t * ui_iatArc;
+lv_obj_t * ui_iatVal;
+lv_obj_t * ui_iatUnit;
+lv_obj_t * ui_iatLabel;
+
+
+// SCREEN: ui_moduleVoltage
+void ui_moduleVoltage_screen_init(void);
+void ui_event_moduleVoltage(lv_event_t * e);
+lv_obj_t * ui_moduleVoltage;
+lv_obj_t * ui_voltageArc;
+lv_obj_t * ui_voltageVal;
+lv_obj_t * ui_voltageUnit;
+lv_obj_t * ui_voltageLabel;
 lv_obj_t * ui____initial_actions0;
 
 ///////////////////// TEST LVGL SETTINGS ////////////////////
@@ -49,53 +60,36 @@ lv_obj_t * ui____initial_actions0;
 ///////////////////// ANIMATIONS ////////////////////
 
 ///////////////////// FUNCTIONS ////////////////////
-void ui_event_oilTemp(lv_event_t * e)
+void ui_event_coolantTemp(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_waterTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_waterTemp_screen_init);
+        _ui_screen_change(&ui_boostPressure, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_boostPressure_screen_init);
     }
 }
-void ui_event_oilTempArc(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        _ui_arc_set_text_value(ui_oilTempNum, target, "", "");
-    }
-}
-void ui_event_waterTemp(lv_event_t * e)
+void ui_event_boostPressure(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_Boost, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_Boost_screen_init);
+        _ui_screen_change(&ui_intakeTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_intakeTemp_screen_init);
     }
 }
-void ui_event_waterTempArc(lv_event_t * e)
-{
-    lv_event_code_t event_code = lv_event_get_code(e);
-    lv_obj_t * target = lv_event_get_target(e);
-    if(event_code == LV_EVENT_VALUE_CHANGED) {
-        _ui_arc_set_text_value(ui_waterTempNum, target, "", "");
-    }
-
-}
-void ui_event_Boost(lv_event_t * e)
+void ui_event_intakeTemp(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_oilTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_oilTemp_screen_init);
+        _ui_screen_change(&ui_moduleVoltage, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_moduleVoltage_screen_init);
     }
 }
-void ui_event_boostBar(lv_event_t * e)
+void ui_event_moduleVoltage(lv_event_t * e)
 {
     lv_event_code_t event_code = lv_event_get_code(e);
     lv_obj_t * target = lv_event_get_target(e);
     if(event_code == LV_EVENT_LONG_PRESSED) {
-        _ui_screen_change(&ui_oilTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_oilTemp_screen_init);
+        _ui_screen_change(&ui_coolantTemp, LV_SCR_LOAD_ANIM_FADE_ON, 500, 0, &ui_coolantTemp_screen_init);
     }
 }
 
@@ -108,9 +102,10 @@ void ui_init(void)
     lv_theme_t * theme = lv_theme_default_init(dispp, lv_palette_main(LV_PALETTE_BLUE), lv_palette_main(LV_PALETTE_RED),
                                                false, LV_FONT_DEFAULT);
     lv_disp_set_theme(dispp, theme);
-    ui_oilTemp_screen_init();
-    ui_waterTemp_screen_init();
-    ui_Boost_screen_init();
+    ui_coolantTemp_screen_init();
+    ui_boostPressure_screen_init();
+    ui_intakeTemp_screen_init();
+    ui_moduleVoltage_screen_init();
     ui____initial_actions0 = lv_obj_create(NULL);
-    lv_disp_load_scr(ui_oilTemp);
+    lv_disp_load_scr(ui_coolantTemp);
 }
