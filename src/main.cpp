@@ -6,6 +6,8 @@
 #include "SensorQMI8658.hpp"
 #include <lvgl.h>
 #include <ui.h>
+#include <Arduino_Helpers.h>
+#include <AH/Timing/MillisMicrosTimer.hpp>
 
 #define TP_INT 5
 #define TP_SDA 6
@@ -33,9 +35,14 @@ SensorQMI8658 qmi;
 IMUdata acc;
 IMUdata gyr;
 
+//Revise this
 int oilTemp;
 long boostPressure;
 int waterTemp;
+
+//Timers
+Timer<millis> sendOBDQuery = 150;
+Timer<millis> tickerLVGL = 5;
 
 #if LV_USE_LOG != 0
 void my_print( lv_log_level_t level, const char * buf )
@@ -197,15 +204,16 @@ void loop() {
     }
   #endif
 
-  //current placeholder for waterTemp
-  waterTemp = 30 + millis()%30;
-
-  lv_arc_set_value(ui_coolantArc,waterTemp);
-  lv_label_set_text_fmt(ui_coolantVal, "%03u",waterTemp);
-  
+  //current placeholder for waterTemp, should be a CAN.available()
+  waterTemp = 30 + millis()%13;
+  if(sendOBDQuery) {
+    lv_arc_set_value(ui_coolantArc,waterTemp);
+    lv_label_set_text_fmt(ui_coolantVal, "%03u",waterTemp);
+  }
   //Stuff for LVGL. Should be able to do something better than delays
-  lv_task_handler();
-  lv_tick_inc(5);
-  delay(5);
+  if(tickerLVGL) {
+    lv_task_handler();
+    lv_tick_inc(5);
+  }
 
 }
