@@ -27,10 +27,7 @@
 
 #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE];
-//static lv_draw_buf_t draw_buf;
-//static lv_color_t buf[240*240/10];
 
-//TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 SensorQMI8658 qmi;
 IMUdata acc;
@@ -63,8 +60,6 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 
-
-
 void setup() {
   
   Serial.begin(115200);
@@ -92,9 +87,12 @@ void setup() {
       delay(1000);
     }
   }
+  
+  #pragma region 
   Serial.print("Device ID:");
   Serial.println(qmi.getChipID(), HEX);
   
+
   qmi.configAccelerometer(
     /*
       * ACC_RANGE_2G
@@ -160,26 +158,15 @@ void setup() {
   qmi.enableGyroscope();
   qmi.enableAccelerometer();
   qmi.dumpCtrlRegister();
-  
+  #pragma endregion
+
   pinMode(TFT_BL,OUTPUT);
   digitalWrite(TFT_BL,HIGH);
 
-  //These GPIOs are available
-  // pinMode(15,OUTPUT);
-  // digitalWrite(15,HIGH);
-  // pinMode(16,OUTPUT);
-  // digitalWrite(16,LOW);
-  // pinMode(17,OUTPUT);
-  // digitalWrite(17,HIGH);
-  // pinMode(18,OUTPUT);
-  // digitalWrite(18,LOW);
-  // pinMode(21,OUTPUT);
-  // digitalWrite(21,HIGH);
-  // pinMode(33,OUTPUT);
-  // digitalWrite(33,LOW);
 
   //Touch controller setup to Serial
   touch.begin();
+  #pragma region 
   Serial.print(touch.data.version);
   Serial.print("\t");
   Serial.print(touch.data.versionInfo[0]);
@@ -187,7 +174,7 @@ void setup() {
   Serial.print(touch.data.versionInfo[1]);
   Serial.print("-");
   Serial.println(touch.data.versionInfo[2]);
-
+  #pragma endregion
   ui_init();
 
   Serial.println( "Setup done" );
@@ -195,11 +182,8 @@ void setup() {
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
-
-
-  // oilTemp = 50+25*(int)sin(2*PI*millis());
-  //waterTemp = 70 + (int)(10.0*sin(2*PI*millis()));
+  //Dump the accelerometer data to serial
+  #ifdef DUMP_QMI_TO_SERIAL
     if (qmi.getDataReady()) {
       if (qmi.getAccelerometer(acc.x, acc.y, acc.z)) {
         Serial.print("{ACCEL: ");
@@ -211,50 +195,17 @@ void loop() {
         Serial.println("}");
       }
     }
-   waterTemp = 30 + millis()%30;
-   Serial.println(waterTemp);
+  #endif
+
+  //current placeholder for waterTemp
+  waterTemp = 30 + millis()%30;
 
   lv_arc_set_value(ui_coolantArc,waterTemp);
   lv_label_set_text_fmt(ui_coolantVal, "%03u",waterTemp);
+  
+  //Stuff for LVGL. Should be able to do something better than delays
   lv_task_handler();
   lv_tick_inc(5);
   delay(5);
-
-
-
-/*   if (touch.available()) {
-    Serial.print(touch.gesture());
-    Serial.print("\t");
-    Serial.print(touch.data.points);
-    Serial.print("\t");
-    Serial.print(touch.data.event);
-    Serial.print("\t");
-    Serial.print(touch.data.x);
-    Serial.print("\t");
-    Serial.println(touch.data.y);
-
-    if (qmi.getDataReady()) {
-      if (qmi.getAccelerometer(acc.x, acc.y, acc.z)) {
-        Serial.print("{ACCEL: ");
-        Serial.print(acc.x);
-        Serial.print(",");
-        Serial.print(acc.y);
-        Serial.print(",");
-        Serial.print(acc.z);
-        Serial.println("}");
-      }
-
-      if (qmi.getGyroscope(gyr.x, gyr.y, gyr.z)) {
-        Serial.print("{GYRO: ");
-        Serial.print(gyr.x);
-        Serial.print(",");
-        Serial.print(gyr.y );
-        Serial.print(",");
-        Serial.print(gyr.z);
-        Serial.println("}");
-      }
-      Serial.printf("\t\t\t\t > %lu  %.2f *C\n", qmi.getTimestamp(), qmi.getTemperature_C());
-    }
-  } */
 
 }
