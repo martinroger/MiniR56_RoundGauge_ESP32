@@ -8,7 +8,34 @@
 #include <ui.h>
 #include <Arduino_Helpers.h>
 #include <AH/Timing/MillisMicrosTimer.hpp>
+#include "mcp2515_can.h"
 
+//GPIOs available : 15 16 17 18 21 33 (from center pair outside)
+#define CAN_MISO 15 // Goes to D5
+#define CAN_MOSI 16 // Goes to D4
+#define CAN_CLK 17 // Goes to D6
+#define CAN_CS 18 //Goes to D7
+#define CAN_INT 33
+
+mcp2515_can CAN(CAN_CS);
+SPIClass CANSPI(HSPI); //Pins need to be set in the begin() in setup()
+unsigned char RxBuffer[8];
+unsigned char TxBuffer[8] = {0x02,0x01,0x00,0x00,0x00,0x00,0x00,0x00};
+unsigned char len = 0;
+unsigned long FrameID = 0x7E8;
+
+unsigned char OBD_length;
+unsigned char OBD_mode;
+unsigned char OBD_command;
+unsigned char byteA;
+unsigned char byteB;
+unsigned char byteC;
+unsigned char byteD;
+unsigned char byteE;
+
+byte requestID = 0x05;
+
+//Touch and QMI I2C setup
 #define TP_INT 5
 #define TP_SDA 6
 #define TP_SCL 7
@@ -27,7 +54,7 @@
 #define TFT_HOR_RES 240
 #define TFT_VER_RES 240
 
-#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
+#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE];
 
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
@@ -36,13 +63,16 @@ IMUdata acc;
 IMUdata gyr;
 
 //Revise this
-int oilTemp;
-long boostPressure;
-int waterTemp;
+int intakeTemp;
+int absBaroPressure = 100;
+int intakeManifoldPressure = 100;
+int boostPressure;
+int engineCoolantTemp;
 
 //Timers
-Timer<millis> sendOBDQuery = 150;
+Timer<millis> refreshValues = 150;
 Timer<millis> tickerLVGL = 5;
+Timer<millis> OBDrequestDelay = 20;
 
 #if LV_USE_LOG != 0
 void my_print( lv_log_level_t level, const char * buf )
@@ -68,7 +98,11 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 
 void setup() {
-  
+  CANSPI.begin(CAN_CLK,CAN_MISO,CAN_MOSI,CAN_CS);
+  CAN.setSPI(&CANSPI);
+  CAN.begin(CAN_500KBPS,MCP_16MHz);
+
+
   Serial.begin(115200);
   String LVGL_Arduino = "Hello Arduino! ";
   LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
@@ -204,12 +238,102 @@ void loop() {
     }
   #endif
 
-  //current placeholder for waterTemp, should be a CAN.available()
-  //waterTemp = 30 + millis()%13;
-  waterTemp = 30 + (int)(50*sin(2*PI*millis()/5000));
-  if(sendOBDQuery) {
-    lv_arc_set_value(ui_coolantArc,waterTemp);
-    lv_label_set_text_fmt(ui_coolantVal, "%03d",waterTemp);
+  if(CAN_MSGAVAIL == CAN.checkReceive()) {
+    CAN.readMsgBuf(&len, RxBuffer);
+    if(CAN.getCanId()==FrameID) {
+      OBD_length  = RxBuffer[0];
+      OBD_mode    = RxBuffer[1];
+      OBD_command = RxBuffer[2];
+      byteA       = RxBuffer[3];
+      byteB       = RxBuffer[4];
+      byteC       = RxBuffer[5];
+      byteD       = RxBuffer[6];
+      byteE       = RxBuffer[7];
+      if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+        switch (OBD_command)
+        {
+        case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+          engineCoolantTemp = ((int)byteA - 40);
+          break;
+        case 0x0B:
+          intakeManifoldPressure = (int)byteA;
+          break;
+        case 0x0F :
+          intakeTemp = ((int)byteA - 40);
+          break;
+        case 0x33 : 
+          absBaroPressure = (int)byteA;
+          break;
+        case 0x42 : //Control module voltage
+
+          break;
+        default:
+          break;
+        }
+        boostPressure = intakeManifoldPressure - absBaroPressure;
+      }
+    }
+  }
+
+  //current placeholder for engineCoolantTemp, should be a CAN.available()
+  //engineCoolantTemp = 30 + millis()%13;
+  //engineCoolantTemp = 30 + (int)(50*sin(2*PI*millis()/5000));
+  if(refreshValues) {
+    //start by refreshing the existing components
+    lv_arc_set_value(ui_coolantArc,engineCoolantTemp);
+    lv_label_set_text_fmt(ui_coolantVal, "%03d",engineCoolantTemp);
+
+    lv_arc_set_value(ui_iatArc,intakeTemp);
+    lv_label_set_text_fmt(ui_iatVal,"%03d",intakeTemp);
+
+    lv_arc_set_value(ui_boostArc,boostPressure);
+    lv_label_set_text_fmt(ui_boostVal,"%03d",boostPressure);
+
+    // Then send the requested messages
+    // TxBuffer[2] = 0x05; //Engine coolant temperature first
+    // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+    // TxBuffer[2] = 0x0B; //Intake Manifold Pressure
+    // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+    // TxBuffer[2] = 0x0F; //Intake Temp
+    // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+    // TxBuffer[2] = 0x33; //Absolute Barometric Pressure
+    // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+    // TxBuffer[2] = 0x42; // Control Module Voltage
+    // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+  }
+
+  if (OBDrequestDelay) {
+    switch (requestID)
+    {
+    case 0x05:
+      TxBuffer[2] = 0x05; //Engine coolant temperature first
+      CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+      requestID = 0x0B;
+      break;
+    case 0x0B:
+      TxBuffer[2] = 0x0B; //Engine coolant temperature first
+      CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+      requestID = 0x0F;
+      break;
+    case 0x0F:
+      TxBuffer[2] = 0x0F; //Engine coolant temperature first
+      CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+      requestID = 0x33;
+      break;
+    case 0x33:
+      TxBuffer[2] = 0x33; //Engine coolant temperature first
+      CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+      requestID = 0x42;
+      break;
+    case 0x42:
+      TxBuffer[2] = 0x42; //Engine coolant temperature first
+      CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
+      requestID = 0x05;
+      break;
+    default:
+      requestID = 0x05;
+      break;
+    }
   }
   //Stuff for LVGL. Should be able to do something better than delays
   if(tickerLVGL) {
