@@ -68,6 +68,7 @@ int absBaroPressure = 100;
 int intakeManifoldPressure = 100;
 int boostPressure;
 int engineCoolantTemp;
+float controlModuleVoltage = 12.0;
 
 //Timers
 Timer<millis> refreshValues = 150;
@@ -264,8 +265,8 @@ void loop() {
         case 0x33 : 
           absBaroPressure = (int)byteA;
           break;
-        case 0x42 : //Control module voltage
-
+        case 0x42 : //Control module voltage... arc is in mV
+          controlModuleVoltage = (256*(int)byteA + (int)byteB)/1000.0;
           break;
         default:
           break;
@@ -288,6 +289,11 @@ void loop() {
 
     lv_arc_set_value(ui_boostArc,boostPressure);
     lv_label_set_text_fmt(ui_boostVal,"%03d",boostPressure);
+
+    lv_arc_set_value(ui_voltageArc,(int32_t)(controlModuleVoltage*1000));
+    lv_label_set_text_fmt(ui_voltageVal,"%02.1f",controlModuleVoltage);
+    Serial.print("Control Module Voltage : ");
+    Serial.println(controlModuleVoltage);
 
     // Then send the requested messages
     // TxBuffer[2] = 0x05; //Engine coolant temperature first

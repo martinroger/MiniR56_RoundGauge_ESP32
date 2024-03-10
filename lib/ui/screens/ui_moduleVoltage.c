@@ -22,8 +22,8 @@ void ui_moduleVoltage_screen_init(void)
                       LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE | LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC |
                       LV_OBJ_FLAG_SCROLL_MOMENTUM | LV_OBJ_FLAG_SCROLL_CHAIN);     /// Flags
     lv_obj_set_scrollbar_mode(ui_voltageArc, LV_SCROLLBAR_MODE_OFF);
-    lv_arc_set_range(ui_voltageArc, 600, 1800);
-    lv_arc_set_value(ui_voltageArc, 1000);
+    lv_arc_set_range(ui_voltageArc, 6000, 18000);
+    lv_arc_set_value(ui_voltageArc, 10000);
     lv_arc_set_bg_angles(ui_voltageArc, 135, 45);
     lv_obj_set_style_arc_color(ui_voltageArc, lv_color_hex(0xFFFFFF), LV_PART_MAIN | LV_STATE_DEFAULT);
     lv_obj_set_style_arc_opa(ui_voltageArc, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
