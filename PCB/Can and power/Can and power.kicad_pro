@@ -484,8 +484,8 @@
       "idf": "",
       "netlist": "",
       "specctra_dsn": "",
-      "step": "",
-      "vrml": ""
+      "step": "Can and power.step",
+      "vrml": "Can and power.wrl"
     },
     "page_layout_descr_file": ""
   },
