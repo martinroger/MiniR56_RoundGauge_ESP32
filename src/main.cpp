@@ -4,6 +4,7 @@
 #include <TFT_eSPI.h>
 #include "CST816S.h"
 #include "SensorQMI8658.hpp"
+#include <ESP32-TWAI-CAN.hpp>
 
 #define TP_INT 5
 #define TP_SDA 6
@@ -13,6 +14,28 @@
 #define QMI_INT1 4
 #define QMI_SDA 6
 #define QMI_SCL 7
+
+#define CAN_TX 16
+#define CAN_RX 15
+
+CanFrame rxFrame;
+
+void sendObdFrame(uint8_t obdId) {
+	CanFrame obdFrame = { 0 };
+	obdFrame.identifier = 0x7DF; // Default OBD2 address;
+	obdFrame.extd = 0;
+	obdFrame.data_length_code = 8;
+	obdFrame.data[0] = 2;
+	obdFrame.data[1] = 1;
+	obdFrame.data[2] = obdId;
+	obdFrame.data[3] = 0xAA;    // Best to use 0xAA (0b10101010) instead of 0
+	obdFrame.data[4] = 0xAA;    // CAN works better this way as it needs
+	obdFrame.data[5] = 0xAA;    // to avoid bit-stuffing
+	obdFrame.data[6] = 0xAA;
+	obdFrame.data[7] = 0xAA;
+    // Accepts both pointers and references 
+    ESP32Can.writeFrame(obdFrame);  // timeout defaults to 1 ms
+}
 
 //For the QMI IMU
 #define USE_WIRE
@@ -31,9 +54,23 @@ TFT_eSprite background = TFT_eSprite(&tft);
 
 void setup() {
   Serial.begin(115200);
+  ESP32Can.setPins(CAN_TX,CAN_RX);
+  ESP32Can.setRxQueueSize(5);
+	ESP32Can.setTxQueueSize(5);
+  ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+
+
   #ifdef SERIALDEBUG
     while(!Serial.available()) {}
   #endif
+
+  if(ESP32Can.begin()) {
+        Serial.println("CAN bus started!");
+    } else {
+        Serial.println("CAN bus failed!");
+    }
+
+
   if (!qmi.begin(Wire, QMI8658_L_SLAVE_ADDRESS, SENSOR_SDA, SENSOR_SCL)) {
     Serial.println("Failed to find QMI8658 - check your wiring!");
     while (1) {
@@ -155,6 +192,21 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+    static uint32_t lastStamp = 0;
+    uint32_t currentStamp = millis();
+    
+    if(currentStamp - lastStamp > 1000) {   // sends OBD2 request every second
+        lastStamp = currentStamp;
+        sendObdFrame(5); // For coolant temperature
+    }
+    if(ESP32Can.readFrame(rxFrame, 0)) {
+        // Comment out if too many frames
+        Serial.printf("Received frame: %03X  \r\n", rxFrame.identifier);
+        if(rxFrame.identifier == 0x7E8) {   // Standard OBD2 frame responce ID
+            Serial.printf("Collant temp: %3d°C \r\n", rxFrame.data[3] - 40); // Convert to °C
+        }
+    }
+  
   #ifdef SERIALDEBUG
   if (touch.available()) {
     Serial.print(touch.gesture());
