@@ -8,32 +8,62 @@
 #include <ui.h>
 #include <Arduino_Helpers.h>
 #include <AH/Timing/MillisMicrosTimer.hpp>
-#include "mcp2515_can.h"
+#ifdef USETWAI
+  #include <ESP32-TWAI-CAN.hpp>
+#else
+  #include "mcp2515_can.h"
+#endif
 
-//GPIOs available : 15 16 17 18 21 33 (from center pair outside)
-#define CAN_MISO 15 // Goes to D5
-#define CAN_MOSI 16 // Goes to D4
-#define CAN_CLK 17 // Goes to D6
-#define CAN_CS 18 //Goes to D7
-#define CAN_INT 33
+#ifdef USETWAI
+  //TWAI implementation
+  #define CAN_TX 15
+  #define CAN_RX 16
+  CanFrame rxFrame;
 
-mcp2515_can CAN(CAN_CS);
-SPIClass CANSPI(HSPI); //Pins need to be set in the begin() in setup()
-unsigned char RxBuffer[8];
-unsigned char TxBuffer[8] = {0x02,0x01,0x00,0x00,0x00,0x00,0x00,0x00};
-unsigned char len = 0;
-unsigned long FrameID = 0x7E8;
+  void sendObdFrame(uint8_t obdId) {
+    CanFrame obdFrame = { 0 };
+    obdFrame.identifier = 0x7DF; // Default OBD2 address;
+    obdFrame.extd = 0;
+    obdFrame.data_length_code = 8;
+    obdFrame.data[0] = 0x02;
+    obdFrame.data[1] = 0x01;    // Mode 1
+    obdFrame.data[2] = obdId;
+    obdFrame.data[3] = 0xAA;    // Best to use 0xAA (0b10101010) instead of 0
+    obdFrame.data[4] = 0xAA;    // CAN works better this way as it needs
+    obdFrame.data[5] = 0xAA;    // to avoid bit-stuffing
+    obdFrame.data[6] = 0xAA;
+    obdFrame.data[7] = 0xAA;
+      // Accepts both pointers and references 
+      ESP32Can.writeFrame(obdFrame,0);  // timeout defaults to 1 ms
+  }
+#else
+  //GPIOs available : 15 16 17 18 21 33 (from center pair outside)
+  #define CAN_MISO 15 // Goes to D5
+  #define CAN_MOSI 16 // Goes to D4
+  #define CAN_CLK 17 // Goes to D6
+  #define CAN_CS 18 //Goes to D7
+  #define CAN_INT 33
 
-unsigned char OBD_length;
-unsigned char OBD_mode;
-unsigned char OBD_command;
-unsigned char byteA;
-unsigned char byteB;
-unsigned char byteC;
-unsigned char byteD;
-unsigned char byteE;
+  mcp2515_can CAN(CAN_CS);
+  SPIClass CANSPI(HSPI); //Pins need to be set in the begin() in setup()
+  unsigned char RxBuffer[8];
+  unsigned char TxBuffer[8] = {0x02,0x01,0x00,0x00,0x00,0x00,0x00,0x00};
+  unsigned char len = 0;
+  #endif
+  
+  unsigned long FrameID = 0x7E8;
+  unsigned char OBD_length;
+  unsigned char OBD_mode;
+  unsigned char OBD_command;
+  unsigned char byteA;
+  unsigned char byteB;
+  unsigned char byteC;
+  unsigned char byteD;
+  unsigned char byteE;
 
-byte requestID = 0x05;
+
+  byte requestID = 0x05;
+
 
 //Touch and QMI I2C setup
 #define TP_INT 5
@@ -99,10 +129,15 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 
 void setup() {
-  CANSPI.begin(CAN_CLK,CAN_MISO,CAN_MOSI,CAN_CS);
-  CAN.setSPI(&CANSPI);
-  CAN.begin(CAN_500KBPS,MCP_16MHz);
-
+  #ifdef USETWAI
+    ESP32Can.setPins(CAN_TX,CAN_RX);
+    ESP32Can.setSpeed(ESP32Can.convertSpeed(500));
+    ESP32Can.begin();
+  #else
+    CANSPI.begin(CAN_CLK,CAN_MISO,CAN_MOSI,CAN_CS);
+    CAN.setSPI(&CANSPI);
+    CAN.begin(CAN_500KBPS,MCP_16MHz);
+  #endif
 
   Serial.begin(115200);
   String LVGL_Arduino = "Hello Arduino! ";
@@ -239,6 +274,18 @@ void loop() {
     }
   #endif
 
+  #ifdef USETWAI
+  if(ESP32Can.readFrame(rxFrame,0)) {
+    if(rxFrame.identifier==FrameID) {
+      OBD_length  = rxFrame.data[0];
+      OBD_mode    = rxFrame.data[1];
+      OBD_command = rxFrame.data[2];
+      byteA       = rxFrame.data[3];
+      byteB       = rxFrame.data[4];
+      byteC       = rxFrame.data[5];
+      byteD       = rxFrame.data[6];
+      byteE       = rxFrame.data[7];
+  #else
   if(CAN_MSGAVAIL == CAN.checkReceive()) {
     CAN.readMsgBuf(&len, RxBuffer);
     if(CAN.getCanId()==FrameID) {
@@ -250,6 +297,7 @@ void loop() {
       byteC       = RxBuffer[5];
       byteD       = RxBuffer[6];
       byteE       = RxBuffer[7];
+  #endif
       if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
         switch (OBD_command)
         {
@@ -308,6 +356,32 @@ void loop() {
     // CAN.sendMsgBuf(0x7DF,0,8,TxBuffer);
   }
 
+  #ifdef USETWAI
+  if (OBDrequestDelay) {
+    sendObdFrame(requestID);
+    switch (requestID)
+    {
+    case 0x05:
+      requestID = 0x0B;
+      break;
+    case 0x0B:
+      requestID = 0x0F;
+      break;
+    case 0x0F:
+      requestID = 0x33;
+      break;
+    case 0x33:
+      requestID = 0x42;
+      break;
+    case 0x42:
+      requestID = 0x05;
+      break;
+    default:
+      requestID = 0x05;
+      break;
+    }
+  }
+  #else
   if (OBDrequestDelay) {
     switch (requestID)
     {
@@ -341,6 +415,7 @@ void loop() {
       break;
     }
   }
+  #endif
   //Stuff for LVGL. Should be able to do something better than delays
   if(tickerLVGL) {
     lv_task_handler();
