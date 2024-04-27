@@ -13,8 +13,8 @@
 
 
   //TWAI implementation
-  #define CAN_TX 15
-  #define CAN_RX 16
+  #define CAN_TX 16
+  #define CAN_RX 15
   CanFrame rxFrame;
 
   void sendObdFrame(uint8_t obdId) {
