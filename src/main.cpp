@@ -60,10 +60,10 @@ lv_obj_t* valueArc;
 
 void labelValueChanged(lv_event_t* e) {
   lv_event_code_t event_code = lv_event_get_code(e);
-  // if(event_code==LV_EVENT_VALUE_CHANGED) {
-  //   lv_arc_set_value(valueArc,targetVal);
-  // }
-  Serial.println(event_code);
+  if(event_code==LV_EVENT_VALUE_CHANGED) {
+    lv_arc_set_value(valueArc,targetVal);
+  }
+  //Serial.println((uint32_t)event_code);
 }
 
 void ui_init() {
@@ -76,7 +76,7 @@ void ui_init() {
   lv_arc_set_range(valueArc,0,255);
   lv_arc_set_value(valueArc,targetVal);
 
-  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_ALL,valueArc);
+  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_ALL,NULL);
 
 }
 
@@ -126,6 +126,7 @@ void loop() {
   if(Serial.available()) {
     targetVal = Serial.read();
     lv_label_set_text_fmt(label,"%d",targetVal);
+    lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
   }
 
 }
