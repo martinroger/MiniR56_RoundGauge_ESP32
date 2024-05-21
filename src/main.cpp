@@ -76,7 +76,7 @@ void ui_init() {
   lv_arc_set_range(valueArc,0,255);
   lv_arc_set_value(valueArc,targetVal);
 
-  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_ALL,NULL);
+  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_VALUE_CHANGED,NULL);
 
 }
 
@@ -126,6 +126,7 @@ void loop() {
   if(Serial.available()) {
     targetVal = Serial.read();
     lv_label_set_text_fmt(label,"%d",targetVal);
+    //Send this to trigger the arc update. Technically could also just update the arc + animate
     lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
   }
 
