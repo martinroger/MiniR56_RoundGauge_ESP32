@@ -56,13 +56,31 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 
 lv_obj_t* label;
+lv_obj_t* valueArc;
+
+void labelValueChanged(lv_event_t* e) {
+  lv_event_code_t event_code = lv_event_get_code(e);
+  // if(event_code==LV_EVENT_VALUE_CHANGED) {
+  //   lv_arc_set_value(valueArc,targetVal);
+  // }
+  Serial.println(event_code);
+}
 
 void ui_init() {
-  label = lv_label_create(lv_scr_act());
+  label = lv_label_create(lv_screen_active());
   lv_label_set_text(label,"Hi"),
   lv_obj_align(label,LV_ALIGN_CENTER,0,0);
 
+  valueArc = lv_arc_create(lv_screen_active());
+  lv_obj_align(valueArc,LV_ALIGN_CENTER,0,0);
+  lv_arc_set_range(valueArc,0,255);
+  lv_arc_set_value(valueArc,targetVal);
+
+  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_ALL,valueArc);
+
 }
+
+
 
 void setup() {
 
