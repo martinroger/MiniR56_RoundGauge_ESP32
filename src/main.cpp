@@ -73,8 +73,17 @@ void ui_init() {
 
   valueArc = lv_arc_create(lv_screen_active());
   lv_obj_align(valueArc,LV_ALIGN_CENTER,0,0);
+  lv_obj_set_size(valueArc,200,200);
+  /*
+  lv_obj_clear_flag(valueArc,LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE |
+                      LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE | LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC |
+                      LV_OBJ_FLAG_SCROLL_MOMENTUM | LV_OBJ_FLAG_SCROLL_CHAIN);
+  */
+ 
+  lv_obj_set_style_bg_opa(valueArc,0,LV_PART_KNOB | LV_STATE_DEFAULT);
   lv_arc_set_range(valueArc,0,255);
   lv_arc_set_value(valueArc,targetVal);
+  
 
   lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_VALUE_CHANGED,NULL);
 
