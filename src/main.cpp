@@ -61,7 +61,6 @@ lv_obj_t* valueArc;
 //Callback for updating the arc
 void animateArc(void *var, int32_t value) {
   lv_arc_set_value(valueArc,value);
-
 }
 
 void labelValueChanged(lv_event_t* e) {
@@ -73,10 +72,10 @@ void labelValueChanged(lv_event_t* e) {
     lv_anim_init(&arcAnim);
     lv_anim_set_var(&arcAnim,valueArc);
     lv_anim_set_values(&arcAnim,lv_arc_get_value(valueArc),targetVal);
-    lv_anim_set_duration(&arcAnim,500);
+    lv_anim_set_duration(&arcAnim,250);
     lv_anim_set_exec_cb(&arcAnim, animateArc);
 
-    lv_anim_set_path_cb(&arcAnim,lv_anim_path_linear);
+    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
     lv_anim_start(&arcAnim);
   }
   //Serial.println((uint32_t)event_code);
