@@ -19,7 +19,8 @@
   },
   "connectivity": [
     "wifi",
-	"bluetooth"
+	  "bluetooth",
+    "can"
   ],
   "debug": {
     "default_tool": "esp-builtin",
@@ -35,7 +36,7 @@
   "name": "Waveshare ESP32S3 Round LCD",
   "upload": {
     "flash_size": "16MB",
-    "maximum_ram_size": 2424832,
+    "maximum_ram_size": 532480,
     "maximum_size": 16777216,
     "require_upload_port": true,
     "speed": 921600
