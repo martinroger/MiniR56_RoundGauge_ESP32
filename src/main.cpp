@@ -58,10 +58,26 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 lv_obj_t* label;
 lv_obj_t* valueArc;
 
+//Callback for updating the arc
+void animateArc(void *var, int32_t value) {
+  lv_arc_set_value(valueArc,value);
+
+}
+
 void labelValueChanged(lv_event_t* e) {
   lv_event_code_t event_code = lv_event_get_code(e);
   if(event_code==LV_EVENT_VALUE_CHANGED) {
-    lv_arc_set_value(valueArc,targetVal);
+    //lv_arc_set_value(valueArc,targetVal); //Direct update of the arc value
+    //Doing it via an animation :
+    lv_anim_t arcAnim;
+    lv_anim_init(&arcAnim);
+    lv_anim_set_var(&arcAnim,valueArc);
+    lv_anim_set_values(&arcAnim,lv_arc_get_value(valueArc),targetVal);
+    lv_anim_set_duration(&arcAnim,500);
+    lv_anim_set_exec_cb(&arcAnim, animateArc);
+
+    lv_anim_set_path_cb(&arcAnim,lv_anim_path_linear);
+    lv_anim_start(&arcAnim);
   }
   //Serial.println((uint32_t)event_code);
 }
@@ -79,7 +95,7 @@ void ui_init() {
                       LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE | LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC |
                       LV_OBJ_FLAG_SCROLL_MOMENTUM | LV_OBJ_FLAG_SCROLL_CHAIN);
   */
- 
+
   lv_obj_set_style_bg_opa(valueArc,0,LV_PART_KNOB | LV_STATE_DEFAULT);
   lv_arc_set_range(valueArc,0,255);
   lv_arc_set_value(valueArc,targetVal);
