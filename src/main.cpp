@@ -30,6 +30,7 @@ CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 Timer<millis> tickerLVGL = 5;
 Timer<millis> slowTicker = 1000;
 
+uint8_t targetVal = 50;
 
 #if LV_USE_LOG != 0
 void my_print( lv_log_level_t level, const char * buf )
@@ -54,8 +55,10 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 
+lv_obj_t* label;
+
 void ui_init() {
-  lv_obj_t* label = lv_label_create(lv_scr_act());
+  label = lv_label_create(lv_scr_act());
   lv_label_set_text(label,"Hi"),
   lv_obj_align(label,LV_ALIGN_CENTER,0,0);
 
@@ -96,6 +99,15 @@ void loop() {
   if(tickerLVGL) {
     lv_task_handler();
     lv_tick_inc(5);
+  }
+
+  // if(slowTicker) {
+  //   lv_label_set_text_fmt(label,"%d",targetVal);
+  // }
+
+  if(Serial.available()) {
+    targetVal = Serial.read();
+    lv_label_set_text_fmt(label,"%d",targetVal);
   }
 
 }
