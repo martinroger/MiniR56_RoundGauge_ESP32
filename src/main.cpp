@@ -3,10 +3,10 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include "CST816S.h"
-#include <lvgl.h>
+//#include <lvgl.h>
 #include <Arduino_Helpers.h>
 #include <AH/Timing/MillisMicrosTimer.hpp>
-
+#include <ui.h>
 
 
 //Touch and QMI I2C setup
@@ -41,9 +41,13 @@ void my_print( lv_log_level_t level, const char * buf )
 }
 #endif
 
+#define SCREEN_ID_MAIN 1
+
+
 
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
+  
   if(touch.available()) {
     data->state = LV_INDEV_STATE_PRESSED;
     data->point.x = touch.data.x;
@@ -55,9 +59,9 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 
-lv_obj_t* label;
-lv_obj_t* valueArc;
-
+//lv_obj_t* label;
+//lv_obj_t* valueArc;
+/*
 //Callback for updating the arc
 void animateArc(void *var, int32_t value) {
   lv_arc_set_value(valueArc,value);
@@ -89,11 +93,11 @@ void ui_init() {
   valueArc = lv_arc_create(lv_screen_active());
   lv_obj_align(valueArc,LV_ALIGN_CENTER,0,0);
   lv_obj_set_size(valueArc,200,200);
-  /*
+  
   lv_obj_clear_flag(valueArc,LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE |
                       LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE | LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC |
                       LV_OBJ_FLAG_SCROLL_MOMENTUM | LV_OBJ_FLAG_SCROLL_CHAIN);
-  */
+  
 
   lv_obj_set_style_bg_opa(valueArc,0,LV_PART_KNOB | LV_STATE_DEFAULT);
   lv_arc_set_range(valueArc,0,255);
@@ -104,6 +108,7 @@ void ui_init() {
 
 }
 
+*/
 
 
 void setup() {
@@ -149,9 +154,15 @@ void loop() {
 
   if(Serial.available()) {
     targetVal = Serial.read();
-    lv_label_set_text_fmt(label,"%d",targetVal);
+    //lv_label_set_text_fmt(label,"%d",targetVal);
     //Send this to trigger the arc update. Technically could also just update the arc + animate
-    lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
+    //lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
+    if(lv_obj_get_state(objects.boost_scr_can)==LV_STATE_DEFAULT) {
+      lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
+    }
+    else {
+      lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
+    }
   }
 
 }

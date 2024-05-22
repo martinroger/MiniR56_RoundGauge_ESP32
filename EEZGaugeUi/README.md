@@ -1,0 +1,1 @@
+This is the EEZ project. In effect some manual modifications need to be added to make sure we have animations etc
