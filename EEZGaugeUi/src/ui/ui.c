@@ -85,3 +85,19 @@ void updateVoltageArc(float value) {
 void updateVoltageLabel(float value) {
     lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",value);
 }
+
+
+void setCanState(bool canState) {
+    if(canState) {
+        lv_obj_remove_state(objects.coolant_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.iat_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.voltage_scr_can,LV_STATE_DISABLED);
+    }
+    else {
+        lv_obj_add_state(objects.coolant_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.iat_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);
+    }
+}

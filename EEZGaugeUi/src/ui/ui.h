@@ -22,9 +22,10 @@ void updateBoostLabel(int32_t value);
 void updateIatArc(int32_t value);
 void updateIatLabel(int32_t value);
 
-
 void updateVoltageArc(float value);
 void updateVoltageLabel(float value);
+
+void setCanState(bool canState);
 
 
 #ifdef __cplusplus

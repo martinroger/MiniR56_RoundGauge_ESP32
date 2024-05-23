@@ -34,6 +34,7 @@ uint32_t draw_buf[DRAW_BUF_SIZE];
 
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 
+bool canState = false;
 
 //Timers
 Timer<millis> tickerLVGL = 5;
@@ -183,12 +184,14 @@ void loop() {
     //lv_label_set_text_fmt(label,"%d",targetVal);
     //Send this to trigger the arc update. Technically could also just update the arc + animate
     //lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
-    if(lv_obj_get_state(objects.boost_scr_can)==LV_STATE_DEFAULT) {
-      lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
-    }
-    else {
-      lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
-    }
+    // if(lv_obj_get_state(objects.boost_scr_can)==LV_STATE_DEFAULT) {
+    //   lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
+    // }
+    // else {
+    //   lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
+    // }
+    setCanState(canState);
+    canState = !canState;
     //analogWrite(TFT_BL,targetVal);
     updateCoolantArc(targetVal);
     updateCoolantLabel(targetVal);
