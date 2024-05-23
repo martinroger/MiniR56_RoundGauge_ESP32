@@ -3,10 +3,10 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include "CST816S.h"
-//#include <lvgl.h>
 #include <Arduino_Helpers.h>
 #include <AH/Timing/MillisMicrosTimer.hpp>
 #include <ui.h>
+#include "obdHandler.h"
 
 #ifndef TFT_BL
   #define TFT_BL 2
@@ -16,41 +16,18 @@
   #define SCREEN_ID_MAIN 1
 #endif
 
+//Display buffer preparation
+#define TFT_HOR_RES 240
+#define TFT_VER_RES 240
+#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
+uint32_t draw_buf[DRAW_BUF_SIZE];
 
-//Touch and QMI I2C setup
+// Touch initialisation
 #define TP_INT 5
 #define TP_SDA 6
 #define TP_SCL 7
 #define TP_RST 13
-
-
-
-//Not sure if useful
-#define TFT_HOR_RES 240
-#define TFT_VER_RES 240
-
-#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
-uint32_t draw_buf[DRAW_BUF_SIZE];
-
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
-
-bool canState = false;
-
-//Timers
-Timer<millis> tickerLVGL = 5;
-Timer<millis> slowTicker = 1000;
-
-uint8_t targetVal = 50;
-
-#if LV_USE_LOG != 0
-void my_print( lv_log_level_t level, const char * buf )
-{
-    LV_UNUSED(level);
-    Serial.println(buf);
-    Serial.flush();
-}
-#endif
-
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
   
@@ -64,137 +41,162 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
   }
 }
 
+//Timers
+Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
+Timer<millis> refreshValues   =   150;  //Values refresh interval on the screens 
+Timer<millis> OBDrequestDelay =   20;   //Interval for requests over OBD
 
-//lv_obj_t* label;
-//lv_obj_t* valueArc;
-/*
-//Callback for updating the arc
-void animateArc(void *var, int32_t value) {
-  lv_arc_set_value(valueArc,value);
-}
+//Vehicle variables
+int intakeTemp;
+int absBaroPressure = 100;
+int intakeManifoldPressure = 100;
+int boostPressure;
+int engineCoolantTemp;
+float controlModuleVoltage = 12.0;
 
-void labelValueChanged(lv_event_t* e) {
-  lv_event_code_t event_code = lv_event_get_code(e);
-  if(event_code==LV_EVENT_VALUE_CHANGED) {
-    //lv_arc_set_value(valueArc,targetVal); //Direct update of the arc value
-    //Doing it via an animation :
-    lv_anim_t arcAnim;
-    lv_anim_init(&arcAnim);
-    lv_anim_set_var(&arcAnim,valueArc);
-    lv_anim_set_values(&arcAnim,lv_arc_get_value(valueArc),targetVal);
-    lv_anim_set_duration(&arcAnim,250);
-    lv_anim_set_exec_cb(&arcAnim, animateArc);
+void parseCANFrame() {
+  if(ESP32Can.readFrame(rxFrame,0)) {
+    if(rxFrame.identifier==FrameID) {
+      OBD_length  = rxFrame.data[0];
+      OBD_mode    = rxFrame.data[1];
+      OBD_command = rxFrame.data[2];
+      byteA       = rxFrame.data[3];
+      byteB       = rxFrame.data[4];
+      byteC       = rxFrame.data[5];
+      byteD       = rxFrame.data[6];
+      byteE       = rxFrame.data[7];
 
-    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
-    lv_anim_start(&arcAnim);
+      if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+        switch (OBD_command)
+        {
+        case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+          engineCoolantTemp = ((int)byteA - 40);
+          break;
+        case 0x0B:
+          intakeManifoldPressure = (int)byteA;
+          break;
+        case 0x0F :
+          intakeTemp = ((int)byteA - 40);
+          break;
+        case 0x33 : 
+          absBaroPressure = (int)byteA;
+          break;
+        case 0x42 : //Control module voltage... arc is in mV
+          controlModuleVoltage = (256*(int)byteA + (int)byteB)/1000.0;
+          break;
+        default:
+          break;
+        }
+        boostPressure = intakeManifoldPressure - absBaroPressure;
+        lastConnected = millis();
+      }
+    }
   }
-  //Serial.println((uint32_t)event_code);
 }
 
-void ui_init() {
-  label = lv_label_create(lv_screen_active());
-  lv_label_set_text(label,"Hi"),
-  lv_obj_align(label,LV_ALIGN_CENTER,0,0);
-
-  valueArc = lv_arc_create(lv_screen_active());
-  lv_obj_align(valueArc,LV_ALIGN_CENTER,0,0);
-  lv_obj_set_size(valueArc,200,200);
-  
-  lv_obj_clear_flag(valueArc,LV_OBJ_FLAG_CLICKABLE | LV_OBJ_FLAG_PRESS_LOCK | LV_OBJ_FLAG_CLICK_FOCUSABLE |
-                      LV_OBJ_FLAG_GESTURE_BUBBLE | LV_OBJ_FLAG_SNAPPABLE | LV_OBJ_FLAG_SCROLLABLE | LV_OBJ_FLAG_SCROLL_ELASTIC |
-                      LV_OBJ_FLAG_SCROLL_MOMENTUM | LV_OBJ_FLAG_SCROLL_CHAIN);
-  
-
-  lv_obj_set_style_bg_opa(valueArc,0,LV_PART_KNOB | LV_STATE_DEFAULT);
-  lv_arc_set_range(valueArc,0,255);
-  lv_arc_set_value(valueArc,targetVal);
-  
-
-  lv_obj_add_event_cb(label,labelValueChanged,LV_EVENT_VALUE_CHANGED,NULL);
-
+#if LV_USE_LOG != 0
+void my_print( lv_log_level_t level, const char * buf )
+{
+    LV_UNUSED(level);
+    Serial.println(buf);
+    Serial.flush();
 }
-
-*/
-/*
-void labelValueChanged(lv_event_t* e) {
-  lv_event_code_t event_code = lv_event_get_code(e);
-  lv_obj_t* valueArc ;
-  if(event_code==LV_EVENT_VALUE_CHANGED) {
-    //lv_arc_set_value(valueArc,targetVal); //Direct update of the arc value
-    //Doing it via an animation :
-    lv_anim_t arcAnim;
-    lv_anim_init(&arcAnim);
-    lv_anim_set_var(&arcAnim,valueArc);
-    lv_anim_set_values(&arcAnim,lv_arc_get_value(valueArc),targetVal);
-    lv_anim_set_duration(&arcAnim,250);
-    lv_anim_set_exec_cb(&arcAnim, (lv_anim_exec_xcb_t)lv_arc_set_value);
-
-    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
-    lv_anim_start(&arcAnim);
-  }
-  //Serial.println((uint32_t)event_code);
-}*/
+#endif
 
 void setup() {
-
-
-
+  //For Debug
   Serial.begin(115200);
-  lv_init();
 
-  #if LV_USE_LOG != 0
-    lv_log_register_print_cb( my_print );
-  #endif
+  //CAN start
+  canStart();
 
-  lv_display_t * disp;
-  disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
-
-  lv_indev_t *indev = lv_indev_create();
-  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-  lv_indev_set_read_cb(indev,touchRead);
-
+  //Blackout the screen
   pinMode(TFT_BL,OUTPUT);
   analogWrite(TFT_BL,0);
   //digitalWrite(TFT_BL,HIGH);
 
-
-  //Touch controller setup to Serial
+  //Touch startup
   touch.begin();
 
+  //LV startup sequence
+  lv_init();
+  #if LV_USE_LOG != 0
+    lv_log_register_print_cb( my_print );
+  #endif
+  lv_display_t * disp;
+  disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
+  lv_indev_t *indev = lv_indev_create();
+  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+  lv_indev_set_read_cb(indev,touchRead);
+
+  //Draw screens
   ui_init();
 
+  //Turn the lights on
   analogWrite(TFT_BL,128);
+
+  //Debug
   Serial.println( "Setup done" );
 }
 
 void loop() {
 
-  //Stuff for LVGL. Should be able to do something better than delays
+  if(OBDrequestDelay) {
+    sendObdFrame(requestID);
+    //Move to the next requestID... would be better to use an enum list
+    switch (requestID)  {
+      case 0x05:
+        requestID = 0x0B;
+        break;
+      case 0x0B:
+        requestID = 0x0F;
+        break;
+      case 0x0F:
+        requestID = 0x33;
+        break;
+      case 0x33:
+        requestID = 0x42;
+        break;
+      case 0x42:
+        requestID = 0x05;
+        break;
+      default:
+        requestID = 0x05;
+        break;
+    }
+  }
+  
+  //Parse a CAN Frame if available
+  parseCANFrame();
+
+  //Update the canState in case of silent connection
+  if(millis()-lastConnected>2000) {
+    canState = false;
+    }
+  else {
+    canState = true;
+  }
+
+  //Refresh the items in the UI
+  if(refreshValues) {
+    setCanState(!canState);
+    
+    updateCoolantArc(engineCoolantTemp);
+    updateCoolantLabel(engineCoolantTemp);
+
+    updateBoostArc(boostPressure);
+    updateBoostLabel(boostPressure);
+
+    updateIatArc(intakeTemp);
+    updateIatLabel(intakeTemp);
+
+    updateVoltageArc(controlModuleVoltage);
+    updateVoltageLabel(controlModuleVoltage);
+  }
+  
+  //Loop LVGL
   if(tickerLVGL) {
     lv_task_handler();
     lv_tick_inc(5);
   }
-
-  // if(slowTicker) {
-  //   lv_label_set_text_fmt(label,"%d",targetVal);
-  // }
-
-  if(Serial.available()) {
-    targetVal = Serial.read();
-    //lv_label_set_text_fmt(label,"%d",targetVal);
-    //Send this to trigger the arc update. Technically could also just update the arc + animate
-    //lv_obj_send_event(label,LV_EVENT_VALUE_CHANGED,NULL);
-    // if(lv_obj_get_state(objects.boost_scr_can)==LV_STATE_DEFAULT) {
-    //   lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
-    // }
-    // else {
-    //   lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
-    // }
-    setCanState(canState);
-    canState = !canState;
-    //analogWrite(TFT_BL,targetVal);
-    updateCoolantArc(targetVal);
-    updateCoolantLabel(targetVal);
-  }
-
 }

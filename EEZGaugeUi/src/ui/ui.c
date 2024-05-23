@@ -79,7 +79,7 @@ void updateIatLabel(int32_t value) {
 }
 
 void updateVoltageArc(float value) {
-    animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*1000));
+    animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*100));
 }
 
 void updateVoltageLabel(float value) {
