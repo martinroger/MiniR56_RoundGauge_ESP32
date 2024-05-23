@@ -58,15 +58,30 @@ void updateCoolantArc(int32_t value) {
     animateTargetArc(objects.coolant_scr_arc,value);
 }
 
+void updateCoolantLabel(int32_t value) {
+    lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%03d",value);
+}
+
 void updateBoostArc(int32_t value) {
     animateTargetArc(objects.boost_scr_arc,value);
+}
+
+void updateBoostLabel(int32_t value) {
+    lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%03d",value);
 }
 
 void updateIatArc(int32_t value) {
     animateTargetArc(objects.iat_scr_arc,value);
 }
 
-void updateVoltageArc(int32_t value) {
-    animateTargetArc(objects.voltage_scr_arc,value);
-    
+void updateIatLabel(int32_t value) {
+    lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%03d",value);
+}
+
+void updateVoltageArc(float value) {
+    animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*1000));
+}
+
+void updateVoltageLabel(float value) {
+    lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",value);
 }

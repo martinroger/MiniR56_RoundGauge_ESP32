@@ -191,6 +191,7 @@ void loop() {
     }
     //analogWrite(TFT_BL,targetVal);
     updateCoolantArc(targetVal);
+    updateCoolantLabel(targetVal);
   }
 
 }
