@@ -13,6 +13,11 @@ void ui_tick();
 
 void loadScreen(enum ScreensEnum screenId);
 
+void updateCoolantArc(int32_t value);
+void updateBoostArc(int32_t value);
+void updateIatArc(int32_t value);
+void updateVoltageArc(int32_t value);
+
 #ifdef __cplusplus
 }
 #endif

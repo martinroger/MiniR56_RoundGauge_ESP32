@@ -12,12 +12,17 @@
   #define TFT_BL 2
 #endif
 
+#ifndef SCREEN_ID_MAIN
+  #define SCREEN_ID_MAIN 1
+#endif
+
 
 //Touch and QMI I2C setup
 #define TP_INT 5
 #define TP_SDA 6
 #define TP_SCL 7
 #define TP_RST 13
+
 
 
 //Not sure if useful
@@ -44,10 +49,6 @@ void my_print( lv_log_level_t level, const char * buf )
     Serial.flush();
 }
 #endif
-
-#define SCREEN_ID_MAIN 1
-
-
 
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
@@ -113,7 +114,25 @@ void ui_init() {
 }
 
 */
+/*
+void labelValueChanged(lv_event_t* e) {
+  lv_event_code_t event_code = lv_event_get_code(e);
+  lv_obj_t* valueArc ;
+  if(event_code==LV_EVENT_VALUE_CHANGED) {
+    //lv_arc_set_value(valueArc,targetVal); //Direct update of the arc value
+    //Doing it via an animation :
+    lv_anim_t arcAnim;
+    lv_anim_init(&arcAnim);
+    lv_anim_set_var(&arcAnim,valueArc);
+    lv_anim_set_values(&arcAnim,lv_arc_get_value(valueArc),targetVal);
+    lv_anim_set_duration(&arcAnim,250);
+    lv_anim_set_exec_cb(&arcAnim, (lv_anim_exec_xcb_t)lv_arc_set_value);
 
+    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
+    lv_anim_start(&arcAnim);
+  }
+  //Serial.println((uint32_t)event_code);
+}*/
 
 void setup() {
 
@@ -134,7 +153,7 @@ void setup() {
   lv_indev_set_read_cb(indev,touchRead);
 
   pinMode(TFT_BL,OUTPUT);
-  analogWrite(TFT_BL,128);
+  analogWrite(TFT_BL,0);
   //digitalWrite(TFT_BL,HIGH);
 
 
@@ -142,6 +161,8 @@ void setup() {
   touch.begin();
 
   ui_init();
+
+  analogWrite(TFT_BL,128);
   Serial.println( "Setup done" );
 }
 
@@ -168,7 +189,8 @@ void loop() {
     else {
       lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
     }
-    analogWrite(TFT_BL,targetVal);
+    //analogWrite(TFT_BL,targetVal);
+    updateCoolantArc(targetVal);
   }
 
 }
