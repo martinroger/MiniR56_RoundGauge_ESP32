@@ -12,7 +12,7 @@ lv_obj_t *tick_value_change_obj;
 static void event_handler_cb_coolant_scr_coolant_scr_currentvalue(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_LONG_PRESSED) {
         action_go_to_next_screen(e);
     }
 }
@@ -20,7 +20,7 @@ static void event_handler_cb_coolant_scr_coolant_scr_currentvalue(lv_event_t *e)
 static void event_handler_cb_boost_scr_boost_scr_currentvalue(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_LONG_PRESSED) {
         action_go_to_next_screen(e);
     }
 }
@@ -28,7 +28,7 @@ static void event_handler_cb_boost_scr_boost_scr_currentvalue(lv_event_t *e) {
 static void event_handler_cb_iat_scr_iat_scr_currentvalue(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_LONG_PRESSED) {
         action_go_to_next_screen(e);
     }
 }
@@ -36,7 +36,7 @@ static void event_handler_cb_iat_scr_iat_scr_currentvalue(lv_event_t *e) {
 static void event_handler_cb_voltage_scr_voltage_scr_currentvalue(lv_event_t *e) {
     lv_event_code_t event = lv_event_get_code(e);
     void *flowState = e->user_data;
-    if (event == LV_EVENT_PRESSED) {
+    if (event == LV_EVENT_LONG_PRESSED) {
         action_go_to_next_screen(e);
     }
 }

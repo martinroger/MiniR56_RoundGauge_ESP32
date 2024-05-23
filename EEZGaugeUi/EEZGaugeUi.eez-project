@@ -289,7 +289,7 @@
           "eventHandlers": [
             {
               "objID": "3e7df6f0-02f6-4c78-d472-bef040c6d186",
-              "eventName": "PRESSED",
+              "eventName": "LONG_PRESSED",
               "handlerType": "action",
               "action": "goToNextScreen"
             }
@@ -571,7 +571,7 @@
           "eventHandlers": [
             {
               "objID": "9fa846b3-b345-49ed-8ac9-d4c8d4e4a5b2",
-              "eventName": "PRESSED",
+              "eventName": "LONG_PRESSED",
               "handlerType": "action",
               "action": "goToNextScreen"
             }
@@ -853,7 +853,7 @@
           "eventHandlers": [
             {
               "objID": "f9ad9a01-9d14-4fff-a4f5-f68aae26b790",
-              "eventName": "PRESSED",
+              "eventName": "LONG_PRESSED",
               "handlerType": "action",
               "action": "goToNextScreen"
             }
@@ -1135,7 +1135,7 @@
           "eventHandlers": [
             {
               "objID": "fccfd5aa-6bf9-4a82-f06f-2e9c105d2a44",
-              "eventName": "PRESSED",
+              "eventName": "LONG_PRESSED",
               "handlerType": "action",
               "action": "goToNextScreen"
             }
