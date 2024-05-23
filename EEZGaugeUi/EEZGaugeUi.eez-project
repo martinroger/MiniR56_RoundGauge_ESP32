@@ -1,123 +1,7 @@
 {
   "lvglStyles": {
     "objID": "a31bd004-35c5-b3fb-5c8b-78ea5c7693b8",
-    "styles": [
-      {
-        "objID": "7f297525-26ea-4efa-8543-40a8db854b63",
-        "name": "coolantGaugeArc_Style",
-        "forWidgetType": "LVGLArcWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "fc1169f9-fcf4-4ab9-dccc-2abdfaf9f787",
-          "definition": {
-            "MAIN": {
-              "DEFAULT": {
-                "align": "CENTER",
-                "arc_opa": 0
-              }
-            },
-            "INDICATOR": {
-              "DEFAULT": {
-                "arc_width": 15,
-                "arc_rounded": true
-              }
-            },
-            "KNOB": {
-              "DEFAULT": {
-                "opa": 0
-              }
-            }
-          }
-        }
-      },
-      {
-        "objID": "0142f16b-62d2-439b-e5ab-319876ac0432",
-        "name": "boostGaugeArc_Style",
-        "forWidgetType": "LVGLArcWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "0b060775-a501-490b-8785-baf559333364",
-          "definition": {
-            "MAIN": {
-              "DEFAULT": {
-                "align": "CENTER",
-                "arc_opa": 0
-              }
-            },
-            "INDICATOR": {
-              "DEFAULT": {
-                "arc_width": 15,
-                "arc_rounded": true,
-                "arc_color": "#ff9d00"
-              }
-            },
-            "KNOB": {
-              "DEFAULT": {
-                "opa": 0
-              }
-            }
-          }
-        }
-      },
-      {
-        "objID": "747750c5-1720-4dba-f89f-bb5718c43da0",
-        "name": "iatGaugeArc_Style",
-        "forWidgetType": "LVGLArcWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "5992d2af-091c-48c4-f562-bfca0478d4a7",
-          "definition": {
-            "MAIN": {
-              "DEFAULT": {
-                "align": "CENTER",
-                "arc_opa": 0
-              }
-            },
-            "INDICATOR": {
-              "DEFAULT": {
-                "arc_width": 15,
-                "arc_rounded": true,
-                "arc_color": "#ff0000"
-              }
-            },
-            "KNOB": {
-              "DEFAULT": {
-                "opa": 0
-              }
-            }
-          }
-        }
-      },
-      {
-        "objID": "4e998111-a05f-44c6-af0b-60e232d86139",
-        "name": "voltageGaugeArc_Style",
-        "forWidgetType": "LVGLArcWidget",
-        "childStyles": [],
-        "definition": {
-          "objID": "c3264b49-7185-4547-9ef2-353d74d5d186",
-          "definition": {
-            "MAIN": {
-              "DEFAULT": {
-                "align": "CENTER",
-                "arc_opa": 0
-              }
-            },
-            "INDICATOR": {
-              "DEFAULT": {
-                "arc_width": 15,
-                "arc_rounded": true,
-                "arc_color": "#00ff18"
-              }
-            },
-            "KNOB": {
-              "DEFAULT": {
-                "opa": 0
-              }
-            }
-          }
-        }
-      }
-    ],
+    "styles": [],
     "defaultStyles": {}
   },
   "objID": "6666cd76-f969-5646-9e7b-e39d750cc7d9",
@@ -230,8 +114,8 @@
           "type": "LVGLArcWidget",
           "left": 0,
           "top": 0,
-          "width": 200,
-          "height": 200,
+          "width": 220,
+          "height": 220,
           "customInputs": [],
           "customOutputs": [],
           "style": {
@@ -257,16 +141,35 @@
           "checkedStateType": "literal",
           "disabledStateType": "literal",
           "states": "",
-          "useStyle": "coolantGaugeArc_Style",
+          "useStyle": "",
           "localStyles": {
-            "objID": "28bda589-29b2-4d29-8a85-0ede2ca4d3ab"
+            "objID": "28bda589-29b2-4d29-8a85-0ede2ca4d3ab",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "arc_opa": 0
+                }
+              },
+              "KNOB": {
+                "DEFAULT": {
+                  "bg_opa": 0
+                }
+              },
+              "INDICATOR": {
+                "DEFAULT": {
+                  "arc_rounded": true,
+                  "arc_width": 20
+                }
+              }
+            }
           },
           "rangeMin": -40,
           "rangeMax": 215,
-          "value": 215,
+          "value": 0,
           "valueType": "literal",
-          "bgStartAngle": 135,
-          "bgEndAngle": 45,
+          "bgStartAngle": 110,
+          "bgEndAngle": 70,
           "mode": "NORMAL",
           "rotation": 0
         },
@@ -508,16 +411,16 @@
       "objID": "f8fdd1d5-e499-4091-c4b2-fa22be2f6adc",
       "components": [
         {
-          "objID": "38f99056-f19e-46ec-c28c-37715051d278",
+          "objID": "71bee7eb-a856-4ff8-fb32-13cc0abac788",
           "type": "LVGLArcWidget",
           "left": 0,
           "top": 0,
-          "width": 200,
-          "height": 200,
+          "width": 220,
+          "height": 220,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "76bb363b-5597-4243-9c5b-a28543103779",
+            "objID": "de81f9dd-4066-480d-9c45-577ca0b31e49",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -539,16 +442,35 @@
           "checkedStateType": "literal",
           "disabledStateType": "literal",
           "states": "",
-          "useStyle": "boostGaugeArc_Style",
+          "useStyle": "",
           "localStyles": {
-            "objID": "76300dee-6f73-4c07-ae4b-ba733f344154"
+            "objID": "2336dd87-ddc7-4a7d-a036-904384b74d22",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "arc_opa": 0
+                }
+              },
+              "KNOB": {
+                "DEFAULT": {
+                  "bg_opa": 0
+                }
+              },
+              "INDICATOR": {
+                "DEFAULT": {
+                  "arc_rounded": true,
+                  "arc_width": 20
+                }
+              }
+            }
           },
           "rangeMin": 0,
           "rangeMax": 255,
           "value": 255,
           "valueType": "literal",
-          "bgStartAngle": 135,
-          "bgEndAngle": 45,
+          "bgStartAngle": 110,
+          "bgEndAngle": 70,
           "mode": "NORMAL",
           "rotation": 0
         },
@@ -790,16 +712,16 @@
       "objID": "b47912c4-7469-4bef-9fd1-a73bd4f713c6",
       "components": [
         {
-          "objID": "82620c22-817e-4de9-d210-4ab95309af3d",
+          "objID": "b9487dce-6ab1-45e2-8b7a-65d24f6336c1",
           "type": "LVGLArcWidget",
           "left": 0,
           "top": 0,
-          "width": 200,
-          "height": 200,
+          "width": 220,
+          "height": 220,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "dae74af4-d643-44af-ea78-57b4aa115838",
+            "objID": "3cafaead-47ec-4326-fa32-c81fddd63c48",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -821,16 +743,35 @@
           "checkedStateType": "literal",
           "disabledStateType": "literal",
           "states": "",
-          "useStyle": "iatGaugeArc_Style",
+          "useStyle": "",
           "localStyles": {
-            "objID": "5378259b-e1fc-409a-fef7-8c00eeb64df1"
+            "objID": "8cb6ccef-1d04-4e56-869b-dbcc12dab1e0",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "arc_opa": 0
+                }
+              },
+              "KNOB": {
+                "DEFAULT": {
+                  "bg_opa": 0
+                }
+              },
+              "INDICATOR": {
+                "DEFAULT": {
+                  "arc_rounded": true,
+                  "arc_width": 20
+                }
+              }
+            }
           },
-          "rangeMin": -40,
-          "rangeMax": 215,
-          "value": 215,
+          "rangeMin": 0,
+          "rangeMax": 255,
+          "value": 255,
           "valueType": "literal",
-          "bgStartAngle": 135,
-          "bgEndAngle": 45,
+          "bgStartAngle": 110,
+          "bgEndAngle": 70,
           "mode": "NORMAL",
           "rotation": 0
         },
@@ -1072,16 +1013,16 @@
       "objID": "e2e8a836-52b0-4a1f-9857-7acfec6c6fd5",
       "components": [
         {
-          "objID": "89d7d16c-003c-4af3-b1d8-263c01f8e8a2",
+          "objID": "5a3640bd-82dd-4d77-c438-24d5c4a6e67b",
           "type": "LVGLArcWidget",
           "left": 0,
           "top": 0,
-          "width": 200,
-          "height": 200,
+          "width": 220,
+          "height": 220,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "51689656-6e4e-45bb-a54f-91531e7627bd",
+            "objID": "27ac8fb4-c82f-4314-8985-5d5b53c6403c",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -1103,16 +1044,35 @@
           "checkedStateType": "literal",
           "disabledStateType": "literal",
           "states": "",
-          "useStyle": "voltageGaugeArc_Style",
+          "useStyle": "",
           "localStyles": {
-            "objID": "d94b2df5-c5a3-41e8-b3b8-c5d8ac0e7a44"
+            "objID": "0cee78f4-38db-43bc-c115-f28cc4846062",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "arc_opa": 0
+                }
+              },
+              "KNOB": {
+                "DEFAULT": {
+                  "bg_opa": 0
+                }
+              },
+              "INDICATOR": {
+                "DEFAULT": {
+                  "arc_rounded": true,
+                  "arc_width": 20
+                }
+              }
+            }
           },
           "rangeMin": 600,
           "rangeMax": 1800,
-          "value": 1800,
+          "value": 1200,
           "valueType": "literal",
-          "bgStartAngle": 135,
-          "bgEndAngle": 45,
+          "bgStartAngle": 110,
+          "bgEndAngle": 70,
           "mode": "NORMAL",
           "rotation": 0
         },

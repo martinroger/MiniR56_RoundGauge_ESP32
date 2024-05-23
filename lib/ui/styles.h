@@ -7,10 +7,6 @@
 extern "C" {
 #endif
 
-extern void apply_style_coolant_gauge_arc_style(lv_obj_t *obj);
-extern void apply_style_boost_gauge_arc_style(lv_obj_t *obj);
-extern void apply_style_iat_gauge_arc_style(lv_obj_t *obj);
-extern void apply_style_voltage_gauge_arc_style(lv_obj_t *obj);
 
 
 #ifdef __cplusplus

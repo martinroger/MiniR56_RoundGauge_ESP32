@@ -25,7 +25,6 @@
           },
           {
             "type": "border",
-            "selected": 0,
             "size": 240,
             "location": "right",
             "children": [
@@ -176,6 +175,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 54.5,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -922,10 +922,10 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {
+        "0": {
           "$selected": true
         },
+        "1": {},
         "4": {}
       },
       "transform": {
@@ -973,10 +973,10 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {
+        "0": {
           "$selected": true
-        }
+        },
+        "1": {}
       },
       "transform": {
         "translate": {
@@ -994,10 +994,7 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {
-          "$selected": true
-        },
+        "1": {},
         "4": {}
       },
       "transform": {
@@ -1016,10 +1013,7 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {
-          "$selected": true
-        }
+        "1": {}
       },
       "transform": {
         "translate": {
@@ -1037,9 +1031,7 @@
     },
     "[EEZGaugeUi.eez-project]:/lvglStyles/styles[tree-state]": {
       "0": {},
-      "1": {
-        "$selected": true
-      },
+      "1": {},
       "2": {},
       "3": {}
     }
@@ -1057,12 +1049,15 @@
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
   "lvglPart": "MAIN",
-  "lvglState": "DISABLED",
+  "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "ARC",
-    "BACKGROUND",
     "POSITION AND SIZE",
-    "TEXT"
+    "TEXT",
+    "MISCELLANEOUS",
+    "OUTLINE",
+    "SHADOW",
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true
 }

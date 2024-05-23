@@ -56,13 +56,16 @@ void create_screen_coolant_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.coolant_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 200, 200);
+            lv_obj_set_size(obj, 220, 220);
             lv_arc_set_range(obj, -40, 215);
-            lv_arc_set_value(obj, 215);
-            lv_arc_set_bg_start_angle(obj, 135);
-            lv_arc_set_bg_end_angle(obj, 45);
+            lv_arc_set_bg_start_angle(obj, 110);
+            lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);
-            apply_style_coolant_gauge_arc_style(obj);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_rounded(obj, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_width(obj, 20, LV_PART_INDICATOR | LV_STATE_DEFAULT);
         }
         {
             // coolantScr_CURRENTVALUE
@@ -143,13 +146,17 @@ void create_screen_boost_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.boost_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 200, 200);
+            lv_obj_set_size(obj, 220, 220);
             lv_arc_set_range(obj, 0, 255);
             lv_arc_set_value(obj, 255);
-            lv_arc_set_bg_start_angle(obj, 135);
-            lv_arc_set_bg_end_angle(obj, 45);
+            lv_arc_set_bg_start_angle(obj, 110);
+            lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);
-            apply_style_boost_gauge_arc_style(obj);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_rounded(obj, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_width(obj, 20, LV_PART_INDICATOR | LV_STATE_DEFAULT);
         }
         {
             // boostScr_CURRENTVALUE
@@ -230,13 +237,17 @@ void create_screen_iat_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.iat_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 200, 200);
-            lv_arc_set_range(obj, -40, 215);
-            lv_arc_set_value(obj, 215);
-            lv_arc_set_bg_start_angle(obj, 135);
-            lv_arc_set_bg_end_angle(obj, 45);
+            lv_obj_set_size(obj, 220, 220);
+            lv_arc_set_range(obj, 0, 255);
+            lv_arc_set_value(obj, 255);
+            lv_arc_set_bg_start_angle(obj, 110);
+            lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);
-            apply_style_iat_gauge_arc_style(obj);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_rounded(obj, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_width(obj, 20, LV_PART_INDICATOR | LV_STATE_DEFAULT);
         }
         {
             // iatScr_CURRENTVALUE
@@ -317,13 +328,17 @@ void create_screen_voltage_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.voltage_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 200, 200);
+            lv_obj_set_size(obj, 220, 220);
             lv_arc_set_range(obj, 600, 1800);
-            lv_arc_set_value(obj, 1800);
-            lv_arc_set_bg_start_angle(obj, 135);
-            lv_arc_set_bg_end_angle(obj, 45);
+            lv_arc_set_value(obj, 1200);
+            lv_arc_set_bg_start_angle(obj, 110);
+            lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);
-            apply_style_voltage_gauge_arc_style(obj);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_bg_opa(obj, 0, LV_PART_KNOB | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_rounded(obj, true, LV_PART_INDICATOR | LV_STATE_DEFAULT);
+            lv_obj_set_style_arc_width(obj, 20, LV_PART_INDICATOR | LV_STATE_DEFAULT);
         }
         {
             // voltageScr_CURRENTVALUE
