@@ -8,6 +8,10 @@
 #include <AH/Timing/MillisMicrosTimer.hpp>
 #include <ui.h>
 
+#ifndef TFT_BL
+  #define TFT_BL 2
+#endif
+
 
 //Touch and QMI I2C setup
 #define TP_INT 5
@@ -130,7 +134,8 @@ void setup() {
   lv_indev_set_read_cb(indev,touchRead);
 
   pinMode(TFT_BL,OUTPUT);
-  digitalWrite(TFT_BL,HIGH);
+  analogWrite(TFT_BL,128);
+  //digitalWrite(TFT_BL,HIGH);
 
 
   //Touch controller setup to Serial
@@ -163,6 +168,7 @@ void loop() {
     else {
       lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
     }
+    analogWrite(TFT_BL,targetVal);
   }
 
 }
