@@ -33,3 +33,12 @@ void ui_init() {
 void ui_tick() {
     tick_screen(currentScreen);
 }
+
+void action_go_to_next_screen(lv_event_t * e) {
+    if(currentScreen==3) {
+        loadScreen(1);
+    }
+    else {
+        loadScreen(currentScreen+2);
+    }
+};

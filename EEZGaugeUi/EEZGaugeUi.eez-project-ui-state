@@ -57,7 +57,7 @@
           },
           {
             "type": "border",
-            "selected": 1,
+            "selected": 0,
             "location": "bottom",
             "children": [
               {
@@ -177,22 +177,9 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 54.5,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
-                {
-                  "type": "tab",
-                  "id": "#796b61c6-8ba6-4e2d-971a-3ab286d84a36",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
                 {
                   "type": "tab",
                   "id": "#e9344e49-859e-445c-ad34-ea40cd845dbb",
@@ -924,10 +911,10 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {
+        "0": {
           "$selected": true
         },
+        "1": {},
         "4": {}
       },
       "transform": {
@@ -1039,7 +1026,9 @@
     },
     "[EEZGaugeUi.eez-project]:/lvglStyles/styles[tree-state]": {
       "0": {},
-      "1": {},
+      "1": {
+        "$selected": true
+      },
       "2": {},
       "3": {}
     }
