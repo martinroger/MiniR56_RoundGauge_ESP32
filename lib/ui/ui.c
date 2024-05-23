@@ -41,4 +41,4 @@ void action_go_to_next_screen(lv_event_t * e) {
     else {
         loadScreen(currentScreen+2);
     }
-};
+}

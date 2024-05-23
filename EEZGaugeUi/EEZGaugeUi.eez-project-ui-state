@@ -181,6 +181,18 @@
               "children": [
                 {
                   "type": "tab",
+                  "id": "#fe28c39b-e9b0-454e-9f79-6054594a1226",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
+                {
+                  "type": "tab",
                   "id": "#e9344e49-859e-445c-ad34-ea40cd845dbb",
                   "name": "voltageScr",
                   "component": "editor",
@@ -201,7 +213,8 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -221,8 +234,7 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
