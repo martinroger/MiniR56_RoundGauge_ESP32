@@ -103,6 +103,34 @@
       "connectionLines": [],
       "localVariables": [],
       "name": "goToNextScreen"
+    },
+    {
+      "objID": "52eef1f6-0eaa-49ce-d1e4-5bff45b74721",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "refreshBoostScr_ARC"
+    },
+    {
+      "objID": "95d1d735-7ca5-44b4-b4de-edbf5b480c3f",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "refreshCoolantScr_ARC"
+    },
+    {
+      "objID": "4904f370-d872-4890-c92b-2641f9f97ee7",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "refreshIatScr_ARC"
+    },
+    {
+      "objID": "0814845d-2ee9-42fd-ee0d-17051c3a518e",
+      "components": [],
+      "connectionLines": [],
+      "localVariables": [],
+      "name": "refreshVoltageScr_ARC"
     }
   ],
   "userPages": [
@@ -166,7 +194,7 @@
           },
           "rangeMin": -40,
           "rangeMax": 215,
-          "value": 0,
+          "value": 215,
           "valueType": "literal",
           "bgStartAngle": 110,
           "bgEndAngle": 70,
@@ -1069,7 +1097,7 @@
           },
           "rangeMin": 600,
           "rangeMax": 1800,
-          "value": 1200,
+          "value": 1800,
           "valueType": "literal",
           "bgStartAngle": 110,
           "bgEndAngle": 70,

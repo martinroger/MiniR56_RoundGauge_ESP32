@@ -1,7 +1,7 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
-    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/0",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/4",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/0",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -56,7 +56,7 @@
           },
           {
             "type": "border",
-            "selected": 0,
+            "selected": 1,
             "location": "bottom",
             "children": [
               {
@@ -109,6 +109,7 @@
                   "type": "tabset",
                   "id": "#993d8181-6cb3-4a68-9f52-3bbd162db284",
                   "weight": 1,
+                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -135,7 +136,8 @@
                       "enableClose": false,
                       "icon": "material:code"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
@@ -175,46 +177,21 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 54.5,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#fe28c39b-e9b0-454e-9f79-6054594a1226",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
                   "id": "#e9344e49-859e-445c-ad34-ea40cd845dbb",
-                  "name": "voltageScr",
+                  "name": "coolantScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
                     "permanent": false
-                  },
-                  "icon": "svg:page"
-                },
-                {
-                  "type": "tab",
-                  "id": "#9be77fed-8f75-43f4-a1e6-28de74f16088",
-                  "name": "boostScr",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/1",
-                    "permanent": true
                   },
                   "icon": "svg:page"
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -922,10 +899,10 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {
+        "0": {},
+        "1": {
           "$selected": true
         },
-        "1": {},
         "4": {}
       },
       "transform": {
@@ -994,6 +971,9 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
+        "0": {
+          "$selected": true
+        },
         "1": {},
         "4": {}
       },
