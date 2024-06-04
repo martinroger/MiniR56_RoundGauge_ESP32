@@ -64,7 +64,7 @@ void updateCoolantArc(int32_t value) {
 }
 
 void updateCoolantLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%03d",value);
+    lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%d",value);
 }
 
 void updateBoostArc(int32_t value) {
@@ -77,7 +77,7 @@ void updateBoostArc(int32_t value) {
 }
 
 void updateBoostLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%03d",value);
+    lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%d",value);
 }
 
 void updateIatArc(int32_t value) {
@@ -90,7 +90,7 @@ void updateIatArc(int32_t value) {
 }
 
 void updateIatLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%03d",value);
+    lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%d",value);
 }
 
 void updateVoltageArc(float value) {
