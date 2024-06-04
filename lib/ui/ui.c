@@ -55,7 +55,12 @@ void action_go_to_next_screen(lv_event_t * e) {
 }
 
 void updateCoolantArc(int32_t value) {
-    animateTargetArc(objects.coolant_scr_arc,value);
+    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
+        animateTargetArc(objects.coolant_scr_arc,value);
+    }
+    else {
+        lv_arc_set_value(objects.coolant_scr_arc,value);
+    }
 }
 
 void updateCoolantLabel(int32_t value) {
@@ -63,7 +68,12 @@ void updateCoolantLabel(int32_t value) {
 }
 
 void updateBoostArc(int32_t value) {
-    animateTargetArc(objects.boost_scr_arc,value);
+    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
+        animateTargetArc(objects.boost_scr_arc,value);
+    }
+    else {
+        lv_arc_set_value(objects.boost_scr_arc,value);
+    }
 }
 
 void updateBoostLabel(int32_t value) {
@@ -71,7 +81,12 @@ void updateBoostLabel(int32_t value) {
 }
 
 void updateIatArc(int32_t value) {
-    animateTargetArc(objects.iat_scr_arc,value);
+    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
+        animateTargetArc(objects.iat_scr_arc,value);
+    }
+    else {
+        lv_arc_set_value(objects.iat_scr_arc,value);
+    }
 }
 
 void updateIatLabel(int32_t value) {
@@ -79,7 +94,12 @@ void updateIatLabel(int32_t value) {
 }
 
 void updateVoltageArc(float value) {
-    animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*100));
+    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {
+        animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*100));
+    }
+    else {
+        lv_arc_set_value(objects.voltage_scr_arc,(int32_t)(value*100));
+    }   
 }
 
 void updateVoltageLabel(float value) {

@@ -54,6 +54,14 @@ int boostPressure;
 int engineCoolantTemp;
 float controlModuleVoltage = 12.0;
 
+#ifdef TEST_GENERATOR
+void generateValues() {
+  intakeTemp    =   (int)(127*(1+sin((2*PI/10000)*millis()))-40);
+  boostPressure =   (int)(127*(1+sin((2*PI/10000)*millis())));
+  engineCoolantTemp   = (int)(127*(1+sin((2*PI/10000)*millis()))-40);
+  controlModuleVoltage = 12.0+3.0*sin((2*PI/10000)*millis());
+}
+#else
 void parseCANFrame() {
   if(ESP32Can.readFrame(rxFrame,0)) {
     if(rxFrame.identifier==FrameID) {
@@ -93,6 +101,7 @@ void parseCANFrame() {
     }
   }
 }
+#endif
 
 #if LV_USE_LOG != 0
 void my_print( lv_log_level_t level, const char * buf )
@@ -167,7 +176,11 @@ void loop() {
   }
   
   //Parse a CAN Frame if available
+  #ifdef TEST_GENERATOR
+  generateValues();
+  #else
   parseCANFrame();
+  #endif
 
   //Update the canState in case of silent connection
   if(millis()-lastConnected>2000) {

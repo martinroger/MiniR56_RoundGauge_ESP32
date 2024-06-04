@@ -242,8 +242,8 @@ void create_screen_iat_scr() {
             objects.iat_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
-            lv_arc_set_range(obj, 0, 255);
-            lv_arc_set_value(obj, 255);
+            lv_arc_set_range(obj, -40, 215);
+            lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);
