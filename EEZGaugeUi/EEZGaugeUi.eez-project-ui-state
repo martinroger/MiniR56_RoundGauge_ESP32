@@ -1,6 +1,8 @@
 {
   "navigation": {
     "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/-1",
+    "selectedGlobalVariableObject": "[EEZGaugeUi.eez-project]:/variables/globalVariables/-1",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/4",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -24,7 +26,6 @@
           },
           {
             "type": "border",
-            "selected": 1,
             "size": 240,
             "location": "right",
             "children": [
@@ -174,11 +175,21 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 54.5,
-              "selected": 3,
+              "weight": 44.5,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
+                  "name": "coolantScr",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
+                    "permanent": false
+                  },
+                  "icon": "svg:page"
+                },
                 {
                   "type": "tab",
                   "id": "#cf820ba3-cafa-4764-a3b4-229c5378c9b5",
@@ -212,17 +223,6 @@
                     "permanent": false
                   },
                   "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
-                  "id": "#e9344e49-859e-445c-ad34-ea40cd845dbb",
-                  "name": "coolantScr",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
-                    "permanent": false
-                  },
-                  "icon": "svg:page"
                 }
               ],
               "active": true
@@ -230,7 +230,7 @@
             {
               "type": "row",
               "id": "#21f18ecd-2d94-4b34-aaeb-8f66f7122d8b",
-              "weight": 25,
+              "weight": 35,
               "children": [
                 {
                   "type": "tabset",
@@ -934,17 +934,18 @@
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {},
-        "1": {},
-        "2": {},
         "3": {},
         "4": {},
         "5": {},
-        "6": {}
+        "6": {},
+        "7": {},
+        "8": {},
+        "9": {}
       },
       "transform": {
         "translate": {
-          "x": -181,
-          "y": -124
+          "x": -104,
+          "y": -122
         },
         "scale": 1
       },
@@ -988,11 +989,11 @@
       "selection": {
         "0": {},
         "1": {},
-        "4": {},
-        "5": {},
-        "6": {
+        "4": {
           "$selected": true
-        }
+        },
+        "5": {},
+        "6": {}
       },
       "transform": {
         "translate": {
@@ -1034,7 +1035,9 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {},
+        "0": {
+          "$selected": true
+        },
         "1": {},
         "4": {},
         "6": {}
@@ -1058,6 +1061,26 @@
       "1": {},
       "2": {},
       "3": {}
+    },
+    "[EEZGaugeUi.eez-project]:/userPages/4[flow-state]": {
+      "selection": {
+        "1": {
+          "$selected": true
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
     }
   },
   "activeOutputSection": 0,
@@ -1081,7 +1104,10 @@
     "OUTLINE",
     "SHADOW",
     "BACKGROUND",
-    "POSITION AND SIZE"
+    "POSITION AND SIZE",
+    "BORDER",
+    "PADDING",
+    "MARGIN"
   ],
   "showInactiveFlowsInDebugger": true
 }

@@ -54,6 +54,30 @@ void action_go_to_next_screen(lv_event_t * e) {
     }
 }
 
+void resetCoolantMinMax(int32_t value) {
+    lv_arc_set_value(objects.coolant_scr_minarc,value);
+    lv_arc_set_value(objects.coolant_scr_maxarc,value);
+    engineCoolantTemp_max = value;
+    engineCoolantTemp_min = value;
+}
+
+void action_reset_coolant_min_max(lv_event_t * e) {
+    resetCoolantMinMax(lv_arc_get_value(objects.coolant_scr_arc));
+}
+
+void updateCoolantMinMax(int32_t minValue, int32_t maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
+        animateTargetArc(objects.coolant_scr_minarc,minValue);
+        animateTargetArc(objects.coolant_scr_maxarc,maxValue);
+    }
+    else {
+        lv_arc_set_value(objects.coolant_scr_minarc,minValue);
+        lv_arc_set_value(objects.coolant_scr_maxarc,maxValue);
+    }
+    lv_label_set_text_fmt(objects.coolant_scr_min,"%d",minValue);
+    lv_label_set_text_fmt(objects.coolant_scr_max,"%d",maxValue);
+}
+
 void updateCoolantArc(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
         animateTargetArc(objects.coolant_scr_arc,value);

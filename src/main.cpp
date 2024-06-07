@@ -43,8 +43,8 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 //Timers
 Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
-Timer<millis> refreshValues   =   150;  //Values refresh interval on the screens 
-Timer<millis> OBDrequestDelay =   20;   //Interval for requests over OBD
+Timer<millis> refreshValues   =   200;  //Values refresh interval on the screens 
+Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
 //Vehicle variables
 int intakeTemp;
@@ -52,13 +52,17 @@ int absBaroPressure = 100;
 int intakeManifoldPressure = 100;
 int boostPressure;
 int engineCoolantTemp;
+// int engineCoolantTemp_min = 0;
+// int engineCoolantTemp_max = 0;
 float controlModuleVoltage = 12.0;
 
 #ifdef TEST_GENERATOR
 void generateValues() {
-  intakeTemp    =   (int)(127*(1+sin((2*PI/10000)*millis()))-40);
-  boostPressure =   (int)(127*(1+sin((2*PI/10000)*millis())));
-  engineCoolantTemp   = (int)(127*(1+sin((2*PI/10000)*millis()))-40);
+  intakeTemp    =   (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  boostPressure =   (int)(127*(1+0.6*sin((2*PI/10000)*millis())));
+  engineCoolantTemp   = (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+  engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
   controlModuleVoltage = 12.0+3.0*sin((2*PI/10000)*millis());
 }
 #else
@@ -137,13 +141,13 @@ void setup() {
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
-
+  lv_disp_set_rotation(disp,LV_DISPLAY_ROTATION_90);
   //Draw screens
   ui_init();
 
   //Turn the lights on
   analogWrite(TFT_BL,128);
-
+  resetCoolantMinMax(engineCoolantTemp);
   //Debug
   Serial.println( "Setup done" );
 }
@@ -195,6 +199,7 @@ void loop() {
     setCanState(!canState);
     
     updateCoolantArc(engineCoolantTemp);
+    updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
     updateCoolantLabel(engineCoolantTemp);
 
     updateBoostArc(boostPressure);

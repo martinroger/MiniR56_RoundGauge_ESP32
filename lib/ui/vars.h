@@ -5,4 +5,7 @@
 
 
 
+int32_t engineCoolantTemp_max;
+int32_t engineCoolantTemp_min;
+
 #endif /*EEZ_LVGL_UI_VARS_H*/

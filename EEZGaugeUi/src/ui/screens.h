@@ -35,6 +35,7 @@ typedef struct _objects_t {
     lv_obj_t *iat_scr_min;
     lv_obj_t *iat_scr_name;
     lv_obj_t *iat_scr_unit;
+    lv_obj_t *reset_coolant_min_max_area;
     lv_obj_t *voltage_scr_arc;
     lv_obj_t *voltage_scr_can;
     lv_obj_t *voltage_scr_currentvalue;
