@@ -43,11 +43,14 @@ typedef struct _objects_t {
     lv_obj_t *reset_boost_min_max_area;
     lv_obj_t *reset_coolant_min_max_area;
     lv_obj_t *reset_iat_min_max_area;
+    lv_obj_t *reset_voltage_min_max_area;
     lv_obj_t *voltage_scr_arc;
     lv_obj_t *voltage_scr_can;
     lv_obj_t *voltage_scr_currentvalue;
     lv_obj_t *voltage_scr_max;
+    lv_obj_t *voltage_scr_maxarc;
     lv_obj_t *voltage_scr_min;
+    lv_obj_t *voltage_scr_minarc;
     lv_obj_t *voltage_scr_name;
     lv_obj_t *voltage_scr_unit;
 } objects_t;

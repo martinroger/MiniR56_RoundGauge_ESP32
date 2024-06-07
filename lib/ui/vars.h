@@ -14,4 +14,7 @@ int32_t boostPressure_min ;
 int32_t intakeTemp_max ;
 int32_t intakeTemp_min ;
 
+int32_t controlModuleVoltage_max;
+int32_t controlModuleVoltage_min;
+
 #endif /*EEZ_LVGL_UI_VARS_H*/

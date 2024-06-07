@@ -34,12 +34,16 @@ void ui_tick() {
     tick_screen(currentScreen);
 }
 
+#ifndef ARC_ANIMATION_TIME
+    #define ARC_ANIMATION_TIME 250
+#endif
+
 void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
     lv_anim_t arcAnim;
     lv_anim_init(&arcAnim);
     lv_anim_set_var(&arcAnim,targetArc);
     lv_anim_set_values(&arcAnim,lv_arc_get_value(targetArc),targetValue);
-    lv_anim_set_duration(&arcAnim,250);
+    lv_anim_set_duration(&arcAnim,ARC_ANIMATION_TIME);
     lv_anim_set_exec_cb(&arcAnim,(lv_anim_exec_xcb_t)lv_arc_set_value);
     lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
     lv_anim_start(&arcAnim);
@@ -63,11 +67,10 @@ void action_go_to_next_screen(lv_event_t * e) {
             updateIatMinMax(intakeTemp_min,intakeTemp_max);
             break;
         case SCREEN_ID_VOLTAGE_SCR:
+            updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
             break;
     }
 }
-
-
 
 //Coolant Screen
 
@@ -161,19 +164,35 @@ void updateIatScr(int32_t value) {
 
 //Module voltage
 
-void updateVoltageArc(float value) {
+void resetVoltageMinMax(int32_t value) {
+    //Should mostly happen when in the IAT screen
+    lv_arc_set_value(objects.voltage_scr_minarc,value);
+    lv_arc_set_value(objects.voltage_scr_maxarc,value);
+    controlModuleVoltage_max = value;
+    controlModuleVoltage_min = value;
+}
+
+void action_reset_voltage_min_max(lv_event_t * e) {
+    resetVoltageMinMax(lv_arc_get_value(objects.voltage_scr_arc));
+}
+
+void updateVoltageMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {
-        animateTargetArc(objects.voltage_scr_arc,(int32_t)(value*100));
+        animateTargetArc(objects.voltage_scr_minarc,minValue);
+        animateTargetArc(objects.voltage_scr_maxarc,maxValue);
+        lv_label_set_text_fmt(objects.voltage_scr_min,"%02.1f",(float)(minValue/1000.0));
+        lv_label_set_text_fmt(objects.voltage_scr_max,"%02.1f",(float)(maxValue/1000.0));
     }
-    else {
-        lv_arc_set_value(objects.voltage_scr_arc,(int32_t)(value*100));
-    }   
 }
 
-void updateVoltageLabel(float value) {
-    lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",value);
+void updateVoltageScr(int32_t value) {
+    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {
+        animateTargetArc(objects.voltage_scr_arc,value);
+        lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",(float)(value/1000.0));
+    }
 }
 
+//CAN State warning
 
 void setCanState(bool canState) {
     if(canState) {

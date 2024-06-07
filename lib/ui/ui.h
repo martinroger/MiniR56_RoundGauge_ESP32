@@ -26,11 +26,9 @@ void resetIatMinMax(int32_t value);
 void updateIatMinMax(int32_t minValue, int32_t maxValue);
 void updateIatScr(int32_t value);
 
-void updateIatArc(int32_t value);
-void updateIatLabel(int32_t value);
-
-void updateVoltageArc(float value);
-void updateVoltageLabel(float value);
+void resetVoltageMinMax(int32_t value);
+void updateVoltageMinMax(int32_t minValue, int32_t maxValue);
+void updateVoltageScr(int32_t value);
 
 void setCanState(bool canState);
 

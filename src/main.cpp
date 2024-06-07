@@ -47,19 +47,19 @@ Timer<millis> refreshValues   =   200;  //Values refresh interval on the screens
 Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
 //Vehicle variables
-int intakeTemp;
-int absBaroPressure = 100;
-int intakeManifoldPressure = 100;
-int boostPressure;
-int engineCoolantTemp;
-float controlModuleVoltage = 12.0;
+int32_t intakeTemp;
+int32_t absBaroPressure = 100;
+int32_t intakeManifoldPressure = 100;
+int32_t boostPressure;
+int32_t engineCoolantTemp;
+int32_t controlModuleVoltage = 12000;
 
 #ifdef TEST_GENERATOR
 void generateValues() {
-  intakeTemp    =   (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
-  boostPressure =   (int)(127*(1+0.6*sin((2*PI/10000)*millis())));
-  engineCoolantTemp   = (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
-  controlModuleVoltage = 12.0+3.0*sin((2*PI/10000)*millis());
+  intakeTemp    =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  boostPressure =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis())));
+  engineCoolantTemp   = (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  controlModuleVoltage = (int32_t)((12.0+3.0*sin((2*PI/10000)*millis()))*1000.0);
 }
 #else
 void parseCANFrame() {
@@ -89,8 +89,8 @@ void parseCANFrame() {
         case 0x33 : 
           absBaroPressure = (int)byteA;
           break;
-        case 0x42 : //Control module voltage... arc is in mV
-          controlModuleVoltage = (256*(int)byteA + (int)byteB)/1000.0;
+        case 0x42 : //Control module voltage... unit is mV !
+          controlModuleVoltage = (256*(int)byteA + (int)byteB);
           break;
         default:
           break;
@@ -122,6 +122,9 @@ void setup() {
 
   intakeTemp_max = -40;
   intakeTemp_min = 215;
+
+  controlModuleVoltage_max = 0;
+  controlModuleVoltage_min = 24000;
 
   //For Debug
   Serial.begin(115200);
@@ -230,8 +233,12 @@ void loop() {
       updateIatMinMax(intakeTemp_min,intakeTemp_max);
     }
 
-    updateVoltageArc(controlModuleVoltage);
-    updateVoltageLabel(controlModuleVoltage);
+    updateVoltageScr(controlModuleVoltage);
+    if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+    }
   }
   
   //Loop LVGL
