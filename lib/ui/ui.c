@@ -45,7 +45,7 @@ void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
     lv_anim_set_values(&arcAnim,lv_arc_get_value(targetArc),targetValue);
     lv_anim_set_duration(&arcAnim,ARC_ANIMATION_TIME);
     lv_anim_set_exec_cb(&arcAnim,(lv_anim_exec_xcb_t)lv_arc_set_value);
-    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);
+    lv_anim_set_path_cb(&arcAnim,lv_anim_path_linear);
     lv_anim_start(&arcAnim);
 }
 

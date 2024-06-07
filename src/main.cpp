@@ -43,7 +43,7 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 
 //Timers
 Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
-Timer<millis> refreshValues   =   200;  //Values refresh interval on the screens 
+Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
 Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
 //Vehicle variables

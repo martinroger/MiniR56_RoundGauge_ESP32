@@ -1,9 +1,8 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
-    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/-1",
-    "selectedGlobalVariableObject": "[EEZGaugeUi.eez-project]:/variables/globalVariables/-1",
-    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/4",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
+    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/4",
+    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -175,42 +174,21 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 44.5,
+              "weight": 50.8125,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
-                  "name": "coolantScr",
+                  "name": "voltageScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
                     "permanent": false
                   },
                   "icon": "svg:page"
-                },
-                {
-                  "type": "tab",
-                  "id": "#cf820ba3-cafa-4764-a3b4-229c5378c9b5",
-                  "name": "whiteRabbit_24px",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/fonts/4",
-                    "permanent": false
-                  },
-                  "icon": "material:font_download"
-                },
-                {
-                  "type": "tab",
-                  "id": "#9ad6526e-375b-4ae4-b4ad-0f1f5967c4fa",
-                  "name": "whiteRabbit_60px",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/fonts/2",
-                    "permanent": true
-                  },
-                  "icon": "material:font_download"
                 },
                 {
                   "type": "tab",
@@ -230,7 +208,7 @@
             {
               "type": "row",
               "id": "#21f18ecd-2d94-4b34-aaeb-8f66f7122d8b",
-              "weight": 35,
+              "weight": 28.6875,
               "children": [
                 {
                   "type": "tabset",
@@ -934,6 +912,10 @@
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {},
+        "1": {
+          "$selected": true
+        },
+        "2": {},
         "3": {},
         "4": {},
         "5": {},
@@ -988,12 +970,19 @@
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
         "0": {},
-        "1": {},
-        "4": {
+        "1": {
           "$selected": true
         },
-        "5": {},
-        "6": {}
+        "2": {
+          "$selected": true
+        },
+        "3": {},
+        "4": {},
+        "5": {
+          "$selected": true
+        },
+        "8": {},
+        "9": {}
       },
       "transform": {
         "translate": {
@@ -1011,13 +1000,16 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {},
+        "0": {
+          "$selected": true
+        },
         "1": {},
         "2": {},
+        "3": {},
         "4": {},
-        "6": {
-          "$selected": true
-        }
+        "5": {},
+        "6": {},
+        "9": {}
       },
       "transform": {
         "translate": {
@@ -1035,12 +1027,13 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {
+        "0": {},
+        "3": {},
+        "4": {},
+        "5": {
           "$selected": true
         },
-        "1": {},
-        "4": {},
-        "6": {}
+        "9": {}
       },
       "transform": {
         "translate": {
