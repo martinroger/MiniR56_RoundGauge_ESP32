@@ -54,7 +54,10 @@ void action_go_to_next_screen(lv_event_t * e) {
     }
 }
 
+//Coolant Screen
+
 void resetCoolantMinMax(int32_t value) {
+    //Should mostly happen when in the coolant screen
     lv_arc_set_value(objects.coolant_scr_minarc,value);
     lv_arc_set_value(objects.coolant_scr_maxarc,value);
     engineCoolantTemp_max = value;
@@ -69,27 +72,19 @@ void updateCoolantMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
         animateTargetArc(objects.coolant_scr_minarc,minValue);
         animateTargetArc(objects.coolant_scr_maxarc,maxValue);
+        lv_label_set_text_fmt(objects.coolant_scr_min,"%d",minValue);
+        lv_label_set_text_fmt(objects.coolant_scr_max,"%d",maxValue);
     }
-    else {
-        lv_arc_set_value(objects.coolant_scr_minarc,minValue);
-        lv_arc_set_value(objects.coolant_scr_maxarc,maxValue);
-    }
-    lv_label_set_text_fmt(objects.coolant_scr_min,"%d",minValue);
-    lv_label_set_text_fmt(objects.coolant_scr_max,"%d",maxValue);
 }
 
-void updateCoolantArc(int32_t value) {
+void updateCoolantScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
         animateTargetArc(objects.coolant_scr_arc,value);
-    }
-    else {
-        lv_arc_set_value(objects.coolant_scr_arc,value);
+        lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%d",value);
     }
 }
 
-void updateCoolantLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%d",value);
-}
+//Boost Screen
 
 void updateBoostArc(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {

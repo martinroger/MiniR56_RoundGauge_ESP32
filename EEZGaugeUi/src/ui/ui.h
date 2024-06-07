@@ -16,8 +16,7 @@ void loadScreen(enum ScreensEnum screenId);
 
 void resetCoolantMinMax(int32_t value);
 void updateCoolantMinMax(int32_t minValue, int32_t maxValue);
-void updateCoolantArc(int32_t value);
-void updateCoolantLabel(int32_t value);
+void updateCoolantScr(int32_t value);
 
 void updateBoostArc(int32_t value);
 void updateBoostLabel(int32_t value);

@@ -61,8 +61,6 @@ void generateValues() {
   intakeTemp    =   (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
   boostPressure =   (int)(127*(1+0.6*sin((2*PI/10000)*millis())));
   engineCoolantTemp   = (int)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
-  engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
-  engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
   controlModuleVoltage = 12.0+3.0*sin((2*PI/10000)*millis());
 }
 #else
@@ -198,9 +196,14 @@ void loop() {
   if(refreshValues) {
     setCanState(!canState);
     
-    updateCoolantArc(engineCoolantTemp);
-    updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
-    updateCoolantLabel(engineCoolantTemp);
+    //Coolant Screen
+    updateCoolantScr(engineCoolantTemp);
+    if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
+      engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+      engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
+      updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+    }
+    
 
     updateBoostArc(boostPressure);
     updateBoostLabel(boostPressure);
