@@ -1,7 +1,7 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
-    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/0",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/4",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
     }
@@ -24,6 +24,7 @@
           },
           {
             "type": "border",
+            "selected": 1,
             "size": 240,
             "location": "right",
             "children": [
@@ -174,9 +175,32 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 54.5,
+              "selected": 3,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
+                {
+                  "type": "tab",
+                  "id": "#cf820ba3-cafa-4764-a3b4-229c5378c9b5",
+                  "name": "whiteRabbit_24px",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/fonts/4",
+                    "permanent": false
+                  },
+                  "icon": "material:font_download"
+                },
+                {
+                  "type": "tab",
+                  "id": "#9ad6526e-375b-4ae4-b4ad-0f1f5967c4fa",
+                  "name": "whiteRabbit_60px",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/fonts/2",
+                    "permanent": true
+                  },
+                  "icon": "material:font_download"
+                },
                 {
                   "type": "tab",
                   "id": "#9fb6f7ed-e0b9-4130-986d-44f94650e362",
@@ -192,10 +216,10 @@
                 {
                   "type": "tab",
                   "id": "#e9344e49-859e-445c-ad34-ea40cd845dbb",
-                  "name": "voltageScr",
+                  "name": "coolantScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -909,12 +933,13 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {
-          "$selected": true
-        },
+        "0": {},
         "1": {},
+        "2": {},
         "3": {},
-        "4": {}
+        "4": {},
+        "5": {},
+        "6": {}
       },
       "transform": {
         "translate": {
@@ -961,10 +986,13 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {
+        "0": {},
+        "1": {},
+        "4": {},
+        "5": {},
+        "6": {
           "$selected": true
-        },
-        "1": {}
+        }
       },
       "transform": {
         "translate": {
@@ -982,11 +1010,13 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {
-          "$selected": true
-        },
+        "0": {},
         "1": {},
-        "4": {}
+        "2": {},
+        "4": {},
+        "6": {
+          "$selected": true
+        }
       },
       "transform": {
         "translate": {
@@ -1004,10 +1034,10 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {
-          "$selected": true
-        },
-        "1": {}
+        "0": {},
+        "1": {},
+        "4": {},
+        "6": {}
       },
       "transform": {
         "translate": {
@@ -1042,16 +1072,16 @@
   "showComponentDescriptions": true,
   "logsPanelFilter": "all",
   "selectedStylePropertyName": "",
-  "lvglPart": "MAIN",
+  "lvglPart": "KNOB",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
     "ARC",
-    "POSITION AND SIZE",
     "TEXT",
     "MISCELLANEOUS",
     "OUTLINE",
     "SHADOW",
-    "BACKGROUND"
+    "BACKGROUND",
+    "POSITION AND SIZE"
   ],
   "showInactiveFlowsInDebugger": true
 }
