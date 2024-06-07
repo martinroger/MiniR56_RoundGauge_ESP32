@@ -52,7 +52,22 @@ void action_go_to_next_screen(lv_event_t * e) {
     else {
         loadScreen(currentScreen+2);
     }
+    switch(currentScreen+1) {
+        case SCREEN_ID_COOLANT_SCR:
+            updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+            break;
+        case SCREEN_ID_BOOST_SCR:
+            updateBoostMinMax(boostPressure_min,boostPressure_max);
+            break;
+        case SCREEN_ID_IAT_SCR:
+            updateIatMinMax(intakeTemp_min,intakeTemp_max);
+            break;
+        case SCREEN_ID_VOLTAGE_SCR:
+            break;
+    }
 }
+
+engineCoolantTemp_max = -215;
 
 //Coolant Screen
 
@@ -86,31 +101,65 @@ void updateCoolantScr(int32_t value) {
 
 //Boost Screen
 
-void updateBoostArc(int32_t value) {
+void resetBoostMinMax(int32_t value) {
+    //Should mostly happen when in the boost screen
+    lv_arc_set_value(objects.boost_scr_minarc,value);
+    lv_arc_set_value(objects.boost_scr_maxarc,value);
+    boostPressure_max = value;
+    boostPressure_min = value;
+}
+
+void action_reset_boost_min_max(lv_event_t * e) {
+    resetBoostMinMax(lv_arc_get_value(objects.boost_scr_arc));
+}
+
+void updateBoostMinMax(int32_t minValue, int32_t maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
+        animateTargetArc(objects.boost_scr_minarc,minValue);
+        animateTargetArc(objects.boost_scr_maxarc,maxValue);
+        lv_label_set_text_fmt(objects.boost_scr_min,"%d",minValue);
+        lv_label_set_text_fmt(objects.boost_scr_max,"%d",maxValue);
+    }
+}
+
+void updateBoostScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
         animateTargetArc(objects.boost_scr_arc,value);
-    }
-    else {
-        lv_arc_set_value(objects.boost_scr_arc,value);
+        lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%d",value);
     }
 }
 
-void updateBoostLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%d",value);
+//IAT Screen
+
+void resetIatMinMax(int32_t value) {
+    //Should mostly happen when in the IAT screen
+    lv_arc_set_value(objects.iat_scr_minarc,value);
+    lv_arc_set_value(objects.iat_scr_maxarc,value);
+    intakeTemp_max = value;
+    intakeTemp_min = value;
 }
 
-void updateIatArc(int32_t value) {
+void action_reset_iat_min_max(lv_event_t * e) {
+    resetIatMinMax(lv_arc_get_value(objects.iat_scr_arc));
+}
+
+void updateIatMinMax(int32_t minValue, int32_t maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
+        animateTargetArc(objects.iat_scr_minarc,minValue);
+        animateTargetArc(objects.iat_scr_maxarc,maxValue);
+        lv_label_set_text_fmt(objects.iat_scr_min,"%d",minValue);
+        lv_label_set_text_fmt(objects.iat_scr_max,"%d",maxValue);
+    }
+}
+
+void updateIatScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
         animateTargetArc(objects.iat_scr_arc,value);
-    }
-    else {
-        lv_arc_set_value(objects.iat_scr_arc,value);
+        lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%d",value);
     }
 }
 
-void updateIatLabel(int32_t value) {
-    lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%d",value);
-}
+//Module voltage
 
 void updateVoltageArc(float value) {
     if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {

@@ -3,7 +3,7 @@
 
 #include <lvgl.h>
 #include "screens.h"
-#include "vars.h"
+
 
 #ifdef __cplusplus
 extern "C" {
@@ -18,8 +18,13 @@ void resetCoolantMinMax(int32_t value);
 void updateCoolantMinMax(int32_t minValue, int32_t maxValue);
 void updateCoolantScr(int32_t value);
 
-void updateBoostArc(int32_t value);
-void updateBoostLabel(int32_t value);
+void resetBoostMinMax(int32_t value);
+void updateBoostMinMax(int32_t minValue, int32_t maxValue);
+void updateBoostScr(int32_t value);
+
+void resetIatMinMax(int32_t value);
+void updateIatMinMax(int32_t minValue, int32_t maxValue);
+void updateIatScr(int32_t value);
 
 void updateIatArc(int32_t value);
 void updateIatLabel(int32_t value);

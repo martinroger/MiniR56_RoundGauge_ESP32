@@ -52,8 +52,6 @@ int absBaroPressure = 100;
 int intakeManifoldPressure = 100;
 int boostPressure;
 int engineCoolantTemp;
-// int engineCoolantTemp_min = 0;
-// int engineCoolantTemp_max = 0;
 float controlModuleVoltage = 12.0;
 
 #ifdef TEST_GENERATOR
@@ -115,11 +113,25 @@ void my_print( lv_log_level_t level, const char * buf )
 #endif
 
 void setup() {
+  //Initialise min-max indicators
+  engineCoolantTemp_max = -40;
+  engineCoolantTemp_min = 215;
+
+  boostPressure_max = 0;
+  boostPressure_min = 255;
+
+  intakeTemp_max = -40;
+  intakeTemp_min = 215;
+
   //For Debug
   Serial.begin(115200);
 
   //CAN start
   canStart();
+
+  #ifdef TEST_GENERATOR
+  generateValues();
+  #endif
 
   //Blackout the screen
   pinMode(TFT_BL,OUTPUT);
@@ -145,7 +157,6 @@ void setup() {
 
   //Turn the lights on
   analogWrite(TFT_BL,128);
-  resetCoolantMinMax(engineCoolantTemp);
   //Debug
   Serial.println( "Setup done" );
 }
@@ -205,11 +216,19 @@ void loop() {
     }
     
 
-    updateBoostArc(boostPressure);
-    updateBoostLabel(boostPressure);
+    updateBoostScr(boostPressure);
+    if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
+      boostPressure_max = max(boostPressure_max,boostPressure);
+      boostPressure_min = min(boostPressure_min,boostPressure);
+      updateBoostMinMax(boostPressure_min,boostPressure_max);
+    }
 
-    updateIatArc(intakeTemp);
-    updateIatLabel(intakeTemp);
+    updateIatScr(intakeTemp);
+    if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
+      intakeTemp_max = max(intakeTemp_max,intakeTemp);
+      intakeTemp_min = min(intakeTemp_min,intakeTemp);
+      updateIatMinMax(intakeTemp_min,intakeTemp_max);
+    }
 
     updateVoltageArc(controlModuleVoltage);
     updateVoltageLabel(controlModuleVoltage);
