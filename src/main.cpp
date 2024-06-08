@@ -3,47 +3,34 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include "CST816S.h"
-#include "SensorQMI8658.hpp"
-#include <lvgl.h>
+#include <Arduino_Helpers.h>
+#include <AH/Timing/MillisMicrosTimer.hpp>
+#include <ui.h>
+#include "obdHandler.h"
 
+#ifndef TFT_BL
+  #define TFT_BL 2
+#endif
+
+#ifndef SCREEN_ID_MAIN
+  #define SCREEN_ID_MAIN 1
+#endif
+
+//Display buffer preparation
+#define TFT_HOR_RES 240
+#define TFT_VER_RES 240
+#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
+uint32_t draw_buf[DRAW_BUF_SIZE];
+
+// Touch initialisation
 #define TP_INT 5
 #define TP_SDA 6
 #define TP_SCL 7
 #define TP_RST 13
-#define QMI_INT2 3
-#define QMI_INT1 4
-#define QMI_SDA 6
-#define QMI_SCL 7
-
-//For the QMI IMU
-#define USE_WIRE
-#define SENSOR_SDA 6
-#define SENSOR_SCL 7
-
-//Not sure if useful
-#define TFT_HOR_RES 240
-#define TFT_VER_RES 240
-
-#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 10 * (LV_COLOR_DEPTH / 8))
-uint32_t draw_buf[DRAW_BUF_SIZE];
-
-//TFT_eSPI tft = TFT_eSPI(TFT_WIDTH,TFT_HEIGHT);
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
-SensorQMI8658 qmi;
-IMUdata acc;
-IMUdata gyr;
-
-#if LV_USE_LOG != 0
-void my_print( lv_log_level_t level, const char * buf )
-{
-    LV_UNUSED(level);
-    Serial.println(buf);
-    Serial.flush();
-}
-#endif
-
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
+  
   if(touch.available()) {
     data->state = LV_INDEV_STATE_PRESSED;
     data->point.x = touch.data.x;
@@ -54,16 +41,110 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
   }
 }
 
+//Timers
+Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
+Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
+Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
+//Vehicle variables
+int32_t intakeTemp;
+int32_t absBaroPressure = 100;
+int32_t intakeManifoldPressure = 100;
+int32_t boostPressure;
+int32_t engineCoolantTemp;
+int32_t controlModuleVoltage = 12000;
 
+#ifdef TEST_GENERATOR
+void generateValues() {
+  intakeTemp    =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  boostPressure =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis())));
+  engineCoolantTemp   = (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
+  controlModuleVoltage = (int32_t)((12.0+3.0*sin((2*PI/10000)*millis()))*1000.0);
+}
+#else
+void parseCANFrame() {
+  if(ESP32Can.readFrame(rxFrame,0)) {
+    if(rxFrame.identifier==FrameID) {
+      OBD_length  = rxFrame.data[0];
+      OBD_mode    = rxFrame.data[1];
+      OBD_command = rxFrame.data[2];
+      byteA       = rxFrame.data[3];
+      byteB       = rxFrame.data[4];
+      byteC       = rxFrame.data[5];
+      byteD       = rxFrame.data[6];
+      byteE       = rxFrame.data[7];
+
+      if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+        switch (OBD_command)
+        {
+        case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+          engineCoolantTemp = ((int)byteA - 40);
+          break;
+        case 0x0B:
+          intakeManifoldPressure = (int)byteA;
+          break;
+        case 0x0F :
+          intakeTemp = ((int)byteA - 40);
+          break;
+        case 0x33 : 
+          absBaroPressure = (int)byteA;
+          break;
+        case 0x42 : //Control module voltage... unit is mV !
+          controlModuleVoltage = (256*(int)byteA + (int)byteB);
+          break;
+        default:
+          break;
+        }
+        boostPressure = intakeManifoldPressure - absBaroPressure;
+        lastConnected = millis();
+      }
+    }
+  }
+}
+#endif
+
+#if LV_USE_LOG != 0
+void my_print( lv_log_level_t level, const char * buf )
+{
+    LV_UNUSED(level);
+    Serial.println(buf);
+    Serial.flush();
+}
+#endif
 
 void setup() {
-  String LVGL_Arduino = "Hello Arduino! ";
-  LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
-  
+  //Initialise min-max indicators
+  engineCoolantTemp_max = -40;
+  engineCoolantTemp_min = 215;
+
+  boostPressure_max = 0;
+  boostPressure_min = 255;
+
+  intakeTemp_max = -40;
+  intakeTemp_min = 215;
+
+  controlModuleVoltage_max = 0;
+  controlModuleVoltage_min = 24000;
+
+  //For Debug
   Serial.begin(115200);
-  while(!Serial.available()) {}
-  Serial.println( LVGL_Arduino );
+
+  //CAN start
+  canStart();
+
+  #ifdef TEST_GENERATOR
+  generateValues();
+  #endif
+
+  //Blackout the screen
+  pinMode(TFT_BL,OUTPUT);
+  analogWrite(TFT_BL,0);
+  //digitalWrite(TFT_BL,HIGH);
+
+  //Touch startup
+  touch.begin();
+
+  //LV startup sequence
   lv_init();
   #if LV_USE_LOG != 0
     lv_log_register_print_cb( my_print );
@@ -73,162 +154,96 @@ void setup() {
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
+  lv_disp_set_rotation(disp,LV_DISPLAY_ROTATION_90);
+  //Draw screens
+  ui_init();
 
-
-
-  if (!qmi.begin(Wire, QMI8658_L_SLAVE_ADDRESS, SENSOR_SDA, SENSOR_SCL)) {
-    Serial.println("Failed to find QMI8658 - check your wiring!");
-    while (1) {
-      delay(1000);
-    }
-  }
-  Serial.print("Device ID:");
-  Serial.println(qmi.getChipID(), HEX);
-  
-  qmi.configAccelerometer(
-    /*
-      * ACC_RANGE_2G
-      * ACC_RANGE_4G
-      * ACC_RANGE_8G
-      * ACC_RANGE_16G
-      * */
-    SensorQMI8658::ACC_RANGE_4G,
-    /*
-      * ACC_ODR_1000H
-      * ACC_ODR_500Hz
-      * ACC_ODR_250Hz
-      * ACC_ODR_125Hz
-      * ACC_ODR_62_5Hz
-      * ACC_ODR_31_25Hz
-      * ACC_ODR_LOWPOWER_128Hz
-      * ACC_ODR_LOWPOWER_21Hz
-      * ACC_ODR_LOWPOWER_11Hz
-      * ACC_ODR_LOWPOWER_3H
-    * */
-    SensorQMI8658::ACC_ODR_1000Hz,
-    /*
-    *  LPF_MODE_0     //2.66% of ODR
-    *  LPF_MODE_1     //3.63% of ODR
-    *  LPF_MODE_2     //5.39% of ODR
-    *  LPF_MODE_3     //13.37% of ODR
-    * */
-    SensorQMI8658::LPF_MODE_0,
-    // selfTest enable
-    true);
-  qmi.configGyroscope(
-    /*
-    * GYR_RANGE_16DPS
-    * GYR_RANGE_32DPS
-    * GYR_RANGE_64DPS
-    * GYR_RANGE_128DPS
-    * GYR_RANGE_256DPS
-    * GYR_RANGE_512DPS
-    * GYR_RANGE_1024DPS
-    * */
-    SensorQMI8658::GYR_RANGE_64DPS,
-    /*
-      * GYR_ODR_7174_4Hz
-      * GYR_ODR_3587_2Hz
-      * GYR_ODR_1793_6Hz
-      * GYR_ODR_896_8Hz
-      * GYR_ODR_448_4Hz
-      * GYR_ODR_224_2Hz
-      * GYR_ODR_112_1Hz
-      * GYR_ODR_56_05Hz
-      * GYR_ODR_28_025H
-      * */
-    SensorQMI8658::GYR_ODR_896_8Hz,
-    /*
-    *  LPF_MODE_0     //2.66% of ODR
-    *  LPF_MODE_1     //3.63% of ODR
-    *  LPF_MODE_2     //5.39% of ODR
-    *  LPF_MODE_3     //13.37% of ODR
-    * */
-    SensorQMI8658::LPF_MODE_3,
-    // selfTest enable
-    true);
-  qmi.enableGyroscope();
-  qmi.enableAccelerometer();
-  qmi.dumpCtrlRegister();
-  
-  pinMode(TFT_BL,OUTPUT);
-  digitalWrite(TFT_BL,HIGH);
-  //tft.begin();
-  //tft.fillScreen(TFT_WHITE);
-
-  //These GPIOs are available
-  // pinMode(15,OUTPUT);
-  // digitalWrite(15,HIGH);
-  // pinMode(16,OUTPUT);
-  // digitalWrite(16,LOW);
-  // pinMode(17,OUTPUT);
-  // digitalWrite(17,HIGH);
-  // pinMode(18,OUTPUT);
-  // digitalWrite(18,LOW);
-  // pinMode(21,OUTPUT);
-  // digitalWrite(21,HIGH);
-  // pinMode(33,OUTPUT);
-  // digitalWrite(33,LOW);
-
-  //Touch screen setup to Serial
-  touch.begin();
-  Serial.print(touch.data.version);
-  Serial.print("\t");
-  Serial.print(touch.data.versionInfo[0]);
-  Serial.print("-");
-  Serial.print(touch.data.versionInfo[1]);
-  Serial.print("-");
-  Serial.println(touch.data.versionInfo[2]);
-
-  lv_obj_t *label = lv_label_create( lv_scr_act() );
-  lv_label_set_text( label, "Hello Arduino, I'm LVGL!" );
-  lv_obj_align( label, LV_ALIGN_CENTER, 0, 0 );
-
+  //Turn the lights on
+  analogWrite(TFT_BL,128);
+  //Debug
   Serial.println( "Setup done" );
-
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
 
-  lv_task_handler();
-  lv_tick_inc(5);
-  delay(5);
-
-
-/*   if (touch.available()) {
-    Serial.print(touch.gesture());
-    Serial.print("\t");
-    Serial.print(touch.data.points);
-    Serial.print("\t");
-    Serial.print(touch.data.event);
-    Serial.print("\t");
-    Serial.print(touch.data.x);
-    Serial.print("\t");
-    Serial.println(touch.data.y);
-
-    if (qmi.getDataReady()) {
-      if (qmi.getAccelerometer(acc.x, acc.y, acc.z)) {
-        Serial.print("{ACCEL: ");
-        Serial.print(acc.x);
-        Serial.print(",");
-        Serial.print(acc.y);
-        Serial.print(",");
-        Serial.print(acc.z);
-        Serial.println("}");
-      }
-
-      if (qmi.getGyroscope(gyr.x, gyr.y, gyr.z)) {
-        Serial.print("{GYRO: ");
-        Serial.print(gyr.x);
-        Serial.print(",");
-        Serial.print(gyr.y );
-        Serial.print(",");
-        Serial.print(gyr.z);
-        Serial.println("}");
-      }
-      Serial.printf("\t\t\t\t > %lu  %.2f *C\n", qmi.getTimestamp(), qmi.getTemperature_C());
+  if(OBDrequestDelay) {
+    sendObdFrame(requestID);
+    //Move to the next requestID... would be better to use an enum list
+    switch (requestID)  {
+      case 0x05:
+        requestID = 0x0B;
+        break;
+      case 0x0B:
+        requestID = 0x0F;
+        break;
+      case 0x0F:
+        requestID = 0x33;
+        break;
+      case 0x33:
+        requestID = 0x42;
+        break;
+      case 0x42:
+        requestID = 0x05;
+        break;
+      default:
+        requestID = 0x05;
+        break;
     }
-  } */
+  }
+  
+  //Parse a CAN Frame if available
+  #ifdef TEST_GENERATOR
+  generateValues();
+  #else
+  parseCANFrame();
+  #endif
 
+  //Update the canState in case of silent connection
+  if(millis()-lastConnected>2000) {
+    canState = false;
+    }
+  else {
+    canState = true;
+  }
+
+  //Refresh the items in the UI
+  if(refreshValues) {
+    setCanState(!canState);
+    
+    //Coolant Screen
+    updateCoolantScr(engineCoolantTemp);
+    if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
+      engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+      engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
+      updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+    }
+    
+
+    updateBoostScr(boostPressure);
+    if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
+      boostPressure_max = max(boostPressure_max,boostPressure);
+      boostPressure_min = min(boostPressure_min,boostPressure);
+      updateBoostMinMax(boostPressure_min,boostPressure_max);
+    }
+
+    updateIatScr(intakeTemp);
+    if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
+      intakeTemp_max = max(intakeTemp_max,intakeTemp);
+      intakeTemp_min = min(intakeTemp_min,intakeTemp);
+      updateIatMinMax(intakeTemp_min,intakeTemp_max);
+    }
+
+    updateVoltageScr(controlModuleVoltage);
+    if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+    }
+  }
+  
+  //Loop LVGL
+  if(tickerLVGL) {
+    lv_task_handler();
+    lv_tick_inc(5);
+  }
 }
