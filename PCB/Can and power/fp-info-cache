@@ -1,4 +1,4 @@
-21566943123062758
+21566949163930271
 Audio_Module
 Reverb_BTDR-1H
 Digital Reverberation Unit, http://www.belton.co.kr/inc/downfile.php?seq=17&file=pdf (footprint from http://www.uk-electronic.de/PDF/BTDR-1.pdf)
@@ -82915,6 +82915,20 @@ Integrated Circuit
 25
 25
 SamacSys_Parts
+3678
+3678-2
+Integrated Circuit
+0
+19
+19
+SamacSys_Parts
+113990105
+NodeMCU V1.0
+Undefined or Miscellaneous
+0
+34
+34
+SamacSys_Parts
 CSTNE16M0VH3C000R0
 CSTNE16M0VH3C000R0
 Crystal or Oscillator
@@ -83033,6 +83047,13 @@ Schottky Diode
 0
 2
 2
+SamacSys_Parts
+SOIC127P600X170-8N
+SOP8 Package
+Integrated Circuit
+0
+8
+8
 SamacSys_Parts
 SOIC127P600X175-8N
 soic-8-ren1
