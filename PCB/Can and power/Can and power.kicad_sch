@@ -6,8 +6,8 @@
 
   (title_block
     (title "Main Schematic")
-    (date "2024-06-08")
-    (rev "3")
+    (date "2024-06-13")
+    (rev "4")
     (company "Martin Roger")
   )
 
@@ -2759,7 +2759,10 @@
     (property "Manufacturer_Name" "Texas Instruments" (at 191.77 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
-    (property "Manufacturer_Part_Number" "SN65HVD230" (at 191.77 67.31 0)
+    (property "Manufacturer_Part_Number" "SN65HVD230DR" (at 191.77 67.31 0)
+      (effects (font (size 1.27 1.27)) hide)
+    )
+    (property "Description" "IC TRANSCEIVER HALF 1/1 8SOIC" (at 191.77 67.31 0)
       (effects (font (size 1.27 1.27)) hide)
     )
     (pin "1" (uuid a9b696a4-3598-4fb6-a8b6-7a2446087f5b))

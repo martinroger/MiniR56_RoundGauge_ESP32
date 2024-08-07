@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
     "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/4",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
@@ -175,17 +175,16 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 50.8125,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
                   "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
-                  "name": "voltageScr",
+                  "name": "coolantScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": "svg:page"
@@ -1030,7 +1029,8 @@
         "0": {},
         "3": {},
         "4": {},
-        "5": {
+        "5": {},
+        "8": {
           "$selected": true
         },
         "9": {}
