@@ -195,7 +195,7 @@ void updateVoltageScr(int32_t value) {
 //CAN State warning
 
 void setCanState(bool canState) {
-    if(canState) {
+    if(!canState) {
         lv_obj_remove_state(objects.coolant_scr_can,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.iat_scr_can,LV_STATE_DISABLED);
@@ -212,7 +212,7 @@ void setCanState(bool canState) {
 //Ignition State warning
 
 void setIgnitionState(bool ignitionOn)  {
-    if(ignitionOn) {
+    if(!ignitionOn) {
         lv_obj_remove_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.boost_scr_kl15,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.iat_scr_kl15,LV_STATE_DISABLED);

@@ -70,40 +70,48 @@ void generateValues() {
 #else
 void parseCANFrame() {
   if(ESP32Can.readFrame(rxFrame,0)) {
-    if(rxFrame.identifier==FrameID) {
-      OBD_length  = rxFrame.data[0];
-      OBD_mode    = rxFrame.data[1];
-      OBD_command = rxFrame.data[2];
-      byteA       = rxFrame.data[3];
-      byteB       = rxFrame.data[4];
-      byteC       = rxFrame.data[5];
-      byteD       = rxFrame.data[6];
-      byteE       = rxFrame.data[7];
+    switch (rxFrame.identifier) {
+      case OBD_RESP_ID:
+        OBD_length  = rxFrame.data[0];
+        OBD_mode    = rxFrame.data[1];
+        OBD_command = rxFrame.data[2];
+        byteA       = rxFrame.data[3];
+        byteB       = rxFrame.data[4];
+        byteC       = rxFrame.data[5];
+        byteD       = rxFrame.data[6];
+        byteE       = rxFrame.data[7];
 
-      if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
-        switch (OBD_command)
-        {
-        case 0x05: //Engine Coolant Temperature : engineCoolantTemp
-          engineCoolantTemp = ((int)byteA - 40);
-          break;
-        case 0x0B:
-          intakeManifoldPressure = (int)byteA;
-          break;
-        case 0x0F :
-          intakeTemp = ((int)byteA - 40);
-          break;
-        case 0x33 : 
-          absBaroPressure = (int)byteA;
-          break;
-        case 0x42 : //Control module voltage... unit is mV !
-          controlModuleVoltage = (256*(int)byteA + (int)byteB);
-          break;
-        default:
-          break;
+        if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+          switch (OBD_command)  {
+            case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+              engineCoolantTemp = ((int)byteA - 40);
+              break;
+            case 0x0B:
+              intakeManifoldPressure = (int)byteA;
+              break;
+            case 0x0F :
+              intakeTemp = ((int)byteA - 40);
+              break;
+            case 0x33 : 
+              absBaroPressure = (int)byteA;
+              break;
+            case 0x42 : //Control module voltage... unit is mV !
+              controlModuleVoltage = (256*(int)byteA + (int)byteB);
+              break;
+            default:
+              break;
+          }
+          boostPressure = intakeManifoldPressure - absBaroPressure;
         }
-        boostPressure = intakeManifoldPressure - absBaroPressure;
         lastConnected = millis();
-      }
+        break;
+      case 0x130: //Ignition and key detection
+        keyPresence = ((rxFrame.data[0] & 0xF0) == 0x40); //True if key present
+        ignitionOn  = ((rxFrame.data[0] & 0x0F) == 0x05); //True if ignition on
+        lastConnected = millis();
+        break;
+      default:
+        break;
     }
   }
 }
@@ -214,7 +222,7 @@ void loop() {
 
   //Refresh the items in the UI
   if(refreshValues) {
-    setCanState(!canState);
+    setCanState(canState);
     setIgnitionState(ignitionOn);
     setKeyPresence(keyPresence);
     

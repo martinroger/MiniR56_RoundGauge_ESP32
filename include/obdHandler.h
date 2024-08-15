@@ -3,13 +3,13 @@
 #define CAN_TX 16
 #define CAN_RX 15
 
-CanFrame rxFrame;
+CanFrame rxFrame = { 0 };
 
 #define CAN_TIME_OUT 2000
 unsigned long lastConnected = 0;
 bool canState = false;
 
-unsigned long FrameID = 0x7E8;
+const unsigned long OBD_RESP_ID = 0x7E8;
 unsigned char OBD_length;
 unsigned char OBD_mode;
 unsigned char OBD_command;
@@ -23,7 +23,7 @@ byte requestID = 0x05;
 
 void sendObdFrame(uint8_t obdId) {
     CanFrame obdFrame = { 0 };
-    obdFrame.identifier = 0x7DF; // Default OBD2 address;
+    obdFrame.identifier = 0x7DF; // Default OBD tester address;
     obdFrame.extd = 0;
     obdFrame.data_length_code = 8;
     obdFrame.data[0] = 0x02;
