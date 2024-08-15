@@ -47,8 +47,8 @@ Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens
 Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
 //Ignition and key presence alerts
-bool ignitionOn   = false;
-bool keyPresence  = false;
+bool ignitionOn   = false;  //True when ignition is on
+bool keyPresence  = false;  //True when authorized key is inserted
 
 //Vehicle variables
 int32_t intakeTemp;
