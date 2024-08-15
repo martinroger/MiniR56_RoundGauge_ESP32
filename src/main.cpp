@@ -46,6 +46,10 @@ Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
 Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
 Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
+//Ignition and key presence alerts
+bool ignitionOn   = false;
+bool keyPresence  = false;
+
 //Vehicle variables
 int32_t intakeTemp;
 int32_t absBaroPressure = 100;
@@ -60,6 +64,8 @@ void generateValues() {
   boostPressure =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis())));
   engineCoolantTemp   = (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
   controlModuleVoltage = (int32_t)((12.0+3.0*sin((2*PI/10000)*millis()))*1000.0);
+  ignitionOn = ((sin((2*PI/2000)*millis()))<0);
+  keyPresence = ((sin((2*PI/3000)*millis()))<0);
 }
 #else
 void parseCANFrame() {
@@ -209,6 +215,8 @@ void loop() {
   //Refresh the items in the UI
   if(refreshValues) {
     setCanState(!canState);
+    setIgnitionState(ignitionOn);
+    setKeyPresence(keyPresence);
     
     //Coolant Screen
     updateCoolantScr(engineCoolantTemp);

@@ -31,6 +31,8 @@ void updateVoltageMinMax(int32_t minValue, int32_t maxValue);
 void updateVoltageScr(int32_t value);
 
 void setCanState(bool canState);
+void setIgnitionState(bool ignitionOn);
+void setKeyPresence(bool keyPresence);
 
 
 #ifdef __cplusplus

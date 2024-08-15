@@ -16,6 +16,8 @@ typedef struct _objects_t {
     lv_obj_t *boost_scr_arc;
     lv_obj_t *boost_scr_can;
     lv_obj_t *boost_scr_currentvalue;
+    lv_obj_t *boost_scr_key;
+    lv_obj_t *boost_scr_kl15;
     lv_obj_t *boost_scr_max;
     lv_obj_t *boost_scr_maxarc;
     lv_obj_t *boost_scr_min;
@@ -25,6 +27,8 @@ typedef struct _objects_t {
     lv_obj_t *coolant_scr_arc;
     lv_obj_t *coolant_scr_can;
     lv_obj_t *coolant_scr_currentvalue;
+    lv_obj_t *coolant_scr_key;
+    lv_obj_t *coolant_scr_kl15;
     lv_obj_t *coolant_scr_max;
     lv_obj_t *coolant_scr_maxarc;
     lv_obj_t *coolant_scr_min;
@@ -34,6 +38,8 @@ typedef struct _objects_t {
     lv_obj_t *iat_scr_arc;
     lv_obj_t *iat_scr_can;
     lv_obj_t *iat_scr_currentvalue;
+    lv_obj_t *iat_scr_key;
+    lv_obj_t *iat_scr_kl15;
     lv_obj_t *iat_scr_max;
     lv_obj_t *iat_scr_maxarc;
     lv_obj_t *iat_scr_min;
@@ -47,6 +53,8 @@ typedef struct _objects_t {
     lv_obj_t *voltage_scr_arc;
     lv_obj_t *voltage_scr_can;
     lv_obj_t *voltage_scr_currentvalue;
+    lv_obj_t *voltage_scr_key;
+    lv_obj_t *voltage_scr_kl15;
     lv_obj_t *voltage_scr_max;
     lv_obj_t *voltage_scr_maxarc;
     lv_obj_t *voltage_scr_min;

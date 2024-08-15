@@ -208,3 +208,37 @@ void setCanState(bool canState) {
         lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);
     }
 }
+
+//Ignition State warning
+
+void setIgnitionState(bool ignitionOn)  {
+    if(ignitionOn) {
+        lv_obj_remove_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.boost_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.iat_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
+    }
+    else {
+        lv_obj_add_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.boost_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.iat_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
+    }
+}
+
+//Key Presence warning
+
+void setKeyPresence(bool keyPresence) {
+    if(!keyPresence) {
+        lv_obj_remove_state(objects.coolant_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.boost_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.iat_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.voltage_scr_key,LV_STATE_DISABLED);
+    }
+    else {
+        lv_obj_add_state(objects.coolant_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.boost_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.iat_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.voltage_scr_key,LV_STATE_DISABLED);
+    }
+}

@@ -78,12 +78,12 @@
         {
           "objID": "964d6dc3-1192-45c8-e853-957bbfc8019d",
           "fileName": "ui.h",
-          "template": "#ifndef EEZ_LVGL_UI_GUI_H\n#define EEZ_LVGL_UI_GUI_H\n\n//${eez-studio LVGL_INCLUDE}\n#include \"screens.h\"\n\n\n#ifdef __cplusplus\nextern \"C\" {\n#endif\n\nvoid ui_init();\nvoid ui_tick();\n\nvoid loadScreen(enum ScreensEnum screenId);\n\nvoid resetCoolantMinMax(int32_t value);\nvoid updateCoolantMinMax(int32_t minValue, int32_t maxValue);\nvoid updateCoolantScr(int32_t value);\n\nvoid resetBoostMinMax(int32_t value);\nvoid updateBoostMinMax(int32_t minValue, int32_t maxValue);\nvoid updateBoostScr(int32_t value);\n\nvoid resetIatMinMax(int32_t value);\nvoid updateIatMinMax(int32_t minValue, int32_t maxValue);\nvoid updateIatScr(int32_t value);\n\nvoid resetVoltageMinMax(int32_t value);\nvoid updateVoltageMinMax(int32_t minValue, int32_t maxValue);\nvoid updateVoltageScr(int32_t value);\n\nvoid setCanState(bool canState);\n\n\n#ifdef __cplusplus\n}\n#endif\n\n#endif // EEZ_LVGL_UI_GUI_H"
+          "template": "#ifndef EEZ_LVGL_UI_GUI_H\n#define EEZ_LVGL_UI_GUI_H\n\n//${eez-studio LVGL_INCLUDE}\n#include \"screens.h\"\n\n\n#ifdef __cplusplus\nextern \"C\" {\n#endif\n\nvoid ui_init();\nvoid ui_tick();\n\nvoid loadScreen(enum ScreensEnum screenId);\n\nvoid resetCoolantMinMax(int32_t value);\nvoid updateCoolantMinMax(int32_t minValue, int32_t maxValue);\nvoid updateCoolantScr(int32_t value);\n\nvoid resetBoostMinMax(int32_t value);\nvoid updateBoostMinMax(int32_t minValue, int32_t maxValue);\nvoid updateBoostScr(int32_t value);\n\nvoid resetIatMinMax(int32_t value);\nvoid updateIatMinMax(int32_t minValue, int32_t maxValue);\nvoid updateIatScr(int32_t value);\n\nvoid resetVoltageMinMax(int32_t value);\nvoid updateVoltageMinMax(int32_t minValue, int32_t maxValue);\nvoid updateVoltageScr(int32_t value);\n\nvoid setCanState(bool canState);\nvoid setIgnitionState(bool ignitionOn);\nvoid setKeyPresence(bool keyPresence);\n\n\n#ifdef __cplusplus\n}\n#endif\n\n#endif // EEZ_LVGL_UI_GUI_H"
         },
         {
           "objID": "6cd0436e-d32a-4b33-ca3e-8969abed1c80",
           "fileName": "ui.c",
-          "template": "#include \"ui.h\"\n#include \"images.h\"\n\nstatic int16_t currentScreen = -1;\n\nstatic lv_obj_t *getLvglObjectFromIndex(int32_t index) {\n    if (index == -1) {\n        return 0;\n    }\n    return ((lv_obj_t **)&objects)[index];\n}\n\nstatic const void *getLvglImageByName(const char *name) {\n    for (size_t imageIndex = 0; imageIndex < sizeof(images) / sizeof(ext_img_desc_t); imageIndex++) {\n        if (strcmp(images[imageIndex].name, name) == 0) {\n            return images[imageIndex].img_dsc;\n        }\n    }\n    return 0;\n}\n\nvoid loadScreen(enum ScreensEnum screenId) {\n    currentScreen = screenId - 1;\n    lv_obj_t *screen = getLvglObjectFromIndex(currentScreen);\n    lv_screen_load_anim(screen, LV_SCR_LOAD_ANIM_FADE_IN, 200, 0, false);\n}\n\nvoid ui_init() {\n    create_screens();\n    loadScreen(SCREEN_ID_MAIN);\n}\n\nvoid ui_tick() {\n    tick_screen(currentScreen);\n}\n\n#ifndef ARC_ANIMATION_TIME\n    #define ARC_ANIMATION_TIME 250\n#endif\n\nvoid animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {\n    lv_anim_t arcAnim;\n    lv_anim_init(&arcAnim);\n    lv_anim_set_var(&arcAnim,targetArc);\n    lv_anim_set_values(&arcAnim,lv_arc_get_value(targetArc),targetValue);\n    lv_anim_set_duration(&arcAnim,ARC_ANIMATION_TIME);\n    lv_anim_set_exec_cb(&arcAnim,(lv_anim_exec_xcb_t)lv_arc_set_value);\n    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);\n    lv_anim_start(&arcAnim);\n}\n\nvoid action_go_to_next_screen(lv_event_t * e) {\n    if(currentScreen==3) {\n        loadScreen(1);\n    }\n    else {\n        loadScreen(currentScreen+2);\n    }\n    switch(currentScreen+1) {\n        case SCREEN_ID_COOLANT_SCR:\n            updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);\n            break;\n        case SCREEN_ID_BOOST_SCR:\n            updateBoostMinMax(boostPressure_min,boostPressure_max);\n            break;\n        case SCREEN_ID_IAT_SCR:\n            updateIatMinMax(intakeTemp_min,intakeTemp_max);\n            break;\n        case SCREEN_ID_VOLTAGE_SCR:\n            updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);\n            break;\n    }\n}\n\n//Coolant Screen\n\nvoid resetCoolantMinMax(int32_t value) {\n    //Should mostly happen when in the coolant screen\n    lv_arc_set_value(objects.coolant_scr_minarc,value);\n    lv_arc_set_value(objects.coolant_scr_maxarc,value);\n    engineCoolantTemp_max = value;\n    engineCoolantTemp_min = value;\n}\n\nvoid action_reset_coolant_min_max(lv_event_t * e) {\n    resetCoolantMinMax(lv_arc_get_value(objects.coolant_scr_arc));\n}\n\nvoid updateCoolantMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {\n        animateTargetArc(objects.coolant_scr_minarc,minValue);\n        animateTargetArc(objects.coolant_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.coolant_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.coolant_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateCoolantScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {\n        animateTargetArc(objects.coolant_scr_arc,value);\n        lv_label_set_text_fmt(objects.coolant_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//Boost Screen\n\nvoid resetBoostMinMax(int32_t value) {\n    //Should mostly happen when in the boost screen\n    lv_arc_set_value(objects.boost_scr_minarc,value);\n    lv_arc_set_value(objects.boost_scr_maxarc,value);\n    boostPressure_max = value;\n    boostPressure_min = value;\n}\n\nvoid action_reset_boost_min_max(lv_event_t * e) {\n    resetBoostMinMax(lv_arc_get_value(objects.boost_scr_arc));\n}\n\nvoid updateBoostMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {\n        animateTargetArc(objects.boost_scr_minarc,minValue);\n        animateTargetArc(objects.boost_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.boost_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.boost_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateBoostScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {\n        animateTargetArc(objects.boost_scr_arc,value);\n        lv_label_set_text_fmt(objects.boost_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//IAT Screen\n\nvoid resetIatMinMax(int32_t value) {\n    //Should mostly happen when in the IAT screen\n    lv_arc_set_value(objects.iat_scr_minarc,value);\n    lv_arc_set_value(objects.iat_scr_maxarc,value);\n    intakeTemp_max = value;\n    intakeTemp_min = value;\n}\n\nvoid action_reset_iat_min_max(lv_event_t * e) {\n    resetIatMinMax(lv_arc_get_value(objects.iat_scr_arc));\n}\n\nvoid updateIatMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {\n        animateTargetArc(objects.iat_scr_minarc,minValue);\n        animateTargetArc(objects.iat_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.iat_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.iat_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateIatScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {\n        animateTargetArc(objects.iat_scr_arc,value);\n        lv_label_set_text_fmt(objects.iat_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//Module voltage\n\nvoid resetVoltageMinMax(int32_t value) {\n    //Should mostly happen when in the IAT screen\n    lv_arc_set_value(objects.voltage_scr_minarc,value);\n    lv_arc_set_value(objects.voltage_scr_maxarc,value);\n    controlModuleVoltage_max = value;\n    controlModuleVoltage_min = value;\n}\n\nvoid action_reset_voltage_min_max(lv_event_t * e) {\n    resetVoltageMinMax(lv_arc_get_value(objects.voltage_scr_arc));\n}\n\nvoid updateVoltageMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {\n        animateTargetArc(objects.voltage_scr_minarc,minValue);\n        animateTargetArc(objects.voltage_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.voltage_scr_min,\"%02.1f\",(float)(minValue/1000.0));\n        lv_label_set_text_fmt(objects.voltage_scr_max,\"%02.1f\",(float)(maxValue/1000.0));\n    }\n}\n\nvoid updateVoltageScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {\n        animateTargetArc(objects.voltage_scr_arc,value);\n        lv_label_set_text_fmt(objects.voltage_scr_currentvalue,\"%02.1f\",(float)(value/1000.0));\n    }\n}\n\n//CAN State warning\n\nvoid setCanState(bool canState) {\n    if(canState) {\n        lv_obj_remove_state(objects.coolant_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.iat_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.voltage_scr_can,LV_STATE_DISABLED);\n    }\n    else {\n        lv_obj_add_state(objects.coolant_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.iat_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);\n    }\n}\n"
+          "template": "#include \"ui.h\"\n#include \"images.h\"\n\nstatic int16_t currentScreen = -1;\n\nstatic lv_obj_t *getLvglObjectFromIndex(int32_t index) {\n    if (index == -1) {\n        return 0;\n    }\n    return ((lv_obj_t **)&objects)[index];\n}\n\nstatic const void *getLvglImageByName(const char *name) {\n    for (size_t imageIndex = 0; imageIndex < sizeof(images) / sizeof(ext_img_desc_t); imageIndex++) {\n        if (strcmp(images[imageIndex].name, name) == 0) {\n            return images[imageIndex].img_dsc;\n        }\n    }\n    return 0;\n}\n\nvoid loadScreen(enum ScreensEnum screenId) {\n    currentScreen = screenId - 1;\n    lv_obj_t *screen = getLvglObjectFromIndex(currentScreen);\n    lv_screen_load_anim(screen, LV_SCR_LOAD_ANIM_FADE_IN, 200, 0, false);\n}\n\nvoid ui_init() {\n    create_screens();\n    loadScreen(SCREEN_ID_MAIN);\n}\n\nvoid ui_tick() {\n    tick_screen(currentScreen);\n}\n\n#ifndef ARC_ANIMATION_TIME\n    #define ARC_ANIMATION_TIME 250\n#endif\n\nvoid animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {\n    lv_anim_t arcAnim;\n    lv_anim_init(&arcAnim);\n    lv_anim_set_var(&arcAnim,targetArc);\n    lv_anim_set_values(&arcAnim,lv_arc_get_value(targetArc),targetValue);\n    lv_anim_set_duration(&arcAnim,ARC_ANIMATION_TIME);\n    lv_anim_set_exec_cb(&arcAnim,(lv_anim_exec_xcb_t)lv_arc_set_value);\n    lv_anim_set_path_cb(&arcAnim,lv_anim_path_ease_in_out);\n    lv_anim_start(&arcAnim);\n}\n\nvoid action_go_to_next_screen(lv_event_t * e) {\n    if(currentScreen==3) {\n        loadScreen(1);\n    }\n    else {\n        loadScreen(currentScreen+2);\n    }\n    switch(currentScreen+1) {\n        case SCREEN_ID_COOLANT_SCR:\n            updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);\n            break;\n        case SCREEN_ID_BOOST_SCR:\n            updateBoostMinMax(boostPressure_min,boostPressure_max);\n            break;\n        case SCREEN_ID_IAT_SCR:\n            updateIatMinMax(intakeTemp_min,intakeTemp_max);\n            break;\n        case SCREEN_ID_VOLTAGE_SCR:\n            updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);\n            break;\n    }\n}\n\n//Coolant Screen\n\nvoid resetCoolantMinMax(int32_t value) {\n    //Should mostly happen when in the coolant screen\n    lv_arc_set_value(objects.coolant_scr_minarc,value);\n    lv_arc_set_value(objects.coolant_scr_maxarc,value);\n    engineCoolantTemp_max = value;\n    engineCoolantTemp_min = value;\n}\n\nvoid action_reset_coolant_min_max(lv_event_t * e) {\n    resetCoolantMinMax(lv_arc_get_value(objects.coolant_scr_arc));\n}\n\nvoid updateCoolantMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {\n        animateTargetArc(objects.coolant_scr_minarc,minValue);\n        animateTargetArc(objects.coolant_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.coolant_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.coolant_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateCoolantScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {\n        animateTargetArc(objects.coolant_scr_arc,value);\n        lv_label_set_text_fmt(objects.coolant_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//Boost Screen\n\nvoid resetBoostMinMax(int32_t value) {\n    //Should mostly happen when in the boost screen\n    lv_arc_set_value(objects.boost_scr_minarc,value);\n    lv_arc_set_value(objects.boost_scr_maxarc,value);\n    boostPressure_max = value;\n    boostPressure_min = value;\n}\n\nvoid action_reset_boost_min_max(lv_event_t * e) {\n    resetBoostMinMax(lv_arc_get_value(objects.boost_scr_arc));\n}\n\nvoid updateBoostMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {\n        animateTargetArc(objects.boost_scr_minarc,minValue);\n        animateTargetArc(objects.boost_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.boost_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.boost_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateBoostScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {\n        animateTargetArc(objects.boost_scr_arc,value);\n        lv_label_set_text_fmt(objects.boost_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//IAT Screen\n\nvoid resetIatMinMax(int32_t value) {\n    //Should mostly happen when in the IAT screen\n    lv_arc_set_value(objects.iat_scr_minarc,value);\n    lv_arc_set_value(objects.iat_scr_maxarc,value);\n    intakeTemp_max = value;\n    intakeTemp_min = value;\n}\n\nvoid action_reset_iat_min_max(lv_event_t * e) {\n    resetIatMinMax(lv_arc_get_value(objects.iat_scr_arc));\n}\n\nvoid updateIatMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {\n        animateTargetArc(objects.iat_scr_minarc,minValue);\n        animateTargetArc(objects.iat_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.iat_scr_min,\"%d\",minValue);\n        lv_label_set_text_fmt(objects.iat_scr_max,\"%d\",maxValue);\n    }\n}\n\nvoid updateIatScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {\n        animateTargetArc(objects.iat_scr_arc,value);\n        lv_label_set_text_fmt(objects.iat_scr_currentvalue,\"%d\",value);\n    }\n}\n\n//Module voltage\n\nvoid resetVoltageMinMax(int32_t value) {\n    //Should mostly happen when in the IAT screen\n    lv_arc_set_value(objects.voltage_scr_minarc,value);\n    lv_arc_set_value(objects.voltage_scr_maxarc,value);\n    controlModuleVoltage_max = value;\n    controlModuleVoltage_min = value;\n}\n\nvoid action_reset_voltage_min_max(lv_event_t * e) {\n    resetVoltageMinMax(lv_arc_get_value(objects.voltage_scr_arc));\n}\n\nvoid updateVoltageMinMax(int32_t minValue, int32_t maxValue) {\n    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {\n        animateTargetArc(objects.voltage_scr_minarc,minValue);\n        animateTargetArc(objects.voltage_scr_maxarc,maxValue);\n        lv_label_set_text_fmt(objects.voltage_scr_min,\"%02.1f\",(float)(minValue/1000.0));\n        lv_label_set_text_fmt(objects.voltage_scr_max,\"%02.1f\",(float)(maxValue/1000.0));\n    }\n}\n\nvoid updateVoltageScr(int32_t value) {\n    if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {\n        animateTargetArc(objects.voltage_scr_arc,value);\n        lv_label_set_text_fmt(objects.voltage_scr_currentvalue,\"%02.1f\",(float)(value/1000.0));\n    }\n}\n\n//CAN State warning\n\nvoid setCanState(bool canState) {\n    if(canState) {\n        lv_obj_remove_state(objects.coolant_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.iat_scr_can,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.voltage_scr_can,LV_STATE_DISABLED);\n    }\n    else {\n        lv_obj_add_state(objects.coolant_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.iat_scr_can,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);\n    }\n}\n\n//Ignition State warning\n\nvoid setIgnitionState(bool ignitionOn)  {\n    if(ignitionOn) {\n        lv_obj_remove_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.boost_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.iat_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);\n    }\n    else {\n        lv_obj_add_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.boost_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.iat_scr_kl15,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);\n    }\n}\n\n//Key Presence warning\n\nvoid setKeyPresence(bool keyPresence) {\n    if(!keyPresence) {\n        lv_obj_remove_state(objects.coolant_scr_key,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.boost_scr_key,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.iat_scr_key,LV_STATE_DISABLED);\n        lv_obj_remove_state(objects.voltage_scr_key,LV_STATE_DISABLED);\n    }\n    else {\n        lv_obj_add_state(objects.coolant_scr_key,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.boost_scr_key,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.iat_scr_key,LV_STATE_DISABLED);\n        lv_obj_add_state(objects.voltage_scr_key,LV_STATE_DISABLED);\n    }\n}"
         }
       ],
       "destinationFolder": "src\\ui",
@@ -394,10 +394,120 @@
           "recolor": false
         },
         {
+          "objID": "e9fb27b0-74f7-4e3d-a17d-7719523c80ce",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -55,
+          "width": 72,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "5a0f16a6-98ec-414d-de06-aa4fb536e0fc",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "coolantScr_KL15",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "e46e9fce-dd6b-4ca7-ba67-86e46cfe815d",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "IGNITION",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "c1f4f7d7-6cfd-4f61-cb2c-eeb1851eef97",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -70,
+          "width": 54,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "d2b8be92-8623-4a71-9769-2046edfaf90c",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "coolantScr_KEY",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "df8f0ba0-cd35-48c2-dfa0-356fdfb52ac7",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "NO KEY",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
           "objID": "fcdf8e58-fa1b-4b2b-a314-da2fe1183bdf",
           "type": "LVGLLabelWidget",
           "left": 0,
-          "top": -50,
+          "top": -40,
           "width": 81,
           "height": 13,
           "customInputs": [],
@@ -984,16 +1094,126 @@
           "recolor": false
         },
         {
-          "objID": "9456d286-f7a7-4383-b5b1-21b287d459a6",
+          "objID": "0668a780-7d1d-4630-d4ce-848253f318c1",
           "type": "LVGLLabelWidget",
           "left": 0,
-          "top": -50,
+          "top": -55,
+          "width": 72,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "6d937368-888c-4b90-cdfe-11262d30fac7",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "boostScr_KL15",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "e9f36f92-3609-4b73-85ab-340ab38688ec",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "IGNITION",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "bb0b4eb7-052d-4d0f-e06f-0f70ec9dfe2c",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -70,
+          "width": 54,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "d15fd659-dec2-4691-8a42-143b1402a1e0",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "boostScr_KEY",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "38f49324-dc0f-43b0-cc68-95fcc422e2cd",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "NO KEY",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "28c80986-2a99-48d7-c5f7-5d599f221dc1",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -40,
           "width": 81,
           "height": 13,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "19d91ec1-d693-4b2e-c384-e080b667b930",
+            "objID": "f046a1a1-ede3-4102-b4e3-f586026b6677",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -1016,7 +1236,7 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "9a5bacb3-e549-466f-8f49-5ff4ceef1218",
+            "objID": "24148e5f-1c29-44f4-93a4-89a538b22132",
             "definition": {
               "MAIN": {
                 "DEFAULT": {
@@ -1570,16 +1790,126 @@
           "recolor": false
         },
         {
-          "objID": "8d16eb52-5da1-423f-b9e9-f26baea4c35d",
+          "objID": "31c29247-5acd-4e8e-a2cc-e1356117cfc7",
           "type": "LVGLLabelWidget",
           "left": 0,
-          "top": -50,
+          "top": -55,
+          "width": 72,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "4999654e-407d-463a-cafc-bc702435c750",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "iatScr_KL15",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "55deb9ef-47aa-4f79-b224-1f4e6367a4ed",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "IGNITION",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "13099b4c-bfb8-49bd-86c5-7d4447d92111",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -70,
+          "width": 54,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "7a367498-d510-4714-ebfd-42556ad191bc",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "iatScr_KEY",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "09af01f4-a9cc-40e3-ea19-865c8567e035",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "NO KEY",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "c2e9f25d-c024-43f0-9c73-5b68ec8e0b15",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -40,
           "width": 81,
           "height": 13,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "85ceb327-4ac2-4d08-fa14-a46b75dd6552",
+            "objID": "78002a05-72bc-49e0-b31d-b9c700bae57c",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -1592,7 +1922,7 @@
           "widthUnit": "content",
           "heightUnit": "content",
           "children": [],
-          "flags": "PRESS_LOCK",
+          "flags": "",
           "hiddenFlagType": "literal",
           "clickableFlagType": "literal",
           "scrollbarMode": "auto",
@@ -1602,7 +1932,7 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "cb9095f9-3f26-47e3-a3eb-1edb286fe029",
+            "objID": "424abaaa-ec00-4840-e68f-46db8d233921",
             "definition": {
               "MAIN": {
                 "DEFAULT": {
@@ -2156,16 +2486,126 @@
           "recolor": false
         },
         {
-          "objID": "14c4e4ad-3867-4c4d-ffa3-f374bb857d33",
+          "objID": "fc4a86f7-677e-4d85-92dc-3071280f7c8f",
           "type": "LVGLLabelWidget",
           "left": 0,
-          "top": -50,
+          "top": -55,
+          "width": 72,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "a7bb8840-89f0-4d49-e7c2-702350f17abe",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "voltageScr_KL15",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "0a076136-0a01-49ac-d5ae-2de7a2dcb9c9",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "IGNITION",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "897ebd16-8c66-41b1-c9dd-3a940d477dfa",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -70,
+          "width": 54,
+          "height": 13,
+          "customInputs": [],
+          "customOutputs": [],
+          "style": {
+            "objID": "da575822-ead7-428a-f8cb-7dbc7cee2694",
+            "useStyle": "default",
+            "conditionalStyles": [],
+            "childStyles": []
+          },
+          "timeline": [],
+          "eventHandlers": [],
+          "identifier": "voltageScr_KEY",
+          "leftUnit": "px",
+          "topUnit": "px",
+          "widthUnit": "content",
+          "heightUnit": "content",
+          "children": [],
+          "flags": "",
+          "hiddenFlagType": "literal",
+          "clickableFlagType": "literal",
+          "scrollbarMode": "auto",
+          "scrollDirection": "all",
+          "checkedStateType": "literal",
+          "disabledState": false,
+          "disabledStateType": "literal",
+          "states": "",
+          "localStyles": {
+            "objID": "5f5a6dc2-5fc2-404b-b643-9750b79274dc",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER",
+                  "bg_opa": 0,
+                  "text_color": "#ff0000",
+                  "text_opa": 255,
+                  "text_font": "whiteRabbit_16px"
+                },
+                "DISABLED": {
+                  "text_opa": 0,
+                  "text_color": "#ff0000"
+                }
+              }
+            }
+          },
+          "text": "NO KEY",
+          "textType": "literal",
+          "longMode": "WRAP",
+          "recolor": false
+        },
+        {
+          "objID": "756fc16a-db14-47f7-be1f-2bc98aafb75a",
+          "type": "LVGLLabelWidget",
+          "left": 0,
+          "top": -40,
           "width": 81,
           "height": 13,
           "customInputs": [],
           "customOutputs": [],
           "style": {
-            "objID": "8b9b4f66-b1e9-40d8-af70-1b5679fadd1a",
+            "objID": "f7b81538-d8c5-47b7-e165-81439b4a6051",
             "useStyle": "default",
             "conditionalStyles": [],
             "childStyles": []
@@ -2188,7 +2628,7 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "7ce4d092-3126-4dbb-f9ae-24d6da4c2561",
+            "objID": "053e695a-b8e6-484f-d3dd-9b743a677eb2",
             "definition": {
               "MAIN": {
                 "DEFAULT": {
