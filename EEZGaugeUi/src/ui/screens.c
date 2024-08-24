@@ -294,7 +294,7 @@ void create_screen_boost_scr() {
             objects.boost_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
-            lv_arc_set_range(obj, 0, 255);
+            lv_arc_set_range(obj, -255, 255);
             lv_arc_set_value(obj, 255);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
@@ -311,7 +311,7 @@ void create_screen_boost_scr() {
             objects.boost_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 0, 255);
+            lv_arc_set_range(obj, -255, 255);
             lv_arc_set_value(obj, 255);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
@@ -332,7 +332,7 @@ void create_screen_boost_scr() {
             objects.boost_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 0, 255);
+            lv_arc_set_range(obj, -255, 255);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SNAPPABLE);

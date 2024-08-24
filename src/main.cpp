@@ -52,14 +52,32 @@ bool keyPresence  = false;  //True when authorized key is inserted
 
 //Vehicle variables
 int32_t intakeTemp;
-int32_t absBaroPressure = 100;
-int32_t intakeManifoldPressure = 100;
+int32_t absBaroPressure;
+int32_t intakeManifoldPressure;
 int32_t boostPressure;
 int32_t engineCoolantTemp;
-int32_t controlModuleVoltage = 12000;
+int32_t controlModuleVoltage;
+#define BRIGHTNESS 200
+
+//First read flags
+bool intakeTemp_FR = false;
+bool absBaroPressure_FR = false;
+bool intakeManifoldPressure_FR = false;
+bool boostPressure_FR = false;
+bool engineCoolantTemp_FR = false;
+bool controlModuleVoltage_FR = false;
 
 #ifdef TEST_GENERATOR
 void generateValues() {
+  if(millis()>20000) {
+    intakeTemp_FR             =   true;
+    absBaroPressure_FR        =   true;
+    intakeManifoldPressure_FR =   true;
+    boostPressure_FR          =   true;
+    engineCoolantTemp_FR      =   true;
+    controlModuleVoltage_FR   =   true;
+  }
+
   intakeTemp    =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
   boostPressure =   (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis())));
   engineCoolantTemp   = (int32_t)(127*(1+0.6*sin((2*PI/10000)*millis()))-40);
@@ -85,18 +103,25 @@ void parseCANFrame() {
           switch (OBD_command)  {
             case 0x05: //Engine Coolant Temperature : engineCoolantTemp
               engineCoolantTemp = ((int)byteA - 40);
+              engineCoolantTemp_FR = true;
               break;
             case 0x0B:
               intakeManifoldPressure = (int)byteA;
+              intakeManifoldPressure_FR = true;
+              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
               break;
             case 0x0F :
               intakeTemp = ((int)byteA - 40);
+              intakeTemp_FR = true;
               break;
             case 0x33 : 
               absBaroPressure = (int)byteA;
+              absBaroPressure_FR = true;
+              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
               break;
             case 0x42 : //Control module voltage... unit is mV !
               controlModuleVoltage = (256*(int)byteA + (int)byteB);
+              controlModuleVoltage_FR = true;
               break;
             default:
               break;
@@ -131,7 +156,7 @@ void setup() {
   engineCoolantTemp_max = -40;
   engineCoolantTemp_min = 215;
 
-  boostPressure_max = 0;
+  boostPressure_max = -255;
   boostPressure_min = 255;
 
   intakeTemp_max = -40;
@@ -172,15 +197,18 @@ void setup() {
   //Draw screens
   ui_init();
 
+
+  //Mishmash delay
+  delay(5000);
   //Turn the lights on
-  analogWrite(TFT_BL,128);
+  analogWrite(TFT_BL,BRIGHTNESS);
   //Debug
   Serial.println( "Setup done" );
 }
 
 void loop() {
-
-  if(OBDrequestDelay) {
+  //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
+  if(OBDrequestDelay && canState && keyPresence) {
     sendObdFrame(requestID);
     //Move to the next requestID... would be better to use an enum list
     switch (requestID)  {
@@ -227,33 +255,43 @@ void loop() {
     setKeyPresence(keyPresence);
     
     //Coolant Screen
+    if(engineCoolantTemp_FR) {
     updateCoolantScr(engineCoolantTemp);
-    if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
-      engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
-      engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
-      updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
+        engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+        engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
+        updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      }
     }
     
-
-    updateBoostScr(boostPressure);
-    if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
-      boostPressure_max = max(boostPressure_max,boostPressure);
-      boostPressure_min = min(boostPressure_min,boostPressure);
-      updateBoostMinMax(boostPressure_min,boostPressure_max);
+    //Boost Screen
+    if(boostPressure_FR) {
+      updateBoostScr(boostPressure);
+      if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
+        boostPressure_max = max(boostPressure_max,boostPressure);
+        boostPressure_min = min(boostPressure_min,boostPressure);
+        updateBoostMinMax(boostPressure_min,boostPressure_max);
+      }
     }
 
-    updateIatScr(intakeTemp);
-    if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
-      intakeTemp_max = max(intakeTemp_max,intakeTemp);
-      intakeTemp_min = min(intakeTemp_min,intakeTemp);
-      updateIatMinMax(intakeTemp_min,intakeTemp_max);
+    //IAT Screen
+    if(intakeTemp_FR) {
+      updateIatScr(intakeTemp);
+      if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
+        intakeTemp_max = max(intakeTemp_max,intakeTemp);
+        intakeTemp_min = min(intakeTemp_min,intakeTemp);
+        updateIatMinMax(intakeTemp_min,intakeTemp_max);
+      }
     }
 
-    updateVoltageScr(controlModuleVoltage);
-    if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-      controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-      controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-      updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+    //Voltage Screen
+    if(controlModuleVoltage_FR) {
+      updateVoltageScr(controlModuleVoltage);
+      if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+        controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+        controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+        updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      }
     }
   }
   

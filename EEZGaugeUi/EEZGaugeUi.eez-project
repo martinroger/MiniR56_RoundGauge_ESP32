@@ -892,7 +892,7 @@
               }
             }
           },
-          "rangeMin": 0,
+          "rangeMin": -255,
           "rangeMax": 255,
           "value": 255,
           "valueType": "literal",
@@ -959,7 +959,7 @@
               }
             }
           },
-          "rangeMin": 0,
+          "rangeMin": -255,
           "rangeMax": 255,
           "value": 255,
           "valueType": "literal",
@@ -1026,7 +1026,7 @@
               }
             }
           },
-          "rangeMin": 0,
+          "rangeMin": -255,
           "rangeMax": 255,
           "value": 0,
           "valueType": "literal",
