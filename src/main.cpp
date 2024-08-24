@@ -42,7 +42,8 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 //Timers
-Timer<millis> tickerLVGL      =   5;    //LVGL 5ms ticker
+#define TICKS 5
+Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
 Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
 Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
 
@@ -154,6 +155,7 @@ void my_print( lv_log_level_t level, const char * buf )
 void setup() {
   //Blackout the screen
   //pinMode(TFT_BL,OUTPUT);
+  //digitalWrite(TFT_BL,LOW);
   analogWrite(TFT_BL,0);
   delay(100);
   
@@ -198,7 +200,7 @@ void setup() {
   ui_init();
 
   //Turn the lights on
-  analogWrite(TFT_BL,BRIGHTNESS);
+  //analogWrite(TFT_BL,BRIGHTNESS);
   //Debug
   Serial.println( "Setup done" );
 }
@@ -296,6 +298,8 @@ void loop() {
   //Loop LVGL
   if(tickerLVGL) {
     lv_task_handler();
-    lv_tick_inc(5);
+    lv_tick_inc(TICKS);
   }
+
+  analogWrite(TFT_BL,100);
 }
