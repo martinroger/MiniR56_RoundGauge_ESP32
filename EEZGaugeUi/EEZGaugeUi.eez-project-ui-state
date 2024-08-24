@@ -1,7 +1,6 @@
 {
   "navigation": {
     "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/1",
-    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/-1",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -136,8 +135,7 @@
                       "enableClose": false,
                       "icon": "material:code"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -177,7 +175,6 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 50.25,
-              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -204,7 +201,8 @@
                   },
                   "icon": "svg:page"
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -985,12 +983,12 @@
       "selection": {
         "0": {},
         "1": {},
-        "2": {},
-        "3": {},
-        "6": {},
-        "7": {
+        "2": {
           "$selected": true
         },
+        "3": {},
+        "6": {},
+        "7": {},
         "10": {},
         "11": {}
       },
