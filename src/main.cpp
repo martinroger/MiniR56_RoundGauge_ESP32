@@ -152,6 +152,11 @@ void my_print( lv_log_level_t level, const char * buf )
 #endif
 
 void setup() {
+  //Blackout the screen
+  //pinMode(TFT_BL,OUTPUT);
+  analogWrite(TFT_BL,0);
+  delay(100);
+  
   //Initialise min-max indicators
   engineCoolantTemp_max = -40;
   engineCoolantTemp_min = 215;
@@ -175,11 +180,6 @@ void setup() {
   generateValues();
   #endif
 
-  //Blackout the screen
-  pinMode(TFT_BL,OUTPUT);
-  analogWrite(TFT_BL,0);
-  //digitalWrite(TFT_BL,HIGH);
-
   //Touch startup
   touch.begin();
 
@@ -197,9 +197,6 @@ void setup() {
   //Draw screens
   ui_init();
 
-
-  //Mishmash delay
-  delay(5000);
   //Turn the lights on
   analogWrite(TFT_BL,BRIGHTNESS);
   //Debug
@@ -207,6 +204,7 @@ void setup() {
 }
 
 void loop() {
+
   //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
   if(OBDrequestDelay && canState && keyPresence) {
     sendObdFrame(requestID);
