@@ -12,7 +12,7 @@ extern "C" {
 void ui_init();
 void ui_tick();
 
-void loadScreen(enum ScreensEnum screenId);
+void loadScreen(enum ScreensEnum screenId,bool animate);
 
 void resetCoolantMinMax(int32_t value);
 void updateCoolantMinMax(int32_t minValue, int32_t maxValue);

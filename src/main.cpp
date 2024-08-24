@@ -153,11 +153,6 @@ void my_print( lv_log_level_t level, const char * buf )
 #endif
 
 void setup() {
-  //Blackout the screen
-  //pinMode(TFT_BL,OUTPUT);
-  //digitalWrite(TFT_BL,LOW);
-  analogWrite(TFT_BL,0);
-  delay(100);
   
   //Initialise min-max indicators
   engineCoolantTemp_max = -40;
@@ -199,8 +194,6 @@ void setup() {
   //Draw screens
   ui_init();
 
-  //Turn the lights on
-  //analogWrite(TFT_BL,BRIGHTNESS);
   //Debug
   Serial.println( "Setup done" );
 }

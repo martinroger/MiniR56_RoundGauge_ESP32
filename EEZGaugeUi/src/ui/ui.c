@@ -19,15 +19,20 @@ static const void *getLvglImageByName(const char *name) {
     return 0;
 }
 
-void loadScreen(enum ScreensEnum screenId) {
+void loadScreen(enum ScreensEnum screenId,bool animate) {
     currentScreen = screenId - 1;
     lv_obj_t *screen = getLvglObjectFromIndex(currentScreen);
-    lv_screen_load_anim(screen, LV_SCR_LOAD_ANIM_FADE_IN, 200, 0, false);
+    if(animate) {
+        lv_screen_load_anim(screen, LV_SCR_LOAD_ANIM_FADE_IN, 200, 0, false);
+    }
+    else {
+        lv_screen_load_anim(screen, LV_SCR_LOAD_ANIM_NONE, 0, 0, false);
+    }
 }
 
 void ui_init() {
     create_screens();
-    loadScreen(SCREEN_ID_MAIN);
+    loadScreen(SCREEN_ID_MAIN,false);
 }
 
 void ui_tick() {
@@ -51,10 +56,10 @@ void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
 
 void action_go_to_next_screen(lv_event_t * e) {
     if(currentScreen==3) {
-        loadScreen(1);
+        loadScreen(1,true);
     }
     else {
-        loadScreen(currentScreen+2);
+        loadScreen(currentScreen+2,true);
     }
     switch(currentScreen+1) {
         case SCREEN_ID_COOLANT_SCR:
