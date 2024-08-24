@@ -67,6 +67,7 @@ bool intakeManifoldPressure_FR = false;
 bool boostPressure_FR = false;
 bool engineCoolantTemp_FR = false;
 bool controlModuleVoltage_FR = false;
+bool screenON = false;
 
 #ifdef TEST_GENERATOR
 void generateValues() {
@@ -294,5 +295,9 @@ void loop() {
     lv_tick_inc(TICKS);
   }
 
-  analogWrite(TFT_BL,100);
+  //Initial screenON
+  if(!screenON) {
+    analogWrite(TFT_BL,BRIGHTNESS);
+    screenON = true;
+  }
 }
