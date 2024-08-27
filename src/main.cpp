@@ -58,7 +58,7 @@ int32_t intakeManifoldPressure;
 int32_t boostPressure;
 int32_t engineCoolantTemp;
 int32_t controlModuleVoltage;
-#define BRIGHTNESS 200
+#define BRIGHTNESS 215
 
 //First read flags
 bool intakeTemp_FR = false;
