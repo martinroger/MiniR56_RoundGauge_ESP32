@@ -26,7 +26,6 @@ T swap_endian(T u)
 
     return dest.u;
 }
-
 /*Usage : 
 tempTrackIndex = swap_endian<uint32_t>(*((uint32_t*)&byteArray[3]));
 */
@@ -75,6 +74,42 @@ enum SIDResp : byte
     _$63_readMemoryByAddress                =   0x63,
     _$6C_dynamicallyDefineLocalIdentifier   =   0x6C,
     _$7F_negativeResponse                   =   0x7F
+};
+
+enum KWPState : byte
+{
+    KWP_START       =   0x00,
+    KWP_INIT        =   0x01,
+    KWP_ACTIVE      =   0x02,
+    KWP_POLLING     =   0x03,
+    KWP_PROCESSING  =   0x04
+};
+
+
+//Main class
+
+class kwp
+{
+private:
+    /* data */
+    bool multiFramePendingOut   =   false;
+    bool multiFramePendingIn    =   false;
+    void copyToKWPFrame(CanFrame* sourceFrame, kwpFrame* targetFrame, uint8_t startByte, uint8_t endByte);
+
+public:
+    KWPState state = KWP_START;
+    DID DDLI[8];
+    uint8_t activeDIDCount = 0;
+
+    void reset();
+    bool clearDDLI();
+    bool setDDLI(DID* arrayDID[], uint8_t numberOfActiveDIDs);
+    bool parseDDLI(kwpFrame* containerFrame, DID* targetDDLI[], uint8_t activeDIDCount);
+    void processCANFrame(CanFrame* incomingCANFrame,kwpFrame* containerFrame);
+    bool sendKWPFrame(kwpFrame* frameToSend);
+    bool readDDLIReq();
+    
+
 };
 
 
