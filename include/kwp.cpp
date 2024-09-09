@@ -113,19 +113,21 @@ bool kwp::parseDDLI(kwpFrame *containerFrame)
     return false;
 }
 
-/// @brief 
+/// @brief Handles incoming CAN frames and performs state operation depending on the content
 /// @param incomingCANFrame 
 /// @param containerFrame 
 void kwp::processCANFrame(CanFrame* incomingCANFrame,kwpFrame* containerFrame)
 {
-
+    //Should it fire back FC Frames if needed ?
 }
 
-/// @brief 
+/// @brief Attempts to send a KWP Frame over CAN
 /// @param frameToSend 
-/// @return 
+/// @return True if successfully sent, false is there was a communication error or timeout
 bool kwp::sendKWPFrame(kwpFrame* frameToSend)
 {
+    //This should manage the sending cursor, as well as the choice to raise the multiFramePendingOut flag and chosing between SF,FF,CF
+    //FC Frame reception should be managed somewhere else?
     return false;
 }
 
