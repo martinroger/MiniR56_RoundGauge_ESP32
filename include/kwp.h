@@ -111,17 +111,3 @@ public:
     
 
 };
-
-
-/*TODO
-- properties
-    - waitingForFCFrame
-    - processIncomingFrame
-    - sendKWPFrame (overloaded)
-    - registerDDLI (array of DIDs)
-    - clear DDLI
-    - read DDLI
-    - read CI
-
-
-*/
