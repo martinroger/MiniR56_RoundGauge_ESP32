@@ -95,29 +95,36 @@ bool kwp::setDDLI(DID* arrayDID, uint8_t numberOfActiveDIDs)
     return false;
 }
 
-/// @brief 
-/// @param containerFrame 
-/// @param targetDDLI 
-/// @param activeDIDCount 
-/// @return 
+/// @brief Transfers a kwpFrame to the scaled values in a DDLI array of DIDs
+/// @param containerFrame Complete kwpFrame that corresponds to the targetDDLI sectioning
+/// @param targetDDLI Array of DIDs that defines the sectioning and scaling of the data package in the containerFrame
+/// @param activeDIDCount Number of entries (up to 8) to consider in targetDDLI
+/// @return True if parsing is successful, false otherwise
 bool kwp::parseDDLI(kwpFrame* containerFrame, DID* targetDDLI, uint8_t activeDIDCount)
 {
+    //Check activeDIDCount > 0
+    //Check kwpFrame is complete
+    //Go from targetDDLI[0] to targetDDLI[activeDIDCount-1] and update targetDDLI[i].value with the mul/div + add operation
     return false;
 }
 
-/// @brief 
-/// @param containerFrame 
-/// @return 
+/// @brief Transfers a kwpFrame to the intrinsice DDLI array of the current kwp class instance
+/// @param containerFrame Complete kwpFrame that contains the DDLI
+/// @return True if parsing is successful, false otherwise
 bool kwp::parseDDLI(kwpFrame *containerFrame)
 {
+    parseDDLI(containerFrame,DDLI,activeDIDCount);
     return false;
 }
 
 /// @brief Handles incoming CAN frames and performs state operation depending on the content
-/// @param incomingCANFrame 
-/// @param containerFrame 
+/// @param incomingCANFrame Incoming KWP-type CAN frame (validate before calling this method)
+/// @param containerFrame Target kwpFrame. Can be incomplete
 void kwp::processCANFrame(CanFrame* incomingCANFrame,kwpFrame* containerFrame)
 {
+    //Check if multiFramePendingIn, and if yes then check the kwpFrame is incomplete, and then check the frame type
+    //  if both are correct, then process the canFrame, copying at the cursor with taking into account the length and cursor position
+    //Check frame type
     //Should it fire back FC Frames if needed ?
 }
 
@@ -131,8 +138,8 @@ bool kwp::sendKWPFrame(kwpFrame* frameToSend)
     return false;
 }
 
-/// @brief 
-/// @return 
+/// @brief Send a simple request to read the 0xF0 DDLI. 
+/// @return True on successful request sent, false if transmit error
 bool kwp::readDDLIReq()
 {
     return false;
