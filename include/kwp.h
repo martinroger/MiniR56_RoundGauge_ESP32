@@ -88,26 +88,26 @@ enum KWPState : byte
 
 //Main class
 
+/// @brief 
 class kwp
 {
 private:
-    /* data */
-    bool multiFramePendingOut   =   false;
-    bool multiFramePendingIn    =   false;
+    bool multiFramePendingOut   =   false;                  //There is a multi-frame KWP frame pending on the TX side (FC needs to be received)
+    bool multiFramePendingIn    =   false;                  //There is a multi-frame KWP frame pending on the RX side (FC needs to send out)
     void copyToKWPFrame(CanFrame* sourceFrame, kwpFrame* targetFrame, uint8_t startByte, uint8_t endByte);
+    void copyToKWPFrame(CanFrame *sourceFrame, kwpFrame *targetFrame, uint8_t startByte);
 
 public:
-    KWPState state = KWP_START;
-    DID DDLI[8];
-    uint8_t activeDIDCount = 0;
+    KWPState state = KWP_START;                             //State machine of the KWP engine
+    DID DDLI[8];                                            //Array of up to 8 DIDs that define the DDLI
+    uint8_t activeDIDCount = 0;                             //Number of DID entries in the DDLI that are actually to be used
 
     void reset();
     bool clearDDLI();
-    bool setDDLI(DID* arrayDID[], uint8_t numberOfActiveDIDs);
-    bool parseDDLI(kwpFrame* containerFrame, DID* targetDDLI[], uint8_t activeDIDCount);
+    bool setDDLI(DID* arrayDID, uint8_t numberOfActiveDIDs);
+    bool parseDDLI(kwpFrame* containerFrame, DID* targetDDLI, uint8_t activeDIDCount);
+    bool parseDDLI(kwpFrame* containerFrame);
     void processCANFrame(CanFrame* incomingCANFrame,kwpFrame* containerFrame);
     bool sendKWPFrame(kwpFrame* frameToSend);
     bool readDDLIReq();
-    
-
 };
