@@ -191,7 +191,7 @@ void setup() {
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
-  lv_disp_set_rotation(disp,LV_DISPLAY_ROTATION_90);
+  lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
   //Draw screens
   ui_init();
 
