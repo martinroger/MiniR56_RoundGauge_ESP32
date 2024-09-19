@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/1",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -108,7 +108,6 @@
                   "type": "tabset",
                   "id": "#993d8181-6cb3-4a68-9f52-3bbd162db284",
                   "weight": 1,
-                  "selected": 2,
                   "enableClose": false,
                   "children": [
                     {
@@ -175,6 +174,7 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 50.25,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
@@ -193,13 +193,31 @@
                 {
                   "type": "tab",
                   "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
-                  "name": "boostScr",
+                  "name": "coolantScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/1",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
                     "permanent": false
                   },
-                  "icon": "svg:page"
+                  "icon": {
+                    "type": "svg",
+                    "key": null,
+                    "ref": null,
+                    "props": {
+                      "viewBox": "0 96 960 960",
+                      "fill": "currentColor",
+                      "children": {
+                        "type": "path",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "d": "M343 636h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42V236q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560V236H260v560ZM140 976q-24 0-42-18t-18-42V296h60v620h620v60H140Zm120-740v560-560Z"
+                        },
+                        "_owner": null
+                      }
+                    },
+                    "_owner": null
+                  }
                 }
               ],
               "active": true
@@ -921,20 +939,7 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {},
-        "2": {},
-        "3": {},
-        "4": {},
-        "5": {},
-        "6": {},
-        "7": {
-          "$selected": true
-        },
-        "8": {},
-        "9": {},
-        "10": {},
-        "11": {}
+        "0": {}
       },
       "transform": {
         "translate": {
@@ -981,16 +986,7 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {},
-        "2": {
-          "$selected": true
-        },
-        "3": {},
-        "6": {},
-        "7": {},
-        "10": {},
-        "11": {}
+        "0": {}
       },
       "transform": {
         "translate": {
@@ -1008,17 +1004,7 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {},
-        "1": {},
-        "2": {
-          "$selected": true
-        },
-        "3": {},
-        "4": {},
-        "6": {},
-        "7": {},
-        "8": {},
-        "11": {}
+        "0": {}
       },
       "transform": {
         "translate": {
@@ -1036,13 +1022,7 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {},
-        "3": {},
-        "7": {
-          "$selected": true
-        },
-        "10": {},
-        "11": {}
+        "0": {}
       },
       "transform": {
         "translate": {
