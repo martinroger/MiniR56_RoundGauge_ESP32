@@ -297,7 +297,13 @@ void loop() {
 
   //Initial screenON
   if(!screenON) {
-    analogWrite(TFT_BL,BRIGHTNESS);
+    uint8_t tempbrightness = 0;
+    while (tempbrightness<BRIGHTNESS) {
+      analogWrite(TFT_BL,tempbrightness);
+      delay(3);
+      tempbrightness++;
+    }
+    //analogWrite(TFT_BL,BRIGHTNESS);
     screenON = true;
   }
 }
