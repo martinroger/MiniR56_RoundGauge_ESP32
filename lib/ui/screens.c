@@ -15,7 +15,7 @@ void create_screen_coolant_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.coolant_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 240, 240);
+    lv_obj_set_size(obj, 360, 360);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -215,7 +215,7 @@ void create_screen_boost_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.boost_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 240, 240);
+    lv_obj_set_size(obj, 360, 360);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -415,7 +415,7 @@ void create_screen_iat_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.iat_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 240, 240);
+    lv_obj_set_size(obj, 360, 360);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -614,7 +614,7 @@ void create_screen_voltage_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.voltage_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 240, 240);
+    lv_obj_set_size(obj, 360, 360);
     {
         lv_obj_t *parent_obj = obj;
         {

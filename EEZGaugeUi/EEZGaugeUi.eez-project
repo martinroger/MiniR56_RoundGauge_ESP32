@@ -15,8 +15,8 @@
       "extensions": [],
       "imports": [],
       "flowSupport": false,
-      "displayWidth": 240,
-      "displayHeight": 240,
+      "displayWidth": 360,
+      "displayHeight": 360,
       "circularDisplay": true,
       "displayBorderRadius": 0,
       "darkTheme": true,
@@ -842,8 +842,8 @@
       "description": "Coolant temperature screen",
       "left": 0,
       "top": 0,
-      "width": 240,
-      "height": 240,
+      "width": 360,
+      "height": 360,
       "isUsedAsUserWidget": false
     },
     {
@@ -1544,8 +1544,8 @@
       "description": "Boost Pressure screen",
       "left": 0,
       "top": 0,
-      "width": 240,
-      "height": 240,
+      "width": 360,
+      "height": 360,
       "isUsedAsUserWidget": false
     },
     {
@@ -2246,8 +2246,8 @@
       "description": "Intake Air Temperature Screen",
       "left": 0,
       "top": 0,
-      "width": 240,
-      "height": 240,
+      "width": 360,
+      "height": 360,
       "isUsedAsUserWidget": false
     },
     {
@@ -2949,8 +2949,8 @@
       "description": "Module voltage screen",
       "left": 0,
       "top": 0,
-      "width": 240,
-      "height": 240,
+      "width": 360,
+      "height": 360,
       "isUsedAsUserWidget": false
     }
   ],

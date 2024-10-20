@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -193,10 +193,10 @@
                 {
                   "type": "tab",
                   "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
-                  "name": "coolantScr",
+                  "name": "voltageScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
                     "permanent": false
                   },
                   "icon": {
@@ -219,8 +219,7 @@
                     "_owner": null
                   }
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
@@ -240,7 +239,8 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
