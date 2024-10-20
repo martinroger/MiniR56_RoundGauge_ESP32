@@ -1,7 +1,6 @@
 #include <Arduino.h>
 #include <Wire.h>
-#include <SPI.h>
-#include <TFT_eSPI.h>
+#include <ESP_Panel_Library.h>
 #include "CST816S.h"
 #include <Arduino_Helpers.h>
 #include <AH/Timing/MillisMicrosTimer.hpp>
@@ -9,7 +8,7 @@
 #include "obdHandler.h"
 
 #ifndef TFT_BL
-  #define TFT_BL 2
+  #define TFT_BL 5
 #endif
 
 #ifndef SCREEN_ID_MAIN
@@ -17,16 +16,16 @@
 #endif
 
 //Display buffer preparation
-#define TFT_HOR_RES 240
-#define TFT_VER_RES 240
+#define TFT_HOR_RES 360
+#define TFT_VER_RES 360
 #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE];
 
 // Touch initialisation
-#define TP_INT 5
-#define TP_SDA 6
-#define TP_SCL 7
-#define TP_RST 13
+#define TP_INT 4
+#define TP_SDA 1
+#define TP_SCL 3
+#define TP_RST -1
 CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
 void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 {
@@ -181,13 +180,20 @@ void setup() {
   //Touch startup
   touch.begin();
 
+  //ESP Panel
+  ESP_Panel *panel = new ESP_Panel();
+  panel->init();
+
+  panel->begin();
+
   //LV startup sequence
   lv_init();
   #if LV_USE_LOG != 0
     lv_log_register_print_cb( my_print );
   #endif
   lv_display_t * disp;
-  disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
+  disp = lv_display_create(TFT_HOR_RES,TFT_VER_RES);
+  //disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
