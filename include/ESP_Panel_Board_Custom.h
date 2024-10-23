@@ -216,7 +216,7 @@
 //////////////////////////// Please update the following macros to configure the touch panel ///////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /* Set to 1 when using an touch panel */
-#define ESP_PANEL_USE_TOUCH         (0)         // 0/1
+#define ESP_PANEL_USE_TOUCH         (1)         // 0/1
 #if ESP_PANEL_USE_TOUCH
 /**
  * Touch controller name. Choose one of the following:
@@ -248,7 +248,7 @@
 /* Touch panel bus parameters */
 #if ESP_PANEL_TOUCH_BUS_TYPE == ESP_PANEL_BUS_TYPE_I2C
 
-    #define ESP_PANEL_TOUCH_BUS_HOST_ID     (0)     // Typically set to 0
+    #define ESP_PANEL_TOUCH_BUS_HOST_ID     (1)     // Typically set to 0
     #define ESP_PANEL_TOUCH_I2C_ADDRESS     (0)     // Typically set to 0 to use the default address.
                                                     // - For touchs with only one address, set to 0
                                                     // - For touchs with multiple addresses, set to 0 or the address
@@ -291,7 +291,7 @@
                                                     // For GT911, the RST pin is also used to configure the I2C address
 #define ESP_PANEL_TOUCH_RST_LEVEL       (0)         // Active level. 0: low level, 1: high level
 /* Interrupt pin */
-#define ESP_PANEL_TOUCH_IO_INT          (-1)        // IO num of INT pin, set to -1 if not use
+#define ESP_PANEL_TOUCH_IO_INT          (4)        // IO num of INT pin, set to -1 if not use
                                                     // For GT911, the INT pin is also used to configure the I2C address
 #define ESP_PANEL_TOUCH_INT_LEVEL       (0)         // Active level. 0: low level, 1: high level
 
@@ -300,10 +300,10 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ///////////////////////////// Please update the following macros to configure the backlight ////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-#define ESP_PANEL_USE_BACKLIGHT         (1)         // 0/1
+#define ESP_PANEL_USE_BACKLIGHT         (0)         // 0/1
 #if ESP_PANEL_USE_BACKLIGHT
 /* Backlight pin */
-#define ESP_PANEL_BACKLIGHT_IO          (5)        // IO num of backlight pin
+#define ESP_PANEL_BACKLIGHT_IO          (45)        // IO num of backlight pin
 #define ESP_PANEL_BACKLIGHT_ON_LEVEL    (1)         // 0: low level, 1: high level
 
 /* Set to 1 if you want to turn off the backlight after initializing the panel; otherwise, set it to turn on */
@@ -342,8 +342,8 @@
 #if !ESP_PANEL_EXPANDER_SKIP_INIT_HOST
     #define ESP_PANEL_EXPANDER_I2C_CLK_HZ       (400 * 1000)
                                                         // Typically set to 400K
-    #define ESP_PANEL_EXPANDER_I2C_SCL_PULLUP   (1)     // 0/1
-    #define ESP_PANEL_EXPANDER_I2C_SDA_PULLUP   (1)     // 0/1
+    #define ESP_PANEL_EXPANDER_I2C_SCL_PULLUP   (0)     // 0/1
+    #define ESP_PANEL_EXPANDER_I2C_SDA_PULLUP   (0)     // 0/1
     #define ESP_PANEL_EXPANDER_I2C_IO_SCL       (10)
     #define ESP_PANEL_EXPANDER_I2C_IO_SDA       (11)
 #endif
@@ -354,7 +354,14 @@
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // #define ESP_PANEL_BEGIN_START_FUNCTION( panel )
 // #define ESP_PANEL_BEGIN_EXPANDER_START_FUNCTION( panel )
-// #define ESP_PANEL_BEGIN_EXPANDER_END_FUNCTION( panel )
+ #define ESP_PANEL_BEGIN_EXPANDER_END_FUNCTION( panel )     \
+{  \
+    _expander_ptr->pinMode(0,OUTPUT); \
+    _expander_ptr->digitalWrite(0,LOW); \
+    vTaskDelay(pdMS_TO_TICKS(30));  \
+    _expander_ptr->digitalWrite(0,HIGH); \
+    vTaskDelay(pdMS_TO_TICKS(50)); \
+}
 // #define ESP_PANEL_BEGIN_LCD_START_FUNCTION( panel )
 // #define ESP_PANEL_BEGIN_LCD_END_FUNCTION( panel )
 // #define ESP_PANEL_BEGIN_TOUCH_START_FUNCTION( panel )
