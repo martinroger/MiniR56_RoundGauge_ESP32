@@ -94,7 +94,7 @@ static lv_port_dirty_area_t dirty_area;
 
 static void flush_dirty_save(lv_port_dirty_area_t *dirty_area)
 {
-    lv_disp_t *disp = _lv_refr_get_disp_refreshing();
+    lv_display_t *disp = _lv_refr_get_disp_refreshing();
     dirty_area->inv_p = disp->inv_p;
     for (int i = 0; i < disp->inv_p; i++) {
         dirty_area->inv_area_joined[i] = disp->inv_area_joined[i];
@@ -124,7 +124,7 @@ static lv_port_flush_probe_t flush_copy_probe(lv_disp_drv_t *drv)
     static lv_port_flush_status_t prev_status = FLUSH_STATUS_PART;
     lv_port_flush_status_t cur_status;
     lv_port_flush_probe_t probe_result;
-    lv_disp_t *disp_refr = _lv_refr_get_disp_refreshing();
+    lv_display_t *disp_refr = _lv_refr_get_disp_refreshing();
 
     uint32_t flush_ver = 0;
     uint32_t flush_hor = 0;
@@ -189,10 +189,10 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
     const int offsety2 = area->y2;
     void *next_fb = NULL;
     lv_port_flush_probe_t probe_result = FLUSH_PROBE_PART_COPY;
-    lv_disp_t *disp = lv_disp_get_default();
+    lv_display_t *disp = lv_display_get_default();
 
     /* Action after last area refresh */
-    if (lv_disp_flush_is_last(drv)) {
+    if (lv_display_flush_is_last(drv)) {
         /* Check if the `full_refresh` flag has been triggered */
         if (drv->full_refresh) {
             /* Reset flag */
@@ -224,7 +224,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
                 /* Set LVGL full-refresh flag and set flush ready in advance */
                 drv->full_refresh = 1;
                 disp->rendering_in_progress = false;
-                lv_disp_flush_ready(drv);
+                lv_display_flush_ready(drv);
 
                 /* Force to refresh whole screen, and will invoke `flush_callback` recursively */
                 lv_refr_now(_lv_refr_get_disp_refreshing());
@@ -251,7 +251,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
         }
     }
 
-    lv_disp_flush_ready(drv);
+    lv_display_flush_ready(drv);
 }
 
 #else
@@ -265,7 +265,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
     const int offsety2 = area->y2;
 
     /* Action after last area refresh */
-    if (lv_disp_flush_is_last(drv)) {
+    if (lv_display_flush_is_last(drv)) {
         /* Switch the current RGB frame buffer to `color_map` */
         lcd->drawBitmap(offsetx1, offsety1, offsetx2 - offsetx1 + 1, offsety2 - offsety1 + 1, (const uint8_t *)color_map);
 
@@ -274,7 +274,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
         ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
     }
 
-    lv_disp_flush_ready(drv);
+    lv_display_flush_ready(drv);
 }
 #endif /* LVGL_PORT_ROTATION_DEGREE */
 
@@ -295,7 +295,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
     ulTaskNotifyValueClear(NULL, ULONG_MAX);
     ulTaskNotifyTake(pdTRUE, portMAX_DELAY);
 
-    lv_disp_flush_ready(drv);
+    lv_display_flush_ready(drv);
 }
 
 #elif LVGL_PORT_FULL_REFRESH && LVGL_PORT_DISP_BUFFER_NUM == 3
@@ -334,7 +334,7 @@ void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t *color
     lvgl_port_rgb_next_buf = color_map;
 #endif
 
-    lv_disp_flush_ready(drv);
+    lv_display_flush_ready(drv);
 }
 #endif
 
@@ -367,7 +367,7 @@ void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t *color
     lcd->drawBitmap(offsetx1, offsety1, offsetx2 - offsetx1 + 1, offsety2 - offsety1 + 1, (const uint8_t *)color_map);
     // For RGB LCD, directly notify LVGL that the buffer is ready
     if (lcd->getBus()->getType() == ESP_PANEL_BUS_TYPE_RGB) {
-        lv_disp_flush_ready(drv);
+        lv_display_flush_ready(drv);
     }
 }
 
@@ -379,22 +379,22 @@ static void update_callback(lv_disp_drv_t *drv)
     static bool disp_init_swap_xy = lcd->getSwapXYFlag();
 
     switch (drv->rotated) {
-    case LV_DISP_ROT_NONE:
+    case LV_DISPLAY_ROTATION_0:
         lcd->swapXY(disp_init_swap_xy);
         lcd->mirrorX(disp_init_mirror_x);
         lcd->mirrorY(disp_init_mirror_y);
         break;
-    case LV_DISP_ROT_90:
+    case LV_DISPLAY_ROTATION_90:
         lcd->swapXY(!disp_init_swap_xy);
         lcd->mirrorX(disp_init_mirror_x);
         lcd->mirrorY(!disp_init_mirror_y);
         break;
-    case LV_DISP_ROT_180:
+    case LV_DISPLAY_ROTATION_180:
         lcd->swapXY(disp_init_swap_xy);
         lcd->mirrorX(!disp_init_mirror_x);
         lcd->mirrorY(!disp_init_mirror_y);
         break;
-    case LV_DISP_ROT_270:
+    case LV_DISPLAY_ROTATION_270:
         lcd->swapXY(!disp_init_swap_xy);
         lcd->mirrorX(!disp_init_mirror_x);
         lcd->mirrorY(disp_init_mirror_y);
@@ -432,7 +432,7 @@ void rounder_callback(lv_disp_drv_t *drv, lv_area_t *area)
     }
 }
 
-static lv_disp_t *display_init(ESP_PanelLcd *lcd)
+static lv_display_t *display_init(ESP_PanelLcd *lcd)
 {
     ESP_PANEL_CHECK_FALSE_RET(lcd != nullptr, nullptr, "Invalid LCD device");
     ESP_PANEL_CHECK_FALSE_RET(lcd->getHandle() != nullptr, nullptr, "LCD device is not initialized");
@@ -599,7 +599,7 @@ bool lvgl_port_init(ESP_PanelLcd *lcd, ESP_PanelTouch *tp)
     ESP_LOGD(TAG, "Avoid tearing is enabled, mode: %d", LVGL_PORT_AVOID_TEARING_MODE);
 #endif
 
-    lv_disp_t *disp = nullptr;
+    lv_display_t *disp = nullptr;
     lv_indev_t *indev = nullptr;
 
     lv_init();
@@ -611,7 +611,7 @@ bool lvgl_port_init(ESP_PanelLcd *lcd, ESP_PanelTouch *tp)
     disp = display_init(lcd);
     ESP_PANEL_CHECK_NULL_RET(disp, false, "Initialize LVGL display driver failed");
     // Record the initial rotation of the display
-    lv_disp_set_rotation(disp, LV_DISP_ROT_NONE);
+    lv_disp_set_rotation(disp, LV_DISPLAY_ROTATION_0);
 
     // For non-RGB LCD, need to notify LVGL that the buffer is ready when the refresh is finished
     if (lcd->getBus()->getType() != ESP_PANEL_BUS_TYPE_RGB) {

@@ -17,7 +17,7 @@
  */
 #define LVGL_PORT_DISP_WIDTH                    (ESP_PANEL_LCD_WIDTH)   // The width of the display
 #define LVGL_PORT_DISP_HEIGHT                   (ESP_PANEL_LCD_HEIGHT)  // The height of the display
-#define LVGL_PORT_TICK_PERIOD_MS                (2) // The period of the LVGL tick task, in milliseconds
+#define LVGL_PORT_TICK_PERIOD_MS                (5) // The period of the LVGL tick task, in milliseconds
 
 /**
  *
