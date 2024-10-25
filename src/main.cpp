@@ -1,10 +1,10 @@
 #include <Arduino.h>
-#include <Wire.h>
-#include <ESP_Panel_Library.h>
-#include "CST816S.h"
-#include <Arduino_Helpers.h>
-#include <AH/Timing/MillisMicrosTimer.hpp>
+//#include <Arduino_Helpers.h>
+//#include <AH/Timing/MillisMicrosTimer.hpp>
+//#include "lv_conf.h"
 #include <ui.h>
+#include "lvgl_port.h"
+
 #include "obdHandler.h"
 
 #ifndef TFT_BL
@@ -16,35 +16,41 @@
 #endif
 
 //Display buffer preparation
-#define TFT_HOR_RES 360
-#define TFT_VER_RES 360
+
 #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
 uint32_t draw_buf[DRAW_BUF_SIZE];
 
 // Touch initialisation
-#define TP_INT 4
-#define TP_SDA 1
-#define TP_SCL 3
-#define TP_RST -1
-CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
-void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
-{
+// #define TP_INT 4
+// #define TP_SDA 1
+// #define TP_SCL 3
+// #define TP_RST -1
+// CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
+// void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
+// {
   
-  if(touch.available()) {
-    data->state = LV_INDEV_STATE_PRESSED;
-    data->point.x = touch.data.x;
-    data->point.y = touch.data.y;
-  }
-  else {
-    data->state = LV_INDEV_STATE_RELEASED;
-  }
-}
+//   if(touch.available()) {
+//     data->state = LV_INDEV_STATE_PRESSED;
+//     data->point.x = touch.data.x;
+//     data->point.y = touch.data.y;
+//   }
+//   else {
+//     data->state = LV_INDEV_STATE_RELEASED;
+//   }
+// }
 
 //Timers
 #define TICKS 5
-Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
-Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
-Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+//Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
+//Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
+//Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+#define DISP_VALUES_REFRESH_INTERVAL 100
+#define OBD_QUERY_REFRESH_INTERVAL 100
+
+unsigned long lastLVGLTicked = 0;
+unsigned long lastDispValuesRefreshed = 0;
+unsigned long lastOBDRequestSent = 0;
+
 
 //Ignition and key presence alerts
 bool ignitionOn   = false;  //True when ignition is on
@@ -178,26 +184,27 @@ void setup() {
   #endif
 
   //Touch startup
-  touch.begin();
+//   touch.begin();
 
   //ESP Panel
-  ESP_Panel *panel = new ESP_Panel();
-  panel->init();
+//   ESP_Panel *panel = new ESP_Panel();
+//   panel->init();
 
-  panel->begin();
+//   panel->begin();
 
   //LV startup sequence
-  lv_init();
-  #if LV_USE_LOG != 0
-    lv_log_register_print_cb( my_print );
-  #endif
-  lv_display_t * disp;
-  disp = lv_display_create(TFT_HOR_RES,TFT_VER_RES);
-  //disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
-  lv_indev_t *indev = lv_indev_create();
-  lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-  lv_indev_set_read_cb(indev,touchRead);
-  lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
+//   lv_init();
+	displayInit();
+	#if LV_USE_LOG != 0
+		lv_log_register_print_cb( my_print );
+	#endif
+//   lv_display_t * disp;
+//   disp = lv_display_create(TFT_HOR_RES,TFT_VER_RES);
+//   //disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
+//   lv_indev_t *indev = lv_indev_create();
+//   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
+//   lv_indev_set_read_cb(indev,touchRead);
+//   lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
   //Draw screens
   ui_init();
 
@@ -208,7 +215,7 @@ void setup() {
 void loop() {
 
   //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
-  if(OBDrequestDelay && canState && keyPresence) {
+  if((millis()-lastOBDRequestSent > OBD_QUERY_REFRESH_INTERVAL) && canState && keyPresence) {
     sendObdFrame(requestID);
     //Move to the next requestID... would be better to use an enum list
     switch (requestID)  {
@@ -231,6 +238,7 @@ void loop() {
         requestID = 0x05;
         break;
     }
+	lastOBDRequestSent = millis();
   }
   
   //Parse a CAN Frame if available
@@ -249,8 +257,9 @@ void loop() {
   }
 
   //Refresh the items in the UI
-  if(refreshValues) {
-    setCanState(canState);
+  if((millis()-lastDispValuesRefreshed)>DISP_VALUES_REFRESH_INTERVAL) {
+    lastDispValuesRefreshed = millis();
+	setCanState(canState);
     setIgnitionState(ignitionOn);
     setKeyPresence(keyPresence);
     
@@ -296,9 +305,10 @@ void loop() {
   }
   
   //Loop LVGL
-  if(tickerLVGL) {
-    lv_task_handler();
-    lv_tick_inc(TICKS);
+  if((millis()-lastLVGLTicked)>TICKS) {
+    lastLVGLTicked = millis();
+	lv_task_handler();
+    //lv_tick_inc(TICKS);
   }
 
   //Initial screenON
