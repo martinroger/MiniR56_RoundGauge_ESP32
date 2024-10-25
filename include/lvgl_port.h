@@ -68,6 +68,7 @@ void displayFlush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
     const int offsety1 = area->y1;
     const int offsety2 = area->y2;
 
+    lv_draw_sw_rgb565_swap(px_map,lv_area_get_size(area));
     lcd->drawBitmap(offsetx1,offsety1,(offsetx2-offsetx1+1),(offsety2-offsety1+1),(const uint8_t*)px_map);
 
     lv_display_flush_ready(disp);

@@ -2,9 +2,9 @@
 //#include <Arduino_Helpers.h>
 //#include <AH/Timing/MillisMicrosTimer.hpp>
 //#include "lv_conf.h"
-#include <ui.h>
-#include "lvgl_port.h"
 
+#include "lvgl_port.h"
+#include <ui.h>
 #include "obdHandler.h"
 
 #ifndef TFT_BL
@@ -266,41 +266,41 @@ void loop() {
     //Coolant Screen
     if(engineCoolantTemp_FR) {
     updateCoolantScr(engineCoolantTemp);
-      if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
-        engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
-        engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
-        updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
-      }
+      // if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
+      //   engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+      //   engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
+      //   updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      // }
     }
     
     //Boost Screen
     if(boostPressure_FR) {
       updateBoostScr(boostPressure);
-      if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
-        boostPressure_max = max(boostPressure_max,boostPressure);
-        boostPressure_min = min(boostPressure_min,boostPressure);
-        updateBoostMinMax(boostPressure_min,boostPressure_max);
-      }
+      // if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
+      //   boostPressure_max = max(boostPressure_max,boostPressure);
+      //   boostPressure_min = min(boostPressure_min,boostPressure);
+      //   updateBoostMinMax(boostPressure_min,boostPressure_max);
+      // }
     }
 
     //IAT Screen
     if(intakeTemp_FR) {
       updateIatScr(intakeTemp);
-      if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
-        intakeTemp_max = max(intakeTemp_max,intakeTemp);
-        intakeTemp_min = min(intakeTemp_min,intakeTemp);
-        updateIatMinMax(intakeTemp_min,intakeTemp_max);
-      }
+      // if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
+      //   intakeTemp_max = max(intakeTemp_max,intakeTemp);
+      //   intakeTemp_min = min(intakeTemp_min,intakeTemp);
+      //   updateIatMinMax(intakeTemp_min,intakeTemp_max);
+      // }
     }
 
     //Voltage Screen
     if(controlModuleVoltage_FR) {
       updateVoltageScr(controlModuleVoltage);
-      if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-        controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-        controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-        updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
-      }
+      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      // }
     }
   }
   
