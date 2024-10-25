@@ -161,17 +161,17 @@ void my_print( lv_log_level_t level, const char * buf )
 void setup() {
   
   //Initialise min-max indicators
-  engineCoolantTemp_max = -40;
-  engineCoolantTemp_min = 215;
+  // engineCoolantTemp_max = -40;
+  // engineCoolantTemp_min = 215;
 
-  boostPressure_max = -255;
-  boostPressure_min = 255;
+  // boostPressure_max = -255;
+  // boostPressure_min = 255;
 
-  intakeTemp_max = -40;
-  intakeTemp_min = 215;
+  // intakeTemp_max = -40;
+  // intakeTemp_min = 215;
 
-  controlModuleVoltage_max = 0;
-  controlModuleVoltage_min = 24000;
+  // controlModuleVoltage_max = 0;
+  // controlModuleVoltage_min = 24000;
 
   //For Debug
   Serial.begin(115200);
