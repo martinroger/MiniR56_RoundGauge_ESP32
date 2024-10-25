@@ -76,7 +76,7 @@ bool screenON = false;
 
 #ifdef TEST_GENERATOR
 void generateValues() {
-  if(millis()>20000) {
+  if(millis()>1000) {
     intakeTemp_FR             =   true;
     absBaroPressure_FR        =   true;
     intakeManifoldPressure_FR =   true;

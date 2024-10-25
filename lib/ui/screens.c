@@ -23,7 +23,7 @@ void create_screen_coolant_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.coolant_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 220, 220);
+            lv_obj_set_size(obj, 340, 340);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -40,7 +40,7 @@ void create_screen_coolant_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.coolant_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -61,7 +61,7 @@ void create_screen_coolant_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.coolant_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_value(obj, -40);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -145,8 +145,8 @@ void create_screen_coolant_scr() {
             // resetCoolantMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_coolant_min_max_area = obj;
-            lv_obj_set_pos(obj, 0, 147);
-            lv_obj_set_size(obj, 240, 93);
+            lv_obj_set_pos(obj, 60, 249);
+            lv_obj_set_size(obj, 240, 67);
             lv_obj_add_event_cb(obj, action_reset_coolant_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -223,7 +223,7 @@ void create_screen_boost_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.boost_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 220, 220);
+            lv_obj_set_size(obj, 340, 340);
             lv_arc_set_range(obj, -255, 255);
             lv_arc_set_value(obj, 255);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -240,7 +240,7 @@ void create_screen_boost_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.boost_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -255, 255);
             lv_arc_set_value(obj, 255);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -261,7 +261,7 @@ void create_screen_boost_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.boost_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -255, 255);
             lv_arc_set_value(obj, -255);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -345,8 +345,8 @@ void create_screen_boost_scr() {
             // resetBoostMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_boost_min_max_area = obj;
-            lv_obj_set_pos(obj, 0, 147);
-            lv_obj_set_size(obj, 240, 93);
+            lv_obj_set_pos(obj, 61, 256);
+            lv_obj_set_size(obj, 240, 65);
             lv_obj_add_event_cb(obj, action_reset_boost_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -423,7 +423,7 @@ void create_screen_iat_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.iat_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 220, 220);
+            lv_obj_set_size(obj, 340, 340);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -440,7 +440,7 @@ void create_screen_iat_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.iat_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -461,7 +461,7 @@ void create_screen_iat_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.iat_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, -40, 215);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
@@ -544,8 +544,8 @@ void create_screen_iat_scr() {
             // resetIatMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_iat_min_max_area = obj;
-            lv_obj_set_pos(obj, 0, 147);
-            lv_obj_set_size(obj, 240, 93);
+            lv_obj_set_pos(obj, 120, 307);
+            lv_obj_set_size(obj, 136, 33);
             lv_obj_add_event_cb(obj, action_reset_iat_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -622,7 +622,7 @@ void create_screen_voltage_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.voltage_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 220, 220);
+            lv_obj_set_size(obj, 340, 340);
             lv_arc_set_range(obj, 6000, 18000);
             lv_arc_set_value(obj, 18000);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -639,7 +639,7 @@ void create_screen_voltage_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.voltage_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, 6000, 18000);
             lv_arc_set_value(obj, 18000);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -660,7 +660,7 @@ void create_screen_voltage_scr() {
             lv_obj_t *obj = lv_arc_create(parent_obj);
             objects.voltage_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
-            lv_obj_set_size(obj, 230, 230);
+            lv_obj_set_size(obj, 350, 350);
             lv_arc_set_range(obj, 6000, 18000);
             lv_arc_set_value(obj, 6000);
             lv_arc_set_bg_start_angle(obj, 110);
@@ -744,8 +744,8 @@ void create_screen_voltage_scr() {
             // resetVoltageMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_voltage_min_max_area = obj;
-            lv_obj_set_pos(obj, 0, 147);
-            lv_obj_set_size(obj, 240, 93);
+            lv_obj_set_pos(obj, 73, 274);
+            lv_obj_set_size(obj, 216, 44);
             lv_obj_add_event_cb(obj, action_reset_voltage_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);

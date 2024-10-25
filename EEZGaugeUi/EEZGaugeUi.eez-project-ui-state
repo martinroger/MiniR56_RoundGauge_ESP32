@@ -1,6 +1,7 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/3",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/0",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -193,10 +194,10 @@
                 {
                   "type": "tab",
                   "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
-                  "name": "voltageScr",
+                  "name": "coolantScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/3",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
                     "permanent": false
                   },
                   "icon": {
@@ -939,7 +940,13 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "0": {},
+          "3": {
+            "$selected": true
+          },
+          "7": {}
+        }
       },
       "transform": {
         "translate": {
@@ -986,7 +993,13 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "2": {},
+          "3": {},
+          "7": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -1004,7 +1017,14 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "1": {},
+          "2": {},
+          "3": {},
+          "7": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -1022,7 +1042,12 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "3": {},
+          "7": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
