@@ -307,7 +307,7 @@
 #define ESP_PANEL_BACKLIGHT_ON_LEVEL    (1)         // 0: low level, 1: high level
 
 /* Set to 1 if you want to turn off the backlight after initializing the panel; otherwise, set it to turn on */
-#define ESP_PANEL_BACKLIGHT_IDLE_OFF    (0)         // 0: on, 1: off
+#define ESP_PANEL_BACKLIGHT_IDLE_OFF    (1)         // 0: on, 1: off
 
 /* Set to 1 if use PWM for brightness control */
 #define ESP_PANEL_LCD_BL_USE_PWM        (1)         // 0/1

@@ -47,10 +47,10 @@ void displayInit(void)
 
     //Buffers
     LV_ATTRIBUTE_MEM_ALIGN
-    static uint8_t buf1[TFT_HOR_RES * 10 * BYTE_PER_PIXEL];
+    static uint8_t buf1[TFT_HOR_RES * 16 * BYTE_PER_PIXEL];
 
     LV_ATTRIBUTE_MEM_ALIGN
-    static uint8_t buf2[TFT_HOR_RES * 10 * BYTE_PER_PIXEL];
+    static uint8_t buf2[TFT_HOR_RES * 16 * BYTE_PER_PIXEL];
     lv_display_set_buffers(disp,buf1,buf2,sizeof(buf1),LV_DISPLAY_RENDER_MODE_PARTIAL);
 
     //Prepare the Touch pointer
