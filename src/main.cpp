@@ -310,18 +310,20 @@ void loop() {
   }
   
   //Loop LVGL
-  if((millis()-lastLVGLTicked)>TICKS) {
-    lastLVGLTicked = millis();
-	lv_task_handler();
-    //lv_tick_inc(TICKS);
-  }
+  // if((millis()-lastLVGLTicked)>TICKS) {
+  //   lastLVGLTicked = millis();
+	// lv_task_handler();
+  //   //lv_tick_inc(TICKS);
+  // }
   //could use lv_timer_handler();
+  lv_timer_handler();
 
   //Initial screenON
   if(!screenON) {
     uint8_t tempbrightness = 0;
     while (tempbrightness<BRIGHTNESS) {
-      analogWrite(TFT_BL,tempbrightness);
+      backLight->setBrightness(tempbrightness*100/255);
+      //analogWrite(TFT_BL,tempbrightness);
       delay(3);
       tempbrightness++;
     }

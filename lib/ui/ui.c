@@ -42,6 +42,9 @@ void ui_tick() {
 #ifndef ARC_ANIMATION_TIME
     #define ARC_ANIMATION_TIME 250
 #endif
+#ifndef ANIMATE
+    #define ANIMATE 1
+#endif
 
 void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
     lv_anim_t arcAnim;
@@ -93,8 +96,16 @@ void action_reset_coolant_min_max(lv_event_t * e) {
 
 void updateCoolantMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
-        animateTargetArc(objects.coolant_scr_minarc,minValue);
-        animateTargetArc(objects.coolant_scr_maxarc,maxValue);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.coolant_scr_minarc,minValue);
+            animateTargetArc(objects.coolant_scr_maxarc,maxValue);
+        }
+        else
+        {
+            lv_arc_set_value(objects.coolant_scr_minarc,minValue);
+            lv_arc_set_value(objects.coolant_scr_maxarc,maxValue);
+        }
         lv_label_set_text_fmt(objects.coolant_scr_min,"%d",minValue);
         lv_label_set_text_fmt(objects.coolant_scr_max,"%d",maxValue);
     }
@@ -102,7 +113,15 @@ void updateCoolantMinMax(int32_t minValue, int32_t maxValue) {
 
 void updateCoolantScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
-        animateTargetArc(objects.coolant_scr_arc,value);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.coolant_scr_arc,value);
+        }
+        else
+        {
+            lv_arc_set_value(objects.coolant_scr_arc,value);
+        }
+
         lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%d",value);
     }
 }
@@ -123,8 +142,16 @@ void action_reset_boost_min_max(lv_event_t * e) {
 
 void updateBoostMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
-        animateTargetArc(objects.boost_scr_minarc,minValue);
-        animateTargetArc(objects.boost_scr_maxarc,maxValue);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.boost_scr_minarc,minValue);
+            animateTargetArc(objects.boost_scr_maxarc,maxValue);
+        }
+        else
+        {
+            lv_arc_set_value(objects.boost_scr_minarc,minValue);
+            lv_arc_set_value(objects.boost_scr_maxarc,maxValue);
+        }
         lv_label_set_text_fmt(objects.boost_scr_min,"%d",minValue);
         lv_label_set_text_fmt(objects.boost_scr_max,"%d",maxValue);
     }
@@ -132,7 +159,14 @@ void updateBoostMinMax(int32_t minValue, int32_t maxValue) {
 
 void updateBoostScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
-        animateTargetArc(objects.boost_scr_arc,value);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.boost_scr_arc,value);
+        }
+        else
+        {
+            lv_arc_set_value(objects.boost_scr_arc,value);
+        }
         lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%d",value);
     }
 }
@@ -153,8 +187,16 @@ void action_reset_iat_min_max(lv_event_t * e) {
 
 void updateIatMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
-        animateTargetArc(objects.iat_scr_minarc,minValue);
-        animateTargetArc(objects.iat_scr_maxarc,maxValue);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.iat_scr_minarc,minValue);
+            animateTargetArc(objects.iat_scr_maxarc,maxValue);
+        }
+        else
+        {
+            lv_arc_set_value(objects.iat_scr_minarc,minValue);
+            lv_arc_set_value(objects.iat_scr_maxarc,maxValue);
+        }
         lv_label_set_text_fmt(objects.iat_scr_min,"%d",minValue);
         lv_label_set_text_fmt(objects.iat_scr_max,"%d",maxValue);
     }
@@ -162,7 +204,15 @@ void updateIatMinMax(int32_t minValue, int32_t maxValue) {
 
 void updateIatScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
-        animateTargetArc(objects.iat_scr_arc,value);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.iat_scr_arc,value);            
+        }
+        else
+        {
+            lv_arc_set_value(objects.iat_scr_arc,value);
+        }
+
         lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%d",value);
     }
 }
@@ -183,8 +233,16 @@ void action_reset_voltage_min_max(lv_event_t * e) {
 
 void updateVoltageMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {
-        animateTargetArc(objects.voltage_scr_minarc,minValue);
-        animateTargetArc(objects.voltage_scr_maxarc,maxValue);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.voltage_scr_minarc,minValue);
+            animateTargetArc(objects.voltage_scr_maxarc,maxValue);
+        }
+        else
+        {
+            lv_arc_set_value(objects.voltage_scr_minarc,minValue);
+            lv_arc_set_value(objects.voltage_scr_maxarc,maxValue);
+        }
         lv_label_set_text_fmt(objects.voltage_scr_min,"%02.1f",(float)(minValue/1000.0));
         lv_label_set_text_fmt(objects.voltage_scr_max,"%02.1f",(float)(maxValue/1000.0));
     }
@@ -192,7 +250,15 @@ void updateVoltageMinMax(int32_t minValue, int32_t maxValue) {
 
 void updateVoltageScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_VOLTAGE_SCR) {
-        animateTargetArc(objects.voltage_scr_arc,value);
+        if(ANIMATE==1)
+        {
+            animateTargetArc(objects.voltage_scr_arc,value);
+        }
+        else
+        {
+            lv_arc_set_value(objects.voltage_scr_arc,value);
+        }
+        
         lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",(float)(value/1000.0));
     }
 }
