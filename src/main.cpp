@@ -3,8 +3,8 @@
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include "CST816S.h"
-#include <Arduino_Helpers.h>
-#include <AH/Timing/MillisMicrosTimer.hpp>
+// #include <Arduino_Helpers.h>
+// #include <AH/Timing/MillisMicrosTimer.hpp>
 #include <ui.h>
 #include "obdHandler.h"
 
@@ -42,10 +42,22 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 //Timers
-#define TICKS 5
-Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
-Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
-Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+#ifndef TICKS
+  #define TICKS 5
+#endif
+#ifndef VALUE_REFRESH_INTERVAL
+  #define VALUE_REFRESH_INTERVAL 100
+#endif
+#ifndef OBD_REQ_INTERVAL
+  #define OBD_REQ_INTERVAL 100
+#endif
+// Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
+// Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
+// Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+unsigned long currentMillis       =   0;
+unsigned long lastLVGL_ts         =   0;
+unsigned long lastValueRefresh_ts =   0;
+unsigned long lastOBDRequest_ts   =   0;
 
 //Ignition and key presence alerts
 bool ignitionOn   = false;  //True when ignition is on
@@ -200,9 +212,10 @@ void setup() {
 }
 
 void loop() {
-
+  currentMillis = millis();
   //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
-  if(OBDrequestDelay && canState && keyPresence) {
+  if((currentMillis-lastOBDRequest_ts>OBD_REQ_INTERVAL) && canState && keyPresence) {
+    lastOBDRequest_ts = currentMillis;
     sendObdFrame(requestID);
     //Move to the next requestID... would be better to use an enum list
     switch (requestID)  {
@@ -243,7 +256,8 @@ void loop() {
   }
 
   //Refresh the items in the UI
-  if(refreshValues) {
+  if(currentMillis-lastValueRefresh_ts>VALUE_REFRESH_INTERVAL) {
+    lastValueRefresh_ts = currentMillis;
     setCanState(canState);
     setIgnitionState(ignitionOn);
     setKeyPresence(keyPresence);
@@ -290,7 +304,8 @@ void loop() {
   }
   
   //Loop LVGL
-  if(tickerLVGL) {
+  if(currentMillis-lastLVGL_ts>=TICKS) {
+    lastLVGL_ts = currentMillis;
     lv_task_handler();
     lv_tick_inc(TICKS);
   }
