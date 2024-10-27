@@ -14,20 +14,20 @@ void ui_tick();
 
 void loadScreen(enum ScreensEnum screenId,bool animate);
 
-// void resetCoolantMinMax(int32_t value);
-// void updateCoolantMinMax(int32_t minValue, int32_t maxValue);
+void resetCoolantMinMax(int32_t value);
+void updateCoolantMinMax(int32_t minValue, int32_t maxValue);
 void updateCoolantScr(int32_t value);
 
-// void resetBoostMinMax(int32_t value);
-// void updateBoostMinMax(int32_t minValue, int32_t maxValue);
+void resetBoostMinMax(int32_t value);
+void updateBoostMinMax(int32_t minValue, int32_t maxValue);
 void updateBoostScr(int32_t value);
 
-// void resetIatMinMax(int32_t value);
-// void updateIatMinMax(int32_t minValue, int32_t maxValue);
+void resetIatMinMax(int32_t value);
+void updateIatMinMax(int32_t minValue, int32_t maxValue);
 void updateIatScr(int32_t value);
 
-// void resetVoltageMinMax(int32_t value);
-// void updateVoltageMinMax(int32_t minValue, int32_t maxValue);
+void resetVoltageMinMax(int32_t value);
+void updateVoltageMinMax(int32_t minValue, int32_t maxValue);
 void updateVoltageScr(int32_t value);
 
 void setCanState(bool canState);

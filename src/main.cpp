@@ -40,13 +40,18 @@ uint32_t draw_buf[DRAW_BUF_SIZE];
 // }
 
 //Timers
-#define TICKS 5
+#ifndef TICKS
+  #define TICKS 5
+#endif
 //Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
 //Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
 //Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
-#define DISP_VALUES_REFRESH_INTERVAL 100
-#define OBD_QUERY_REFRESH_INTERVAL 100
-
+#ifndef  DISP_VALUES_REFRESH_INTERVAL
+  #define DISP_VALUES_REFRESH_INTERVAL 100
+#endif
+#ifndef OBD_QUERY_REFRESH_INTERVAL
+  #define OBD_QUERY_REFRESH_INTERVAL 100
+#endif
 unsigned long lastLVGLTicked = 0;
 unsigned long lastDispValuesRefreshed = 0;
 unsigned long lastOBDRequestSent = 0;
@@ -161,17 +166,17 @@ void my_print( lv_log_level_t level, const char * buf )
 void setup() {
   
   //Initialise min-max indicators
-  // engineCoolantTemp_max = -40;
-  // engineCoolantTemp_min = 215;
+  engineCoolantTemp_max = -40;
+  engineCoolantTemp_min = 215;
 
-  // boostPressure_max = -255;
-  // boostPressure_min = 255;
+  boostPressure_max = -255;
+  boostPressure_min = 255;
 
-  // intakeTemp_max = -40;
-  // intakeTemp_min = 215;
+  intakeTemp_max = -40;
+  intakeTemp_min = 215;
 
-  // controlModuleVoltage_max = 0;
-  // controlModuleVoltage_min = 24000;
+  controlModuleVoltage_max = 0;
+  controlModuleVoltage_min = 24000;
 
   //For Debug
   Serial.begin(115200);
@@ -259,48 +264,48 @@ void loop() {
   //Refresh the items in the UI
   if((millis()-lastDispValuesRefreshed)>DISP_VALUES_REFRESH_INTERVAL) {
     lastDispValuesRefreshed = millis();
-	setCanState(canState);
+	  setCanState(canState);
     setIgnitionState(ignitionOn);
     setKeyPresence(keyPresence);
     
     //Coolant Screen
     if(engineCoolantTemp_FR) {
     updateCoolantScr(engineCoolantTemp);
-      // if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
-      //   engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
-      //   engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
-      //   updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
-      // }
+      if((engineCoolantTemp_min>engineCoolantTemp) || (engineCoolantTemp_max<engineCoolantTemp))  {
+        engineCoolantTemp_max = max(engineCoolantTemp_max,engineCoolantTemp);
+        engineCoolantTemp_min = min(engineCoolantTemp_min,engineCoolantTemp);
+        updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      }
     }
     
     //Boost Screen
     if(boostPressure_FR) {
       updateBoostScr(boostPressure);
-      // if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
-      //   boostPressure_max = max(boostPressure_max,boostPressure);
-      //   boostPressure_min = min(boostPressure_min,boostPressure);
-      //   updateBoostMinMax(boostPressure_min,boostPressure_max);
-      // }
+      if((boostPressure_min>boostPressure) || (boostPressure_max<boostPressure))  {
+        boostPressure_max = max(boostPressure_max,boostPressure);
+        boostPressure_min = min(boostPressure_min,boostPressure);
+        updateBoostMinMax(boostPressure_min,boostPressure_max);
+      }
     }
 
     //IAT Screen
     if(intakeTemp_FR) {
       updateIatScr(intakeTemp);
-      // if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
-      //   intakeTemp_max = max(intakeTemp_max,intakeTemp);
-      //   intakeTemp_min = min(intakeTemp_min,intakeTemp);
-      //   updateIatMinMax(intakeTemp_min,intakeTemp_max);
-      // }
+      if((intakeTemp_min>intakeTemp) || (intakeTemp_max<intakeTemp))  {
+        intakeTemp_max = max(intakeTemp_max,intakeTemp);
+        intakeTemp_min = min(intakeTemp_min,intakeTemp);
+        updateIatMinMax(intakeTemp_min,intakeTemp_max);
+      }
     }
 
     //Voltage Screen
     if(controlModuleVoltage_FR) {
       updateVoltageScr(controlModuleVoltage);
-      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
-      // }
+      if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+        controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+        controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+        updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      }
     }
   }
   
@@ -310,6 +315,7 @@ void loop() {
 	lv_task_handler();
     //lv_tick_inc(TICKS);
   }
+  //could use lv_timer_handler();
 
   //Initial screenON
   if(!screenON) {

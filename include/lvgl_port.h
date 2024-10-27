@@ -88,12 +88,4 @@ static void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
     {
         data->state = LV_INDEV_STATE_RELEASED;
     }
-//   if(touch.available()) {
-//     data->state = LV_INDEV_STATE_PRESSED;
-//     data->point.x = touch.data.x;
-//     data->point.y = touch.data.y;
-//   }
-//   else {
-//     data->state = LV_INDEV_STATE_RELEASED;
-//   }
 }
