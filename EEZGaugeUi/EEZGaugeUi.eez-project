@@ -15,8 +15,8 @@
       "extensions": [],
       "imports": [],
       "flowSupport": false,
-      "displayWidth": 360,
-      "displayHeight": 360,
+      "displayWidth": 480,
+      "displayHeight": 480,
       "circularDisplay": true,
       "displayBorderRadius": 0,
       "darkTheme": true,
@@ -587,8 +587,8 @@
             {
               "objID": "0b5f0aca-4994-4119-e189-c11f11dacd15",
               "type": "LVGLPanelWidget",
-              "left": 124,
-              "top": 249,
+              "left": 0,
+              "top": 85,
               "width": 112,
               "height": 67,
               "customInputs": [],
@@ -629,7 +629,8 @@
                   "MAIN": {
                     "DEFAULT": {
                       "bg_opa": 0,
-                      "border_opa": 0
+                      "border_opa": 0,
+                      "align": "CENTER"
                     }
                   }
                 }
@@ -847,8 +848,8 @@
       "description": "Coolant temperature screen",
       "left": 0,
       "top": 0,
-      "width": 360,
-      "height": 360,
+      "width": 480,
+      "height": 480,
       "isUsedAsUserWidget": false
     },
     {
@@ -1293,8 +1294,8 @@
             {
               "objID": "28a9aea3-b250-4979-d293-eddddb8fe57f",
               "type": "LVGLPanelWidget",
-              "left": 124,
-              "top": 256,
+              "left": 184,
+              "top": 302,
               "width": 112,
               "height": 65,
               "customInputs": [],
@@ -1539,7 +1540,14 @@
           "disabledStateType": "literal",
           "states": "",
           "localStyles": {
-            "objID": "2a0c270b-1133-c34b-0505-f319ea983264"
+            "objID": "2a0c270b-1133-c34b-0505-f319ea983264",
+            "definition": {
+              "MAIN": {
+                "DEFAULT": {
+                  "align": "CENTER"
+                }
+              }
+            }
           }
         }
       ],
@@ -1549,8 +1557,8 @@
       "description": "Boost Pressure screen",
       "left": 0,
       "top": 0,
-      "width": 360,
-      "height": 360,
+      "width": 480,
+      "height": 480,
       "isUsedAsUserWidget": false
     },
     {
@@ -1995,8 +2003,8 @@
             {
               "objID": "b2c4d917-12ca-4151-c439-7f1d1319a17d",
               "type": "LVGLPanelWidget",
-              "left": 124,
-              "top": 264,
+              "left": 0,
+              "top": 94,
               "width": 112,
               "height": 86,
               "customInputs": [],
@@ -2037,7 +2045,8 @@
                   "MAIN": {
                     "DEFAULT": {
                       "bg_opa": 0,
-                      "border_opa": 0
+                      "border_opa": 0,
+                      "align": "CENTER"
                     }
                   }
                 }
@@ -2251,8 +2260,8 @@
       "description": "Intake Air Temperature Screen",
       "left": 0,
       "top": 0,
-      "width": 360,
-      "height": 360,
+      "width": 480,
+      "height": 480,
       "isUsedAsUserWidget": false
     },
     {
@@ -2697,8 +2706,8 @@
             {
               "objID": "7668ec96-0f4e-43f7-b61f-7665c506cdde",
               "type": "LVGLPanelWidget",
-              "left": 117,
-              "top": 262,
+              "left": 0,
+              "top": 96,
               "width": 126,
               "height": 88,
               "customInputs": [],
@@ -2739,7 +2748,8 @@
                   "MAIN": {
                     "DEFAULT": {
                       "bg_opa": 0,
-                      "border_opa": 0
+                      "border_opa": 0,
+                      "align": "CENTER"
                     }
                   }
                 }
@@ -2954,8 +2964,8 @@
       "description": "Module voltage screen",
       "left": 0,
       "top": 0,
-      "width": 360,
-      "height": 360,
+      "width": 480,
+      "height": 480,
       "isUsedAsUserWidget": false
     }
   ],

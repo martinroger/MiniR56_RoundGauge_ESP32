@@ -15,7 +15,7 @@ void create_screen_coolant_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.coolant_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 360, 360);
+    lv_obj_set_size(obj, 480, 480);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -145,12 +145,13 @@ void create_screen_coolant_scr() {
             // resetCoolantMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_coolant_min_max_area = obj;
-            lv_obj_set_pos(obj, 124, 249);
+            lv_obj_set_pos(obj, 0, 85);
             lv_obj_set_size(obj, 112, 67);
             lv_obj_add_event_cb(obj, action_reset_coolant_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             // coolantScr_NAME
@@ -215,7 +216,8 @@ void create_screen_boost_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.boost_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 360, 360);
+    lv_obj_set_size(obj, 480, 480);
+    lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -345,7 +347,7 @@ void create_screen_boost_scr() {
             // resetBoostMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_boost_min_max_area = obj;
-            lv_obj_set_pos(obj, 124, 256);
+            lv_obj_set_pos(obj, 184, 302);
             lv_obj_set_size(obj, 112, 65);
             lv_obj_add_event_cb(obj, action_reset_boost_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
@@ -415,7 +417,7 @@ void create_screen_iat_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.iat_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 360, 360);
+    lv_obj_set_size(obj, 480, 480);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -544,12 +546,13 @@ void create_screen_iat_scr() {
             // resetIatMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_iat_min_max_area = obj;
-            lv_obj_set_pos(obj, 124, 264);
+            lv_obj_set_pos(obj, 0, 94);
             lv_obj_set_size(obj, 112, 86);
             lv_obj_add_event_cb(obj, action_reset_iat_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             // iatScr_NAME
@@ -614,7 +617,7 @@ void create_screen_voltage_scr() {
     lv_obj_t *obj = lv_obj_create(0);
     objects.voltage_scr = obj;
     lv_obj_set_pos(obj, 0, 0);
-    lv_obj_set_size(obj, 360, 360);
+    lv_obj_set_size(obj, 480, 480);
     {
         lv_obj_t *parent_obj = obj;
         {
@@ -744,12 +747,13 @@ void create_screen_voltage_scr() {
             // resetVoltageMinMaxArea
             lv_obj_t *obj = lv_obj_create(parent_obj);
             objects.reset_voltage_min_max_area = obj;
-            lv_obj_set_pos(obj, 117, 262);
+            lv_obj_set_pos(obj, 0, 96);
             lv_obj_set_size(obj, 126, 88);
             lv_obj_add_event_cb(obj, action_reset_voltage_min_max, LV_EVENT_PRESSED, (void *)0);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_bg_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_border_opa(obj, 0, LV_PART_MAIN | LV_STATE_DEFAULT);
+            lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
         }
         {
             // voltageScr_NAME
