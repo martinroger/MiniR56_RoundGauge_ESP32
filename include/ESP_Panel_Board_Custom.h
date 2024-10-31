@@ -97,12 +97,12 @@
 
 #elif ESP_PANEL_LCD_BUS_TYPE == ESP_PANEL_BUS_TYPE_RGB
 
-    #define ESP_PANEL_LCD_RGB_CLK_HZ            (16 * 1000 * 1000)
+    #define ESP_PANEL_LCD_RGB_CLK_HZ            (12 * 1000 * 1000)
     #define ESP_PANEL_LCD_RGB_HPW               (8)
     #define ESP_PANEL_LCD_RGB_HBP               (10)
     #define ESP_PANEL_LCD_RGB_HFP               (50)
-    #define ESP_PANEL_LCD_RGB_VPW               (3)
-    #define ESP_PANEL_LCD_RGB_VBP               (8)
+    #define ESP_PANEL_LCD_RGB_VPW               (2)
+    #define ESP_PANEL_LCD_RGB_VBP               (18)
     #define ESP_PANEL_LCD_RGB_VFP               (8)
     #define ESP_PANEL_LCD_RGB_PCLK_ACTIVE_NEG   (0)     // 0: rising edge, 1: falling edge
 
@@ -111,7 +111,7 @@
     #define ESP_PANEL_LCD_RGB_DATA_WIDTH        (16)    // |      8       |      16       |
     #define ESP_PANEL_LCD_RGB_PIXEL_BITS        (16)    // |      24      |      16       |
 
-    #define ESP_PANEL_LCD_RGB_FRAME_BUF_NUM     (2)     // 1/2/3
+    #define ESP_PANEL_LCD_RGB_FRAME_BUF_NUM     (1)     // 1/2/3
     #define ESP_PANEL_LCD_RGB_BOUNCE_BUF_SIZE   (ESP_PANEL_LCD_WIDTH*10)     // Bounce buffer size in bytes. This function is used to avoid screen drift.
                                                         // To enable the bounce buffer, set it to a non-zero value. Typically set to `ESP_PANEL_LCD_WIDTH * 10`
                                                         // The size of the Bounce Buffer must satisfy `width_of_lcd * height_of_lcd = size_of_buffer * N`,
@@ -144,10 +144,10 @@
 #endif
 
 #if !ESP_PANEL_LCD_BUS_SKIP_INIT_HOST
-    #define ESP_PANEL_LCD_3WIRE_SPI_IO_CS               (2)
+    #define ESP_PANEL_LCD_3WIRE_SPI_IO_CS               (42)
     #define ESP_PANEL_LCD_3WIRE_SPI_IO_SCK              (2)
     #define ESP_PANEL_LCD_3WIRE_SPI_IO_SDA              (1)
-    #define ESP_PANEL_LCD_3WIRE_SPI_CS_USE_EXPNADER     (1)     // 0/1
+    #define ESP_PANEL_LCD_3WIRE_SPI_CS_USE_EXPNADER     (0)     // 0/1
     #define ESP_PANEL_LCD_3WIRE_SPI_SCL_USE_EXPNADER    (0)     // 0/1
     #define ESP_PANEL_LCD_3WIRE_SPI_SDA_USE_EXPNADER    (0)     // 0/1
     #define ESP_PANEL_LCD_3WIRE_SPI_SCL_ACTIVE_EDGE     (0)     // 0: rising edge, 1: falling edge
@@ -176,47 +176,50 @@
  *   2. Formater: ESP_PANEL_LCD_CMD_WITH_8BIT_PARAM(delay_ms, command, { data0, data1, ... }) and
  *                ESP_PANEL_LCD_CMD_WITH_NONE_PARAM(delay_ms, command)
  */
-#define ESP_PANEL_LCD_VENDOR_INIT_CMD()                                                                                                 \
-    {                                                                                                                                   \
-        {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x10}, 5, 0},                                                                       \
-        {0xC0, (uint8_t []){0x3B, 0x00}, 2, 0},                                                                                         \
-        {0xC1, (uint8_t []){0x0B, 0x02}, 2, 0},                                                                                         \
-        {0xC2, (uint8_t []){0x07, 0x02}, 2, 0},                                                                                         \
-        {0xCC, (uint8_t []){0x10}, 1, 0},                                                                                               \
-        {0xCD, (uint8_t []){0x08}, 1, 0},                                                                                               \
-        {0xB0, (uint8_t []){0x00, 0x11, 0x16, 0x0E, 0x11, 0x06, 0x05, 0x09, 0x08, 0x21, 0x06, 0x13, 0x10, 0x29, 0x31, 0x18}, 16, 0},    \
-        {0xB1, (uint8_t []){0x00, 0x11, 0x16, 0x0E, 0x11, 0x07, 0x05, 0x09, 0x09, 0x21, 0x05, 0x13, 0x11, 0x2A, 0x31, 0x18}, 16, 0},    \
-        {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x11}, 5, 0},                                                                       \
-        {0xB0, (uint8_t []){0x6D}, 1, 0},                                                                                               \
-        {0xB1, (uint8_t []){0x37}, 1, 0},                                                                                               \
-        {0xB2, (uint8_t []){0x81}, 1, 0},                                                                                               \
-        {0xB3, (uint8_t []){0x80}, 1, 0},                                                                                               \
-        {0xB5, (uint8_t []){0x43}, 1, 0},                                                                                               \
-        {0xB7, (uint8_t []){0x85}, 1, 0},                                                                                               \
-        {0xB8, (uint8_t []){0x20}, 1, 0},                                                                                               \
-        {0xC1, (uint8_t []){0x78}, 1, 0},                                                                                               \
-        {0xC2, (uint8_t []){0x78}, 1, 0},                                                                                               \
-        {0xD0, (uint8_t []){0x88}, 1, 0},                                                                                               \
-        {0xE0, (uint8_t []){0x00, 0x00, 0x02}, 3, 0},                                                                                   \
-        {0xE1, (uint8_t []){0x03, 0xA0, 0x00, 0x00, 0x04, 0xA0, 0x00, 0x00, 0x00, 0x20, 0x20}, 11, 0},                                  \
-        {0xE2, (uint8_t []){0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, 13, 0},                      \
-        {0xE3, (uint8_t []){0x00, 0x00, 0x11, 0x00}, 4, 0},                                                                             \
-        {0xE4, (uint8_t []){0x22, 0x00}, 2, 0},                                                                                         \
-        {0xE5, (uint8_t []){0x05, 0xEC, 0xA0, 0xA0, 0x07, 0xEE, 0xA0, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, 16, 0},    \
-        {0xE6, (uint8_t []){0x00, 0x00, 0x11, 0x00}, 4, 0},                                                                             \
-        {0xE7, (uint8_t []){0x22, 0x00}, 2, 0},                                                                                         \
-        {0xE8, (uint8_t []){0x06, 0xED, 0xA0, 0xA0, 0x08, 0xEF, 0xA0, 0xA0, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00}, 16, 0},    \
-        {0xEB, (uint8_t []){0x00, 0x00, 0x40, 0x40, 0x00, 0x00, 0x00}, 7, 0},                                                           \
-        {0xED, (uint8_t []){0xFF, 0xFF, 0xFF, 0xBA, 0x0A, 0xBF, 0x45, 0xFF, 0xFF, 0x54, 0xFB, 0xA0, 0xAB, 0xFF, 0xFF, 0xFF}, 16, 0},    \
-        {0xEF, (uint8_t []){0x10, 0x0D, 0x04, 0x08, 0x3F, 0x1F}, 6, 0},                                                                 \
-        {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x13}, 5, 0},                                                                       \
-        {0xEF, (uint8_t []){0x08}, 1, 0},                                                                                               \
-        {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x00}, 5, 0},                                                                       \
-        {0x36, (uint8_t []){0x00}, 1, 0},                                                                                               \
-        {0x3A, (uint8_t []){0x66}, 1, 0},                                                                                               \
-        ESP_PANEL_LCD_CMD_WITH_NONE_PARAM(480, 0x11),                                                                                   \
-        ESP_PANEL_LCD_CMD_WITH_NONE_PARAM(120, 0x20),                                                                                   \
-        ESP_PANEL_LCD_CMD_WITH_NONE_PARAM(0, 0x29)                                                                                      \
+#define ESP_PANEL_LCD_VENDOR_INIT_CMD()  \
+{                                        \
+    {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x13}, 5, 0},\
+    {0xEF, (uint8_t []){0x08}, 1, 0},\
+    {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x10}, 5, 0},\
+    {0xC0, (uint8_t []){0x3B, 0x00}, 2, 0},\
+    {0xC1, (uint8_t []){0x10, 0x0C}, 2, 0},\
+    {0xC2, (uint8_t []){0x07, 0x0A}, 2, 0},\
+    {0xC7, (uint8_t []){0x00}, 1, 0},\
+    {0xCC, (uint8_t []){0x10}, 1, 0},\
+    {0xCD, (uint8_t []){0x08}, 1, 0},\
+    {0xB0, (uint8_t []){0x05, 0x12, 0x98, 0x0E, 0x0F, 0x07, 0x07, 0x09, 0x09, 0x23, 0x05, 0x52, 0x0F, 0x67, 0x2C, 0x11}, 16, 0},\
+    {0xB1, (uint8_t []){0x0B, 0x11, 0x97, 0x0C, 0x12, 0x06, 0x06, 0x08, 0x08, 0x22, 0x03, 0x51, 0x11, 0x66, 0x2B, 0x0F}, 16, 0},\
+    {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x11}, 5, 0},\
+    {0xB0, (uint8_t []){0x5D}, 1, 0},\
+    {0xB1, (uint8_t []){0x3E}, 1, 0},\
+    {0xB2, (uint8_t []){0x81}, 1, 0},\
+    {0xB3, (uint8_t []){0x80}, 1, 0},\
+    {0xB5, (uint8_t []){0x4E}, 1, 0},\
+    {0xB7, (uint8_t []){0x85}, 1, 0},\
+    {0xB8, (uint8_t []){0x20}, 1, 0},\
+    {0xC1, (uint8_t []){0x78}, 1, 0},\
+    {0xC2, (uint8_t []){0x78}, 1, 0},\
+    {0xD0, (uint8_t []){0x88}, 1, 0},\
+    {0xE0, (uint8_t []){0x00, 0x00, 0x02}, 3, 0},\
+    {0xE1, (uint8_t []){0x06, 0x30, 0x08, 0x30, 0x05, 0x30, 0x07, 0x30, 0x00, 0x33, 0x33}, 11, 0},\
+    {0xE2, (uint8_t []){0x11, 0x11, 0x33, 0x33, 0xF4, 0x00, 0x00, 0x00, 0xF4, 0x00, 0x00, 0x00}, 12, 0},\
+    {0xE3, (uint8_t []){0x00, 0x00, 0x11, 0x11}, 4, 0},\
+    {0xE4, (uint8_t []){0x44, 0x44}, 2, 0},\
+    {0xE5, (uint8_t []){0x0D, 0xF5, 0x30, 0xF0, 0x0F, 0xF7, 0x30, 0xF0, 0x09, 0xF1, 0x30, 0xF0, 0x0B, 0xF3, 0x30, 0xF0}, 16, 0},\
+    {0xE6, (uint8_t []){0x00, 0x00, 0x11, 0x11}, 4, 0},\
+    {0xE7, (uint8_t []){0x44, 0x44}, 2, 0},\
+    {0xE8, (uint8_t []){0x0C, 0xF4, 0x30, 0xF0, 0x0E, 0xF6, 0x30, 0xF0, 0x08, 0xF0, 0x30, 0xF0, 0x0A, 0xF2, 0x30, 0xF0}, 16, 0},\
+    {0xE9, (uint8_t []){0x36, 0x01}, 2, 0},\
+    {0xEB, (uint8_t []){0x00, 0x01, 0xE4, 0xE4, 0x44, 0x88, 0x40}, 7, 0},\
+    {0xED, (uint8_t []){0xFF, 0x10, 0xAF, 0x76, 0x54, 0x2B, 0xCF, 0xFF, 0xFF, 0xFC, 0xB2, 0x45, 0x67, 0xFA, 0x01, 0xFF}, 16, 0},\
+    {0xEF, (uint8_t []){0x08, 0x08, 0x08, 0x45, 0x3F, 0x54}, 6, 0},\
+    {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x00}, 5, 0},\
+    {0x11, (uint8_t []){0x00}, 0, 120},\
+    {0x3A, (uint8_t []){0x66}, 1, 0},\
+    {0x36, (uint8_t []){0x00}, 1, 0},\
+    {0x35, (uint8_t []){0x00}, 1, 0},\
+    {0x20, (uint8_t []){0x00}, 0, 120},\
+    {0x29, (uint8_t []){0x00}, 0, 0},\
     }
 
 /* LCD Color Settings */
@@ -257,7 +260,7 @@
  *      - TT21100
  *      - XPT2046
  */
-#define ESP_PANEL_TOUCH_NAME        CST816S
+#define ESP_PANEL_TOUCH_NAME        GT911
 
 /* Touch resolution in pixels */
 #define ESP_PANEL_TOUCH_H_RES       (ESP_PANEL_LCD_WIDTH)   // Typically set to the same value as the width of LCD
@@ -396,10 +399,10 @@
 // #define ESP_PANEL_BEGIN_LCD_END_FUNCTION( panel )
 #define ESP_PANEL_BEGIN_TOUCH_START_FUNCTION( panel )   \
 {  \
-    _expander_ptr->pinMode(1,OUTPUT); \
-    _expander_ptr->digitalWrite(1,LOW); \
+    _expander_ptr->pinMode(0,OUTPUT); \
+    _expander_ptr->digitalWrite(0,LOW); \
     vTaskDelay(pdMS_TO_TICKS(30));  \
-    _expander_ptr->digitalWrite(1,HIGH); \
+    _expander_ptr->digitalWrite(0,HIGH); \
     vTaskDelay(pdMS_TO_TICKS(50)); \
 }
 // #define ESP_PANEL_BEGIN_TOUCH_END_FUNCTION( panel )

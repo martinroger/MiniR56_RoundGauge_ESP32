@@ -1,7 +1,7 @@
 #include <ESP32-TWAI-CAN.hpp>
 
-#define CAN_TX 16
-#define CAN_RX 15
+#define CAN_TX 44
+#define CAN_RX 43
 
 CanFrame rxFrame = { 0 };
 
