@@ -1,6 +1,7 @@
 {
   "navigation": {
     "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/0",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -174,24 +175,13 @@
               "type": "tabset",
               "id": "EDITORS",
               "weight": 50.25,
+              "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#8556f6fc-ee16-4775-a2e9-ce35fab1fcb4",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
-                  "id": "#25ebd301-012e-4b23-bbe5-83d3611b3c09",
+                  "id": "#fe47dddc-d06a-4c25-82c2-3633f8baf2ed",
                   "name": "coolantScr",
                   "component": "editor",
                   "config": {
@@ -217,6 +207,18 @@
                     },
                     "_owner": null
                   }
+                },
+                {
+                  "type": "tab",
+                  "id": "#8556f6fc-ee16-4775-a2e9-ce35fab1fcb4",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
                 }
               ],
               "active": true
@@ -1021,7 +1023,11 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "7": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -1045,10 +1051,48 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/4[flow-state]": {
       "selection": {
-        "1": {
-          "$selected": true
+        "0": {
+          "7": {
+            "$selected": true
+          }
         }
       },
+      "transform": {
+        "translate": {
+          "x": -196.875,
+          "y": -332.24999999999983
+        },
+        "scale": 1.75
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[EEZGaugeUi.eez-project]:/userPages/5[flow-state]": {
+      "selection": {
+        "0": {
+          "11": {}
+        }
+      },
+      "transform": {
+        "translate": {
+          "x": -120,
+          "y": -120
+        },
+        "scale": 1
+      },
+      "timeline": {
+        "isEditorActive": false,
+        "position": 0,
+        "secondToPx": 200,
+        "scrollLeft": 0
+      }
+    },
+    "[EEZGaugeUi.eez-project]:/userPages/6[flow-state]": {
+      "selection": {},
       "transform": {
         "translate": {
           "x": -120,

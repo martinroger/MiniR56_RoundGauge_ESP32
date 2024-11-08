@@ -55,7 +55,7 @@ void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
 }
 
 void action_go_to_next_screen(lv_event_t * e) {
-    if(currentScreen==3) {
+    if(currentScreen==5) {
         loadScreen(1,true);
     }
     else {
@@ -74,6 +74,7 @@ void action_go_to_next_screen(lv_event_t * e) {
         case SCREEN_ID_VOLTAGE_SCR:
             updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
             break;
+        //Need to add the other screens, or move this to event-driven actions
     }
 }
 
