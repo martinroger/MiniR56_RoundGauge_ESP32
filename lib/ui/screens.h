@@ -70,6 +70,7 @@ typedef struct _objects_t {
     lv_obj_t *maf_scr_minarc;
     lv_obj_t *maf_scr_name;
     lv_obj_t *maf_scr_unit;
+    lv_obj_t *oil_tscr_arc;
     lv_obj_t *oil_tscr_can;
     lv_obj_t *oil_tscr_currentvalue;
     lv_obj_t *oil_tscr_key;
@@ -77,6 +78,7 @@ typedef struct _objects_t {
     lv_obj_t *oil_tscr_max;
     lv_obj_t *oil_tscr_maxarc;
     lv_obj_t *oil_tscr_min;
+    lv_obj_t *oil_tscr_minarc;
     lv_obj_t *oil_tscr_name;
     lv_obj_t *oil_tscr_unit;
     lv_obj_t *reset_boost_min_max_area;
@@ -85,8 +87,6 @@ typedef struct _objects_t {
     lv_obj_t *reset_iat_min_max_area;
     lv_obj_t *reset_maf_min_max_area;
     lv_obj_t *reset_oil_tmin_max_area;
-    lv_obj_t *voltage_scr_arc_3;
-    lv_obj_t *voltage_scr_minarc_3;
 } objects_t;
 
 extern objects_t objects;

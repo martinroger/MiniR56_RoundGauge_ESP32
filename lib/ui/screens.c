@@ -1018,9 +1018,9 @@ void create_screen_oil_tscr() {
     {
         lv_obj_t *parent_obj = obj;
         {
-            // voltageScr_ARC_3
+            // OilTScr_ARC
             lv_obj_t *obj = lv_arc_create(parent_obj);
-            objects.voltage_scr_arc_3 = obj;
+            objects.oil_tscr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
             lv_arc_set_range(obj, 6000, 18000);
@@ -1035,9 +1035,9 @@ void create_screen_oil_tscr() {
             lv_obj_set_style_arc_width(obj, 20, LV_PART_INDICATOR | LV_STATE_DEFAULT);
         }
         {
-            // voltageScr_MINARC_3
+            // OilTScr_MINARC
             lv_obj_t *obj = lv_arc_create(parent_obj);
-            objects.voltage_scr_minarc_3 = obj;
+            objects.oil_tscr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
             lv_arc_set_range(obj, 6000, 18000);
