@@ -6,7 +6,19 @@
 // #include <Arduino_Helpers.h>
 // #include <AH/Timing/MillisMicrosTimer.hpp>
 #include <ui.h>
-#include "obdHandler.h"
+#include "kwpDaemon.h"
+//#include "obdHandler.h"
+
+#ifndef CAN_RX
+  #define CAN_RX 15
+#endif
+#ifndef CAN_TX
+  #define CAN_TX 16
+#endif
+
+kwpDaemon moloch(0xF1,0x12);
+twai_message_t rxMessage;
+bool canState = false;
 
 #ifndef TFT_BL
   #define TFT_BL 2
@@ -57,6 +69,7 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 unsigned long currentMillis       =   0;
 unsigned long lastLVGL_ts         =   0;
 unsigned long lastValueRefresh_ts =   0;
+unsigned long lastConnected_ts    =   0;
 unsigned long lastOBDRequest_ts   =   0;
 
 //Ignition and key presence alerts
@@ -100,60 +113,65 @@ void generateValues() {
   keyPresence = ((sin((2*PI/3000)*millis()))<0);
 }
 #else
-void parseCANFrame() {
-  if(ESP32Can.readFrame(rxFrame,0)) {
-    switch (rxFrame.identifier) {
-      case OBD_RESP_ID:
-        OBD_length  = rxFrame.data[0];
-        OBD_mode    = rxFrame.data[1];
-        OBD_command = rxFrame.data[2];
-        byteA       = rxFrame.data[3];
-        byteB       = rxFrame.data[4];
-        byteC       = rxFrame.data[5];
-        byteD       = rxFrame.data[6];
-        byteE       = rxFrame.data[7];
-
-        if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
-          switch (OBD_command)  {
-            case 0x05: //Engine Coolant Temperature : engineCoolantTemp
-              engineCoolantTemp = ((int)byteA - 40);
-              engineCoolantTemp_FR = true;
-              break;
-            case 0x0B:
-              intakeManifoldPressure = (int)byteA;
-              intakeManifoldPressure_FR = true;
-              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
-              break;
-            case 0x0F :
-              intakeTemp = ((int)byteA - 40);
-              intakeTemp_FR = true;
-              break;
-            case 0x33 : 
-              absBaroPressure = (int)byteA;
-              absBaroPressure_FR = true;
-              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
-              break;
-            case 0x42 : //Control module voltage... unit is mV !
-              controlModuleVoltage = (256*(int)byteA + (int)byteB);
-              controlModuleVoltage_FR = true;
-              break;
-            default:
-              break;
-          }
-          boostPressure = intakeManifoldPressure - absBaroPressure;
-        }
-        lastConnected = millis();
-        break;
-      case 0x130: //Ignition and key detection
-        keyPresence = ((rxFrame.data[0] & 0xF0) == 0x40); //True if key present
-        ignitionOn  = ((rxFrame.data[0] & 0x0F) == 0x05); //True if ignition on
-        lastConnected = millis();
-        break;
-      default:
-        break;
-    }
-  }
+void dataUpdateCB() {
+  //Do something zith DDLI and the overall vars
 }
+
+
+// void parseCANFrame() {
+//   if(ESP32Can.readFrame(rxFrame,0)) {
+//     switch (rxFrame.identifier) {
+//       case OBD_RESP_ID:
+//         OBD_length  = rxFrame.data[0];
+//         OBD_mode    = rxFrame.data[1];
+//         OBD_command = rxFrame.data[2];
+//         byteA       = rxFrame.data[3];
+//         byteB       = rxFrame.data[4];
+//         byteC       = rxFrame.data[5];
+//         byteD       = rxFrame.data[6];
+//         byteE       = rxFrame.data[7];
+
+//         if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+//           switch (OBD_command)  {
+//             case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+//               engineCoolantTemp = ((int)byteA - 40);
+//               engineCoolantTemp_FR = true;
+//               break;
+//             case 0x0B:
+//               intakeManifoldPressure = (int)byteA;
+//               intakeManifoldPressure_FR = true;
+//               boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
+//               break;
+//             case 0x0F :
+//               intakeTemp = ((int)byteA - 40);
+//               intakeTemp_FR = true;
+//               break;
+//             case 0x33 : 
+//               absBaroPressure = (int)byteA;
+//               absBaroPressure_FR = true;
+//               boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
+//               break;
+//             case 0x42 : //Control module voltage... unit is mV !
+//               controlModuleVoltage = (256*(int)byteA + (int)byteB);
+//               controlModuleVoltage_FR = true;
+//               break;
+//             default:
+//               break;
+//           }
+//           boostPressure = intakeManifoldPressure - absBaroPressure;
+//         }
+//         lastConnected = millis();
+//         break;
+//       case 0x130: //Ignition and key detection
+//         keyPresence = ((rxFrame.data[0] & 0xF0) == 0x40); //True if key present
+//         ignitionOn  = ((rxFrame.data[0] & 0x0F) == 0x05); //True if ignition on
+//         lastConnected = millis();
+//         break;
+//       default:
+//         break;
+//     }
+//   }
+// }
 #endif
 
 #if LV_USE_LOG != 0
@@ -184,7 +202,9 @@ void setup() {
   Serial.begin(115200);
 
   //CAN start
-  canStart();
+  //canStart();
+  moloch.begin(CAN_TX,CAN_RX);
+  moloch.attachPostParseCB(dataUpdateCB);
 
   #ifdef TEST_GENERATOR
   generateValues();
@@ -214,41 +234,46 @@ void setup() {
 void loop() {
   currentMillis = millis();
   //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
-  if((currentMillis-lastOBDRequest_ts>OBD_REQ_INTERVAL) && canState && keyPresence) {
-    lastOBDRequest_ts = currentMillis;
-    sendObdFrame(requestID);
-    //Move to the next requestID... would be better to use an enum list
-    switch (requestID)  {
-      case 0x05:
-        requestID = 0x0B;
-        break;
-      case 0x0B:
-        requestID = 0x0F;
-        break;
-      case 0x0F:
-        requestID = 0x33;
-        break;
-      case 0x33:
-        requestID = 0x42;
-        break;
-      case 0x42:
-        requestID = 0x05;
-        break;
-      default:
-        requestID = 0x05;
-        break;
-    }
-  }
+  // if((currentMillis-lastOBDRequest_ts>OBD_REQ_INTERVAL) && canState && keyPresence) {
+  //   lastOBDRequest_ts = currentMillis;
+  //   sendObdFrame(requestID);
+  //   //Move to the next requestID... would be better to use an enum list
+  //   switch (requestID)  {
+  //     case 0x05:
+  //       requestID = 0x0B;
+  //       break;
+  //     case 0x0B:
+  //       requestID = 0x0F;
+  //       break;
+  //     case 0x0F:
+  //       requestID = 0x33;
+  //       break;
+  //     case 0x33:
+  //       requestID = 0x42;
+  //       break;
+  //     case 0x42:
+  //       requestID = 0x05;
+  //       break;
+  //     default:
+  //       requestID = 0x05;
+  //       break;
+  //   }
+  // }
   
   //Parse a CAN Frame if available
   #ifdef TEST_GENERATOR
   generateValues();
   #else
-  parseCANFrame();
+  // parseCANFrame();
+  while (twai_receive(&rxMessage,0)==ESP_OK) {
+    moloch.processRXCanFrame(&rxMessage);
+    lastConnected_ts = currentMillis;
+  }
+  moloch.tick(false);
   #endif
 
   //Update the canState in case of silent connection
-  if(millis()-lastConnected>2000) {
+  if(millis()-lastConnected_ts>2000) {
     canState = false;
     }
   else {
