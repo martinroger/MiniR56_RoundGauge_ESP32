@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/5",
     "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/0",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
@@ -182,10 +182,10 @@
                 {
                   "type": "tab",
                   "id": "#fe47dddc-d06a-4c25-82c2-3633f8baf2ed",
-                  "name": "coolantScr",
+                  "name": "OilTScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/5",
                     "permanent": false
                   },
                   "icon": {
@@ -1074,6 +1074,9 @@
     "[EEZGaugeUi.eez-project]:/userPages/5[flow-state]": {
       "selection": {
         "0": {
+          "1": {
+            "$selected": true
+          },
           "11": {}
         }
       },

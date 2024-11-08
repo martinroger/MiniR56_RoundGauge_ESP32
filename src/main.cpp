@@ -319,12 +319,12 @@ void loop() {
 
     //Voltage Screen
     if(controlModuleVoltage_FR) {
-      updateVoltageScr(controlModuleVoltage);
-      if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-        controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-        controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-        updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
-      }
+      // updateVoltageScr(controlModuleVoltage);
+      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      // }
     }
   }
   

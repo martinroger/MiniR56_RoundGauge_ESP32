@@ -26,9 +26,21 @@ void resetIatMinMax(int32_t value);
 void updateIatMinMax(int32_t minValue, int32_t maxValue);
 void updateIatScr(int32_t value);
 
-void resetVoltageMinMax(int32_t value);
+/*void resetVoltageMinMax(int32_t value);
 void updateVoltageMinMax(int32_t minValue, int32_t maxValue);
-void updateVoltageScr(int32_t value);
+void updateVoltageScr(int32_t value);*/
+
+void resetMAFMinMax(int32_t value);
+void updateMAFMinMax(int32_t minValue, int32_t maxValue);
+void updateMAFScr(int32_t value);
+
+void resetHPFPMinMax(int32_t value);
+void updateHPFPMinMax(int32_t minValue, int32_t maxValue);
+void updateHPFPScr(int32_t value);
+
+void resetOilTMinMax(int32_t value);
+void updateOilTMinMax(int32_t minValue, int32_t maxValue);
+void updateOilTScr(int32_t value);
 
 void setCanState(bool canState);
 void setIgnitionState(bool ignitionOn);
