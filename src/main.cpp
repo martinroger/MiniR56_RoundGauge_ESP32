@@ -286,6 +286,14 @@ void loop() {
   }
   //TODO : manage frame 0x130
   //TODO : Manage _FR booleans, currently no update (based on daemon state)
+  if(moloch.status == KWP_DAEMON_PARSED_ST) {
+    intakeTemp_FR = true;
+    engineCoolantTemp_FR = true;
+    boostPressure_FR = true;
+    MAF_FR = true;
+    HPFP_FR = true;
+    oilT_FR = true;
+  }
   moloch.tick(false);
   #endif
 
@@ -355,24 +363,24 @@ void loop() {
     }
 
     //HPFP
-    // if(controlModuleVoltage_FR) {
-      // updateVoltageScr(controlModuleVoltage);
-      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
-      // }
-    // }
+    if(HPFP_FR) {
+      updateHPFPScr(HPFP);
+      if((HPFP_min>HPFP) || (HPFP_max<HPFP))  {
+        HPFP_max = max(HPFP_max,HPFP);
+        HPFP_min = min(HPFP_min,HPFP);
+        updateHPFPMinMax(HPFP_min,HPFP_max);
+      }
+    }
 
     //OilT
-    // if(controlModuleVoltage_FR) {
-      // updateVoltageScr(controlModuleVoltage);
-      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
-      // }
-    // }
+    if(oilT_FR) {
+      updateOilTScr(oilT);
+      if((OilT_min>oilT) || (OilT_max<oilT))  {
+        OilT_max = max(OilT_max,oilT);
+        OilT_min = min(OilT_min,oilT);
+        updateOilTMinMax(OilT_min,OilT_max);
+      }
+    }
   }
   
   //Loop LVGL
