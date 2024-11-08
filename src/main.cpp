@@ -82,7 +82,10 @@ int32_t absBaroPressure;
 int32_t intakeManifoldPressure;
 int32_t boostPressure;
 int32_t engineCoolantTemp;
-int32_t controlModuleVoltage;
+int32_t MAF;
+int32_t HPFP;
+int32_t oilT;
+//int32_t controlModuleVoltage;
 #define BRIGHTNESS 215
 
 //First read flags
@@ -91,7 +94,10 @@ bool absBaroPressure_FR = false;
 bool intakeManifoldPressure_FR = false;
 bool boostPressure_FR = false;
 bool engineCoolantTemp_FR = false;
-bool controlModuleVoltage_FR = false;
+bool MAF_FR;
+bool HPFP_FR;
+bool oilT_FR;
+//bool controlModuleVoltage_FR = false;
 bool screenON = false;
 
 #ifdef TEST_GENERATOR
@@ -198,6 +204,15 @@ void setup() {
   controlModuleVoltage_max = 0;
   controlModuleVoltage_min = 24000;
 
+  MAF_max = 10;
+  MAF_min = 0;
+
+  HPFP_max = 10;
+  HPFP_min = 0;
+
+  OilT_max = 150;
+  OilT_min = 0;
+
   //For Debug
   Serial.begin(115200);
 
@@ -269,6 +284,8 @@ void loop() {
     moloch.processRXCanFrame(&rxMessage);
     lastConnected_ts = currentMillis;
   }
+  //TODO : manage frame 0x130
+  //TODO : Manage _FR booleans, currently no update (based on daemon state)
   moloch.tick(false);
   #endif
 
@@ -318,14 +335,44 @@ void loop() {
     }
 
     //Voltage Screen
-    if(controlModuleVoltage_FR) {
+    // if(controlModuleVoltage_FR) {
       // updateVoltageScr(controlModuleVoltage);
       // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
       //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
       //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
       //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
       // }
+    // }
+
+    //MAF
+    if(MAF_FR) {
+      updateMAFScr(MAF);
+      if((MAF_min>MAF) || (MAF_max<MAF))  {
+        MAF_max = max(MAF_max,MAF);
+        MAF_min = min(MAF_min,MAF);
+        updateMAFMinMax(MAF_min,MAF_max);
+      }
     }
+
+    //HPFP
+    // if(controlModuleVoltage_FR) {
+      // updateVoltageScr(controlModuleVoltage);
+      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      // }
+    // }
+
+    //OilT
+    // if(controlModuleVoltage_FR) {
+      // updateVoltageScr(controlModuleVoltage);
+      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      // }
+    // }
   }
   
   //Loop LVGL
