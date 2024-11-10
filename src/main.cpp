@@ -79,14 +79,14 @@ bool ignitionOn   = false;  //True when ignition is on
 bool keyPresence  = false;  //True when authorized key is inserted
 
 //Vehicle variables
-int32_t intakeTemp;
-int32_t absBaroPressure;
-int32_t intakeManifoldPressure;
-int32_t boostPressure;
-int32_t engineCoolantTemp;
-int32_t MAF;
-int32_t HPFP;
-int32_t oilT;
+double intakeTemp;
+double absBaroPressure;
+double intakeManifoldPressure;
+double boostPressure;
+double engineCoolantTemp;
+double MAF;
+double HPFP;
+double oilT;
 //int32_t controlModuleVoltage;
 #define BRIGHTNESS 215
 
@@ -122,13 +122,13 @@ void generateValues() {
 }
 #else
 void dataUpdateCB() {
-  engineCoolantTemp = (int32_t)((DDLI[DDLI_POS_5805_ENGINET_1]->value + DDLI[DDLI_POS_581F_ENGINET_2]->value)/2);
-  intakeManifoldPressure = (int32_t)((DDLI[DDLI_POS_58DD_BOOST]->value));
-  boostPressure = intakeManifoldPressure;
-  intakeTemp = (int32_t)(DDLI[DDLI_POS_580F_IAT]->value);
-  MAF = (int32_t)(DDLI[DDLI_POS_5ABC_MAF]->value);
-  HPFP = (int32_t)(DDLI[DDLI_POS_58F0_HPFP]->value);
-  oilT  = (int32_t)(DDLI[DDLI_POS_4402_OILT]->value);
+  engineCoolantTemp = ((DDLI[DDLI_POS_5805_ENGINET_1]->value + DDLI[DDLI_POS_581F_ENGINET_2]->value)/2);
+  intakeManifoldPressure = ((DDLI[DDLI_POS_58DD_BOOST]->value));
+  boostPressure = (intakeManifoldPressure/1000.0)-1.01315;
+  intakeTemp = (DDLI[DDLI_POS_580F_IAT]->value);
+  MAF = (DDLI[DDLI_POS_5ABC_MAF]->value);
+  HPFP = (DDLI[DDLI_POS_58F0_HPFP]->value);
+  oilT  = (DDLI[DDLI_POS_4402_OILT]->value);
   //Do something zith DDLI and the overall vars
 }
 
@@ -201,26 +201,26 @@ void my_print( lv_log_level_t level, const char * buf )
 void setup() {
   
   //Initialise min-max indicators
-  engineCoolantTemp_max = -40;
-  engineCoolantTemp_min = 215;
+  // engineCoolantTemp_max = -40;
+  // engineCoolantTemp_min = 215;
 
-  boostPressure_max = -255;
-  boostPressure_min = 255;
+  // boostPressure_max = -0;
+  // boostPressure_min = 0;
 
-  intakeTemp_max = -40;
-  intakeTemp_min = 215;
+  // intakeTemp_max = -40;
+  // intakeTemp_min = 215;
 
-  controlModuleVoltage_max = 0;
-  controlModuleVoltage_min = 24000;
+  // controlModuleVoltage_max = 0;
+  // controlModuleVoltage_min = 24000;
 
-  MAF_max = 10;
-  MAF_min = 0;
+  // MAF_max = 10;
+  // MAF_min = 0;
 
-  HPFP_max = 10;
-  HPFP_min = 0;
+  // HPFP_max = 10;
+  // HPFP_min = 0;
 
-  OilT_max = 150;
-  OilT_min = 0;
+  // OilT_max = 150;
+  // OilT_min = 0;
 
   //For Debug
   Serial.begin(115200);
@@ -247,7 +247,7 @@ void setup() {
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
-  lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
+  //lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
   //Draw screens
   ui_init();
 
@@ -292,16 +292,50 @@ void loop() {
   while (twai_receive(&rxMessage,0)==ESP_OK) {
     moloch.processRXCanFrame(&rxMessage);
     lastConnected_ts = currentMillis;
+    if(rxMessage.identifier == 0x130) {
+      keyPresence = ((rxMessage.data[0] & 0xF0) == 0x40); //True if key present
+      ignitionOn  = ((rxMessage.data[0] & 0x0F) == 0x05); //True if ignition on
+    }
   }
   //TODO : manage frame 0x130
   //TODO : Manage _FR booleans, currently no update (based on daemon state)
   if(moloch.status == KWP_DAEMON_PARSED_ST) {
-    intakeTemp_FR = true;
-    engineCoolantTemp_FR = true;
-    boostPressure_FR = true;
-    MAF_FR = true;
-    HPFP_FR = true;
-    oilT_FR = true;
+    if(!intakeTemp_FR) {
+      intakeTemp_max = intakeTemp;
+      intakeTemp_min = intakeTemp;
+      updateIatMinMax(intakeTemp_min,intakeTemp_max);
+      intakeTemp_FR = true;
+    }
+    if(!engineCoolantTemp_FR) {
+      engineCoolantTemp_max = engineCoolantTemp;
+      engineCoolantTemp_min = engineCoolantTemp;
+      updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      engineCoolantTemp_FR = true;
+    }
+    if(!boostPressure_FR) {
+      boostPressure_max = boostPressure;
+      boostPressure_min = boostPressure;
+      updateBoostMinMax(boostPressure_min,boostPressure_max);
+      boostPressure_FR = true;
+    }
+    if(!MAF_FR) {
+      MAF_max = MAF;
+      MAF_min = MAF;
+      updateMAFMinMax(MAF_min,MAF_max);
+      MAF_FR = true;
+    }
+    if(!HPFP_FR) {
+      HPFP_max = HPFP;
+      HPFP_min = HPFP;
+      updateHPFPMinMax(HPFP_min,HPFP_max);
+      HPFP_FR = true;
+    }
+    if(!oilT_FR) {
+      OilT_max = oilT;
+      OilT_min = oilT;
+      updateOilTMinMax(OilT_min,OilT_max);
+      oilT_FR = true;
+    }
   }
   moloch.tick(false);
   #endif

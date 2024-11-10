@@ -1,22 +1,22 @@
 #include "vars.h"
 
-int32_t engineCoolantTemp_max = 0;
-int32_t engineCoolantTemp_min = 0;
+double engineCoolantTemp_max = 0;
+double engineCoolantTemp_min = 0;
 
-int32_t boostPressure_max = 0;
-int32_t boostPressure_min = 0;
+double boostPressure_max = 0;
+double boostPressure_min = 0;
 
-int32_t intakeTemp_max = 0;
-int32_t intakeTemp_min = 0;
+double intakeTemp_max = 0;
+double intakeTemp_min = 0;
 
-int32_t controlModuleVoltage_max = 0;
-int32_t controlModuleVoltage_min = 0;
+double controlModuleVoltage_max = 0;
+double controlModuleVoltage_min = 0;
 
-int32_t MAF_max = 0;
-int32_t MAF_min = 0;
+double MAF_max = 0;
+double MAF_min = 0;
 
-int32_t HPFP_max = 0;
-int32_t HPFP_min = 0;
+double HPFP_max = 0;
+double HPFP_min = 0;
 
-int32_t OilT_max = 0;
-int32_t OilT_min = 0;
+double OilT_max = 0;
+double OilT_min = 0;

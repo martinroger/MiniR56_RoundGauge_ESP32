@@ -1,6 +1,6 @@
 {
   "navigation": {
-    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/5",
+    "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/2",
     "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/0",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/2",
     "subnavigationSelectedItems": {
@@ -103,7 +103,7 @@
             {
               "type": "row",
               "id": "#db836514-ffcf-478b-bf11-2e9f72e5dd69",
-              "weight": 25.5,
+              "weight": 13.260941370767961,
               "children": [
                 {
                   "type": "tabset",
@@ -174,7 +174,7 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 50.25,
+              "weight": 62.48905862923204,
               "selected": 1,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
@@ -182,10 +182,10 @@
                 {
                   "type": "tab",
                   "id": "#fe47dddc-d06a-4c25-82c2-3633f8baf2ed",
-                  "name": "OilTScr",
+                  "name": "iatScr",
                   "component": "editor",
                   "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/5",
+                    "objectPath": "[EEZGaugeUi.eez-project]:/userPages/2",
                     "permanent": false
                   },
                   "icon": {
@@ -940,7 +940,11 @@
   "objects": {
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "0": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -987,7 +991,11 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/1[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "2": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -1005,7 +1013,12 @@
     },
     "[EEZGaugeUi.eez-project]:/userPages/2[flow-state]": {
       "selection": {
-        "0": {}
+        "0": {
+          "2": {},
+          "7": {
+            "$selected": true
+          }
+        }
       },
       "transform": {
         "translate": {
@@ -1024,6 +1037,8 @@
     "[EEZGaugeUi.eez-project]:/userPages/3[flow-state]": {
       "selection": {
         "0": {
+          "0": {},
+          "2": {},
           "7": {
             "$selected": true
           }
@@ -1052,6 +1067,8 @@
     "[EEZGaugeUi.eez-project]:/userPages/4[flow-state]": {
       "selection": {
         "0": {
+          "0": {},
+          "2": {},
           "7": {
             "$selected": true
           }
@@ -1059,10 +1076,10 @@
       },
       "transform": {
         "translate": {
-          "x": -196.875,
-          "y": -332.24999999999983
+          "x": -233.7678571428571,
+          "y": -104.60714285714273
         },
-        "scale": 1.75
+        "scale": 1.25
       },
       "timeline": {
         "isEditorActive": false,
@@ -1074,7 +1091,9 @@
     "[EEZGaugeUi.eez-project]:/userPages/5[flow-state]": {
       "selection": {
         "0": {
-          "1": {
+          "1": {},
+          "2": {},
+          "7": {
             "$selected": true
           },
           "11": {}
