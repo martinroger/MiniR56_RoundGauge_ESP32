@@ -274,7 +274,7 @@ void resetOilTMinMax(int32_t value) {
     OilT_min = value;
 }
 
-void resetOilTMinMax(lv_event_t *e) {
+void action_reset_oil_tmin_max(lv_event_t *e) {
     resetOilTMinMax(lv_arc_get_value(objects.oil_tscr_arc));
 }
 

@@ -120,6 +120,13 @@ void generateValues() {
 }
 #else
 void dataUpdateCB() {
+  engineCoolantTemp = (int32_t)((DDLI[DDLI_POS_5805_ENGINET_1]->value + DDLI[DDLI_POS_581F_ENGINET_2]->value)/2);
+  intakeManifoldPressure = (int32_t)((DDLI[DDLI_POS_58DD_BOOST]->value));
+  boostPressure = intakeManifoldPressure;
+  intakeTemp = (int32_t)(DDLI[DDLI_POS_580F_IAT]->value);
+  MAF = (int32_t)(DDLI[DDLI_POS_5ABC_MAF]->value);
+  HPFP = (int32_t)(DDLI[DDLI_POS_58F0_HPFP]->value);
+  oilT  = (int32_t)(DDLI[DDLI_POS_4402_OILT]->value);
   //Do something zith DDLI and the overall vars
 }
 

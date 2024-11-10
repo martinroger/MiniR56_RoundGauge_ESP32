@@ -463,6 +463,7 @@ void create_screen_iat_scr() {
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
             lv_arc_set_range(obj, -40, 215);
+            lv_arc_set_value(obj, -40);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -623,8 +624,8 @@ void create_screen_maf_scr() {
             objects.maf_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, 0, 10);
+            lv_arc_set_value(obj, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -640,8 +641,8 @@ void create_screen_maf_scr() {
             objects.maf_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, 0, 10);
+            lv_arc_set_value(obj, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -661,8 +662,7 @@ void create_screen_maf_scr() {
             objects.maf_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 6000);
+            lv_arc_set_range(obj, 0, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -823,8 +823,8 @@ void create_screen_hpfp_scr() {
             objects.hpfp_scr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, 0, 10);
+            lv_arc_set_value(obj, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -840,8 +840,8 @@ void create_screen_hpfp_scr() {
             objects.hpfp_scr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, 0, 10);
+            lv_arc_set_value(obj, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -861,8 +861,7 @@ void create_screen_hpfp_scr() {
             objects.hpfp_scr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 6000);
+            lv_arc_set_range(obj, 0, 10);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -1023,8 +1022,8 @@ void create_screen_oil_tscr() {
             objects.oil_tscr_arc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 220, 220);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, -40, 215);
+            lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -1040,8 +1039,8 @@ void create_screen_oil_tscr() {
             objects.oil_tscr_minarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 18000);
+            lv_arc_set_range(obj, -40, 215);
+            lv_arc_set_value(obj, 215);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -1061,8 +1060,8 @@ void create_screen_oil_tscr() {
             objects.oil_tscr_maxarc = obj;
             lv_obj_set_pos(obj, 0, 0);
             lv_obj_set_size(obj, 230, 230);
-            lv_arc_set_range(obj, 6000, 18000);
-            lv_arc_set_value(obj, 6000);
+            lv_arc_set_range(obj, -40, 215);
+            lv_arc_set_value(obj, -40);
             lv_arc_set_bg_start_angle(obj, 110);
             lv_arc_set_bg_end_angle(obj, 70);
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICKABLE|LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_PRESS_LOCK|LV_OBJ_FLAG_SNAPPABLE);
@@ -1157,7 +1156,7 @@ void create_screen_oil_tscr() {
             objects.oil_tscr_name = obj;
             lv_obj_set_pos(obj, 0, 75);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "BATTERY");
+            lv_label_set_text(obj, "OIL");
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_color(obj, lv_color_hex(0xffffffff), LV_PART_MAIN | LV_STATE_DEFAULT);
@@ -1170,7 +1169,7 @@ void create_screen_oil_tscr() {
             objects.oil_tscr_unit = obj;
             lv_obj_set_pos(obj, 0, 100);
             lv_obj_set_size(obj, LV_SIZE_CONTENT, LV_SIZE_CONTENT);
-            lv_label_set_text(obj, "VOLT");
+            lv_label_set_text(obj, "degC");
             lv_obj_clear_flag(obj, LV_OBJ_FLAG_CLICK_FOCUSABLE|LV_OBJ_FLAG_GESTURE_BUBBLE|LV_OBJ_FLAG_SCROLLABLE|LV_OBJ_FLAG_SCROLL_CHAIN_HOR|LV_OBJ_FLAG_SCROLL_CHAIN_VER|LV_OBJ_FLAG_SCROLL_ELASTIC|LV_OBJ_FLAG_SCROLL_MOMENTUM|LV_OBJ_FLAG_SNAPPABLE);
             lv_obj_set_style_align(obj, LV_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
             lv_obj_set_style_text_align(obj, LV_TEXT_ALIGN_CENTER, LV_PART_MAIN | LV_STATE_DEFAULT);
