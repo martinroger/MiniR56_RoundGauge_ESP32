@@ -224,15 +224,15 @@ void updateMAFMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_MAF_SCR) {
         animateTargetArc(objects.maf_scr_minarc,minValue);
         animateTargetArc(objects.maf_scr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.maf_scr_min,"%02.1f",(float)(minValue/1000.0));
-        lv_label_set_text_fmt(objects.maf_scr_max,"%02.1f",(float)(maxValue/1000.0));
+        lv_label_set_text_fmt(objects.maf_scr_min,"%02.1f",(float)(minValue));
+        lv_label_set_text_fmt(objects.maf_scr_max,"%02.1f",(float)(maxValue));
     } 
 }
 
 void updateMAFScr(int32_t value){
     if(currentScreen + 1 == SCREEN_ID_MAF_SCR) {
         animateTargetArc(objects.maf_scr_arc,value);
-        lv_label_set_text_fmt(objects.maf_scr_currentvalue,"%02.1f",(float)(value/1000.0));
+        lv_label_set_text_fmt(objects.maf_scr_currentvalue,"%02.1f",(float)(value));
     }
 }
 
@@ -253,15 +253,15 @@ void updateHPFPMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_HPFP_SCR) {
         animateTargetArc(objects.hpfp_scr_minarc,minValue);
         animateTargetArc(objects.hpfp_scr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.hpfp_scr_min,"%02.1f",(float)(minValue/1000.0));
-        lv_label_set_text_fmt(objects.hpfp_scr_max,"%02.1f",(float)(maxValue/1000.0));
+        lv_label_set_text_fmt(objects.hpfp_scr_min,"%02.1f",(float)(minValue));
+        lv_label_set_text_fmt(objects.hpfp_scr_max,"%02.1f",(float)(maxValue));
     } 
 }
 
 void updateHPFPScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_HPFP_SCR) {
         animateTargetArc(objects.hpfp_scr_arc,value);
-        lv_label_set_text_fmt(objects.hpfp_scr_currentvalue,"%02.1f",(float)(value/1000.0));
+        lv_label_set_text_fmt(objects.hpfp_scr_currentvalue,"%02.1f",(float)(value));
     }
 }
 
@@ -282,15 +282,15 @@ void updateOilTMinMax(int32_t minValue, int32_t maxValue) {
     if(currentScreen + 1 == SCREEN_ID_OIL_TSCR) {
         animateTargetArc(objects.oil_tscr_minarc,minValue);
         animateTargetArc(objects.oil_tscr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.oil_tscr_min,"%02.1f",(float)(minValue/1000.0));
-        lv_label_set_text_fmt(objects.oil_tscr_max,"%02.1f",(float)(maxValue/1000.0));
+        lv_label_set_text_fmt(objects.oil_tscr_min,"%d",minValue);
+        lv_label_set_text_fmt(objects.oil_tscr_max,"%d",maxValue);
     } 
 }
 
 void updateOilTScr(int32_t value) {
     if(currentScreen + 1 == SCREEN_ID_OIL_TSCR) {
         animateTargetArc(objects.oil_tscr_arc,value);
-        lv_label_set_text_fmt(objects.oil_tscr_currentvalue,"%02.1f",(float)(value/1000.0));
+        lv_label_set_text_fmt(objects.oil_tscr_currentvalue,"%d",value);
     }
 }
 

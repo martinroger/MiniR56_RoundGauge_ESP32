@@ -1,3 +1,11 @@
+#ifndef CAN_RX
+  #define CAN_RX 15
+#endif
+#ifndef CAN_TX
+  #define CAN_TX 16
+#endif
+
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
@@ -9,12 +17,6 @@
 #include "kwpDaemon.h"
 //#include "obdHandler.h"
 
-#ifndef CAN_RX
-  #define CAN_RX 15
-#endif
-#ifndef CAN_TX
-  #define CAN_TX 16
-#endif
 
 kwpDaemon moloch(0xF1,0x12);
 twai_message_t rxMessage;
