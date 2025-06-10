@@ -1,9 +1,11 @@
+// #include "superdefines.h"
 #include <Arduino.h>
+#include "esp32_smartdisplay.h"
 // #include <Arduino_Helpers.h>
 // #include <AH/Timing/MillisMicrosTimer.hpp>
 // #include "lv_conf.h"
 
-#include "lvgl_port.h"
+// #include "lvgl_port.h"
 #include <ui.h>
 
 #ifndef TFT_BL
@@ -16,8 +18,8 @@
 
 // Display buffer preparation
 
-#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
-uint32_t draw_buf[DRAW_BUF_SIZE];
+// #define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
+// uint32_t draw_buf[DRAW_BUF_SIZE];
 
 // Touch initialisation
 // #define TP_INT 4
@@ -96,21 +98,22 @@ void generateValues()
     airbagOn = (millis() / 1382) % 2 == 0;
 }
 
-#if LV_USE_LOG != 0
-void my_print(lv_log_level_t level, const char *buf)
-{
-    LV_UNUSED(level);
-    Serial.println(buf);
-    Serial.flush();
-}
-#endif
+// #if LV_USE_LOG != 0
+// void my_print(lv_log_level_t level, const char *buf)
+// {
+//     LV_UNUSED(level);
+//     Serial.println(buf);
+//     Serial.flush();
+// }
+// #endif
 
 void setup()
 {
 
     // For Debug
     Serial.begin(115200);
-
+    smartdisplay_init();
+    auto display = lv_display_get_default();
     generateValues();
 
     // Touch startup
@@ -124,10 +127,10 @@ void setup()
 
     // LV startup sequence
     //   lv_init();
-    displayInit();
-#if LV_USE_LOG != 0
-    lv_log_register_print_cb(my_print);
-#endif
+//     displayInit();
+// #if LV_USE_LOG != 0
+//     lv_log_register_print_cb(my_print);
+// #endif
     //   lv_display_t * disp;
     //   disp = lv_display_create(TFT_HOR_RES,TFT_VER_RES);
     //   //disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
@@ -141,6 +144,8 @@ void setup()
     // Debug
     Serial.println("Setup done");
 }
+
+auto lv_last_tick = millis();
 
 void loop()
 {
@@ -243,20 +248,25 @@ void loop()
 
         // Update shit here
     }
-    lv_timer_handler();
+    // lv_timer_handler();
 
-    // Initial screenON
-    if (!screenON)
-    {
-        uint8_t tempbrightness = 0;
-        while (tempbrightness < BRIGHTNESS)
-        {
-            backLight->setBrightness(tempbrightness * 100 / 255);
-            // analogWrite(TFT_BL,tempbrightness);
-            delay(3);
-            tempbrightness++;
-        }
-        // analogWrite(TFT_BL,BRIGHTNESS);
-        screenON = true;
-    }
+    // // Initial screenON
+    // if (!screenON)
+    // {
+    //     uint8_t tempbrightness = 0;
+    //     while (tempbrightness < BRIGHTNESS)
+    //     {
+    //         backLight->setBrightness(tempbrightness * 100 / 255);
+    //         // analogWrite(TFT_BL,tempbrightness);
+    //         delay(3);
+    //         tempbrightness++;
+    //     }
+    //     // analogWrite(TFT_BL,BRIGHTNESS);
+    //     screenON = true;
+    // }
+
+    auto const now = millis();
+    lv_tick_inc(now-lv_last_tick);
+    lv_last_tick = now;
+    lv_timer_handler();
 }
