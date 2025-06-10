@@ -80,20 +80,20 @@ bool screenON = false;
 void generateValues()
 {
     speed = 120 + 120 * sin((float)millis() / 5000.0);
-    rpm = 3500 + 3500 * sin((float)millis() / 10000.0);
+    rpm = 100*(uint8_t)((3500 + 3500 * sin((float)millis() / 10000.0))/100);
     fuelLevel = 50 + 50 * sin((float)millis() / 15000.0);
     coolant = 88 + 12 * sin((float)millis() / 20000.0);
-    indicatorsOn = (millis() / 1000) % 2 == 0;
-    highBeamOn = random(0, 100) > 80;
+    indicatorsOn = (millis() / 800) % 2 == 0;
+    highBeamOn = (millis() / 1100) % 2 == 0;
     lowFuelOn = fuelLevel < 20;
     overTemperatureOn = coolant > 95;
-    brakesOn = random(0, 100) > 80;
-    absOn = random(0, 100) > 80;
-    lowCoolantOn = random(0, 100) > 80;
-    batteryOn = random(0, 100) > 80;
-    lowOilOn = random(0, 100) > 80;
-    milOn = random(0, 100) > 80;
-    airbagOn = random(0, 100) > 80;
+    brakesOn = (millis() / 1200) % 2 == 0;
+    absOn = (millis() / 1250) % 2 == 0;
+    lowCoolantOn = (millis() / 1300) % 2 == 0;
+    batteryOn = (millis() / 1400) % 2 == 0;
+    lowOilOn = (millis() / 1425) % 2 == 0;
+    milOn = (millis() / 1500) % 2 == 0;
+    airbagOn = (millis() / 1382) % 2 == 0;
 }
 
 #if LV_USE_LOG != 0
@@ -153,25 +153,25 @@ void loop()
         lastDispValuesRefreshed = millis();
         if (p_speed != speed)
         {
-            // lv_arc_set_value(objects.speed_arc,speed);
+            lv_arc_set_value(objects.speed_arc,speed);
             lv_label_set_text_fmt(objects.speed, "%03d", speed);
             p_speed = speed;
         }
         if (p_rpm != rpm)
         {
-            // lv_arc_set_value(objects.rpm_arc,rpm);
+            lv_arc_set_value(objects.rpm_arc,rpm);
             lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
             p_rpm = rpm;
         }
         if (p_fuelLevel != fuelLevel)
         {
-            // lv_bar_set_value(objects.fuel_bar,fuelLevel,LV_ANIM_OFF);
+            lv_bar_set_value(objects.fuel_bar,fuelLevel,LV_ANIM_OFF);
             lv_label_set_text_fmt(objects.fuel_level, "%03d", fuelLevel);
             p_fuelLevel = fuelLevel;
         }
         if (p_coolant != coolant)
         {
-            // lv_bar_set_value(objects.coolant_bar,coolant,LV_ANIM_OFF);
+            lv_bar_set_value(objects.coolant_bar,coolant,LV_ANIM_OFF);
             lv_label_set_text_fmt(objects.coolant, "%03d", coolant);
             p_coolant = coolant;
         }
