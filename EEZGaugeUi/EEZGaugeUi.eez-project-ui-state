@@ -1,7 +1,6 @@
 {
   "navigation": {
     "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
-    "selectedActionObject": "[EEZGaugeUi.eez-project]:/actions/-1",
     "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/5",
     "selectedBitmapObject": "[EEZGaugeUi.eez-project]:/bitmaps/1",
     "subnavigationSelectedItems": {
@@ -10,7 +9,7 @@
   },
   "layoutModel": {
     "rootEditor": {
-      "version": 115,
+      "version": 113,
       "json": {
         "global": {
           "splitterSize": 4,
@@ -52,28 +51,12 @@
                 "component": "bitmaps",
                 "enableClose": false,
                 "icon": "material:image"
-              },
-              {
-                "type": "tab",
-                "id": "themes",
-                "name": "Themes",
-                "component": "themesSideView",
-                "enableClose": false,
-                "icon": "svg:palette"
-              },
-              {
-                "type": "tab",
-                "id": "lvgl-groups",
-                "name": "Groups",
-                "component": "lvgl-groups",
-                "enableClose": false,
-                "icon": "material:view_compact"
               }
             ]
           },
           {
             "type": "border",
-            "selected": 0,
+            "selected": 1,
             "location": "bottom",
             "children": [
               {
@@ -115,16 +98,16 @@
         ],
         "layout": {
           "type": "row",
-          "id": "#d3813f75-2b84-4189-ac27-64c56ba420aa",
+          "id": "#ab07669d-1f30-4fa0-a765-eb3180365211",
           "children": [
             {
               "type": "row",
-              "id": "#115ca269-a0b4-4568-9351-04c7eafb3a01",
-              "weight": 25.408637873754152,
+              "id": "#eccbecf8-aa1f-4528-af91-0f1cc63f1b38",
+              "weight": 20,
               "children": [
                 {
                   "type": "tabset",
-                  "id": "#7d5a2894-8cfe-4ffe-863c-d536a2b6d71b",
+                  "id": "#53c32bdd-5fed-4bb4-9475-ab1c900551e7",
                   "weight": 1,
                   "enableClose": false,
                   "children": [
@@ -156,13 +139,13 @@
                 },
                 {
                   "type": "tabset",
-                  "id": "#180b1196-a2fe-4194-94e2-08b959e0db9e",
-                  "weight": 1.6529680365296804,
+                  "id": "#839e81b2-fb13-4583-a5ea-34070f171b56",
+                  "weight": 1,
                   "enableClose": false,
                   "children": [
                     {
                       "type": "tab",
-                      "id": "#f5eb4409-bd21-4e91-bee5-d2fcbdfff6cc",
+                      "id": "#db874dcb-6928-40df-85b1-0eec293b7f4c",
                       "name": "Widgets Structure",
                       "component": "flow-structure",
                       "enableClose": false,
@@ -172,8 +155,8 @@
                 },
                 {
                   "type": "tabset",
-                  "id": "#bfcd432b-bb42-43cd-b336-1d7c3bf53835",
-                  "weight": 0.3470319634703196,
+                  "id": "#b9cc4711-a215-4b5c-8eca-60606efe6865",
+                  "weight": 1,
                   "enableClose": false,
                   "children": [
                     {
@@ -191,45 +174,49 @@
             {
               "type": "tabset",
               "id": "EDITORS",
-              "weight": 52.36813378072143,
-              "selected": 1,
+              "weight": 60,
               "enableDeleteWhenEmpty": false,
               "enableClose": false,
               "children": [
                 {
                   "type": "tab",
-                  "id": "#372b5882-c018-47c2-8c79-66a6f56dbe48",
-                  "name": "Settings",
-                  "component": "editor",
-                  "config": {
-                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
-                    "permanent": false
-                  },
-                  "icon": "material:settings"
-                },
-                {
-                  "type": "tab",
-                  "id": "#0ad3e65c-b99b-41b8-9747-a9918172c8b2",
+                  "id": "#c4353bed-6a74-44d7-a493-485b0493977a",
                   "name": "mainScr",
                   "component": "editor",
                   "config": {
                     "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
-                    "permanent": false
+                    "permanent": true
                   },
-                  "icon": "svg:page"
+                  "icon": {
+                    "type": "svg",
+                    "key": null,
+                    "ref": null,
+                    "props": {
+                      "viewBox": "0 96 960 960",
+                      "fill": "currentColor",
+                      "children": {
+                        "type": "path",
+                        "key": null,
+                        "ref": null,
+                        "props": {
+                          "d": "M343 636h225v-60H343v60Zm0-90h395v-60H343v60Zm0-90h395v-60H343v60Zm-83 400q-24 0-42-18t-18-42V236q0-24 18-42t42-18h560q24 0 42 18t18 42v560q0 24-18 42t-42 18H260Zm0-60h560V236H260v560ZM140 976q-24 0-42-18t-18-42V296h60v620h620v60H140Zm120-740v560-560Z"
+                        },
+                        "_owner": null
+                      }
+                    },
+                    "_owner": null
+                  }
                 }
-              ],
-              "active": true
+              ]
             },
             {
               "type": "row",
-              "id": "#d412434a-359b-4e3f-9a0f-ccb92d650a1e",
-              "weight": 22.223228345524426,
+              "id": "#b7afd430-c89f-4ef7-a741-4b6953efe80b",
+              "weight": 25,
               "children": [
                 {
                   "type": "tabset",
-                  "id": "#4048ea8e-a600-4d1d-89c8-c750337cc57c",
+                  "id": "#cc266b72-636c-4c33-b2a4-e1371c37dbd5",
                   "weight": 2,
                   "children": [
                     {
@@ -240,11 +227,12 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ]
+                  ],
+                  "active": true
                 },
                 {
                   "type": "tabset",
-                  "id": "#8e07b8c4-2945-4e89-942f-574fcf44d781",
+                  "id": "#5b24760a-842f-4fa2-b074-4d63a738a648",
                   "weight": 1,
                   "children": [
                     {
@@ -933,66 +921,6 @@
           ]
         }
       }
-    },
-    "lvglGroups": {
-      "version": 3,
-      "json": {
-        "global": {
-          "splitterSize": 4,
-          "splitterExtra": 4,
-          "tabEnableRename": false,
-          "borderEnableAutoHide": true
-        },
-        "borders": [],
-        "layout": {
-          "type": "row",
-          "id": "#fc266e48-0e7f-4631-9e56-3a495279a7e5",
-          "children": [
-            {
-              "type": "row",
-              "id": "#f753be07-a409-40d0-bf0d-dc4661cf272b",
-              "children": [
-                {
-                  "type": "tabset",
-                  "id": "#5ecef810-b24c-41fe-beea-85fe09171953",
-                  "weight": 50,
-                  "enableDrop": false,
-                  "enableDrag": false,
-                  "enableClose": false,
-                  "enableTabStrip": true,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "#1fcc949f-c9e7-4efc-8ad1-bf27778f9d95",
-                      "name": "Groups",
-                      "component": "groups",
-                      "enableClose": false
-                    }
-                  ]
-                },
-                {
-                  "type": "tabset",
-                  "id": "#65f2de0a-a55b-43bf-ad8f-fafb5f4bc38c",
-                  "weight": 50,
-                  "enableDrop": false,
-                  "enableDrag": false,
-                  "enableClose": false,
-                  "enableTabStrip": true,
-                  "children": [
-                    {
-                      "type": "tab",
-                      "id": "#7ec9963f-6ab1-4b60-a0be-589e697d68cb",
-                      "name": "Group Widgets",
-                      "component": "order",
-                      "enableClose": false
-                    }
-                  ]
-                }
-              ]
-            }
-          ]
-        }
-      }
     }
   },
   "selectedBuildConfiguration": "Default",
@@ -1001,7 +929,79 @@
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
+          "0": {
+            "$selected": true
+          },
+          "1": {
+            "$selected": true
+          },
+          "2": {
+            "$selected": true
+          },
+          "3": {
+            "$selected": true
+          },
+          "4": {
+            "$selected": true
+          },
+          "5": {
+            "$selected": true
+          },
+          "6": {
+            "$selected": true
+          },
+          "7": {
+            "$selected": true
+          },
+          "8": {
+            "$selected": true
+          },
+          "9": {
+            "$selected": true
+          },
+          "10": {
+            "$selected": true
+          },
+          "11": {
+            "$selected": true
+          },
+          "12": {
+            "$selected": true
+          },
+          "13": {
+            "$selected": true
+          },
+          "14": {
+            "$selected": true
+          },
+          "15": {
+            "$selected": true
+          },
           "16": {
+            "$selected": true
+          },
+          "17": {
+            "$selected": true
+          },
+          "18": {
+            "$selected": true
+          },
+          "19": {
+            "$selected": true
+          },
+          "20": {
+            "$selected": true
+          },
+          "21": {
+            "$selected": true
+          },
+          "22": {
+            "$selected": true
+          },
+          "23": {
+            "$selected": true
+          },
+          "24": {
             "$selected": true
           }
         }
@@ -1166,8 +1166,5 @@
   "lvglExpandedPropertiesGroup": [
     "IMAGE"
   ],
-  "showInactiveFlowsInDebugger": true,
-  "globalFlowZoom": true,
-  "flowZoom": 1.25,
-  "implementationLanguage": "C"
+  "showInactiveFlowsInDebugger": true
 }

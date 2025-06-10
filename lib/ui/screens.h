@@ -10,27 +10,27 @@ extern "C" {
 
 typedef struct _objects_t {
     lv_obj_t *main_scr;
-    lv_obj_t *speed_scale;
-    lv_obj_t *rpm_scale;
-    lv_obj_t *speed_arc;
-    lv_obj_t *rpm_arc;
-    lv_obj_t *speed;
-    lv_obj_t *rpm;
-    lv_obj_t *fuel_bar;
-    lv_obj_t *coolant_bar;
-    lv_obj_t *fuel_level;
-    lv_obj_t *coolant;
-    lv_obj_t *low_fuel_tt;
-    lv_obj_t *over_temperature_tt;
-    lv_obj_t *brakes_tt;
     lv_obj_t *abs_tt;
-    lv_obj_t *low_coolant_tt;
+    lv_obj_t *airbag_tt;
     lv_obj_t *battery_tt;
-    lv_obj_t *low_oil_tt;
-    lv_obj_t *mil_tt;
+    lv_obj_t *brakes_tt;
+    lv_obj_t *coolant;
+    lv_obj_t *coolant_bar;
+    lv_obj_t *fuel_bar;
+    lv_obj_t *fuel_level;
     lv_obj_t *hi_beam_tt;
     lv_obj_t *indicators_tt;
-    lv_obj_t *airbag_tt;
+    lv_obj_t *low_coolant_tt;
+    lv_obj_t *low_fuel_tt;
+    lv_obj_t *low_oil_tt;
+    lv_obj_t *mil_tt;
+    lv_obj_t *over_temperature_tt;
+    lv_obj_t *rpm;
+    lv_obj_t *rpm_arc;
+    lv_obj_t *rpm_scale;
+    lv_obj_t *speed;
+    lv_obj_t *speed_arc;
+    lv_obj_t *speed_scale;
 } objects_t;
 
 extern objects_t objects;
@@ -42,10 +42,8 @@ enum ScreensEnum {
 void create_screen_main_scr();
 void tick_screen_main_scr();
 
-void tick_screen_by_id(enum ScreensEnum screenId);
-void tick_screen(int screen_index);
-
 void create_screens();
+void tick_screen(int screen_index);
 
 
 #ifdef __cplusplus
