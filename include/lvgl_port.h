@@ -53,7 +53,7 @@ void displayInit(void)
     // static uint8_t buf2[TFT_HOR_RES * TFT_VER_RES * BYTE_PER_PIXEL/2];
 
     //Partial rendering
-    uint32_t buffer_size = TFT_HOR_RES * 60 *lv_color_format_get_size(lv_display_get_color_format(disp));
+    uint32_t buffer_size = TFT_HOR_RES * 48 *lv_color_format_get_size(lv_display_get_color_format(disp));
     void *buf[2] = {nullptr};
     buf[0] = heap_caps_malloc(buffer_size, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
     assert(buf[0]);
