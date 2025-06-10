@@ -3,11 +3,6 @@
 
 #include <lvgl.h>
 
-extern void action_go_to_next_screen(lv_event_t * e);
-extern void action_reset_coolant_min_max(lv_event_t * e);
-extern void action_reset_boost_min_max(lv_event_t * e);
-extern void action_reset_iat_min_max(lv_event_t * e);
-extern void action_reset_voltage_min_max(lv_event_t * e);
 
 
 #endif /*EEZ_LVGL_UI_ACTIONS_H*/

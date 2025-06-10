@@ -1,13 +1,21 @@
 /*******************************************************************************
  * Size: 24 px
  * Bpp: 4
- * Opts: --user-data-dir=C:\Users\m.roger\AppData\Roaming\eezstudio --app-path=C:\Users\m.roger\AppData\Local\Programs\eezstudio\resources\app.asar --no-sandbox --no-zygote --node-integration-in-worker --lang=en-GB --device-scale-factor=1 --num-raster-threads=4 --enable-main-frame-before-activation --renderer-client-id=5 --time-ticks-at-unix-epoch=-1717592434259493 --launch-time-ticks=154570575041 --mojo-platform-channel-handle=2768 --field-trial-handle=1768,i,11315419354057760634,18213311398981924806,262144 --enable-features=kWebSQLAccess --disable-features=SpareRendererForSitePerProcess,WinDelaySpellcheckServiceInit,WinRetrieveSuggestionsOnlyOnDemand --variations-seed-version /prefetch:1
+ * Opts: --bpp 4 --size 24 --no-compress --font ..\externalFonts\whitrabt.ttf --range 32-127 --format lvgl
  ******************************************************************************/
 
+#ifdef __has_include
+    #if __has_include("lvgl.h")
+        #ifndef LV_LVGL_H_INCLUDE_SIMPLE
+            #define LV_LVGL_H_INCLUDE_SIMPLE
+        #endif
+    #endif
+#endif
+
 #ifdef LV_LVGL_H_INCLUDE_SIMPLE
-#include "lvgl.h"
+    #include "lvgl.h"
 #else
-#include "lvgl.h"
+    #include "lvgl.h"
 #endif
 
 #ifndef UI_FONT_WHITE_RABBIT_24PX
@@ -1346,6 +1354,7 @@ static lv_font_fmt_txt_dsc_t font_dsc = {
 };
 
 
+
 /*-----------------
  *  PUBLIC FONT
  *----------------*/
@@ -1368,8 +1377,10 @@ lv_font_t ui_font_white_rabbit_24px = {
     .underline_thickness = 0,
 #endif
     .dsc = &font_dsc,          /*The custom font data. Will be accessed by `get_glyph_bitmap/dsc` */
+#if LV_VERSION_CHECK(8, 2, 0) || LVGL_VERSION_MAJOR >= 9
     .fallback = NULL,
-    .user_data = NULL
+#endif
+    .user_data = NULL,
 };
 
 

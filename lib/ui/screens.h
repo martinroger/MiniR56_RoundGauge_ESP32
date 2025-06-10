@@ -9,83 +9,43 @@ extern "C" {
 #endif
 
 typedef struct _objects_t {
-    lv_obj_t *coolant_scr;
-    lv_obj_t *boost_scr;
-    lv_obj_t *iat_scr;
-    lv_obj_t *voltage_scr;
-    lv_obj_t *boost_scr_arc;
-    lv_obj_t *boost_scr_can;
-    lv_obj_t *boost_scr_currentvalue;
-    lv_obj_t *boost_scr_key;
-    lv_obj_t *boost_scr_kl15;
-    lv_obj_t *boost_scr_max;
-    lv_obj_t *boost_scr_maxarc;
-    lv_obj_t *boost_scr_min;
-    lv_obj_t *boost_scr_minarc;
-    lv_obj_t *boost_scr_name;
-    lv_obj_t *boost_scr_unit;
-    lv_obj_t *coolant_scr_arc;
-    lv_obj_t *coolant_scr_can;
-    lv_obj_t *coolant_scr_currentvalue;
-    lv_obj_t *coolant_scr_key;
-    lv_obj_t *coolant_scr_kl15;
-    lv_obj_t *coolant_scr_max;
-    lv_obj_t *coolant_scr_maxarc;
-    lv_obj_t *coolant_scr_min;
-    lv_obj_t *coolant_scr_minarc;
-    lv_obj_t *coolant_scr_name;
-    lv_obj_t *coolant_scr_unit;
-    lv_obj_t *iat_scr_arc;
-    lv_obj_t *iat_scr_can;
-    lv_obj_t *iat_scr_currentvalue;
-    lv_obj_t *iat_scr_key;
-    lv_obj_t *iat_scr_kl15;
-    lv_obj_t *iat_scr_max;
-    lv_obj_t *iat_scr_maxarc;
-    lv_obj_t *iat_scr_min;
-    lv_obj_t *iat_scr_minarc;
-    lv_obj_t *iat_scr_name;
-    lv_obj_t *iat_scr_unit;
-    lv_obj_t *reset_boost_min_max_area;
-    lv_obj_t *reset_coolant_min_max_area;
-    lv_obj_t *reset_iat_min_max_area;
-    lv_obj_t *reset_voltage_min_max_area;
-    lv_obj_t *voltage_scr_arc;
-    lv_obj_t *voltage_scr_can;
-    lv_obj_t *voltage_scr_currentvalue;
-    lv_obj_t *voltage_scr_key;
-    lv_obj_t *voltage_scr_kl15;
-    lv_obj_t *voltage_scr_max;
-    lv_obj_t *voltage_scr_maxarc;
-    lv_obj_t *voltage_scr_min;
-    lv_obj_t *voltage_scr_minarc;
-    lv_obj_t *voltage_scr_name;
-    lv_obj_t *voltage_scr_unit;
+    lv_obj_t *main_scr;
+    lv_obj_t *speed_scale;
+    lv_obj_t *rpm_scale;
+    lv_obj_t *speed_arc;
+    lv_obj_t *rpm_arc;
+    lv_obj_t *speed;
+    lv_obj_t *rpm;
+    lv_obj_t *fuel_bar;
+    lv_obj_t *coolant_bar;
+    lv_obj_t *fuel_level;
+    lv_obj_t *coolant;
+    lv_obj_t *low_fuel_tt;
+    lv_obj_t *over_temperature_tt;
+    lv_obj_t *brakes_tt;
+    lv_obj_t *abs_tt;
+    lv_obj_t *low_coolant_tt;
+    lv_obj_t *battery_tt;
+    lv_obj_t *low_oil_tt;
+    lv_obj_t *mil_tt;
+    lv_obj_t *hi_beam_tt;
+    lv_obj_t *indicators_tt;
+    lv_obj_t *airbag_tt;
 } objects_t;
 
 extern objects_t objects;
 
 enum ScreensEnum {
-    SCREEN_ID_COOLANT_SCR = 1,
-    SCREEN_ID_BOOST_SCR = 2,
-    SCREEN_ID_IAT_SCR = 3,
-    SCREEN_ID_VOLTAGE_SCR = 4,
+    SCREEN_ID_MAIN_SCR = 1,
 };
 
-void create_screen_coolant_scr();
-void tick_screen_coolant_scr();
+void create_screen_main_scr();
+void tick_screen_main_scr();
 
-void create_screen_boost_scr();
-void tick_screen_boost_scr();
-
-void create_screen_iat_scr();
-void tick_screen_iat_scr();
-
-void create_screen_voltage_scr();
-void tick_screen_voltage_scr();
+void tick_screen_by_id(enum ScreensEnum screenId);
+void tick_screen(int screen_index);
 
 void create_screens();
-void tick_screen(int screen_index);
 
 
 #ifdef __cplusplus
