@@ -53,11 +53,11 @@ void displayInit(void)
     // static uint8_t buf2[TFT_HOR_RES * TFT_VER_RES * BYTE_PER_PIXEL/2];
 
     //Partial rendering
-    uint32_t buffer_size = TFT_HOR_RES * 48 *lv_color_format_get_size(lv_display_get_color_format(disp));
+    uint32_t buffer_size = TFT_HOR_RES * 70 *lv_color_format_get_size(lv_display_get_color_format(disp));
     void *buf[2] = {nullptr};
-    buf[0] = heap_caps_malloc(buffer_size, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+    buf[0] = heap_caps_malloc(buffer_size, MALLOC_CAP_INTERNAL | MALLOC_CAP_DMA);
     assert(buf[0]);
-    buf[1] = heap_caps_malloc(buffer_size, MALLOC_CAP_INTERNAL | MALLOC_CAP_8BIT);
+    buf[1] = heap_caps_malloc(buffer_size, MALLOC_CAP_INTERNAL | MALLOC_CAP_DMA);
     assert(buf[1]);
     lv_display_set_buffers(disp,buf[0],buf[1],buffer_size,LV_DISPLAY_RENDER_MODE_PARTIAL);
 
@@ -93,6 +93,7 @@ void displayFlush(lv_display_t *disp, const lv_area_t *area, uint8_t *px_map)
     const int offsety2 = area->y2;
 
     //lv_draw_sw_rgb565_swap(px_map,lv_area_get_size(area));
+    // lcd->drawBitmapWaitUntilFinish(offsetx1,offsety1,(offsetx2-offsetx1+1),(offsety2-offsety1+1),(const uint8_t*)px_map,2);
     lcd->drawBitmap(offsetx1,offsety1,(offsetx2-offsetx1+1),(offsety2-offsety1+1),(const uint8_t*)px_map);
 
     lv_display_flush_ready(disp);

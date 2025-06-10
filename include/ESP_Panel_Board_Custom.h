@@ -326,7 +326,7 @@
 /* Interrupt pin */
 #define ESP_PANEL_TOUCH_IO_INT          (16)        // IO num of INT pin, set to -1 if not use
                                                     // For GT911, the INT pin is also used to configure the I2C address
-#define ESP_PANEL_TOUCH_INT_LEVEL       (1)         // Active level. 0: low level, 1: high level
+#define ESP_PANEL_TOUCH_INT_LEVEL       (0)         // Active level. 0: low level, 1: high level
 
 #endif /* ESP_PANEL_USE_TOUCH */
 
