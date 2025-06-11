@@ -10,7 +10,7 @@
 /**
  * LVGL related parameters, can be adjusted by users
  */
-#define LVGL_PORT_TICK_PERIOD_MS                (2) // The period of the LVGL tick task, in milliseconds
+#define LVGL_PORT_TICK_PERIOD_MS                (1) // The period of the LVGL tick task, in milliseconds
 
 /**
  *
@@ -31,7 +31,7 @@
  */
 #define LVGL_PORT_BUFFER_MALLOC_CAPS            (MALLOC_CAP_INTERNAL | MALLOC_CAP_DMA)       // Allocate LVGL buffer in SRAM
 // #define LVGL_PORT_BUFFER_MALLOC_CAPS            (MALLOC_CAP_SPIRAM)      // Allocate LVGL buffer in PSRAM
-#define LVGL_PORT_BUFFER_SIZE_HEIGHT            (20)
+#define LVGL_PORT_BUFFER_SIZE_HEIGHT            (36)
 #define LVGL_PORT_BUFFER_NUM                    (2)
 
 /**
