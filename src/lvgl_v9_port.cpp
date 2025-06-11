@@ -645,7 +645,7 @@ static void touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
     TouchPoint point;
 
     /* Read data from touch controller */
-    int read_touch_result = tp->readPoints(&point, 1, 0);
+    int read_touch_result = tp->readPoints(&point, 1, 2);
     if (read_touch_result > 0) {
         data->point.x = point.x;
         data->point.y = point.y;
