@@ -584,7 +584,7 @@
  * So it is not necessary to set the macro to `1`. For other devices, please set the macro to `1` ensure that the
  * host is initialized only once.
  */
-#define ESP_PANEL_BOARD_EXPANDER_SKIP_INIT_HOST     (1)     // 0/1
+#define ESP_PANEL_BOARD_EXPANDER_SKIP_INIT_HOST     (0)     // 0/1
 /* For general */
 #define ESP_PANEL_BOARD_EXPANDER_I2C_HOST_ID        (0)     // Typically set to 0
 /* For host */
@@ -593,8 +593,8 @@
                                                             // Typically set to 400K
 #define ESP_PANEL_BOARD_EXPANDER_I2C_SCL_PULLUP     (1)     // 0/1. Typically set to 1
 #define ESP_PANEL_BOARD_EXPANDER_I2C_SDA_PULLUP     (1)     // 0/1. Typically set to 1
-#define ESP_PANEL_BOARD_EXPANDER_I2C_IO_SCL         (18)
-#define ESP_PANEL_BOARD_EXPANDER_I2C_IO_SDA         (8)
+#define ESP_PANEL_BOARD_EXPANDER_I2C_IO_SCL         (7)
+#define ESP_PANEL_BOARD_EXPANDER_I2C_IO_SDA         (15)
 #endif // ESP_PANEL_BOARD_EXPANDER_SKIP_INIT_HOST
 /* For device */
 #define ESP_PANEL_BOARD_EXPANDER_I2C_ADDRESS        (0x20)  // The actual I2C address. Even for the same model of IC,
