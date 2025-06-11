@@ -129,89 +129,91 @@ void loop()
     // Refresh the items in the UI
     if ((millis() - lastDispValuesRefreshed) > DISP_VALUES_REFRESH_INTERVAL)
     {
-        lastDispValuesRefreshed = millis();
-        if(lvgl_port_lock(2)) {
-        if (p_speed != speed)
+
+        if (lvgl_port_lock(2))
         {
-            lv_arc_set_value(objects.speed_arc, speed);
-            lv_label_set_text_fmt(objects.speed, "%03d", speed);
-            p_speed = speed;
+            lastDispValuesRefreshed = millis();
+            if (p_speed != speed)
+            {
+                lv_arc_set_value(objects.speed_arc, speed);
+                lv_label_set_text_fmt(objects.speed, "%03d", speed);
+                p_speed = speed;
+            }
+            if (p_rpm != rpm)
+            {
+                lv_arc_set_value(objects.rpm_arc, rpm);
+                lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
+                p_rpm = rpm;
+            }
+            if (p_fuelLevel != fuelLevel)
+            {
+                lv_bar_set_value(objects.fuel_bar, fuelLevel, LV_ANIM_OFF);
+                lv_label_set_text_fmt(objects.fuel_level, "%03d", fuelLevel);
+                p_fuelLevel = fuelLevel;
+            }
+            if (p_coolant != coolant)
+            {
+                lv_bar_set_value(objects.coolant_bar, coolant, LV_ANIM_OFF);
+                lv_label_set_text_fmt(objects.coolant, "%03d", coolant);
+                p_coolant = coolant;
+            }
+            if (p_absOn != absOn)
+            {
+                lv_obj_set_style_image_opa(objects.abs_tt, absOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_absOn = absOn;
+            }
+            if (p_lowFuelOn != lowFuelOn)
+            {
+                lv_obj_set_style_image_opa(objects.low_fuel_tt, lowFuelOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_lowFuelOn = lowFuelOn;
+            }
+            if (p_overTemperatureOn != overTemperatureOn)
+            {
+                lv_obj_set_style_image_opa(objects.over_temperature_tt, overTemperatureOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_overTemperatureOn = overTemperatureOn;
+            }
+            if (p_brakesOn != brakesOn)
+            {
+                lv_obj_set_style_image_opa(objects.brakes_tt, brakesOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_brakesOn = brakesOn;
+            }
+            if (p_lowCoolantOn != lowCoolantOn)
+            {
+                lv_obj_set_style_image_opa(objects.low_coolant_tt, lowCoolantOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_lowCoolantOn = lowCoolantOn;
+            }
+            if (p_batteryOn != batteryOn)
+            {
+                lv_obj_set_style_image_opa(objects.battery_tt, batteryOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_batteryOn = batteryOn;
+            }
+            if (p_lowOilOn != lowOilOn)
+            {
+                lv_obj_set_style_image_opa(objects.low_oil_tt, lowOilOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_lowOilOn = lowOilOn;
+            }
+            if (p_milOn != milOn)
+            {
+                lv_obj_set_style_image_opa(objects.mil_tt, milOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_milOn = milOn;
+            }
+            if (p_highBeamOn != highBeamOn)
+            {
+                lv_obj_set_style_image_opa(objects.hi_beam_tt, highBeamOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_highBeamOn = highBeamOn;
+            }
+            if (p_indicatorsOn != indicatorsOn)
+            {
+                lv_obj_set_style_image_opa(objects.indicators_tt, indicatorsOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_indicatorsOn = indicatorsOn;
+            }
+            if (p_airbagOn != airbagOn)
+            {
+                lv_obj_set_style_image_opa(objects.airbag_tt, airbagOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
+                p_airbagOn = airbagOn;
+            }
+            lvgl_port_unlock();
         }
-        if (p_rpm != rpm)
-        {
-            lv_arc_set_value(objects.rpm_arc, rpm);
-            lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
-            p_rpm = rpm;
-        }
-        if (p_fuelLevel != fuelLevel)
-        {
-            lv_bar_set_value(objects.fuel_bar, fuelLevel, LV_ANIM_OFF);
-            lv_label_set_text_fmt(objects.fuel_level, "%03d", fuelLevel);
-            p_fuelLevel = fuelLevel;
-        }
-        if (p_coolant != coolant)
-        {
-            lv_bar_set_value(objects.coolant_bar, coolant, LV_ANIM_OFF);
-            lv_label_set_text_fmt(objects.coolant, "%03d", coolant);
-            p_coolant = coolant;
-        }
-        if (p_absOn != absOn)
-        {
-            lv_obj_set_style_image_opa(objects.abs_tt, absOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_absOn = absOn;
-        }
-        if (p_lowFuelOn != lowFuelOn)
-        {
-            lv_obj_set_style_image_opa(objects.low_fuel_tt, lowFuelOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_lowFuelOn = lowFuelOn;
-        }
-        if (p_overTemperatureOn != overTemperatureOn)
-        {
-            lv_obj_set_style_image_opa(objects.over_temperature_tt, overTemperatureOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_overTemperatureOn = overTemperatureOn;
-        }
-        if (p_brakesOn != brakesOn)
-        {
-            lv_obj_set_style_image_opa(objects.brakes_tt, brakesOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_brakesOn = brakesOn;
-        }
-        if (p_lowCoolantOn != lowCoolantOn)
-        {
-            lv_obj_set_style_image_opa(objects.low_coolant_tt, lowCoolantOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_lowCoolantOn = lowCoolantOn;
-        }
-        if (p_batteryOn != batteryOn)
-        {
-            lv_obj_set_style_image_opa(objects.battery_tt, batteryOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_batteryOn = batteryOn;
-        }
-        if (p_lowOilOn != lowOilOn)
-        {
-            lv_obj_set_style_image_opa(objects.low_oil_tt, lowOilOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_lowOilOn = lowOilOn;
-        }
-        if (p_milOn != milOn)
-        {
-            lv_obj_set_style_image_opa(objects.mil_tt, milOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_milOn = milOn;
-        }
-        if (p_highBeamOn != highBeamOn)
-        {
-            lv_obj_set_style_image_opa(objects.hi_beam_tt, highBeamOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_highBeamOn = highBeamOn;
-        }
-        if (p_indicatorsOn != indicatorsOn)
-        {
-            lv_obj_set_style_image_opa(objects.indicators_tt, indicatorsOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_indicatorsOn = indicatorsOn;
-        }
-        if (p_airbagOn != airbagOn)
-        {
-            lv_obj_set_style_image_opa(objects.airbag_tt, airbagOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
-            p_airbagOn = airbagOn;
-        }
-        lvgl_port_unlock();
-    }
 
         // lv_obj_set_style_image_opa(objects.over_temperature_tt, overTemperatureOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
         // lv_obj_set_style_image_opa(objects.brakes_tt, brakesOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
