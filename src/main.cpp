@@ -130,6 +130,7 @@ void loop()
     if ((millis() - lastDispValuesRefreshed) > DISP_VALUES_REFRESH_INTERVAL)
     {
         lastDispValuesRefreshed = millis();
+        if(lvgl_port_lock(2)) {
         if (p_speed != speed)
         {
             lv_arc_set_value(objects.speed_arc, speed);
@@ -209,6 +210,8 @@ void loop()
             lv_obj_set_style_image_opa(objects.airbag_tt, airbagOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
             p_airbagOn = airbagOn;
         }
+        lvgl_port_unlock();
+    }
 
         // lv_obj_set_style_image_opa(objects.over_temperature_tt, overTemperatureOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
         // lv_obj_set_style_image_opa(objects.brakes_tt, brakesOn ? LV_OPA_COVER : LV_OPA_TRANSP, LV_STATE_DEFAULT);
