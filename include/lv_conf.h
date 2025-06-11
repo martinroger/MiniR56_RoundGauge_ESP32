@@ -1019,7 +1019,7 @@
         #define LV_USE_PERF_MONITOR_POS LV_ALIGN_TOP_MID
 
         /** 0: Displays performance data on the screen; 1: Prints performance data using log. */
-        #define LV_USE_PERF_MONITOR_LOG_MODE 1
+        #define LV_USE_PERF_MONITOR_LOG_MODE 0
     #endif
 
     /** 1: Show used memory and memory fragmentation.
