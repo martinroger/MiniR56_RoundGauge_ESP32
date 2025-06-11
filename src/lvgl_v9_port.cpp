@@ -374,7 +374,7 @@ static void flush_callback(lv_disp_drv_t *drv, const lv_area_t *area, lv_color_t
 
 static void flush_callback(lv_display_t *disp, const lv_area_t *area, uint8_t *color_map)
 {
-    LCD *lcd = (LCD *)(disp->user_data);
+    LCD *lcd = (LCD *)lv_display_get_user_data(disp);
 
     /* Action after last area refresh */
     if (lv_display_flush_is_last(disp)) {
@@ -626,7 +626,7 @@ static lv_display_t *display_init(LCD *lcd)
     }
 #endif /* LVGL_PORT_AVOID_TEAR */
     // disp_drv.draw_buf = &disp_buf;
-    disp->user_data = (void *)lcd;
+    lv_display_set_user_data(disp,(void *)lcd);
     // disp_drv.user_data = (void *)lcd;
     // Only available when the coordinate alignment is enabled
     // if ((lcd->getBasicAttributes().basic_bus_spec.x_coord_align > 1) ||
@@ -639,7 +639,7 @@ static lv_display_t *display_init(LCD *lcd)
 
 static void touchpad_read(lv_indev_t *indev, lv_indev_data_t *data)
 {
-    Touch *tp = (Touch *)indev->user_data;
+    Touch *tp = (Touch *)lv_indev_get_user_data(indev);
     TouchPoint point;
 
     /* Read data from touch controller */
@@ -666,7 +666,7 @@ static lv_indev_t *indev_init(Touch *tp)
     // lv_indev_drv_init(&indev_drv_tp);
     // indev_drv_tp.type = LV_INDEV_TYPE_POINTER;
     // indev_drv_tp.read_cb = touchpad_read;
-    indev_drv_tp->user_data = (void *)tp;
+    lv_indev_set_user_data(indev_drv_tp, (void *)tp);
 
     return indev_drv_tp;
 }
