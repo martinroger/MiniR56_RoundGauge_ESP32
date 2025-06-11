@@ -2,41 +2,17 @@
 // #include <Arduino_Helpers.h>
 // #include <AH/Timing/MillisMicrosTimer.hpp>
 // #include "lv_conf.h"
-
-#include "lvgl_port.h"
+#include <esp_display_panel.hpp>
+#include <lvgl.h>
+#include "lvgl_v9_port.h"
 #include <ui.h>
 
-#ifndef TFT_BL
-#define TFT_BL 5
-#endif
+using namespace esp_panel::drivers;
+using namespace esp_panel::board;
 
 #ifndef SCREEN_ID_MAIN
 #define SCREEN_ID_MAIN 1
 #endif
-
-// Display buffer preparation
-
-#define DRAW_BUF_SIZE (TFT_HOR_RES * TFT_VER_RES / 4 * (LV_COLOR_DEPTH / 8))
-uint32_t draw_buf[DRAW_BUF_SIZE];
-
-// Touch initialisation
-// #define TP_INT 4
-// #define TP_SDA 1
-// #define TP_SCL 3
-// #define TP_RST -1
-// CST816S touch(TP_SDA, TP_SCL, TP_RST, TP_INT);
-// void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
-// {
-
-//   if(touch.available()) {
-//     data->state = LV_INDEV_STATE_PRESSED;
-//     data->point.x = touch.data.x;
-//     data->point.y = touch.data.y;
-//   }
-//   else {
-//     data->state = LV_INDEV_STATE_RELEASED;
-//   }
-// }
 
 // Timers
 #ifndef TICKS
@@ -80,7 +56,7 @@ bool screenON = false;
 void generateValues()
 {
     speed = 120 + 120 * sin((float)millis() / 5000.0);
-    rpm = 100*(uint8_t)((3500 + 3500 * sin((float)millis() / 10000.0))/100);
+    rpm = 100 * (uint8_t)((3500 + 3500 * sin((float)millis() / 10000.0)) / 100);
     fuelLevel = 50 + 50 * sin((float)millis() / 15000.0);
     coolant = 88 + 12 * sin((float)millis() / 20000.0);
     indicatorsOn = (millis() / 800) % 2 == 0;
@@ -111,32 +87,35 @@ void setup()
     // For Debug
     Serial.begin(115200);
 
+    Board *board = new Board();
+    board->init();
+    auto lcd = board->getLCD();
+    lcd->configFrameBufferNumber(LVGL_PORT_BUFFER_NUM);
+#if ESP_PANEL_DRIVERS_BUS_ENABLE_RGB && CONFIG_IDF_TARGET_ESP32S3
+    auto lcd_bus = lcd->getBus();
+    /**
+     * As the anti-tearing feature typically consumes more PSRAM bandwidth, for the ESP32-S3, we need to utilize the
+     * "bounce buffer" functionality to enhance the RGB data bandwidth.
+     * This feature will consume `bounce_buffer_size * bytes_per_pixel * 2` of SRAM memory.
+     */
+    if (lcd_bus->getBasicAttributes().type == ESP_PANEL_BUS_TYPE_RGB)
+    {
+        static_cast<BusRGB *>(lcd_bus)->configRGB_BounceBufferSize(lcd->getFrameWidth() * 10);
+    }
+#endif
+
+    assert(board->begin());
+
+    lvgl_port_init(board->getLCD(), board->getTouch());
+
+    lvgl_port_lock(-1);
+    ui_init();
+    lvgl_port_unlock();
     generateValues();
 
-    // Touch startup
-    //   touch.begin();
-
-    // ESP Panel
-    //   ESP_Panel *panel = new ESP_Panel();
-    //   panel->init();
-
-    //   panel->begin();
-
-    // LV startup sequence
-    //   lv_init();
-    displayInit();
-#if LV_USE_LOG != 0
-    lv_log_register_print_cb(my_print);
-#endif
-    //   lv_display_t * disp;
-    //   disp = lv_display_create(TFT_HOR_RES,TFT_VER_RES);
-    //   //disp = lv_tft_espi_create(TFT_HOR_RES, TFT_VER_RES, draw_buf, sizeof(draw_buf));
-    //   lv_indev_t *indev = lv_indev_create();
-    //   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
-    //   lv_indev_set_read_cb(indev,touchRead);
-    //   lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
-    // Draw screens
-    ui_init();
+    // #if LV_USE_LOG != 0
+    //     lv_log_register_print_cb(my_print);
+    // #endif
 
     // Debug
     Serial.println("Setup done");
@@ -153,25 +132,25 @@ void loop()
         lastDispValuesRefreshed = millis();
         if (p_speed != speed)
         {
-            lv_arc_set_value(objects.speed_arc,speed);
+            lv_arc_set_value(objects.speed_arc, speed);
             lv_label_set_text_fmt(objects.speed, "%03d", speed);
             p_speed = speed;
         }
         if (p_rpm != rpm)
         {
-            lv_arc_set_value(objects.rpm_arc,rpm);
+            lv_arc_set_value(objects.rpm_arc, rpm);
             lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
             p_rpm = rpm;
         }
         if (p_fuelLevel != fuelLevel)
         {
-            lv_bar_set_value(objects.fuel_bar,fuelLevel,LV_ANIM_OFF);
+            lv_bar_set_value(objects.fuel_bar, fuelLevel, LV_ANIM_OFF);
             lv_label_set_text_fmt(objects.fuel_level, "%03d", fuelLevel);
             p_fuelLevel = fuelLevel;
         }
         if (p_coolant != coolant)
         {
-            lv_bar_set_value(objects.coolant_bar,coolant,LV_ANIM_OFF);
+            lv_bar_set_value(objects.coolant_bar, coolant, LV_ANIM_OFF);
             lv_label_set_text_fmt(objects.coolant, "%03d", coolant);
             p_coolant = coolant;
         }
@@ -243,20 +222,19 @@ void loop()
 
         // Update shit here
     }
-    lv_timer_handler();
+    // lv_timer_handler();
 
-    // Initial screenON
-    if (!screenON)
-    {
-        uint8_t tempbrightness = 0;
-        while (tempbrightness < BRIGHTNESS)
-        {
-            backLight->setBrightness(tempbrightness * 100 / 255);
-            // analogWrite(TFT_BL,tempbrightness);
-            delay(3);
-            tempbrightness++;
-        }
-        // analogWrite(TFT_BL,BRIGHTNESS);
-        screenON = true;
-    }
+    // // Initial screenON
+    // if (!screenON)
+    // {
+    //     uint8_t tempbrightness = 0;
+    //     while (tempbrightness < BRIGHTNESS)
+    //     {
+    //         backLight->setBrightness(tempbrightness * 100 / 255);
+    //         // analogWrite(TFT_BL,tempbrightness);
+    //         delay(3);
+    //         tempbrightness++;
+    //     }
+    //     // analogWrite(TFT_BL,BRIGHTNESS);
+    //     screenON = true;
 }
