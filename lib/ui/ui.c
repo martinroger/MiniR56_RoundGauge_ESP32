@@ -1,5 +1,6 @@
 #include "ui.h"
 #include "images.h"
+#include <string.h>
 
 static int16_t currentScreen = -1;
 
@@ -33,6 +34,8 @@ void loadScreen(enum ScreensEnum screenId,bool animate) {
 void ui_init() {
     create_screens();
     loadScreen(SCREEN_ID_MAIN,false);
+    // lv_scale_set_line_needle_value(objects.speed_scale,objects.speed_needle,10,25);
+    // lv_scale_set_line_needle_value(objects.rpm_scale,objects.rpm_needle,10,1250);
 }
 
 void ui_tick() {

@@ -26,10 +26,10 @@ typedef struct _objects_t {
     lv_obj_t *mil_tt;
     lv_obj_t *over_temperature_tt;
     lv_obj_t *rpm;
-    lv_obj_t *rpm_arc;
+    lv_obj_t *rpm_needle;
     lv_obj_t *rpm_scale;
     lv_obj_t *speed;
-    lv_obj_t *speed_arc;
+    lv_obj_t *speed_needle;
     lv_obj_t *speed_scale;
 } objects_t;
 

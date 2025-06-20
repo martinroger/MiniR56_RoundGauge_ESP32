@@ -180,6 +180,18 @@
               "children": [
                 {
                   "type": "tab",
+                  "id": "#938b6442-ea6f-4771-8564-55c2c438d590",
+                  "name": "Settings",
+                  "component": "editor",
+                  "config": {
+                    "objectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "subObjectPath": "[EEZGaugeUi.eez-project]:/settings",
+                    "permanent": false
+                  },
+                  "icon": "material:settings"
+                },
+                {
+                  "type": "tab",
                   "id": "#c4353bed-6a74-44d7-a493-485b0493977a",
                   "name": "mainScr",
                   "component": "editor",
@@ -207,7 +219,8 @@
                     "_owner": null
                   }
                 }
-              ]
+              ],
+              "active": true
             },
             {
               "type": "row",
@@ -227,8 +240,7 @@
                       "enableClose": false,
                       "icon": "svg:properties"
                     }
-                  ],
-                  "active": true
+                  ]
                 },
                 {
                   "type": "tabset",
@@ -453,7 +465,7 @@
                 {
                   "type": "tab",
                   "id": "#509d1895-50a2-4cc9-a636-2aa5a2593ce0",
-                  "name": "coolantScr",
+                  "name": "mainScr",
                   "component": "editor",
                   "config": {
                     "objectPath": "[EEZGaugeUi.eez-project]:/userPages/0",
@@ -929,87 +941,37 @@
     "[EEZGaugeUi.eez-project]:/userPages/0[flow-state]": {
       "selection": {
         "0": {
-          "0": {
-            "$selected": true
-          },
+          "0": {},
           "1": {
             "$selected": true
           },
-          "2": {
-            "$selected": true
-          },
-          "3": {
-            "$selected": true
-          },
-          "4": {
-            "$selected": true
-          },
-          "5": {
-            "$selected": true
-          },
-          "6": {
-            "$selected": true
-          },
-          "7": {
-            "$selected": true
-          },
-          "8": {
-            "$selected": true
-          },
-          "9": {
-            "$selected": true
-          },
-          "10": {
-            "$selected": true
-          },
-          "11": {
-            "$selected": true
-          },
-          "12": {
-            "$selected": true
-          },
-          "13": {
-            "$selected": true
-          },
-          "14": {
-            "$selected": true
-          },
-          "15": {
-            "$selected": true
-          },
-          "16": {
-            "$selected": true
-          },
-          "17": {
-            "$selected": true
-          },
-          "18": {
-            "$selected": true
-          },
-          "19": {
-            "$selected": true
-          },
-          "20": {
-            "$selected": true
-          },
-          "21": {
-            "$selected": true
-          },
-          "22": {
-            "$selected": true
-          },
-          "23": {
-            "$selected": true
-          },
-          "24": {
-            "$selected": true
-          }
+          "2": {},
+          "3": {},
+          "4": {},
+          "5": {},
+          "6": {},
+          "7": {},
+          "8": {},
+          "9": {},
+          "10": {},
+          "11": {},
+          "12": {},
+          "13": {},
+          "14": {},
+          "15": {},
+          "16": {},
+          "17": {},
+          "18": {},
+          "19": {},
+          "20": {},
+          "21": {},
+          "22": {}
         }
       },
       "transform": {
         "translate": {
-          "x": -84.22256041222425,
-          "y": -359.37909817794207
+          "x": -354.22256041222425,
+          "y": -338.37909817794207
         },
         "scale": 1.25
       },
@@ -1164,7 +1126,10 @@
   "lvglPart": "MAIN",
   "lvglState": "DEFAULT",
   "lvglExpandedPropertiesGroup": [
-    "IMAGE"
+    "IMAGE",
+    "LINE",
+    "POSITION AND SIZE",
+    "BACKGROUND"
   ],
   "showInactiveFlowsInDebugger": true
 }

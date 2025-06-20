@@ -135,13 +135,15 @@ void loop()
             lastDispValuesRefreshed = millis();
             if (p_speed != speed)
             {
-                lv_arc_set_value(objects.speed_arc, speed);
+                // lv_arc_set_value(objects.speed_arc, speed);
+                lv_scale_set_line_needle_value(objects.speed_scale,objects.speed_needle,230,speed);                
                 lv_label_set_text_fmt(objects.speed, "%03d", speed);
                 p_speed = speed;
             }
             if (p_rpm != rpm)
             {
-                lv_arc_set_value(objects.rpm_arc, rpm);
+                // lv_arc_set_value(objects.rpm_arc, rpm);
+                lv_scale_set_line_needle_value(objects.rpm_scale,objects.rpm_needle,180,rpm/100);
                 lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
                 p_rpm = rpm;
             }
