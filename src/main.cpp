@@ -103,8 +103,9 @@ void setup()
         static_cast<BusRGB *>(lcd_bus)->configRGB_BounceBufferSize(lcd->getFrameWidth() * 10);
     }
 #endif
-
+    auto expander = board->getIO_Expander()->getBase();
     assert(board->begin());
+    
 
     lvgl_port_init(board->getLCD(), board->getTouch());
 
