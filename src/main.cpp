@@ -141,12 +141,12 @@ void loop()
                 p_speed = speed;
             }
             if (p_rpm != rpm)
-            {
-                // lv_arc_set_value(objects.rpm_arc, rpm);
-                lv_scale_set_line_needle_value(objects.rpm_scale,objects.rpm_needle,180,rpm/100);
-                lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
-                p_rpm = rpm;
-            }
+            // {
+            //     // lv_arc_set_value(objects.rpm_arc, rpm);
+            //     lv_scale_set_line_needle_value(objects.rpm_scale,objects.rpm_needle,180,rpm/100);
+            //     lv_label_set_text_fmt(objects.rpm, "%04d", rpm);
+            //     p_rpm = rpm;
+            // }
             if (p_fuelLevel != fuelLevel)
             {
                 lv_bar_set_value(objects.fuel_bar, fuelLevel, LV_ANIM_OFF);

@@ -1,7 +1,7 @@
 {
   "navigation": {
     "selectedUserPageObject": "[EEZGaugeUi.eez-project]:/userPages/0",
-    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/5",
+    "selectedFontObject": "[EEZGaugeUi.eez-project]:/fonts/6",
     "selectedBitmapObject": "[EEZGaugeUi.eez-project]:/bitmaps/1",
     "subnavigationSelectedItems": {
       "variables-tab/sub-navigation/selected-item": "Global"
@@ -25,6 +25,7 @@
           },
           {
             "type": "border",
+            "selected": 1,
             "size": 240,
             "location": "right",
             "children": [
@@ -942,10 +943,10 @@
       "selection": {
         "0": {
           "0": {},
-          "1": {
+          "1": {},
+          "2": {
             "$selected": true
           },
-          "2": {},
           "3": {},
           "4": {},
           "5": {},
@@ -962,10 +963,7 @@
           "16": {},
           "17": {},
           "18": {},
-          "19": {},
-          "20": {},
-          "21": {},
-          "22": {}
+          "19": {}
         }
       },
       "transform": {
@@ -1129,7 +1127,8 @@
     "IMAGE",
     "LINE",
     "POSITION AND SIZE",
-    "BACKGROUND"
+    "BACKGROUND",
+    "TEXT"
   ],
   "showInactiveFlowsInDebugger": true
 }
