@@ -31,7 +31,7 @@
 /**
  * @brief Board name (format: "Manufacturer:Model")
  */
-#define ESP_PANEL_BOARD_NAME                "ESP32S3LcdDrvBrd:Rnd2.8in"
+#define ESP_PANEL_BOARD_NAME                "Waveshare:ESP32S3-Touch-LCD-2.8C"
 
 /**
  * @brief Panel resolution configuration in pixels
@@ -107,8 +107,8 @@
     #define ESP_PANEL_BOARD_LCD_SPI_HOST_ID         (1)     // Typically set to 1
 #if !ESP_PANEL_BOARD_LCD_BUS_SKIP_INIT_HOST
     /* For host */
-    #define ESP_PANEL_BOARD_LCD_SPI_IO_SCK          (7)
-    #define ESP_PANEL_BOARD_LCD_SPI_IO_MOSI         (6)
+    #define ESP_PANEL_BOARD_LCD_SPI_IO_SCK          (2)
+    #define ESP_PANEL_BOARD_LCD_SPI_IO_MOSI         (1)
     #define ESP_PANEL_BOARD_LCD_SPI_IO_MISO         (-1)    // -1 if not used
 #endif // ESP_PANEL_BOARD_LCD_BUS_SKIP_INIT_HOST
     /* For panel */
@@ -155,10 +155,10 @@
 
 #if ESP_PANEL_BOARD_LCD_RGB_USE_CONTROL_PANEL
     /* For control panel (3wire-SPI) */
-    #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_CS               (42)
+    #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_CS               (2)
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_SCK              (2)
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_SDA              (1)
-    #define ESP_PANEL_BOARD_LCD_RGB_SPI_CS_USE_EXPNADER     (0) // Set to 1 if the signal is controlled by an IO expander
+    #define ESP_PANEL_BOARD_LCD_RGB_SPI_CS_USE_EXPNADER     (1) // Set to 1 if the signal is controlled by an IO expander
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_SCL_USE_EXPNADER    (0) // Set to 1 if the signal is controlled by an IO expander
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_SDA_USE_EXPNADER    (0) // Set to 1 if the signal is controlled by an IO expander
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_MODE                (0) // 0-3, typically set to 0
@@ -167,7 +167,7 @@
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_USE_DC_BIT          (1) // 0/1. Typically set to 1
 #endif // ESP_PANEL_BOARD_LCD_RGB_USE_CONTROL_PANEL
     /* For refresh panel (RGB) */
-    #define ESP_PANEL_BOARD_LCD_RGB_CLK_HZ          (12 * 1000 * 1000)
+    #define ESP_PANEL_BOARD_LCD_RGB_CLK_HZ          (18 * 1000 * 1000)
                                                             // To increase the upper limit of the PCLK, see: https://docs.espressif.com/projects/esp-faq/en/latest/software-framework/peripherals/lcd.html#how-can-i-increase-the-upper-limit-of-pclk-settings-on-esp32-s3-while-ensuring-normal-rgb-screen-display
     #define ESP_PANEL_BOARD_LCD_RGB_HPW             (8)
     #define ESP_PANEL_BOARD_LCD_RGB_HBP             (10)
@@ -289,7 +289,6 @@
  *    - ESP_PANEL_LCD_CMD_WITH_8BIT_PARAM(delay_ms, command, {data0, data1, ...})
  *    - ESP_PANEL_LCD_CMD_WITH_NONE_PARAM(delay_ms, command)
  */
-
 #define ESP_PANEL_BOARD_LCD_VENDOR_INIT_CMD()                       \
     {                                                               \
         {0xFF, (uint8_t []){0x77, 0x01, 0x00, 0x00, 0x13}, 5, 0},\
@@ -332,10 +331,8 @@
         {0x3A, (uint8_t []){0x66}, 1, 0},\
         {0x36, (uint8_t []){0x00}, 1, 0},\
         {0x35, (uint8_t []){0x00}, 1, 0},\
-        {0x20, (uint8_t []){0x00}, 0, 120},\
         {0x29, (uint8_t []){0x00}, 0, 0},\
     }
-
 
 /**
  * @brief LCD color configuration
@@ -723,7 +720,20 @@
  * @param[in] p Pointer to the board object
  * @return true on success, false on failure
  */
+/*
+#define ESP_PANEL_BOARD_TOUCH_PRE_BEGIN_FUNCTION(p) \
+    {  \
+        auto board = static_cast<Board *>(p);  \
+        return true;    \
+    }
+*/
 
+/**
+ * @brief Post-begin function for touch panel initialization
+ *
+ * @param[in] p Pointer to the board object
+ * @return true on success, false on failure
+ */
 #define ESP_PANEL_BOARD_TOUCH_PRE_BEGIN_FUNCTION(p) \
     {  \
         constexpr gpio_num_t TP_INT = static_cast<gpio_num_t>(ESP_PANEL_BOARD_TOUCH_INT_IO); \
@@ -740,21 +750,6 @@
         gpio_reset_pin(TP_INT); \
         return true;    \
     }
-
-
-/**
- * @brief Post-begin function for touch panel initialization
- *
- * @param[in] p Pointer to the board object
- * @return true on success, false on failure
- */
-/*
-#define ESP_PANEL_BOARD_TOUCH_POST_BEGIN_FUNCTION(p) \
-    {  \
-        auto board = static_cast<Board *>(p);  \
-        return true;    \
-    }
-*/
 
 /**
  * @brief Pre-begin function for backlight initialization
