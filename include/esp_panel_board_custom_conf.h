@@ -155,7 +155,7 @@
 
 #if ESP_PANEL_BOARD_LCD_RGB_USE_CONTROL_PANEL
     /* For control panel (3wire-SPI) */
-    #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_CS               (3)
+    #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_CS               (2)
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_SCK              (2)
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_IO_SDA              (1)
     #define ESP_PANEL_BOARD_LCD_RGB_SPI_CS_USE_EXPNADER     (1) // Set to 1 if the signal is controlled by an IO expander
@@ -678,14 +678,14 @@
  * @param[in] p Pointer to the board object
  * @return true on success, false on failure
  */
-// #define ESP_PANEL_BOARD_EXPANDER_POST_BEGIN_FUNCTION(p) \
-//     {  \
-//         auto board = static_cast<Board *>(p);  \
-//         auto expander = static_cast<esp_expander::TCA95XX_8BIT*>(board->getIO_Expander()->getBase()); \
-//         expander->pinMode(TP_RST,OUTPUT); \
-//         return true;    \
-//     }
-
+/* #define ESP_PANEL_BOARD_EXPANDER_POST_BEGIN_FUNCTION(p) \
+    {  \
+        auto board = static_cast<Board *>(p);  \
+        auto expander = static_cast<esp_expander::TCA95XX_8BIT*>(board->getIO_Expander()->getBase()); \
+        expander->pinMode(TP_RST,OUTPUT); \
+        return true;    \
+    }
+ */
 /**
  * @brief Pre-begin function for LCD initialization
  *
@@ -737,7 +737,7 @@
 #define ESP_PANEL_BOARD_TOUCH_PRE_BEGIN_FUNCTION(p) \
     {  \
         constexpr gpio_num_t TP_INT = static_cast<gpio_num_t>(ESP_PANEL_BOARD_TOUCH_INT_IO); \
-        constexpr int TP_RST = 2; \
+        constexpr int TP_RST = 1; \
         auto board = static_cast<Board *>(p);  \
         auto expander = board->getIO_Expander()->getBase(); \
         expander->pinMode(TP_RST,OUTPUT); \
