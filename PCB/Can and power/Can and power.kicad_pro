@@ -48,7 +48,7 @@
         "silk_text_thickness": 0.15,
         "silk_text_upright": false,
         "zones": {
-          "min_clearance": 0.2032
+          "min_clearance": 0.1524
         }
       },
       "diff_pair_dimensions": [
@@ -232,7 +232,7 @@
           "drill": 0.3
         }
       ],
-      "zones_allow_external_fillets": false
+      "zones_allow_external_fillets": true
     },
     "ipc2581": {
       "dist": "",
@@ -502,7 +502,6 @@
         "bus_width": 12,
         "clearance": 0.1524,
         "diff_pair_gap": 0.1524,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.3048,
         "line_style": 0,
         "microvia_diameter": 0.6,
@@ -520,7 +519,6 @@
         "bus_width": 12,
         "clearance": 0.1524,
         "diff_pair_gap": 0.1524,
-        "diff_pair_via_gap": 0.25,
         "diff_pair_width": 0.2032,
         "line_style": 0,
         "microvia_diameter": 0.6,
