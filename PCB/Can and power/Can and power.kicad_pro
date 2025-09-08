@@ -441,7 +441,7 @@
       "four_way_junction": "ignore",
       "global_label_dangling": "warning",
       "hier_label_mismatch": "error",
-      "label_dangling": "error",
+      "label_dangling": "warning",
       "label_multiple_wires": "warning",
       "lib_symbol_issues": "warning",
       "lib_symbol_mismatch": "warning",
@@ -536,7 +536,9 @@
     "meta": {
       "version": 4
     },
-    "net_colors": null,
+    "net_colors": {
+      "GND": "rgb(80, 255, 184)"
+    },
     "netclass_assignments": null,
     "netclass_patterns": []
   },
