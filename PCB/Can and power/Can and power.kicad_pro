@@ -554,7 +554,7 @@
       "plot": "",
       "pos_files": "",
       "specctra_dsn": "",
-      "step": "Can and power.step",
+      "step": "UniverCan v6.0.step",
       "svg": "",
       "vrml": "Can and power.wrl"
     },
