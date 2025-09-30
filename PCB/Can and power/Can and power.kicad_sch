@@ -7948,7 +7948,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "MF-USHT050KX-2"
+		(property "Manufacturer_Part_Number" "MF-USHT050KX"
 			(at 108.458 109.982 0)
 			(effects
 				(font
@@ -7957,20 +7957,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C720079"
 			(at 96.52 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C3760720"
 			(at 96.52 106.68 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
@@ -8161,20 +8163,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C183219"
 			(at 154.94 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C183219"
 			(at 154.94 57.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8281,20 +8285,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C105579"
 			(at 154.94 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C278626"
 			(at 154.94 48.26 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8458,20 +8464,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C19626256"
 			(at 220.98 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C10662"
 			(at 220.98 46.99 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -8614,6 +8622,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer_Part_Number" "20021111-00014T4LF"
@@ -8622,22 +8631,25 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C2935955"
 			(at 43.18 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C5410334"
 			(at 43.18 72.39 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9096,20 +9108,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C467525"
 			(at 104.14 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C668896"
 			(at 104.14 125.73 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9228,20 +9242,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C114634"
 			(at 170.18 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C114634"
 			(at 170.18 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9350,20 +9366,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C137691"
 			(at 170.18 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C137691"
 			(at 170.18 135.89 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9450,31 +9468,33 @@
 	(symbol
 		(lib_id "Device:C_Small")
 		(at 203.2 27.94 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "42769ddb-49db-42a7-9b4e-d5cb8fe16a6d")
 		(property "Reference" "C3"
-			(at 196.85 27.94 90)
+			(at 200.66 26.6762 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Value" "0.1uF"
-			(at 199.39 27.94 90)
+			(at 200.66 29.2162 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(justify left)
 			)
 		)
 		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 204.1652 31.75 0)
+			(at 202.2348 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -9536,20 +9556,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C108079"
 			(at 203.2 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C108079"
 			(at 203.2 27.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9704,12 +9726,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C79382"
 			(at 123.19 120.65 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "LCSC" ""
@@ -9718,6 +9741,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -9845,7 +9869,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://content.kemet.com/datasheets/KEM_C1002_X7R_SMD.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C82601.pdf"
 			(at 101.6 68.58 0)
 			(effects
 				(font
@@ -9863,7 +9887,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "C1206C104K5RACTU"
+		(property "Manufacturer_Part_Number" "CC1206KRX7R9BB104"
 			(at 101.6 68.58 0)
 			(effects
 				(font
@@ -9872,7 +9896,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "KEMET"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 101.6 68.58 0)
 			(effects
 				(font
@@ -9881,20 +9905,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C82601"
 			(at 101.6 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C82601"
 			(at 101.6 68.58 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10002,20 +10028,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C17901"
 			(at 101.6 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C137392"
 			(at 101.6 80.01 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10124,20 +10152,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C108079"
 			(at 189.23 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C108079"
 			(at 189.23 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10229,23 +10259,22 @@
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
+		(fields_autoplaced yes)
 		(uuid "638eb9f4-7394-4d84-bf7b-2ce0e0e70760")
 		(property "Reference" "J6"
-			(at 53.34 165.0999 0)
+			(at 50.8 179.07 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Value" "HDR_175"
-			(at 53.34 167.6399 0)
+			(at 50.8 181.61 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
-				(justify left)
 			)
 		)
 		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
@@ -10276,35 +10305,39 @@
 			)
 		)
 		(property "Manufacturer_Name" "Würth Elektronik"
-			(at 50.8 178.054 0)
+			(at 50.8 184.15 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer_Part_Number" "61300811121"
-			(at 50.8 180.086 0)
+			(at 50.8 186.69 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
-			(at 50.8 165.1 0)
+		(property "LCSC alt." "C492407"
+			(at 50.8 189.23 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
-			(at 50.8 165.1 0)
+		(property "LCSC" "C492407"
+			(at 50.8 191.77 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "7"
@@ -10676,20 +10709,22 @@
 				)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C160258"
 			(at 267.97 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C160258"
 			(at 267.97 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -10786,20 +10821,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C16194176"
 			(at 113.03 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C16194176"
 			(at 113.03 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11055,20 +11092,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C183219"
 			(at 229.87 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C183219"
 			(at 229.87 142.24 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11097,7 +11136,7 @@
 		(fields_autoplaced yes)
 		(uuid "77400770-2509-4eaf-8325-dce0a47e3932")
 		(property "Reference" "U1"
-			(at 198.8059 34.29 0)
+			(at 198.9933 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11106,7 +11145,7 @@
 			)
 		)
 		(property "Value" "SN65HVD230"
-			(at 198.8059 36.83 0)
+			(at 198.9933 35.56 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11177,20 +11216,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C12084"
 			(at 196.85 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C12084"
 			(at 196.85 43.18 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11317,20 +11358,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C505480"
 			(at 269.24 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C3899730"
 			(at 269.24 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11421,20 +11464,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C16194176"
 			(at 129.54 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C16194176"
 			(at 129.54 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11559,20 +11604,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C6119842"
 			(at 275.59 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C19702"
 			(at 275.59 121.92 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11681,20 +11728,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C108079"
 			(at 123.19 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C108079"
 			(at 123.19 49.53 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11771,6 +11820,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer_Part_Number" "20021111-00014T4LF"
@@ -11779,22 +11829,25 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C2935955"
 			(at 43.18 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C5410334"
 			(at 43.18 97.79 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -11859,7 +11912,7 @@
 		(fields_autoplaced yes)
 		(uuid "83dd0645-47e4-4641-9d47-52f2fa7e72fe")
 		(property "Reference" "C9"
-			(at 156.21 140.335 0)
+			(at 154.94 139.7062 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11868,7 +11921,7 @@
 			)
 		)
 		(property "Value" "10uF"
-			(at 156.21 142.875 0)
+			(at 154.94 142.2462 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -11939,20 +11992,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C14860"
 			(at 152.4 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C14860"
 			(at 152.4 140.97 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12055,7 +12110,7 @@
 				)
 			)
 		)
-		(property "Value" "2V-20mA"
+		(property "Value" "2V - 20mA"
 			(at 168.9735 21.59 0)
 			(effects
 				(font
@@ -12090,7 +12145,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Harvatek Corporation"
+		(property "Manufacturer_Name" "Lite-On"
 			(at 168.91 24.13 0)
 			(effects
 				(font
@@ -12099,7 +12154,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "B1911UD--20D001014U1930"
+		(property "Manufacturer_Part_Number" "LTST-C190KFKT"
 			(at 168.91 24.13 0)
 			(effects
 				(font
@@ -12126,20 +12181,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C157740"
 			(at 168.91 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C157740"
 			(at 168.91 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12303,20 +12360,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C19626256"
 			(at 220.98 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C10662"
 			(at 220.98 41.91 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12623,20 +12682,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C22548"
 			(at 181.61 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C22548"
 			(at 181.61 24.13 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -12864,20 +12925,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C52653"
 			(at 191.77 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C52653"
 			(at 191.77 134.62 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13135,20 +13198,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C185353"
 			(at 222.25 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C185353"
 			(at 222.25 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13243,7 +13308,7 @@
 		(fields_autoplaced yes)
 		(uuid "ace13fab-d04c-403e-a086-3d97f1786217")
 		(property "Reference" "C5"
-			(at 148.59 126.365 0)
+			(at 148.59 125.7299 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13252,7 +13317,7 @@
 			)
 		)
 		(property "Value" "1uF"
-			(at 148.59 128.905 0)
+			(at 148.59 128.2699 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13332,20 +13397,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C15849"
 			(at 144.78 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C92848"
 			(at 144.78 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13595,20 +13662,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C22866"
 			(at 269.24 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C185374"
 			(at 269.24 152.4 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13772,20 +13841,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C894433"
 			(at 234.95 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C894433"
 			(at 234.95 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -13960,20 +14031,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C519407"
 			(at 254 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C20218600"
 			(at 254 143.51 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14346,20 +14419,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C1856442"
 			(at 189.23 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C3883923"
 			(at 189.23 149.86 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14501,6 +14576,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "Manufacturer_Part_Number" "LPPB102CFFN-RC"
@@ -14509,22 +14585,25 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C22438134"
 			(at 40.64 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C3319382"
 			(at 40.64 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14685,20 +14764,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C22548"
 			(at 181.61 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C22548"
 			(at 181.61 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14769,7 +14850,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Harvatek Corporation"
+		(property "Manufacturer_Name" "Lite-On"
 			(at 168.91 31.75 0)
 			(effects
 				(font
@@ -14778,7 +14859,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "B1911UD--20D001014U1930"
+		(property "Manufacturer_Part_Number" "LTST-C190KFKT"
 			(at 168.91 31.75 0)
 			(effects
 				(font
@@ -14805,20 +14886,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C157740"
 			(at 168.91 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C157740"
 			(at 168.91 31.75 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -14980,20 +15063,22 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C1330797"
 			(at 236.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C1330797"
 			(at 236.22 118.11 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "1"
@@ -15130,12 +15215,13 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." ""
+		(property "LCSC alt." "C22355853"
 			(at 96.52 127 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(property "LCSC" ""
@@ -15144,6 +15230,7 @@
 				(font
 					(size 1.27 1.27)
 				)
+				(hide yes)
 			)
 		)
 		(pin "2"
