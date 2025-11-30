@@ -1,0 +1,400 @@
+ARG	ID	RESULTNAME	INFO	EINHEIT	LABEL	L/H	DATENTYP	NAME	MUL	DIV	ADD
+ITANS	0x4200	STAT_ANSAUGLUFTTEMPERATUR_1_WERT	Ansauglufttemperatur 1	Grad C	tans	-	unsigned char	-	0,75	1	-48,0
+IPUMG	0x4201	STAT_UMGEBUNGSDRUCK_WERT	Umgebungsdruck	hPa	pu_w	-	unsigned integer	-	0,0390625	1	0,0
+IPSAU	0x4202	STAT_SAUGROHRDRUCK_WERT	Saugrohrdruck	hPa	ps_w	-	unsigned integer	-	0,0390625	1	0,0
+ILMKG	0x4203	STAT_MASSENSTROM_VOM_HFM_WERT	Massenstrom vom HFM	kg/h	mshfm_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+ITUMG	0x4204	STAT_UMGEBUNGSTEMPERATUR_WERT	Umgebungstemperatur	Grad C	tumg	-	unsigned char	-	0,75	1	-48,0
+IPLAD	0x4205	STAT_SAUGROHRDRUCK_1_LADEDRUCK_1_WERT	Saugrohrdruck 1 Ladedruck 1	hPa	pvd_w	-	unsigned integer	-	0,078125	1	0,0
+ITKUM	0x4300	STAT_KUEHLWASSERTEMPERATUR_WERT	Kühlwassertemperatur	Grad C	tmot	-	unsigned char	-	0,75	1	-48,0
+ITOEL	0x4402	STAT_OELTEMPERATUR_WERT	Öltemperatur	Grad C	toel	-	unsigned char	-	1,0	1	-60,0
+IKVLS	0x4403	STAT_KRAFTSTOFFVERBRAUCH_SEIT_LETZTEM_SERVICE_WERT	Kraftstoffverbrauch seit letztem Service	-	ozkvbsm_ul	-	unsigned long	-	1,220703125E-4	1	0,0
+STAT_0x440B_WERT	0x440B	STAT_LAENDERFAKTOR_1_CODIERT_WERT	Länderfaktor 1 codiert	-	ozlf1c_eep	-	unsigned char	-	0,009999999776482582	1	0,0
+STAT_0x440C_WERT	0x440C	STAT_LAENDERFAKTOR_2_CODIERT_WERT	Länderfaktor 2 codiert	-	ozlf2c_eep	-	unsigned char	-	0,009999999776482582	1	0,0
+STAT_0x440D_WERT	0x440D	STAT_LAENDERFAKTOR_1_WERT	Länderfaktor 1	-	ozlf1t	-	unsigned char	-	0,009999999776482582	1	0,0
+STAT_0x440E_WERT	0x440E	STAT_LAENDERFAKTOR_2_WERT	Länderfaktor 2	-	ozlf2t	-	unsigned char	-	0,009999999776482582	1	0,0
+SSPEI	0x4505	STAT_SOLLWERT_EINLASSSPREIZUNG_WERT	Sollwert Einlassspreizung	Grad KW	wnwsaeb_w	-	signed integer	-	0,0078125	1	0,0
+IPNWE	0x4506	STAT_NOCKENWELLENPOSITION_EINLASS_WERT	Nockenwellenposition Einlass	Grad KW	wnwkwe_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+IPNWA	0x4507	STAT_NOCKENWELLENPOSITION_AUSLASS_WERT	Nockenwellenposition Auslass	Grad KW	wnwkwa_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+ISNWE	0x4508	STAT_ISTWERT_EINLASSSPREIZUNG_WERT	Istwert Einlassspreizung	Grad KW	wnwe_w	-	signed integer	-	0,0078125	1	0,0
+ISNWA	0x4509	STAT_ISTWERT_AUSLASSSPREIZUNG_WERT	Istwert Auslassspreizung	Grad KW	wnwa_w	-	signed integer	-	0,0078125	1	0,0
+STAT_0x450C_WERT	0x450C	STAT_ADAPTION_KURBEL_EINLASSNOCKENWELLE_ERFOLGT_WERT	Adaption Kurbel Einlassnockenwelle erfolgt	-	B_phade	-	unsigned char	-	1	1	0
+STAT_0x450D_WERT	0x450D	STAT_ADAPTION_KURBEL_AUSLASSNOCKENWELLE_ERFOLGT_WERT	Adaption Kurbel Auslassnockenwelle erfolgt	-	B_phada	-	unsigned char	-	1	1	0
+STAT_0x450E_WERT	0x450E	STAT_NULLGANGVERSCHIEBUNG_FUER_WINKELVERSATZ_DIAGNOSE_BYTE_0_WERT	Nullpunktverschiebung in Grad KW für die Winkelversatz Diagnose	deg CrS	EpmCaS_phiDiffAvrgLim	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x450F_WERT	0x450F	STAT_NULLGANGVERSCHIEBUNG_FUER_WINKELVERSATZ_DIAGNOSE_BYTE_1_WERT	Nullpunktverschiebung in Grad KW für die Winkelversatz Diagnose	deg CrS	EpmCaS_phiDiffAvrgLim	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4510_WERT	0x4510	STAT_BEDINGUNG_VVT_LAGEREGLERUEBERWACHUNG_WERT	Bedingung VVT-Lagereglerueberwachung hat bleibende Regelabweichung erkannt	-	B_dvvtregelabweichung	-	unsigned char	-	1	1	0
+STAT_0x4511_WERT	0x4511	STAT_BEDINGUNG_VVT_LAGEREGLER_SCHWINGT_WERT	Bedingung VVT-Lageregler schwingt	-	B_dvvtschwingung	-	unsigned char	-	1	1	0
+STAT_0x4512_WERT	0x4512	STAT_BEDINGUNG_VVT_UEBERLASTUNG_WERT	Bedingung VVT-Überlastung	-	B_vvttempovl_wrn	-	unsigned char	-	1	1	0
+STAT_0x4513_WERT	0x4513	STAT_BEDINGUNG_VVT_UEBERLASTUNG_DURCH_KLEMMENDEN_STELLER_WERT	Bedingung VVT-Überlastung (klemmender Steller)	-	B_vvttempovl	-	unsigned char	-	1	1	0
+STAT_0x4514_WERT	0x4514	STAT_BEDINGUNG_VVT_ADAPTION_MOEGLICH_WERT	Bedingung VVT-Adaption möglich	-	B_enadpvvt	-	unsigned char	-	1	1	0
+STAT_0x4515_WERT	0x4515	STAT_ANFORDERUNG_VVT_ANSCHLAGLERNEN_INTERN_WERT	Anforderung VVT-Anschlaglernen (intern)	-	vvtlrnaf	-	unsigned char	-	1,0	1	0,0
+STAT_0x4516_WERT	0x4516	STAT_STATUS_VVT_ANSCHLAGLERNEN_INTERN_WERT	Status VVT-Anschlaglernen (intern)	-	vvtlrnst	-	unsigned char	-	1,0	1	0,0
+STAT_0x4517_WERT	0x4517	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4518_WERT	0x4518	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4519_WERT	0x4519	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x451A_WERT	0x451A	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x451B_WERT	0x451B	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x451C_WERT	0x451C	STAT_ADAPTIERTE_FLANKENPOSITION_ERSTE_AUSLASSNOCKENWELLE_WERT	Array mit adaptierten Flankenpositionen der ersten Auslaßnockenwelle	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x451D_WERT	0x451D	STAT_VERSTELLZEIT_VVT_BEI_TESTERANSTEUERUNG_WERT	Verstellzeit VVT bei Testeransteuerung 	-	vvtdtperf_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x451E_WERT	0x451E	STAT_SUMMENSTROM_VVT_BEI_TESTERANSTEUERUNG_WERT	Summenstrom VVT bei Testeransteuerung 	A	ivvtsumperf_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x4520_WERT	0x4520	STAT_GEMITTELTER_VERDREHWINKEL_DER_NOCKENWELLE_BYTE_0_WERT	Gemittelter Verdrehwinkel der Nockenwelle	deg CrS	EpmCaS_phiCaSOfsAvg	-	signed long	-	0,02197265625	1	0,0
+STAT_0x4521_WERT	0x4521	STAT_GEMITTELTER_VERDREHWINKEL_DER_NOCKENWELLE_BYTE_1_WERT	Gemittelter Verdrehwinkel der Nockenwelle	deg CrS	EpmCaS_phiCaSOfsAvg	-	signed long	-	0,02197265625	1	0,0
+STAT_0x4523_WERT	0x4523	STAT_ARRAY_ADAPTIERTE_FLANKENPOSITIONEN_DER_ERSTEN_EINLASSNOCKENWELLE_BYTE_1_WERT	Array mit adaptierten Flankenpositionen der ersten Einlassnockenwelle	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4524_WERT	0x4524	STAT_ARRAY_ADAPTIERTE_FLANKENPOSITIONEN_DER_ERSTEN_EINLASSNOCKENWELLE_BYTE_2_WERT	Array mit adaptierten Flankenpositionen der ersten Einlassnockenwelle	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4525_WERT	0x4525	STAT_ARRAY_ADAPTIERTE_FLANKENPOSITIONEN_DER_ERSTEN_EINLASSNOCKENWELLE_BYTE_3_WERT	Array mit adaptierten Flankenpositionen der ersten Einlassnockenwelle	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4526_WERT	0x4526	STAT_ARRAY_ADAPTIERTE_FLANKENPOSITIONEN_DER_ERSTEN_EINLASSNOCKENWELLE_BYTE_4_WERT	Array mit adaptierten Flankenpositionen der ersten Einlassnockenwelle	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x4527_WERT	0x4527	STAT_ARRAY_ADAPTIERTE_FLANKENPOSITIONEN_DER_ERSTEN_EINLASSNOCKENWELLE_BYTE_5_WERT	Array mit adaptierten Flankenpositionen der ersten Einlassnockenwelle	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+IWDKL	0x4600	STAT_AKTUELLER_DROSSELKLAPPENWINKEL_WERT	aktueller Drosselklappenwinkel	%DK	wdkba_w	-	signed integer	-	0,0244140625	1	0,0
+SWDKL	0x4601	STAT_DROSSELKLAPPE_SOLLWERT_WERT	Drosselklappe Sollwert	%	wdks_w	-	unsigned integer	-	0,00152587890625	1	0,0
+SUGEB	0x4602	STAT_GENERATOR_SOLLSPANNUNG_UEBER_BSD_WERT	Generator Sollspannung über BSD	V	ugen	-	unsigned char	-	0,10000000149011612	1	10,6
+ITGEE	0x4603	STAT_CHIPTEMPERATUR_GENERATOR_1_WERT	Chiptemperatur Generator 1	Grad C	tchip	-	unsigned char	-	1,0	1	-40,0
+IIGEN	0x4604	STAT_GENERATOR_STROM_WERT	Generator Strom	-	st_i_gen	-	unsigned char	-	1,0	1	0,0
+VGENE	0x4605	STAT_CHIPVERSION_GENERATOR_1_WERT	Chipversion Generator 1	-	bsdgencv	-	unsigned char	-	1,0	1	0,0
+VGENR	0x4606	STAT_REGLERVERSION_GENERATOR_1_WERT	Reglerversion Generator 1	-	bsdgenregv	-	unsigned char	-	1,0	1	0,0
+VGENH	0x4607	STAT_HERSTELLERCODE_GENERATOR_1_WERT	Herstellercode Generator 1	-	genmanufak	-	unsigned char	-	1,0	1	0,0
+VGTYP	0x4608	STAT_KENNUNG_GENERATORT_P_GENERATOR_1_WERT	Kennung Generatortyp Generator 1	-	gentypkenn	-	unsigned char	-	1,0	1	0,0
+IUK87	0x4609	STAT_KLEMME_87_SPANNUNGSVERSORGUNG_DME_WERT	Kl.87 Spannung  Versorgung DME	V	ub	-	unsigned char	-	0,094200000166893	1	0,0
+IUBAT	0x460A	STAT_BATTERIESPANNUNG_AKTUELL_WERT	Batteriespannung aktuell	V	ubt	-	unsigned integer	-	0,014999999664723873	1	0,0
+IUIBS	0x460B	STAT_BATTERIESPANNUNG_VON_IBS_GEMESSEN_WERT	Batteriespannung von IBS gemessen	V	ubatt_w	-	unsigned integer	-	2,500000118743628E-4	1	6,0
+IUADW	0x460C	STAT_BATTERIESPANNUNG_VOM_AD_WANDLER_DME_WERT	Batteriespannung vom AD-Wandler DME	V	wub_w	-	unsigned integer	-	0,02355000004172325	1	0,0
+STAT_0x460D_WERT	0x460D	STAT_KORREKTURWERT_ABSCHALTUNG_WERT	Korrekturwert Abschaltung	%	abschkor_w	-	unsigned integer	-	0,004000000189989805	1	-100,0
+STAT_0x460E_WERT	0x460E	STAT_ABSTAND_ZUR_STARTFAEHIGKEITSGRENZE_WERT	Abstand zur Startfähigkeitsgrenze	%	dsoc_w	-	unsigned integer	-	0,004000000189989805	1	-100,0
+ILBAT	0x460F	STAT_BATTERIELAST_WERT	Batterielast	%	dfmonitor	-	unsigned char	-	0,390625	1	0,0
+STELU	0x4611	STAT_SOLLWERT_E_LUEFTER_ALS_PWM_WERT	Sollwert E-Lüfter als PWM Wert	%	taml	-	unsigned char	-	0,390625	1	0,0
+IIEGE	0x4612	STAT_ERREGERSTROM_GENERATOR_1_WERT	Erregerstrom Generator 1	A	ierr	-	unsigned char	-	0,125	1	0,0
+STAT_0x4613_WERT	0x4613	STAT_VOM_GENERATOR_EMPFANGENE_SOLLSPANNUNG_WERT	Empfangene Sollspannung Generator 1	V	ufgen	-	unsigned char	-	0,10000000149011612	1	10,6
+IGENA	0x4614	STAT_AUSLASTUNGSGRAD_GENERATOR_1_WERT	Auslastungsgrad Generator 1	%	dfsiggen	-	unsigned char	-	0,390625	1	0,0
+STAT_0x4615_WERT	0x4615	STAT_KOPIE_BEGRENZTER_ERREGERSTROM_GENERATOR_1_WERT	Kopie begrenzter Erregerstrom Generator 1	A	ierrfgrenz	-	unsigned char	-	0,125	1	0,0
+STAT_0x4616_WERT	0x4616	STAT_KOPIE_GENERATOR_1_LR_VORGABE_AUF_BUS_GELEGT_WERT	Kopie Generator 1 LR Vorgabe auf Bus gelegt	s	tlrfgen	-	unsigned char	-	0,10000000149011612	1	0,0
+MGENG	0x4617	STAT_GEFILTERTES_GENERATORMOMENT_ABSOLUT_AUSGANG_WERT	gefiltertes Generatormoment absolut Ausgang	%	mdgenvf_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x4618_WERT	0x4618	STAT_DREHZAHLSCHWELLE_FUER_LR_FUNKTION_GENERATOR_1_AKTIV_WERT	Drehzahlschwelle für LR-Funktion Generator 1 aktiv	-	B_lrfoff	-	unsigned char	-	1	1	0
+STAT_0x4619_WERT	0x4619	STAT_BEDINGUNG_BSD_II_PROTOKOLL_WERT	Bedingung BSD II Protokoll	-	B_bsdprot2	-	unsigned char	-	1	1	0
+IUNGE	0x461A	STAT_NOMINALE_GENERATORSPANNUNG_WERT	Nominale Generatorspannung	V	uregnom	-	unsigned char	-	0,10000000149011612	1	10,6
+STAT_0x4620_WERT	0x4620	STAT_SPANNUNG_DRUCKSENSOR_AC_WERT	Spannung Drucksensor AC	V	udsac_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x4680_WERT	0x4680	STAT_LEERLAUFDREHZAHL_GELERNT_WERT	Leerlaufdrehzahl gelernt	-	B_nggelernt	-	unsigned char	-	1	1	0
+STAT_0x4681_WERT	0x4681	STAT_GETRIEBE_IST_BEREIT_DIE_NEUTRALPOSITION_ANZULERNEN_WERT	Getriebe ist bereit die Neutralposition anzulernen	-	B_ngimlf	-	unsigned char	-	1	1	0
+ISBV1	0x4700	STAT_LAMBDASONDE_BETRIEBSBEREIT_VOR_KAT_BANK1_WERT	Status Lambdasonde betriebsbereit vor Katalysator Bank 1	-	B_sbbvk	-	unsigned char	-	1	1	0
+IUSO1	0x4702	STAT_SPANNUNG_LAMBDASONDE_VOR_KAT_BANK1_WERT	Spannung Lambdasonde vor Katalysator Bank 1 mit Offsetkorrektur	V	ua10mo_w	-	unsigned integer	-	4,8828125E-4	1	0,0
+SINT1	0x4704	STAT_LAMBDA_SOLLWERT_BANK1_WERT	Lambda Sollwert Bank1	-	lamsbg_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+ISKUB	0x4800	STAT_KUPPLUNGSSCHALTER_STATUS_WERT	Kupplungsschalter Status	-	B_kuppl	-	unsigned char	-	1	1	0
+ISKUV	0x4801	STAT_KUPPLUNGSSCHALTER_VORHANDEN_WERT	Kupplungsschalter vorhanden	-	S_kupp	-	unsigned char	-	1	1	0
+ISSPO	0x4802	STAT_SPORTTASTER_AKTIV_WERT	Sporttaster aktiv	-	B_pedsport	-	unsigned char	-	1	1	0
+ISKLI	0x4803	STAT_STATUS_KLIMA_EIN_WERT	Status Klima ein	-	B_koe	-	unsigned char	-	1	1	0
+ISSRC	0x4805	STAT_STARTRELAIS_UEBER_CAN_AKTIV_WERT	Startrelais über CAN aktiv	-	S_ckl50	-	unsigned char	-	1	1	0
+STAT_0x4806_WERT	0x4806	STAT_STEUERGERAETE_INNENTEMPERATUR_WERT	Steuergeräte-Innentemperatur	Grad C	tsg	-	unsigned char	-	0,75	1	-48,0
+INMOT	0x4807	STAT_MOTOR_DREHZAHL_WERT	Motor Drehzahl	1/min	nmot_w	-	unsigned integer	-	0,25	1	0,0
+SNLLD	0x4808	STAT_LEERLAUF_SOLLDREHZAHL_WERT	Leerlauf Solldrehzahl	1/min	nsol_w	-	unsigned integer	-	0,25	1	0,0
+ISLLA	0x4809	STAT_STATUS_LL_WERT	Status LL	-	B_llr	-	unsigned char	-	1	1	0
+ISKME	0x480A	STAT_KILOMETERSTAND_AUFLOESUNG_1_KM_WERT	Kilometerstand Auflösung 1 km	-	kmstand_l	-	unsigned long	-	1,0	1	0,0
+IFPWG	0x480B	STAT_PEDALWERT_FAHRERWUNSCH_IN_PROZENT_WERT	Pedalwert Fahrerwunsch in %	%PED	wped_w	-	unsigned integer	-	0,0015259021893143654	1	0,0
+STAT_0x4880_WERT	0x4880	STAT_MAX_FEHLERPFAD_INNERHALB_DES_LEERLAUFS_WERT	MAX-Fehlerpfad innerhalb des Leerlaufs	%	etkhlmx	-	unsigned char	-	0,78125	1	0,0
+STAT_0x4881_WERT	0x4881	STAT_MAX_FEHLERPFAD_AUSSERHALB_DES_LEERLAUFS_WERT	MAX-Fehlerpfad ausserhalb des Leerlaufs	%	etkhtmx	-	unsigned char	-	0,78125	1	0,0
+STAT_0x5800_WERT	0x5800	STAT_ZEIT_NACH_START_WERT	Zeitzähler ab Startende (16bit)	s	tnse_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x5801_WERT	0x5801	STAT_UMGEBUNGSDRUCK_WERT	Umgebungsdruck	hPa	pu	-	unsigned char	-	5,0	1	0,0
+ICLR1	0x5802	STAT_ZUSTAND_LAMBDAREGELUNG_BANK_1_WERT	CARB FREEZE FRAME Byte; Zustand Lambdaregelung Bank 1	-	flglrs	-	unsigned char	-	1,0	1	0,0
+SLAST	0x5804	STAT_BERECHNETER_LASTWERT_WERT	relative Luftmasse (calc. load value) nach SAE J1979	%	rml	-	unsigned char	-	0,390625	1	0,0
+STAT_0x5805_WERT	0x5805	STAT_KUEHLMITTELTEMPERATUR_WERT	Motortemperatur, linearisiert und umgerechnet	Grad C	tmotlin	-	unsigned char	-	0,75	1	-48,0
+ILIN1	0x5806	STAT_LAMBDA_INTEGRATOR_GRUPPE_1_WERT	Lambda-Regler-Ausgang (Word)	-	fr_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+ILAM1	0x5807	STAT_LAMBDA_ADAPTION_SUMME_MUL_UND_ADD_GRUPPE_1_WERT	Faktor aus Lambdaregelungsadaption für Bank 1	-	frann_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+IPSA2	0x580B	STAT_SAUGROHRDRUCK_WERT	Saugrohr-Absolutdruck (Word)	hPa	ps_w	-	unsigned integer	-	0,0390625	1	0,0
+INAUF	0x580C	STAT_DREHZAHL_WERT	Motordrehzahl	1/min	nmot	-	unsigned char	-	40,0	1	0,0
+IVKM2	0x580D	STAT_GESCHWINDIGKEIT_WERT	Geschwindigkeit	km/h	vfzg	-	unsigned char	-	1,25	1	0,0
+IZZY1	0x580E	STAT_ZUENDZEITPUNKT_ZYLINDER_1_WERT	Zündwinkel-Ausgabe Array	Grad KW	zwzyl1	-	signed char	-	0,75	1	0,0
+ITANL	0x580F	STAT_ANSAUGLUFTTEMPERATUR_WERT	Ansaugluft-Temperatur	Grad C	tans	-	unsigned char	-	0,75	1	-48,0
+ILMGS	0x5810	STAT_LUFTDURCHSATZ_OBD_WERT	relative Luftmasse (calc. load value) nach SAE J1979	%	rml	-	unsigned char	-	0,390625	1	0,0
+STAT_0x5812_WERT	0x5812	STAT_LUFTMASSE_GEMESSEN_WERT	Massenstrom HFM 16-Bit Größe	kg/h	mshfm_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+ILREL	0x5813	STAT_RELATIVE_LAST_WERT	Relative Last	%	rl	-	unsigned char	-	0,75	1	0,0
+STAT_0x5814_WERT	0x5814	STAT_FAHRPEDALWERT_WERT	normierter Fahrpedalwinkel	%PED	wped	-	unsigned char	-	0,3921568691730499	1	0,0
+STAT_0x5815_WERT	0x5815	STAT_BATTERIESPANNUNG_WERT	Batteriespannung	V	ub	-	unsigned char	-	0,094200000166893	1	0,0
+STAT_0x5816_WERT	0x5816	STAT_LAMBDA_SETPOINT_WERT	Lambda-Sollwert bezogen auf Einbauort Lambda-Sensor	-	lamsons_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+STAT_0x5817_WERT	0x5817	STAT_UMGEBUNGSTEMPERATUR_WERT	Umgebungstemperatur	Grad C	tumg	-	unsigned char	-	0,75	1	-48,0
+ILMMG	0x5818	STAT_LUFTMASSE_GERECHNET_WERT	Luftmassenfluß	kg/h	ml	-	unsigned char	-	4,0	1	0,0
+STAT_0x5819_WERT	0x5819	STAT_DREHZAHL_OBD_B_TE_WERT	Motordrehzahl [1/min]	rpm	Epm_nEng	-	signed integer	-	0,5	1	0,0
+STAT_0x581A_WERT	0x581A	STAT_NOCKENWELLE_EINLASS_WERT	Winkel Einlassventil oeffnet bezogen auf LWOT	Grad KW	wnwe_w	-	signed integer	-	0,0078125	1	0,0
+STAT_0x581B_WERT	0x581B	STAT_NOCKENWELLE_EINLASS_SOLLWERT_WERT	Sollwinkel Nockenwelle Einlass öffnet	Grad KW	wnwse_w	-	signed integer	-	0,0078125	1	0,0
+STAT_0x581C_WERT	0x581C	STAT_NOCKENWELLE_AUSLASS_WERT	Winkel Auslassventil schließt bezogen auf LWOT	Grad KW	wnwa_w	-	signed integer	-	0,0078125	1	0,0
+STAT_0x581D_WERT	0x581D	STAT_NOCKENWELLE_AUSLASS_SOLLWERT_WERT	Sollwinkel Nockenwelle Auslass schließt	Grad KW	wnwsa_w	-	signed integer	-	0,0078125	1	0,0
+STAT_0x581E_WERT	0x581E	STAT_ANSAUGLUFTTEMPERATUR_WERT	Ansauglufttemperatur, linearisiert und umgerechnet	Grad C	tanslin	-	unsigned char	-	0,75	1	-48,0
+STAT_0x581F_WERT	0x581F	STAT_MOTORTEMPERATUR_WERT	Motortemperatur, linearisiert und umgerechnet	Grad C	tmotlin	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5821_WERT	0x5821	STAT_STEUERGERAETE_INNENTEMPERATUR_WERT	Steuergerätetemperatur	Grad C	tsg	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5822_WERT	0x5822	STAT_MOTOROELTEMPERATUR_WERT	Öltemperatur	Grad C	toel	-	unsigned char	-	1,0	1	-60,0
+IZMOS	0x5823	STAT_ZEIT_MOTOR_STEHT_WERT	Abstellzeit	s	tabst_w	-	unsigned integer	-	1,0	1	0,0
+IDKS1	0x5826	STAT_DROSSELKLAPPE_SENSOR_1_WERT	Drosselklappenwinkel aus Poti 1	%DK	wdk1	-	unsigned char	-	0,3921568691730499	1	0,0
+STAT_0x5827_WERT	0x5827	STAT_TASTVERHAELTNIS_LAMBDASONDENHEIZUNG_VOR_KAT_BANK_1_WERT	Tastverhältnis für Lambdasondenheizung	%	tahrlsu_w	-	unsigned integer	-	0,0030517578125	1	0,0
+STAT_0x5829_WERT	0x5829	STAT_LAMBDASONDENHEIZUNG_HINTER_KAT_BANK_1_WERT	normierte Heizleistung der Lambdasonde hinter Kat	-	phlsnh	-	unsigned char	-	0,009999999776482582	1	0,0
+IDRCA	0x582B	STAT_DREHMOMENTEINGRIFF_UEBER_CAN_WERT	Drehmomentaufnahme des Wandlers über CAN	%	mdwancan_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x582C_WERT	0x582C	STAT_LAMBDASONDENISTWERT_WERT	Lambdasondenistwert	-	lamzak_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+STAT_0x582D_WERT	0x582D	STAT_KORREKTURWERT_DER_LSU_SPANNUNG_VOR_KAT_WERT	Korrekturwert der LSU-Spannung vor Kat	V	kusvk_w	-	signed integer	-	4,8828125E-4	1	0,0
+STAT_0x5830_WERT	0x5830	STAT_DYNAMIKWERT_DER_LSU_WERT	Dynamikwert der LSU	-	dynlsu_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+IMOST	0x5832	STAT_MOTOR_STATUS_WERT	Zustand Motor-Koordinator	-	CoEng_st	-	unsigned char	-	1,0	1	0,0
+STAT_0x5834_WERT	0x5834	STAT_UMGEBUNGSDRUCK_WERT	Umgebungsdruck von Sensor	hPa	pur_w	-	unsigned integer	-	0,0390625	1	0,0
+STAT_0x5835_WERT	0x5835	STAT_HERSTELLERCODE_GENERATOR_1_WERT	Kennung Generator Hersteller	-	genmanufak	-	unsigned char	-	1,0	1	0,0
+INGRD	0x5836	STAT_DREHZAHLGRADIENT_WERT	gefilterter Drehzahlgradient	1/min/s	ngfil	-	signed char	-	100,0	1	0,0
+STAT_0x5837_WERT	0x5837	STAT_SOLLDRUCK_HOCHDRUCKSYSTEM_WERT	Solldruck Hochdrucksystem	MPa	prsoll_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+STAT_0x5838_WERT	0x5838	STAT_RELATIVES_MOMENT_FUER_AUSSETZERKENNUNG_WERT	Relatives Moment für Aussetzererkennung	%	midmd	-	unsigned char	-	0,390625	1	0,0
+ISDKN	0x5839	STAT_HERSTELLERCODE_GENERATOR_1_WERT	Bedingung Sicherheitskraftstoffabschaltung (SKA)	-	B_dkpu_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x583A_WERT	0x583A	STAT_ANSAUGLUFTTEMPERATUR_BEIM_START_WERT	Ansaugluft-Temperatur bei Start	Grad C	tansst	-	unsigned char	-	0,75	1	-48,0
+IKTFS	0x583B	STAT_KRAFTSTOFFTANK_FUELLSTAND_WERT	Kraftstofftank Füllstand	L	fstt	-	unsigned char	-	1,0	1	0,0
+STAT_0x583C_WERT	0x583C	STAT_SPANNUNG_KLEMME_87_WERT	Batteriespannung; vom AD-Wandler erfasster Wert	V	wub	-	unsigned char	-	0,094200000166893	1	0,0
+STAT_0x583D_WERT	0x583D	STAT_BETRIEBSSTUNDENZAEHLER_WERT	Betriebsstundenzähler	min	top_w	-	unsigned integer	-	6,0	1	0,0
+STAT_0x583E_WERT	0x583E	STAT_SOLLWERT_DK_WINKEL_IN_NLP_STELLUNG_BEZOGEN_AUF_UMA_WERT	Sollwert DK-Winkel, bezogen auf unteren Anschlag	%DK	wdknlpr_w	-	unsigned integer	-	0,0015259021893143654	1	0,0
+STAT_0x583F_WERT	0x583F	STAT_DROSSELKLAPPE_SOLLWERT_WERT	Sollwert DK-Winkel, bezogen auf unteren Anschlag	%DK	wdks	-	unsigned char	-	0,3921568691730499	1	0,0
+STAT_0x5840_WERT	0x5840	STAT_DK_WINKEL_DER_NOTLUFTPOSITION_WERT	DK-Winkel der Notluftposition	%DK	wdknlp_w	-	unsigned integer	-	0,0015259021893143654	1	0,0
+RTSGR	0x5841	STAT_SG_INNENTEMPERATUR_ROHWERT_WERT	Wert Temperatur Steuergerät	V	wtsg	-	unsigned char	-	0,01953125	1	0,0
+STAT_0x5842_WERT	0x5842	STAT_KENNUNG_GENERATORTYP_WERT	Kennung Generatortyp	-	gentypkenn	-	unsigned char	-	1,0	1	0,0
+STAT_0x5843_WERT	0x5843	STAT_BEDINGUNG_STARTANFORDERUNG_WERT	Bedingung Startanforderung	-	B_staanf_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x5844_WERT	0x5844	STAT_CHIPTEMPERATUR_GENERATOR_1_WERT	Chiptemperatur Generator 1	Grad C	tchip	-	unsigned char	-	1,0	1	-40,0
+STAT_0x5845_WERT	0x5845	STAT_SPANNUNG_LAMBDASONDE_VOR_KAT_BANK_1_WERT	Sondenspannung vor Kat einer Breitbandlambdasonde (ADC-Wert)	V	uulsuv_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5846_WERT	0x5846	STAT_SPANNUNG_PEDALWERTGEBER_1_WERT	Spannung PWG-Poti 1 (Word)	V	upwg1_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5847_WERT	0x5847	STAT_SPANNUNG_PEDALWERTGEBER_2_WERT	Spannung PWG-Poti 2 (Word)	V	upwg2_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5849_WERT	0x5849	STAT_SPANNUNG_LAMBDASONDE_HINTER_KAT_BANK_1_WERT	ADC-Spannung Lambdasonde hinter Katalysator (Word)	V	ushk_w	-	unsigned integer	-	0,0048828125	1	-1,0
+STAT_0x584C_WERT	0x584C	STAT_SPANNUNG_DROSSELKLAPPE_POTENTIOMETER_2_WERT	Spannung DK-Poti 2	V	udkp2_w	-	unsigned integer	-	0,001220703125	1	0,0
+SQTEK	0x584D	STAT_KORRIGIERTER_SOLLWERT_DURCHFLUSS_TANKENTLUEFTUNG_WERT	Massenstrom Tankentlüftung in das Saugrohr	kg/h	mste_w	-	unsigned integer	-	3,906250058207661E-4	1	0,0
+STAT_0x584E_WERT	0x584E	STAT_SPANNUNG_DROSSELKLAPPE_POTENTIOMETER_1_WERT	Spannung DK-Poti 1	V	udkp1_w	-	unsigned integer	-	0,001220703125	1	0,0
+STAT_0x584F_WERT	0x584F	STAT_UMWELTBEDINGUNG_BNS_FEHLER_WERT	Umweltbedingung BNS-Fehler	-	statbnserr	-	unsigned char	-	1,0	1	0,0
+STAT_0x5850_WERT	0x5850	STAT_SPANNUNG_MOTORTEMPERATUR_WERT	Signalspannung des Kühlmitteltemperatursensor	V	utcw_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5855_WERT	0x5855	STAT_MITTELWERT_BANK_1_WERT	schneller Mittelwert des Lambdaregelfaktors (Word)	-	frm_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5857_WERT	0x5857	STAT_ERREGERSTROM_GENERATOR_1_WERT	Erregerstrom Generator 1	A	ierr	-	unsigned char	-	0,125	1	0,0
+STAT_0x5858_WERT	0x5858	STAT_DROSSELKLAPPENWINKEL_BEZOGEN_AUF_UNTEREN_ANSCHLAG_WERT	Drosselklappenwinkel bezogen auf unteren Anschlag	%DK	wdkba	-	unsigned char	-	0,3921568691730499	1	0,0
+STAT_0x5859_WERT	0x5859	STAT_DMTL_STROM_REFERENZLECK_WERT	Pumpenstrom Referenzleck	mA	iptrefr_w	-	unsigned integer	-	0,006103515625	1	0,0
+STAT_0x585A_WERT	0x585A	STAT_DMTL_STROM_GROBLECK_WERT	min. Pumpenstrom bei Grobleckmessung	mA	iptglmn_w	-	unsigned integer	-	0,006103515625	1	0,0
+STAT_0x585B_WERT	0x585B	STAT_DMTL_STROM_DIAGNOSEENDE_WERT	Pumpenstrom am Ende der Feinstleckmessung	mA	iptkl_w	-	unsigned integer	-	0,006103515625	1	0,0
+IRLN1	0x585C	STAT_INNENWIDERSTAND_NERNZELLE_LAMBDASONDE_HINTER_KAT_WERT	Istwert (word) Innenwiderstand Ri-Nernstzelle der Lambdasonde hinter KAT	Ohm	rinh_w	-	unsigned char	-	512,0	1	0,0
+IRUN1	0x585E	STAT_LOW_BYTE_INNENWIDERSTAND_NERNZELLE_LS_HINTER_KAT_WERT	Istwert (word) Innenwiderstand Ri-Nernstzelle der Lambdasonde hinter KAT	Ohm	rinh_w	-	unsigned char	-	2,0	1	0,0
+IRLV1	0x5860	STAT_INNENWIDERSTAND_NERNZELLE_DER_LSU_WERT	Innenwiderstand der Nernstzelle der LSU	Ohm	rinlsu_w	-	unsigned char	-	10,0	1	0,0
+STAT_0x5862_WERT	0x5862	STAT_OELDRUCK_SOLLWERT_WERT	Öldruck Sollwert	kPa	poels_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+IRUV1	0x5863	STAT_LOW_BYTE_INNENWIDERSTAND_DER_NERNSTZELLE_DER_LSU_WERT	Innenwiderstand der Nernstzelle der LSU	Ohm	rinlsu_w	-	unsigned char	-	0,0390625	1	0,0
+STAT_0x5867_WERT	0x5867	STAT_KILOMETERSTAND_WERT	Fahrstrecke des Fahrzeugs als Information über CAN	km	kmstand	-	unsigned integer	-	10,0	1	0,0
+ISSR1	0x5868	STAT_STATUS_STANDVERBRAUCHER_REGISTRIERT_TEIL_1_WERT	Status Standverbraucher registriert Teil 	-	statsvreg1	-	unsigned char	-	1,0	1	0,0
+ISSR2	0x5869	STAT_STATUS_STANDVERBRAUCHER_REGISTRIERT_TEIL_2_WERT	Status Standverbraucher registriert Teil 2	-	statsvreg2	-	unsigned char	-	1,0	1	0,0
+STAT_0x586A_WERT	0x586A	STAT_BATTERIESPANNUNG_VON_IBS_GEMESSEN_WERT	aktuelle Batteriespannung	V	ubatt_w	-	unsigned integer	-	2,500000118743628E-4	1	6,0
+IZR82	0x586B	STAT_ZEIT_MIT_RUHESTROM_80_BIS_200_MA_WERT	Zeit, indem der Ruhestrom bei 80..200mA liegt	min	t2hstshort	-	unsigned char	-	14,933333396911621	1	0,0
+IZR21	0x586C	STAT_ZEIT_MIT_RUHESTROM_200_BIS_1000_MA_WERT	Zeit, indem der Ruhestrom bei 200..1000mA liegt	min	t3hstshort	-	unsigned char	-	14,933333396911621	1	0,0
+IZRG1	0x586E	STAT_ZEIT_MIT_RUHESTROM_GROESSER_1000_MA_WERT	Zeit, indem der Ruhestrom größer als 1000mA liegt	min	t4hstshort	-	unsigned char	-	14,933333396911621	1	0,0
+STAT_0x586F_WERT	0x586F	STAT_OELDRUCK_ISTWERT_WERT	Öldruck	hPa	poel_w	-	signed integer	-	1,0	1	0,0
+STAT_0x5870_WERT	0x5870	STAT_SPANNUNG_DME_UMGEBUNGSDRUCK_WERT	Spannung Umgebungsdrucksensor (word 10-Bit von ADC)	V	udsu_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5872_WERT	0x5872	STAT_REGLERVERSION_GENERATOR_1_WERT	Reglerversion Generator 1	-	bsdgenregv	-	unsigned char	-	1,0	1	0,0
+STAT_0x5874_WERT	0x5874	STAT_SPANNUNG_STROMMESSUNG_DMTL_WERT	ADC-Spannung Pumpenstrom Tankdiagnose	V	urptes_w	-	unsigned integer	-	0,001220703125	1	0,0
+STAT_0x5875_WERT	0x5875	STAT_SOLLWERT_MOTORMOMENT_WERT	Indiziertes Soll-Motormoment MSR	%	mimsr_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5876_WERT	0x5876	STAT_UNGEFILTERTER_HOCHDRUCK_ ROHWERT_WERT	Ungefilterter Hochdruck Rohwert (relativ Druck)	MPa	prrohr_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+ILRR1	0x5878	STAT_LAMBDAVERSCHIEBUNG_RUECKFUEHRREGLER_1_WERT	I-Anteil der stetigen LRSHK Variante kontinuierlich	-	dlahi_w	-	signed integer	-	3,0517578125E-5	1	0,0
+STAT_0x587A_WERT	0x587A	STAT_STATUS_FGR_WERT	Status FGR	-	zstfgr	-	unsigned char	-	1,0	1	0,0
+STAT_0x587C_WERT	0x587C	STAT_PERIODENDAUER_DES_NULLGANGSENSORSIGNALS_WERT	Periodendauer des Nullgangsensorsignals	ms	GbxNPos_tiPwmPer	-	unsigned integer	-	9,999999747378752E-5	1	0,0
+STAT_0x587D_WERT	0x587D	STAT_STATUS_NULLGANGSENSOR_WERT	Status Nullgangsensor	-	stngang	-	unsigned char	-	1,0	1	0,0
+IELTV	0x587F	STAT_TASTVERHAELTNIS_E_LUEFTER_WERT	Tastverhältnis E-Lüfter	%	taml	-	unsigned char	-	0,390625	1	0,0
+SBEGA	0x5881	STAT_BERECHNETER_GANG_WERT	Ist-Gang	-	gangi	-	unsigned char	-	1,0	1	0,0
+ITMOS	0x5882	STAT_MOTORTEMPERATUR_BEIM_START_WERT	Motorstarttemperatur	Grad C	tmst	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5883_WERT	0x5883	STAT_SPANNUNG_KLOPFWERTE_ZYLINDER_1_WERT	Spannung Klopfwerte Zylinder 1	V	rkr_w	-	unsigned integer	-	7,62939453125E-5	1	0,0
+STAT_0x5884_WERT	0x5884	STAT_RUECKGELESENER_ERREGERGRENZSTROM_GENERATOR_1_WERT	Kopie begrenzter Erregerstrom Generator 1	A	ierrfgrenz	-	unsigned char	-	0,125	1	0,0
+STAT_0x5885_WERT	0x5885	STAT_SPANNUNG_KLOPFWERT_ZYLINDER_3_WERT	Spannung Klopfwerte Zylinder 3	V	rkr_w	-	unsigned integer	-	7,62939453125E-5	1	0,0
+IGENA	0x5887	STAT_AUSLASTUNGSGRAD_GENERATOR_1_WERT	Auslastungsgrad Generator 1	%	dfsiggen	-	unsigned char	-	0,390625	1	0,0
+STAT_0x5888_WERT	0x5888	STAT_SPANNUNG_KLOPFWERT_ZYLINDER_4_WERT	Spannung Klopfwerte Zylinder 4	V	rkr_w	-	unsigned integer	-	7,62939453125E-5	1	0,0
+ILAG1	0x5889	STAT_LAMBDA_ISTWERT_GRUPPE_1_WERT	Lambda-Istwert	-	lamsoni_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+IZSSE	0x588B	STAT_ZEIT_SEIT_STARTENDE_WERT	Zeit nach Startende	s	tnst_w	-	unsigned integer	-	0,009999999776482582	1	0,0
+ITKV1	0x588C	STAT_KERAMIKTEMPERATUR_DER_LSU_WERT	Keramiktemperatur der LSU	Grad C	tkerlsu_w	-	unsigned integer	-	0,0234375	1	-273,1499938964844
+IZDML	0x588D	STAT_AKTUELLE_ZEIT_DMTL_LECKMESSUNG_WERT	aktuelle Zeit Leckmessung	s	tdmlka_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+IIDMP	0x588E	STAT_PUMPENSTROM_BEI_DMTL_PUMPENPRUEFUNG_WERT	Pumpenstrom Tankdiagnose	mA	iptes_w	-	unsigned integer	-	0,006103515625	1	0,0
+IMOKU	0x5891	STAT_MOMENTANFORDERUNG_AN_DER_KUPPLUNG_WERT	Kupplungsmotormoment Istwert	Nm	mkist_w	-	signed integer	-	0,5	1	0,0
+IPBUS	0x5892	STAT_BREMSUNTERDRUCK_WERT	Differenz zwischen Umgebungsdruck und BremskraftverstärkerDruck von Drucksensor	hPa	dpbkvur_w	-	signed integer	-	0,0390625	1	0,0
+IDMGW	0x5893	STAT_DREHMOMENTABFALL_SCHNELL_BEI_GANGWECHSEL_WERT	Indiziertes Soll-Motormoment GS für schnellen Eingriff	%	migs_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5894_WERT	0x5894	STAT_SPANNUNG_KLOPFWERT_ZYLINDER_2_WERT	Spannung Klopfwerte Zylinder 2	V	rkr_w	-	unsigned integer	-	7,62939453125E-5	1	0,0
+STAT_0x5896_WERT	0x5896	STAT_ABGASTEMPERATUR_HINTER_KAT_BANK_1_WERT	Abgastemperatur hinter Hauptkat aus Modell	Grad C	tanhkm_w	-	unsigned integer	-	0,0234375	1	-273,1499938964844
+SUGEN	0x5898	STAT_GENERATOR_SOLLSPANNUNG_WERT	phys. Wert Generatorsollspannung (Volt) für Komponententreiber Generator	V	ugen	-	unsigned char	-	0,10000000149011612	1	10,6
+STAT_0x5899_WERT	0x5899	STAT_BEDINGUNG_ ANFORDERUNG_MOTORRELAIS_EINSCHALTEN_WERT	Bedingung Anforderung Motorrelais einschalten	-	B_amtr_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x589A_WERT	0x589A	STAT_TASTVERHAELTNIS_NULLGANGSENSOR_WERT	Tastverhältnis Nullgangsensor	%	tngang_w	-	unsigned integer	-	0,009999999776482582	1	0,0
+STAT_0x589B_WERT	0x589B	STAT_BEDINGUNG_UNZULAESSIGER_HOHER_MOTORSTROM_WERT	Bedingung unzulässig hoher Motorstrom bei Kurzschluss erkannt	-	B_ivvtkse_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x589C_WERT	0x589C	STAT_BEDINGUNG_FREIGABE_VVT_ENDSTUFE_WERT	Bedingung Freigabe VVT-Endstufe	-	B_vvten_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x589E_WERT	0x589E	STAT_SOLLWERT_EXZENTERWINKEL_VVT_WERT	Sollwert Exzenterwinkel VVT	Grad	exwinks_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x589F_WERT	0x589F	STAT_BATTERIETEMPERATUR_WERT	Batterietemperatur	Grad C	tbatt	-	unsigned char	-	0,75	1	-48,0
+STAT_0x58A1_WERT	0x58A1	STAT_KILOMETERSTAND_WERT	Umweltbedingung Kilometerstand für Fehlerspeichereintrag	km	kmstfsp_w	-	unsigned integer	-	8,0	1	0,0
+STAT_0x58A2_WERT	0x58A2	STAT_ISTWERT_EXZENTERWINKEL_VVT_WERT	Istwert Exzenterwinkel VVT	Grad	exwnki_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58A3_WERT	0x58A3	STAT_REL_EXZENTERWINKEL_AM_OBEREN_MECH_ANSCHLAG_WERT	rel. Exzenterwinkel am oberen mech. Anschlag	Grad	exwnkoar_w	-	signed integer	-	0,10000000149011612	1	0,0
+STAT_0x58A4_WERT	0x58A4	STAT_STATUS_GENERATOR_WERT	Status Generator	-	st_gen	-	unsigned char	-	1,0	1	0,0
+STAT_0x58A5_WERT	0x58A5	STAT_ERECHNETES_DF_SIGNAL_GENERATOR_1_WERT	Vom Generator empfangenes Lastsignal	%	dffgen	-	unsigned char	-	0,390625	1	0,0
+STAT_0x58A6_WERT	0x58A6	STAT_REL_EXZENTERWINKEL_WERT	rel. Exzenterwinkel	Grad	exwnkr_w	-	signed integer	-	0,10000000149011612	1	0,0
+STAT_0x58A7_WERT	0x58A7	STAT_ABSTELLZEIT_IN_MINUTEN_WERT	Abstellzeit aus relativem Minutenzähler bis Motorstart	min	tabsmn_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x58A8_WERT	0x58A8	STAT_REL_EXZENTERWINKEL_AM_UNTERER_MECH_ANSCHLAG_WERT	rel. Exzenterwinkel am unterer mech. Anschlag	Grad	exwnkuar_w	-	signed integer	-	0,10000000149011612	1	0,0
+STAT_0x58A9_WERT	0x58A9	STAT_VVT_VERSTELLBEREICH_AUS_URLERNVORGANG_WERT	VVT Verstellbereich aus Urlernvorgang	Grad	exwnkvb_ur_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58AA_WERT	0x58AA	STAT_VERSTELLBEREICH_DES_EXZENTERWINKELS_WERT	Verstellbereich des Exzenterwinkels	Grad	exwnkvb_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58AB_WERT	0x58AB	STAT_DLR_FUER_DV_E_SUMME_DER_PID_ANTEILE_WERT	DLR für DV-E: Summe der PID-Anteile	%	dlrspid_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x58AD_WERT	0x58AD	STAT_SAUERSTOFFSPEICHERVERMOEGEN_KAT_WERT	Sauerstoffspeichervermögen Kat	mg	oscdktt_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58AE_WERT	0x58AE	STAT_PERIODENDAUER_LUFTMASSE_WERT	Peridendauer für Massenstrom aus HFM	us	tpmshfm_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+IKRAN	0x58AF	STAT_KRAFTSTOFF_ANFORDERUNG_AN_PUMPE_WERT	EKP-Sollvolumenstrom	l	vssekp	-	unsigned char	-	1,0	1	0,0
+IDKAD	0x58B0	STAT_DK_ADAPTIONSSCHRITT_WERT	Zähler für Lerndauer eines Lernsteps	-	lrnstep_c	-	unsigned char	-	1,0	1	0,0
+IZFZ1	0x58B1	STAT_BRENNDAUER_DES_ZUENDFUNKENS_ZYLINDER_1_WERT	Diagnose Zuendung: Brenndauer des Zuendfunkens - Zylinder 1	ms	dztbd_w	-	unsigned integer	-	0,0010000000474974513	1	0,0
+IZFZ3	0x58B2	STAT_BRENNDAUER_DES_ZUENDFUNKENS_ZYLINDER_3_WERT	Diagnose Zuendung: Brenndauer des Zuendfunkens - Zylinder 3	ms	dztbd_w	-	unsigned integer	-	0,0010000000474974513	1	0,0
+IZFZ4	0x58B3	STAT_BRENNDAUER_DES_ZUENDFUNKENS_ZYLINDER_4_WERT	Diagnose Zuendung: Brenndauer des Zuendfunkens - Zylinder 4	ms	dztbd_w	-	unsigned integer	-	0,0010000000474974513	1	0,0
+IZFZ2	0x58B4	STAT_BRENNDAUER_DES_ZUENDFUNKENS_ZYLINDER_2_WERT	Diagnose Zuendung: Brenndauer des Zuendfunkens - Zylinder 2	ms	dztbd_w	-	unsigned integer	-	0,0010000000474974513	1	0,0
+IPBRE	0x58B7	STAT_BREMSDRUCK_WERT	aktueller Bremsdruck	-	pbrems	-	unsigned char	-	1,0	1	0,0
+STAT_0x58B8_WERT	0x58B8	STAT_DREHZAHL_UEBERWACHUNG_WERT	Motordrehzahl in der Funktionsüberwachung	1/min	MoF_nEng	-	unsigned char	-	40,0	1	0,0
+STAT_0x58B9_WERT	0x58B9	STAT_PLAUSIBILISIERTE_FAHRPEDALSPANNUNG_UEBERWACHUNG_WERT	plausibilisierte Fahrpedalspannung in der Funktionsüberwachung	V	MoF_uAPP	-	unsigned char	-	0,01953125	1	0,0
+STAT_0x58BA_WERT	0x58BA	STAT_EINGESPRITZTE_KRAFTSTOFFMASSE_WERT	Bank mittel eingespritzte effektive relative Krafftstoffmasse (inkl. Reduzierstufe)	%	rkmeeff_w	-	unsigned integer	-	0,046875	1	0,0
+STAT_0x58BB_WERT	0x58BB	STAT_STROM_FUER_VVT_MOTOR_WERT	Strom für VVT-Motor	A	ivvtm_w	-	signed integer	-	0,006103515625	1	0,0
+STAT_0x58BC_WERT	0x58BC	STAT_LUFTMASSE_UEBERWACHUNG_WERT	relative Luftfüllung in der Funktionsüberwachung	%	rl_um	-	unsigned char	-	0,75	1	0,0
+STAT_0x58BD_WERT	0x58BD	STAT_STATUS_FEHLER_UEBERLAST_VVT1_WERT	Status Fehler Überlast VVT1	-	stdvovrld	-	unsigned char	-	1,0	1	0,0
+STAT_0x58BE_WERT	0x58BE	STAT_DV_E_ADAPTION_STATUS_PRUEFBEDINGUNGEN_WERT	DV-E-Adaption: Status Prüfbedingungen 	-	dveadchst	-	unsigned char	-	1,0	1	0,0
+STAT_0x58C0_WERT	0x58C0	STAT_VVT_ENDSTUFENTEMPERATUR_AUS_MODELL_WERT	VVT-Endstufentemperatur aus Modell	Grad C	tvvtes_w	-	unsigned integer	-	0,75	1	-48,0
+STAT_0x58C8_WERT	0x58C8	STAT_I_ANTEIL_MOMENTDIFFERENZ_UEBERWACHUNG_UND_MODELL_WERT	geforderte Drehmomentänderung von der LLR (I-Anteil)	%	dmllri_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x58C9_WERT	0x58C9	STAT_ANSTEUERUNGSMODUS_FUER_DEN_VVT_MOTOR_WERT	Ansteuerungsmodus für den VVT Motor	-	vvtmode	-	unsigned char	-	1,0	1	0,0
+STAT_0x58CA_WERT	0x58CA	STAT_PD_ANTEIL_LANGSAM_LEERLAUFREGELUNG_WERT	geforderte MD-Änderung von der LLR (PD-Zündungsanteil)	%	dmllrz_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x58CB_WERT	0x58CB	STAT_AUFSUMMIERTE_THERMISCHE_BELASTUNG_VVT_WERT	Aufsummierte thermische Belastung VVT	-	dvvttempovl	-	unsigned integer	-	1,0	1	0,0
+STAT_0x58CC_WERT	0x58CC	STAT_TASTVERHAELTNIS_ZUR_ANSTEUERUNG_DES_VVT_STELLMOTORS_WERT	Tastverhältnis zur Ansteuerung des VVT-Stellmotors	%	tvvvtm_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x58CD_WERT	0x58CD	STAT_SPANNUNG_HINTER_MOTORRELAIS_WERT	Spannung hinter Motorrelais	V	umtr	-	unsigned char	-	0,10000000149011612	1	0,0
+STAT_0x58CE_WERT	0x58CE	STAT_CARRIERBYTESCHALTERSTATI_WERT	Carrierbyte Schalterstati	-	funst_w	-	unsigned integer	-	1,0	1	0,0
+SMOMO	0x58CF	STAT_MOMENTENANFORDERUNG_GETRIEBE_UEBERWACHUNG_WERT	Momentenanforderung vom Getriebe in der Funktionsüberwachung	Nm	MoF_trqClthTra16	-	signed integer	-	0,0625	1	0,0
+IMOMO	0x58D0	STAT_MOTORMOMENT_ISTWERT_UEBERWACHUNG_WERT	Berechnetes Ist-Moment in der Funktionsüberwachung	%	MoF_rTrqInrAct	-	unsigned char	-	0,390625	1	0,0
+STAT_0x58D1_WERT	0x58D1	STAT_MASSENSTROM_ABGAS_WERT	Massenstrom Abgas ohne Kraftstoffanteil vor Hauptkatalysator	kg/h	msaovhk_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58D4_WERT	0x58D4	STAT_STARTBEDINGUNG_KRAFTSCHLUSS_ERFUELLT_WERT	Startbedingung Kraftschluss erfüllt	-	B_kupp1_byte	-	unsigned char	-	1,0	1	0,0
+STAT_0x58D5_WERT	0x58D5	STAT_ANSAUGLUFTTEMPERATUR_IM_LADERSTRANG_WERT	physikalischer Temperaturwert, bei Wandung der elk. Sensorspannung wffa1_w ergibt	Grad C	tfa1lin	-	unsigned char	-	0,75	1	-48,0
+STAT_0x58D7_WERT	0x58D7	STAT_SPANNUNG_DES_ANSAUGLUFTTEMPERATURSENSORS_WERT	Spannung des Ansauglufttemperatursensors im Laderstrang	V	wtfa1_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x58D8_WERT	0x58D8	STAT_DIFFERENZ_DK_WINKEL_SOLLWERT_UND_ISTWERT_WERT	Differenz-DK-Winkel Sollwert - Istwert	%DK	dwdkdlr_w	-	signed integer	-	0,0244140625	1	0,0
+STAT_0x58D9_WERT	0x58D9	STAT_SCHRITTZAEHLER_DK_RUECKSTELLFEDER_PRUEFUNG_WERT	Schrittzähler DK-Rückstellfeder-Prüfung	-	fprstep_c	-	unsigned char	-	1,0	1	0,0
+STAT_0x58DA_WERT	0x58DA	STAT_KOORDINIERTES_MOMENT_FUER_FUELLUNG_WERT	koordiniertes Moment für Füllung	%	milsol_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x58DB_WERT	0x58DB	STAT_FEHLERZAEHLER_ABGASREL_AUSSETZER_UEBER_ALLE_ZYLINDER_WERT	Fehlerzähler abgasrelevante Aussetzer über alle Zylinder	-	fzabgs_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x58DC_WERT	0x58DC	STAT_INTERVALLZAEHLER_FUER_ABGASRELEVANTE_AUSSETZER_WERT	Intervallzähler für abgasrelevante Aussetzer	-	ivzabg_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x58DD_WERT	0x58DD	STAT_DRUCK_VOR_DROSSELKLAPPE_WERT	Druck vor Drosselklappe Rohwert	hPa	pvdr_w	-	unsigned integer	-	0,078125	1	0,0
+STAT_0x58DE_WERT	0x58DE	STAT_SPANNUNG_FUER_DRUCKSENSOR_VOR_DROSSELKLAPPE_WERT	Spannung für Drucksensor vor Drosselklappe	V	udsvd_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x58E0_WERT	0x58E0	STAT_ABGLEICH_DROSSELKLAPPENMODELL_FAKTOR_WERT	Abgleich DK-Modell (Faktor)	-	eisydkfkaf	-	unsigned char	-	0,0078125	1	0,0
+STAT_0x58E1_WERT	0x58E1	STAT_ABGLEICH_DROSSELKLAPPENMODELL_OFFSET_WERT	Abgleich DK-Modell (Offset)	kg/h	eisydkkoff	-	signed char	-	8,0	1	0,0
+STAT_0x58E2_WERT	0x58E2	STAT_ABGLEICH_EINLASSVENTILMODELL_FAKTOR_WERT	Abgleich EV-Modell (Faktor)	-	eisyevfkaf	-	unsigned char	-	0,0078125	1	0,0
+STAT_0x58E3_WERT	0x58E3	STAT_ABGLEICH_EINLASSVENTILMODELL_OFFSET_WERT	Abgleich EV-Modell (Offset)	kg/h	eisyevkoff	-	signed char	-	8,0	1	0,0
+STAT_0x58E4_WERT	0x58E4	STAT_BETRIEBSART_ISTWERT_WERT	Ist-Betriebsart	-	opmodi	-	unsigned char	-	1,0	1	0,0
+STAT_0x58E5_WERT	0x58E5	STAT_GEFILTERTE_FUNKENBENNDAUER_ZYLINDER_1_WERT	Gefilterte Funkenbrenndauer Zylinder 1	ms	dztbd_fil	-	unsigned integer	-	0,0010000000474974513	1	0,0
+STAT_0x58E6_WERT	0x58E6	STAT_GEFILTERTE_FUNKENBENNDAUER_ZYLINDER_3_WERT	Gefilterte Funkenbrenndauer Zylinder 3	ms	dztbd_fil	-	unsigned integer	-	0,0010000000474974513	1	0,0
+STAT_0x58E7_WERT	0x58E7	STAT_GEFILTERTE_FUNKENBENNDAUER_ZYLINDER_4_WERT	Gefilterte Funkenbrenndauer Zylinder 4	ms	dztbd_fil	-	unsigned integer	-	0,0010000000474974513	1	0,0
+STAT_0x58E8_WERT	0x58E8	STAT_GEFILTERTE_FUNKENBENNDAUER__ZYLINDER_2_WERT	Gefilterte Funkenbrenndauer Zylinder 2	ms	dztbd_fil	-	unsigned integer	-	0,0010000000474974513	1	0,0
+STAT_0x58EF_WERT	0x58EF	STAT_GEMITTELTER_RAILDRUCK_WERT	Gefilterter Raildruck-Istwert (Absolutdruck)	MPa	prist_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+STAT_0x58F0_WERT	0x58F0	STAT_RAILDRUCK_WERT	ungefilterter Raildruck Istwert (abs.)	MPa	prroh_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+STAT_0x58F2_WERT	0x58F2	STAT_PWM_SIGNAL_DES_MENGENSTEUERVENTILS_WERT	PWM signal for the VCV	%	PWM_VCV	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x58F3_WERT	0x58F3	STAT_KRAFTSTOFFDRUCK_VOR_MENGENSTEUERVENTIL_WERT	Ungefilterter Niederdruck Rohwert	kPa	pistndr_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x58F5_WERT	0x58F5	STAT_EINGANGSSIGNAL_RUECKFUEHRREGLER_1_WERT	Spannung Diagnose-Port VVT-Ansteuerung (3V ADC)	V	uvvtdia3V	-	unsigned char	-	0,012890624813735485	1	0,0
+STAT_0x58F6_WERT	0x58F6	STAT_EINGANGSSIGNAL_RUECKFUEHRREGLER_2_WERT	Sollspannung des VVT Lagereglers	V	uvvtlrs_w	-	signed integer	-	7,812500116415322E-4	1	0,0
+STAT_0x58F7_WERT	0x58F7	STAT_STATUSBYTE_STROMMESSUNG_PLAUSIBEL_WERT	Statusbyte Strommessung plausibel	-	vvtipl	-	unsigned char	-	1,0	1	0,0
+STAT_0x58FA_WERT	0x58FA	STAT_BELADUNGSGRAD_AKTIVKOHLEFILTER_TEV_FUNKTIONSTEST_WERT	gefilterter Faktor Tankentlüftungs-Adaption	-	fteadf	-	signed char	-	0,5	1	0,0
+STAT_0x58FC_WERT	0x58FC	STAT_FERTIGUNGS_WERKSTATT_TRANSPORTMODUS_WERT	Fertigungs-Werkstatt-,Transportmodus	-	fetrawemod	-	unsigned char	-	1,0	1	0,0
+STAT_0x58FE_WERT	0x58FE	STAT_FEHLERCODE_SWT_FREISCHALTCODE_WERT	Fehlercode SWT-Freischaltcode	-	SiaT_Res_St	-	unsigned char	-	1,0	1	0,0
+STAT_0x5A02_WERT	0x5A02	STAT_LECKAGEDIAGNOSE_FUER_TURBOLADER_WIRD_DURCHGEFUEHRT_WERT	Leckagediagnose für Turbolader wird durchgeführt	-	B_atlberlek	-	unsigned char	-	1	1	0
+IUPW1	0x5A04	STAT_SPANNUNG_PEDALWERTGEBER_1_WERT	Spannung Pedalwertgeber 1	V	upwg1_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUPW2	0x5A05	STAT_SPANNUNG_PEDALWERTGEBER_2_WERT	Spannung Pedalwertgeber 2	V	upwg2_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUDK1	0x5A06	STAT_SPANNUNG_DROSSELKLAPPE_POTENTIOMETER_1_WERT	Spannung Drosselklappe Potentiometer 1	V	udkp1_w	-	unsigned integer	-	0,001220703125	1	0,0
+IUDK2	0x5A07	STAT_SPANNUNG_DROSSELKLAPPE_POTENTIOMETER_2_WERT	Spannung Drosselklappe Potentiometer 2	V	udkp2_w	-	unsigned integer	-	0,001220703125	1	0,0
+IUANS	0x5A08	STAT_SPANNUNG_ANSAUGLUFTTEMPERATUR_WERT	Spannung Ansauglufttemperatur	V	wtfa1_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUKUM	0x5A09	STAT_SPANNUNG_MOTORTEMPERATUR_WERT	Spannung Motortemperatur	V	utcw_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUUMG	0x5A0B	STAT_SPANNUNG_DME_UMGEBUNGSDRUCK_WERT	Spannung DME Umgebungsdruck	V	udsu_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUSGI	0x5A0E	STAT_SPANNUNG_SG_INNENTEMPERATUR_WERT	Spannung SG-Innentemperatur	V	wtsg	-	unsigned char	-	0,01953125	1	0,0
+IUSV1	0x5A11	STAT_SPANNUNG_LAMBDASONDE_VOR_KAT_BANK_1_WERT	Spannung Lambdasonde vor Katalysator Bank 1	V	uulsuv_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUSN1	0x5A13	STAT_SPANNUNG_LAMBDASONDE_HINTER_KAT_BANK_1_WERT	Spannung Lambdasonde hinter Katalysator Bank 1	V	ushk_w	-	unsigned integer	-	0,0048828125	1	-1,0
+IUDMT	0x5A17	STAT_SPANNUNG_STROMMESSUNG_DMTL_WERT	Spannung Strommessung DMTL	V	uptes_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5A1B_WERT	0x5A1B	STAT_ELEKTRISCHE_KRAFTSTOFFPUMPE_WERT	Elektrische Kraftstoffpumpe 	-	B_ekp	-	unsigned char	-	1	1	0
+IUBUS	0x5A1D	STAT_SPANNUNG_BREMSENUNTERDRUCK_WERT	Spannung Bremsenunterdruck	V	udsbkv_w	-	unsigned integer	-	0,0048828125	1	0,0
+STAT_0x5A1E_WERT	0x5A1E	STAT_DIFF_ZW_UMGEBUNGS_UND_BREMSKRAFTVERSTAERKERDRUCK_WERT	Differenz zwischen Umgebungsdruck und Bremskraftverstärker-Druck von Drucksensor (Rohwert)	hPa	dpbkvur_w	-	signed integer	-	0,0390625	1	0,0
+STAT_0x5A20_WERT	0x5A20	STAT_PERIODENDAUER_MASSENSTROM_HFM_WERT	Periodendauer Massenstrom HFM	us	tpmshfm_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+ITKUA	0x5A21	STAT_KUEHLMITTELTEMPERATUR_KUEHLERAUSGANG_WERT	Kühlmitteltemperatur Kühlerausgang	Grad C	tmotlinf	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5A23_WERT	0x5A23	STAT_OELDRUCK_SOLLWERT_WERT	Öldruck Sollwert	kPa	poels_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x5A24_WERT	0x5A24	STAT_DROSSELKLAPPE_SOLLWERT_WERT	Drosselklappe Sollwert	%	wdks_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5A25_WERT	0x5A25	STAT_OELDRUCK_ISTWERT_WERT	Öldruck Istwert	hPa	poel_w	-	signed integer	-	1,0	1	0,0
+RFPWG	0x5A29	STAT_FAHRPEDALWERT_WERT	Fahrpedalwert	%PED	wped_w	-	unsigned integer	-	0,0015259021893143654	1	0,0
+STAT_0x5A2B_WERT	0x5A2B	STAT_TEMPERATUR_VOR_DROSSELKLAPPE_WERT	Temperatur vor Drosselklappe	Grad C	tfa1linf	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5A2D_WERT	0x5A2D	STAT_DRUCK_NACH_DROSSELKLAPPE_WERT	Druck nach Drosselklappe	hPa	psrg_w	-	unsigned integer	-	0,078125	1	0,0
+STAT_0x5A2E_WERT	0x5A2E	STAT_KRAFTSTOFFNIEDERDRUCKSENSOR_WERT	Kraftstoffniederdrucksensor	kPa	pistndr_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+STAT_0x5A2F_WERT	0x5A2F	STAT_RAILDRUCK_WERT	Raildruck	MPa	prist_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+ILUZ1	0x5A30	STAT_LAUFUNRUHE_ZYLINDER_1_WERT	Laufunruhe Zylinder 1	(Umdr./sec)^2	lutskzyl_w	-	signed integer	-	0,007105427328497171	1	0,0
+ILUZ4	0x5A32	STAT_LAUFUNRUHE_ZYLINDER_4_WERT	Laufunruhe Zylinder 4 (4-Zylinder)	(Umdr./sec)^2	lutskzyl_w	-	signed integer	-	0,007105427328497171	1	0,0
+ILUZ3	0x5A34	STAT_LAUFUNRUHE_ZYLINDER_3_WERT	Laufunruhe Zylinder 3 (4-Zylinder)	(Umdr./sec)^2	lutskzyl_w	-	signed integer	-	0,007105427328497171	1	0,0
+ILUZ2	0x5A35	STAT_LAUFUNRUHE_ZYLINDER_2_WERT	Laufunruhe Zylinder 2 (4-Zylinder)	(Umdr./sec)^2	lutskzyl_w	-	signed integer	-	0,007105427328497171	1	0,0
+ISKLO	0x5A36	STAT_STATUS_KLOPFEN_WERT	Status Klopfen	-	B_kl	-	unsigned char	-	1	1	0
+IUKZ1	0x5A37	STAT_SPANNUNG_KLOPFWERTE_ZYLINDER_1_WERT	Spannung Klopfwerte Zylinder 1	V	rkrnv6_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUKZ4	0x5A39	STAT_SPANNUNG_KLOPFWERTE_ZYLINDER_4_WERT	Spannung Klopfwerte Zylinder 4 (4-Zylinder)	V	rkrnv6_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUKZ3	0x5A3B	STAT_SPANNUNG_KLOPFWERTE_ZYLINDER_3_WERT	Spannung Klopfwerte Zylinder 3 (4-Zylinder)	V	rkrnv6_w	-	unsigned integer	-	0,0048828125	1	0,0
+IUKZ2	0x5A3C	STAT_SPANNUNG_KLOPFWERTE_ZYLINDER_2_WERT	Spannung Klopfwerte Zylinder 2 (4-Zylinder)	V	rkrnv6_w	-	unsigned integer	-	0,0048828125	1	0,0
+IZWZ1	0x5A49	STAT_ZUENDWINKEL_ZYLINDER_1_WERT	Zündwinkel Zylinder 1	Grad KW	zwoutzyl_w	-	signed integer	-	0,10000000149011612	1	0,0
+ILASB	0x5A4B	STAT_BERECHNETER_LASTWERT_WERT	Berechneter Lastwert	%	rml	-	unsigned char	-	0,390625	1	0,0
+ILAB1	0x5A50	STAT_LAMBDAWERT_VOR_KAT_BANK_1_WERT	Lambdawert vor Katalysator Bank 1	-	lamsoni_w	-	unsigned integer	-	2,44140625E-4	1	0,0
+IRNK1	0x5A52	STAT_STATUS_LS_HINTER_KAT_BANK_1_WERT	Status LS hinter Katalysator Bank 1	-	B_sbbhk	-	unsigned char	-	1	1	0
+ISHN1	0x5A54	STAT_STATUS_LS_HEIZUNG_HINTER_KAT_BANK_1_WERT	Status LS Heizung hinter Katalysator Bank 1	-	B_hsha	-	unsigned char	-	1	1	0
+ISHV1	0x5A56	STAT_STATUS_LS_HEIZUNG_VOR_KAT_BANK_1_WERT	Status LS Heizung vor Katalysator Bank 1	-	B_hstlsua	-	unsigned char	-	1	1	0
+IAHV1	0x5A58	STAT_LAMBDASONDENHEIZUNG_PWM_VOR_KAT_BANK_1_WERT	Lambdasondenheizung PWM vor Katalysator Bank 1	%	tahrlsu_w	-	unsigned integer	-	0,0030517578125	1	0,0
+IAHN1	0x5A59	STAT_LAMBDASONDENHEIZUNG_PWM_HINTER_KAT_BANK_1_WERT	Lambdasondenheizung PWM hinter Katalysator Bank 1	-	phlsnh	-	unsigned char	-	0,009999999776482582	1	0,0
+ISBLS	0x5A60	STAT_BREMSLICHTSCHALTER_EIN_WERT	Bremslichtschalter Ein	-	B_bl	-	unsigned char	-	1	1	0
+ISBLT	0x5A61	STAT_BREMSLICHTTESTSCHALTER_EIN_WERT	Bremslichttestschalter Ein	-	B_br	-	unsigned char	-	1	1	0
+ISDMP	0x5A66	STAT_DMTL_PUMPE_EIN_WERT	DMTL Pumpe Ein	-	B_admtpm	-	unsigned char	-	1	1	0
+ISDMV	0x5A67	STAT_DMTL_VENTIL_EIN_WERT	DMTL Ventil Ein	-	B_admtmv	-	unsigned char	-	1	1	0
+ISDMH	0x5A68	STAT_DMTL_HEIZUNG_EIN_WERT	DMTL Heizung Ein	-	B_hdmtlp	-	unsigned char	-	1	1	0
+ISMIL	0x5A69	STAT_MIL_LAMPE_EIN_WERT	MIL Lampe Ein	-	B_mil	-	unsigned char	-	1	1	0
+STAT_0x5A6A_WERT	0x5A6A	STAT_LAMPE_FGR_EIN_WERT	Lampe FGR Ein	-	B_fgr	-	unsigned char	-	1	1	0
+ISCEL	0x5A6B	STAT_LAMPE_CHECK_ENGINE_EIN_WERT	Lampe Check Engine Ein	-	B_epcl	-	unsigned char	-	1	1	0
+STAT_0x5A6C_WERT	0x5A6C	STAT_VERBRAUCHSKORREKTURFAKTOR_WERT	Verbrauchskorrekturfaktor	%	kva_korr	-	signed char	-	0,0010000000474974513	1	0,0
+STAT_0x5A73_WERT	0x5A73	STAT_KURBELGEHAEUSEENTLUEFTUNGSHEIZUNG_WERT	Kurbelgehäuseentlüftungsheizung	-	B_oelah	-	unsigned char	-	1	1	0
+IAKFT	0x5A74	STAT_BEHEIZTER_THERMOSTAT_PWM_WERT	Beheizter Thermostat PWM	-	tkwpwm	-	signed integer	-	0,10000000149011612	1	0,0
+IATEV	0x5A77	STAT_TANKENTLUEFTUNGSVENTIL_TEV_PWM_WERT	Tankentlüftungsventil TEV PWM	%	tateout_w	-	unsigned integer	-	0,00152587890625	1	0,0
+IAVEP	0x5A7A	STAT_EINLASS_VANOS_PWM_WERT	VANOS PWM Wert Einlass	%	tanwree_w	-	unsigned integer	-	0,00152587890625	1	0,0
+IAVAP	0x5A7B	STAT_AUSLASS_VANOS_PWM_WERT	VANOS PWM Wert Auslass	%	tanwraa_w	-	unsigned integer	-	0,00152587890625	1	0,0
+IINT1	0x5A81	STAT_INTEGRATOR_BANK_1_WERT	Integrator Bank 1	-	fr_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+IMUL1	0x5A85	STAT_MULTIPLIKATIVE_GEMISCHADAPTION_BANK_1_WERT	Gegenwärtige multiplikative Gemischadaption Bank 1 aus neuronalem Netz	-	fra_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5A87_WERT	0x5A87	STAT_ADAPTIONSWERT_TRIMMREGELUNG_BANK_1_WERT	Adaptionswert Trimregelung Bank 1	-	dlatrmo_w	-	signed integer	-	3,0517578125E-5	1	0,0
+STAT_0x5A91_WERT	0x5A91	STAT_KATALYSATORDIAGNOSEWERT_BANK1_WERT	Katalysatordiagnosewert Bank1	-	avkatf	-	unsigned char	-	0,00390625	1	0,0
+STAT_0x5A93_WERT	0x5A93	STAT_FEHLERZAEHLER_FUER_NULLGANG_LERNEN_WERT	Fehlerzähler für Lernen Nullgang	-	GbxNPos_ctDefPlausDia	-	unsigned char	-	1,0	1	0,0
+SANWA	0x5A94	STAT_NOCKENWELLE_AUSLASS_SOLLWERT_WERT	Nockenwelle Auslass Sollwert	Grad KW	wnwsswa_w	-	signed integer	-	0,0078125	1	0,0
+IANWA	0x5A95	STAT_ADAPTIONSWERT_NOCKENWELLE_AUSLASS_WERT	Adaptionswert Nockenwelle Auslass	deg CrS	EpmCaS_phiAdapRefPosO1_mp	-	signed integer	-	0,02197265625	1	0,0
+IANWE	0x5A96	STAT_ADAPTIONSWERT_NOCKENWELLE_EINLASS_WERT	Adaptionswert Nockenwelle Einlass	deg CrS	EpmCaS_phiAdapRefPosI1_mp	-	signed integer	-	0,02197265625	1	0,0
+STAT_0x5A97_WERT	0x5A97	STAT_BEDINGUNG_EVANOS_IM_ANSCHLAG_BEIM_LETZTEN_ABSTELLEN_WERT	Bedingung EVANOS im Anschlag beim letzten Abstellen	-	B_vseansch	-	unsigned char	-	1	1	0
+IAKWF	0x5A99	STAT_KURBELWELLEN_ADAPTION_BEENDET_WERT	Kurbelwellen Adaption beendet	-	fofstat	-	unsigned char	-	1,0	1	0,0
+STAT_0x5A9D_WERT	0x5A9D	STAT_MULTIPLIKATIVE_GEMISCHKORREKTUR_DER_GEMISCHADAPTION_WERT	multiplikative Gemischkorrektur der Gemischadaption	-	frai_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5A9F_WERT	0x5A9F	STAT_LANGZEITADAPTION_WERT	Langzeitadaption	-	frannlza_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+IDTEV	0x5AA2	STAT_STATUS_DIAGNOSE_DMTL_WERT	Status Diagnose DMTL	-	stpdmtla	-	unsigned char	-	1,0	1	0,0
+IDLSS	0x5AA4	STAT_STATUS_DIAGNOSE_LEERLAUFDREHZAHLVERSTELLUNG_WERT	Status Diagnose Leerlaufdrehzahlverstellung	-	llsstat	-	unsigned char	-	1,0	1	0,0
+STAT_0x5AAA_WERT	0x5AAA	STAT_TASTVERHAELTNIS_OELDRUCK_REGELVENTIL_WERT	Tastverhältnis Öldruck-Regelventil	%	tvpoel_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5AAB_WERT	0x5AAB	STAT_WASTEGATE_1_PWM_WERT	Wastegate 1 PWM	%	tvldste_w	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5AB0_WERT	0x5AB0	STAT_SOLLLADEDRUCK_WERT	Sollladedruck	hPa	psolldr_w	-	unsigned integer	-	0,0390625	1	0,0
+IVKMH	0x5AB1	STAT_GESCHWINDIGKEIT_WERT	Geschwindigkeit	km/h	vfzg_w	-	unsigned integer	-	0,0078125	1	0,0
+STAT_0x5AB3_WERT	0x5AB3	STAT_FAHRSTRECKE_MIT_MIL_AN_WERT	Fahrstrecke mit MIL an	km	DSMDur_ctPID21h	-	unsigned long	-	0,009999999776482582	1	0,0
+IZBST	0x5AB4	STAT_BETRIEBSSTUNDENZAEHLER_WERT	Betriebsstundenzähler	s	top_l	-	unsigned long	-	0,10000000149011612	1	0,0
+RTANS	0x5AB6	STAT_ROHWERT_ANSAUGLUFTTEMPERATUR_1_WERT	Rohwert Ansauglufttemperatur 1	Grad C	tanslin	-	unsigned char	-	0,75	1	-48,0
+RTKWA	0x5AB7	STAT_ROHWERT_KUEHLWASSERTEMPERATUR_WERT	Rohwert Kühlwassertemperatur	Grad C	tmotlin	-	unsigned char	-	0,75	1	-48,0
+IUSAU	0x5AB8	STAT_SPANNUNG_SAUGROHRDRUCK_WERT	Spannung Saugrohrdruck	V	udss_w	-	unsigned integer	-	0,0048828125	1	0,0
+IMLUF	0x5ABC	STAT_LUFTMASSE_WERT	Luftmasse	kg/h	ml_w	-	unsigned integer	-	0,10000000149011612	1	0,0
+IASRE	0x5ABD	STAT_STARTERRELAIS_AKTIV_WERT	Starterrelais aktiv	-	B_sta	-	unsigned char	-	1	1	0
+STAT_0x5ABE_WERT	0x5ABE	STAT_I_REGLER_MENGENREGELUNG_KRAFTSTOFFSYSTEM_WERT	I-Regler Mengenregelung Kraftstoffsystem	mg	FUEL_MASS_REQ_I_CTL_H_RES	-	signed integer	-	0,0211944580078125	1	0,0
+STAT_0x5ABF_WERT	0x5ABF	STAT_VERBRAUCH_OHNE_REGLER_WERT	Verbrauch ohne Regler	l/h	VFF_MFF_SP_FUP_CTL	-	unsigned integer	-	0,0038910505827516317	1	0,0
+STAT_0x5AC0_WERT	0x5AC0	STAT_VERBRAUCH_MIT_REGLER_WERT	Verbrauch mit Regler	l/h	VFF_VCV	-	unsigned integer	-	0,0038910505827516317	1	0,0
+STAT_0x5AC2_WERT	0x5AC2	STAT_RESET_ADRESSE_WERT	Reset Adresse	-	Reset_Env.adLoc	-	unsigned long	-	1,0	1	0,0
+STAT_0x5AC4_WERT	0x5AC4	STAT_RAILDRUCK_KRAFTSTOFFS_STEM_SOLLWERT_WERT	Raildruck Kraftstoffsystem Sollwert	MPa	prsoll_w	-	unsigned integer	-	5,000000237487257E-4	1	0,0
+STAT_0x5AC5_WERT	0x5AC5	STAT_TASTVERHAELTNIS_MENGENSTEUERVENTIL_WERT	Tastverhältnis Mengensteuerventil	%	PWM_VCV	-	unsigned integer	-	0,00152587890625	1	0,0
+STAT_0x5AC6_WERT	0x5AC6	STAT_MODUS_KRAFTSTOFFSYSTEM_WERT	Modus Kraftstoffsystem (Druck-, Mengen- oder Maximumregelung)	0-n	STATE_PWM_VCV	-	unsigned char	ba_vcv_state_text	1	1	0
+STAT_0x5AD5_WERT	0x5AD5	STAT_KRAFTSTOFFTEMPERATUR_WERT	Kraftstofftemperatur	Grad C	tkrst	-	unsigned char	-	0,75	1	-48,0
+STAT_0x5AD6_WERT	0x5AD6	STAT_SCHUBABSCHALTUNG_WERT	Schubabschaltung	-	B_sa	-	unsigned char	-	1	1	0
+STAT_0x5AE2_WERT	0x5AE2	STAT_RESETART_DES_LETZTEN_RESETS_WERT	Resetart des letzten Resets	0-n	Reset_Env.xGrp	-	unsigned char	Reset_GrpID	1	1	0
+STAT_0x5AE3_WERT	0x5AE3	STAT_HINTERGRUNDINFORMATION_ZUM_LETZTEN_GUELTIGEN_RESET_WERT	Hintergrundinformationen zum letzten gültigen Reset	0-n	Reset_Env.xId	-	unsigned integer	Reset_ID	1	1	0
+STAT_0x5AE4_WERT	0x5AE4	STAT_ZUSAETZLICHE_RESETINFORMATIONEN_ZUR_RESETURSACHE_WERT	Zusätzliche Resetinformationen zur Resetursache	-	Reset_Env.xUserValue	-	unsigned long	-	1,0	1	0,0
+STAT_0x5B06_WERT	0x5B06	STAT_ADDITIVE_KOMPONENTE_DER_VCV_ADAPTION_WERT	Additive component of second variant of VCV flow adaptation	A	CUR_VCV_BAS_AD_VAR_2_ADD	-	signed integer	-	0,0010000000474974513	1	0,0
+STAT_0x5B07_WERT	0x5B07	STAT_MULTIPLIKATIVE_KOMPONENTE_DER_VCV_ADAPTION_WERT	Multiplicative component of second variant of VCV flow adaptation	-	FAC_CUR_VCV_BAS_AD_VAR_2	-	signed integer	-	6,103515625E-5	1	0,0
+STAT_0x5B08_WERT	0x5B08	STAT_ADDAPTIERTE_MINIMALER_VOLUMENKRAFTSTOFFFLUSS_WERT	Adapted minimum volume fuel flow through the VCV	l/h	VFF_VCV_MIN	-	unsigned integer	-	0,0038910505827516317	1	0,0
+STAT_0x5B09_WERT	0x5B09	STAT_ADDAPTIERTER_VCV_STROM_WERT	Adapted current of VCV in pressure control mode	A	CUR_VCV_MIN_AD	-	signed integer	-	0,0010000000474974513	1	0,0
+STAT_0x5B0A_WERT	0x5B0A	STAT_AUSGANG_DES_VCV_STROMREGLERS_WERT	Output of VCV current controller	-	FAC_CUR_VCV_CTL	-	signed integer	-	6,103515625E-5	1	0,0
+STAT_0x5B10_WERT	0x5B10	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn1r1_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B11_WERT	0x5B11	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn1r2_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B12_WERT	0x5B12	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn1r3_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B13_WERT	0x5B13	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn2r1_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B14_WERT	0x5B14	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn2r2_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B15_WERT	0x5B15	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn2r3_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B20_WERT	0x5B20	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn3r1_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B21_WERT	0x5B21	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn3r2_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B22_WERT	0x5B22	STAT_SUPERKLOPFEN_WERT	Superklopfen	-	iskn3r3_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B23_WERT	0x5B23	STAT_ZAEHLER_AUSSETZERERKENNUNG_ZYLINDER_1_WERT	Zähler Aussetzerkennung Zylinder 1	-	fzabgzyl_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B25_WERT	0x5B25	STAT_ZAEHLER_AUSSETZERERKENNUNG_ZYLINDER_4_WERT	Zähler Aussetzerkennung Zylinder 4  (4-Zylinder)	-	fzabgzyl_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B31_WERT	0x5B31	STAT_ZAEHLER_AUSSETZERERKENNUNG_ZYLINDER_3_WERT	Zähler Aussetzerkennung Zylinder 3  (4-Zylinder)	-	fzabgzyl_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B32_WERT	0x5B32	STAT_ZAEHLER_AUSSETZERERKENNUNG_ZYLINDER_2_WERT	Zähler Aussetzerkennung Zylinder 2  (4-Zylinder)	-	fzabgzyl_w	-	unsigned integer	-	1,0	1	0,0
+STAT_0x5B33_WERT	0x5B33	STAT_DELTA_MOTORDREHMOMENT_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption	%	dmvad_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B34_WERT	0x5B34	STAT_DELTA_MOTORDREHMOMENT_B_FS_B_KO_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (B_fs=1 & B_ko=1)	%	dmvadfk_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B35_WERT	0x5B35	STAT_DELTA_MOTORDREHMOMENT_B_FS_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (B_fs=1)	%	dmvadfs_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B36_WERT	0x5B36	STAT_DELTA_MOTORDREHMOMENT_B_KO_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (B_ko=1)	%	dmvadko_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B37_WERT	0x5B37	STAT_DELTA_MOTORDREHMOMENT_B_LL_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (B_ll=1)	%	dmvadll_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B38_WERT	0x5B38	STAT_DELTA_MOTORDREHMOMENT_STANDABKOPPLUNG_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (Standabkopplung)	%	dmvadnic_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B39_WERT	0x5B39	STAT_DELTA_MOTORDREHMOMENT_STANDABKOPPLUNG_UND_KLIMA_WERT	Delta-Motordrehmoment aus Verlustmoment-Adaption (Standabkopplung und Klimakompressor)	%	dmvadnicko_w	-	signed integer	-	0,0030517578125	1	0,0
+STAT_0x5B3A_WERT	0x5B3A	STAT_ATL_ADAPTIONEN_BYTE_0_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5B3B_WERT	0x5B3B	STAT_ATL_ADAPTIONEN_BYTE_1_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5B3C_WERT	0x5B3C	STAT_ATL_ADAPTIONEN_BYTE_2_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5B3D_WERT	0x5B3D	STAT_ATL_ADAPTIONEN_BYTE_3_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5B3E_WERT	0x5B3E	STAT_ATL_ADAPTIONEN_BYTE_4_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+STAT_0x5B3F_WERT	0x5B3F	STAT_ATL_ADAPTIONEN_BYTE_5_WERT	ATL Adaptionen	-	fatlaxnkw_w	-	unsigned integer	-	3,0517578125E-5	1	0,0
+0x5F76_WERT	0x5F76	STAT_ABSCHALTMUSTER_LESEN_WERT	Funkenbrenndauer-Diagnose: Abschaltmuster lesen	-	abmdzbd	-	unsigned char	-	1,0	1	0,0
+-	0x58FF	-	Umweltbedingung unbekannt	-	-	-	unsigned char	-	1	1	0
