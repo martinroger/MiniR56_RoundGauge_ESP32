@@ -10666,7 +10666,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Connector_JST:JST_EH_B4B-EH-A_1x04_P2.50mm_Vertical"
+		(property "Footprint" "Connector_JST:JST_PH_B4B-PH-K_1x04_P2.00mm_Vertical"
 			(at 267.97 43.18 0)
 			(effects
 				(font
@@ -10675,7 +10675,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.jst-mfg.com/product/pdf/eng/eEH.pdf"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C265289.pdf?spm=wm.fly.bg.1.pdf___wm.ssy.ml.0-0-0.ent&lcsc_vid=RAdcUQIHEwRdBlMATwJdUVJeFlVXBF1eTwUNBVJUFFgxVlNeQlBZU11TT1RdUjsOAxUeFF5JWBYZEEoKFBINSQcJGk4%3D"
 			(at 267.97 43.18 0)
 			(effects
 				(font
@@ -10701,7 +10701,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "B4B-EH-A"
+		(property "Manufacturer_Part_Number" "B4B-PH-K(LF)(SN)"
 			(at 267.97 52.07 0)
 			(effects
 				(font
@@ -10709,7 +10709,7 @@
 				)
 			)
 		)
-		(property "LCSC alt." "C160258"
+		(property "LCSC alt." "C265289"
 			(at 267.97 43.18 0)
 			(effects
 				(font
@@ -10718,7 +10718,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C160258"
+		(property "LCSC" "C265289"
 			(at 267.97 43.18 0)
 			(effects
 				(font
