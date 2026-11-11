@@ -1,0 +1,172 @@
+(footprint "INDC6060X450N"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "SRN")
+	(tags "Inductor")
+	(property "Reference" "L**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "84c374fd-d1ce-49c7-b0f0-df0260a86986")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Value" "INDC6060X450N"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "744d7a49-5852-479b-9bd4-a8bed77b7f5a")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ff5ab4cf-df41-4c59-bfac-2702ed654653")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "acc519ee-fafa-4992-bab6-7efe31afc5d5")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start 0 -2.9)
+		(end 0 2.9)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "8c0115f0-a17c-455d-a57b-24c9a40dddc5")
+	)
+	(fp_line
+		(start -3.725 -3.4)
+		(end 3.725 -3.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "4591c9cb-66a5-43f7-9c88-b3ac861c1f6a")
+	)
+	(fp_line
+		(start -3.725 3.4)
+		(end -3.725 -3.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "1d173cff-9b62-4e3c-adef-8ba0d179b1be")
+	)
+	(fp_line
+		(start -3 -3)
+		(end 3 -3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "85a04a12-28e7-4018-8828-a0d8380ecd7f")
+	)
+	(fp_line
+		(start -3 3)
+		(end -3 -3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "fe99b3d8-8745-46d2-a665-0a3cb0c205d3")
+	)
+	(fp_line
+		(start 3 -3)
+		(end 3 3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "1f4ffae3-71bb-4e77-bc97-9bf4b5db4c07")
+	)
+	(fp_line
+		(start 3 3)
+		(end -3 3)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "ff4b810b-6939-4a08-9079-af79a3332820")
+	)
+	(fp_line
+		(start 3.725 -3.4)
+		(end 3.725 3.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "2daf3cb4-5aa6-4d3f-b03e-c82ed0d6589b")
+	)
+	(fp_line
+		(start 3.725 3.4)
+		(end -3.725 3.4)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "cf25829d-e0a4-408e-b4ba-ce1972d39255")
+	)
+	(pad "1" smd rect
+		(at -2.15 0)
+		(size 2.65 6.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "0fe8ea7f-d3bb-4e5b-a8a0-e71b8706fa65")
+	)
+	(pad "2" smd rect
+		(at 2.15 0)
+		(size 2.65 6.3)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "fdbc0de0-1181-4d3c-ab91-cd295f6038ed")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/libs/3d models/SRN6045TA-150M.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)

@@ -1,12 +1,26 @@
+#ifndef CAN_RX
+  #define CAN_RX 15
+#endif
+#ifndef CAN_TX
+  #define CAN_TX 16
+#endif
+
+
 #include <Arduino.h>
 #include <Wire.h>
 #include <SPI.h>
 #include <TFT_eSPI.h>
 #include "CST816S.h"
-#include <Arduino_Helpers.h>
-#include <AH/Timing/MillisMicrosTimer.hpp>
+// #include <Arduino_Helpers.h>
+// #include <AH/Timing/MillisMicrosTimer.hpp>
 #include <ui.h>
-#include "obdHandler.h"
+#include "kwpDaemon.h"
+//#include "obdHandler.h"
+
+
+kwpDaemon moloch(0xF1,0x12);
+twai_message_t rxMessage;
+bool canState = false;
 
 #ifndef TFT_BL
   #define TFT_BL 2
@@ -42,22 +56,38 @@ void touchRead(lv_indev_t *indev, lv_indev_data_t *data)
 }
 
 //Timers
-#define TICKS 5
-Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
-Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
-Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+#ifndef TICKS
+  #define TICKS 5
+#endif
+#ifndef VALUE_REFRESH_INTERVAL
+  #define VALUE_REFRESH_INTERVAL 100
+#endif
+#ifndef OBD_REQ_INTERVAL
+  #define OBD_REQ_INTERVAL 100
+#endif
+// Timer<millis> tickerLVGL      =   TICKS;    //LVGL 5ms ticker
+// Timer<millis> refreshValues   =   100;  //Values refresh interval on the screens 
+// Timer<millis> OBDrequestDelay =   100;   //Interval for requests over OBD
+unsigned long currentMillis       =   0;
+unsigned long lastLVGL_ts         =   0;
+unsigned long lastValueRefresh_ts =   0;
+unsigned long lastConnected_ts    =   0;
+unsigned long lastOBDRequest_ts   =   0;
 
 //Ignition and key presence alerts
 bool ignitionOn   = false;  //True when ignition is on
 bool keyPresence  = false;  //True when authorized key is inserted
 
 //Vehicle variables
-int32_t intakeTemp;
-int32_t absBaroPressure;
-int32_t intakeManifoldPressure;
-int32_t boostPressure;
-int32_t engineCoolantTemp;
-int32_t controlModuleVoltage;
+double intakeTemp;
+double absBaroPressure;
+double intakeManifoldPressure;
+double boostPressure;
+double engineCoolantTemp;
+double MAF;
+double HPFP;
+double oilT;
+//int32_t controlModuleVoltage;
 #define BRIGHTNESS 215
 
 //First read flags
@@ -66,7 +96,10 @@ bool absBaroPressure_FR = false;
 bool intakeManifoldPressure_FR = false;
 bool boostPressure_FR = false;
 bool engineCoolantTemp_FR = false;
-bool controlModuleVoltage_FR = false;
+bool MAF_FR;
+bool HPFP_FR;
+bool oilT_FR;
+//bool controlModuleVoltage_FR = false;
 bool screenON = false;
 
 #ifdef TEST_GENERATOR
@@ -88,60 +121,72 @@ void generateValues() {
   keyPresence = ((sin((2*PI/3000)*millis()))<0);
 }
 #else
-void parseCANFrame() {
-  if(ESP32Can.readFrame(rxFrame,0)) {
-    switch (rxFrame.identifier) {
-      case OBD_RESP_ID:
-        OBD_length  = rxFrame.data[0];
-        OBD_mode    = rxFrame.data[1];
-        OBD_command = rxFrame.data[2];
-        byteA       = rxFrame.data[3];
-        byteB       = rxFrame.data[4];
-        byteC       = rxFrame.data[5];
-        byteD       = rxFrame.data[6];
-        byteE       = rxFrame.data[7];
-
-        if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
-          switch (OBD_command)  {
-            case 0x05: //Engine Coolant Temperature : engineCoolantTemp
-              engineCoolantTemp = ((int)byteA - 40);
-              engineCoolantTemp_FR = true;
-              break;
-            case 0x0B:
-              intakeManifoldPressure = (int)byteA;
-              intakeManifoldPressure_FR = true;
-              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
-              break;
-            case 0x0F :
-              intakeTemp = ((int)byteA - 40);
-              intakeTemp_FR = true;
-              break;
-            case 0x33 : 
-              absBaroPressure = (int)byteA;
-              absBaroPressure_FR = true;
-              boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
-              break;
-            case 0x42 : //Control module voltage... unit is mV !
-              controlModuleVoltage = (256*(int)byteA + (int)byteB);
-              controlModuleVoltage_FR = true;
-              break;
-            default:
-              break;
-          }
-          boostPressure = intakeManifoldPressure - absBaroPressure;
-        }
-        lastConnected = millis();
-        break;
-      case 0x130: //Ignition and key detection
-        keyPresence = ((rxFrame.data[0] & 0xF0) == 0x40); //True if key present
-        ignitionOn  = ((rxFrame.data[0] & 0x0F) == 0x05); //True if ignition on
-        lastConnected = millis();
-        break;
-      default:
-        break;
-    }
-  }
+void dataUpdateCB() {
+  engineCoolantTemp = ((DDLI[DDLI_POS_5805_ENGINET_1]->value + DDLI[DDLI_POS_581F_ENGINET_2]->value)/2);
+  intakeManifoldPressure = ((DDLI[DDLI_POS_58DD_BOOST]->value));
+  boostPressure = (intakeManifoldPressure/1000.0)-1.01315;
+  intakeTemp = (DDLI[DDLI_POS_580F_IAT]->value);
+  MAF = (DDLI[DDLI_POS_5ABC_MAF]->value);
+  HPFP = (DDLI[DDLI_POS_58F0_HPFP]->value);
+  oilT  = (DDLI[DDLI_POS_4402_OILT]->value);
+  //Do something zith DDLI and the overall vars
 }
+
+
+// void parseCANFrame() {
+//   if(ESP32Can.readFrame(rxFrame,0)) {
+//     switch (rxFrame.identifier) {
+//       case OBD_RESP_ID:
+//         OBD_length  = rxFrame.data[0];
+//         OBD_mode    = rxFrame.data[1];
+//         OBD_command = rxFrame.data[2];
+//         byteA       = rxFrame.data[3];
+//         byteB       = rxFrame.data[4];
+//         byteC       = rxFrame.data[5];
+//         byteD       = rxFrame.data[6];
+//         byteE       = rxFrame.data[7];
+
+//         if((OBD_mode-0x40)==0x01) { //Check we are in the correct mode
+//           switch (OBD_command)  {
+//             case 0x05: //Engine Coolant Temperature : engineCoolantTemp
+//               engineCoolantTemp = ((int)byteA - 40);
+//               engineCoolantTemp_FR = true;
+//               break;
+//             case 0x0B:
+//               intakeManifoldPressure = (int)byteA;
+//               intakeManifoldPressure_FR = true;
+//               boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
+//               break;
+//             case 0x0F :
+//               intakeTemp = ((int)byteA - 40);
+//               intakeTemp_FR = true;
+//               break;
+//             case 0x33 : 
+//               absBaroPressure = (int)byteA;
+//               absBaroPressure_FR = true;
+//               boostPressure_FR = absBaroPressure_FR && intakeManifoldPressure_FR;
+//               break;
+//             case 0x42 : //Control module voltage... unit is mV !
+//               controlModuleVoltage = (256*(int)byteA + (int)byteB);
+//               controlModuleVoltage_FR = true;
+//               break;
+//             default:
+//               break;
+//           }
+//           boostPressure = intakeManifoldPressure - absBaroPressure;
+//         }
+//         lastConnected = millis();
+//         break;
+//       case 0x130: //Ignition and key detection
+//         keyPresence = ((rxFrame.data[0] & 0xF0) == 0x40); //True if key present
+//         ignitionOn  = ((rxFrame.data[0] & 0x0F) == 0x05); //True if ignition on
+//         lastConnected = millis();
+//         break;
+//       default:
+//         break;
+//     }
+//   }
+// }
 #endif
 
 #if LV_USE_LOG != 0
@@ -156,23 +201,34 @@ void my_print( lv_log_level_t level, const char * buf )
 void setup() {
   
   //Initialise min-max indicators
-  engineCoolantTemp_max = -40;
-  engineCoolantTemp_min = 215;
+  // engineCoolantTemp_max = -40;
+  // engineCoolantTemp_min = 215;
 
-  boostPressure_max = -255;
-  boostPressure_min = 255;
+  // boostPressure_max = -0;
+  // boostPressure_min = 0;
 
-  intakeTemp_max = -40;
-  intakeTemp_min = 215;
+  // intakeTemp_max = -40;
+  // intakeTemp_min = 215;
 
-  controlModuleVoltage_max = 0;
-  controlModuleVoltage_min = 24000;
+  // controlModuleVoltage_max = 0;
+  // controlModuleVoltage_min = 24000;
+
+  // MAF_max = 10;
+  // MAF_min = 0;
+
+  // HPFP_max = 10;
+  // HPFP_min = 0;
+
+  // OilT_max = 150;
+  // OilT_min = 0;
 
   //For Debug
   Serial.begin(115200);
 
   //CAN start
-  canStart();
+  //canStart();
+  moloch.begin(CAN_TX,CAN_RX);
+  moloch.attachPostParseCB(dataUpdateCB);
 
   #ifdef TEST_GENERATOR
   generateValues();
@@ -191,7 +247,7 @@ void setup() {
   lv_indev_t *indev = lv_indev_create();
   lv_indev_set_type(indev, LV_INDEV_TYPE_POINTER);
   lv_indev_set_read_cb(indev,touchRead);
-  lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
+  //lv_display_set_rotation(disp,LV_DISPLAY_ROTATION_270);
   //Draw screens
   ui_init();
 
@@ -200,42 +256,92 @@ void setup() {
 }
 
 void loop() {
-
+  currentMillis = millis();
   //Sends the OBD query only if the CAN is sending something as a keepalive first and if the key is present.
-  if(OBDrequestDelay && canState && keyPresence) {
-    sendObdFrame(requestID);
-    //Move to the next requestID... would be better to use an enum list
-    switch (requestID)  {
-      case 0x05:
-        requestID = 0x0B;
-        break;
-      case 0x0B:
-        requestID = 0x0F;
-        break;
-      case 0x0F:
-        requestID = 0x33;
-        break;
-      case 0x33:
-        requestID = 0x42;
-        break;
-      case 0x42:
-        requestID = 0x05;
-        break;
-      default:
-        requestID = 0x05;
-        break;
-    }
-  }
+  // if((currentMillis-lastOBDRequest_ts>OBD_REQ_INTERVAL) && canState && keyPresence) {
+  //   lastOBDRequest_ts = currentMillis;
+  //   sendObdFrame(requestID);
+  //   //Move to the next requestID... would be better to use an enum list
+  //   switch (requestID)  {
+  //     case 0x05:
+  //       requestID = 0x0B;
+  //       break;
+  //     case 0x0B:
+  //       requestID = 0x0F;
+  //       break;
+  //     case 0x0F:
+  //       requestID = 0x33;
+  //       break;
+  //     case 0x33:
+  //       requestID = 0x42;
+  //       break;
+  //     case 0x42:
+  //       requestID = 0x05;
+  //       break;
+  //     default:
+  //       requestID = 0x05;
+  //       break;
+  //   }
+  // }
   
   //Parse a CAN Frame if available
   #ifdef TEST_GENERATOR
   generateValues();
   #else
-  parseCANFrame();
+  // parseCANFrame();
+  while (twai_receive(&rxMessage,0)==ESP_OK) {
+    moloch.processRXCanFrame(&rxMessage);
+    lastConnected_ts = currentMillis;
+    if(rxMessage.identifier == 0x130) {
+      keyPresence = ((rxMessage.data[0] & 0xF0) == 0x40); //True if key present
+      ignitionOn  = ((rxMessage.data[0] & 0x0F) == 0x05); //True if ignition on
+    }
+  }
+  //TODO : manage frame 0x130
+  //TODO : Manage _FR booleans, currently no update (based on daemon state)
+  if(moloch.status == KWP_DAEMON_PARSED_ST) {
+    if(!intakeTemp_FR) {
+      intakeTemp_max = intakeTemp;
+      intakeTemp_min = intakeTemp;
+      updateIatMinMax(intakeTemp_min,intakeTemp_max);
+      intakeTemp_FR = true;
+    }
+    if(!engineCoolantTemp_FR) {
+      engineCoolantTemp_max = engineCoolantTemp;
+      engineCoolantTemp_min = engineCoolantTemp;
+      updateCoolantMinMax(engineCoolantTemp_min,engineCoolantTemp_max);
+      engineCoolantTemp_FR = true;
+    }
+    if(!boostPressure_FR) {
+      boostPressure_max = boostPressure;
+      boostPressure_min = boostPressure;
+      updateBoostMinMax(boostPressure_min,boostPressure_max);
+      boostPressure_FR = true;
+    }
+    if(!MAF_FR) {
+      MAF_max = MAF;
+      MAF_min = MAF;
+      updateMAFMinMax(MAF_min,MAF_max);
+      MAF_FR = true;
+    }
+    if(!HPFP_FR) {
+      HPFP_max = HPFP;
+      HPFP_min = HPFP;
+      updateHPFPMinMax(HPFP_min,HPFP_max);
+      HPFP_FR = true;
+    }
+    if(!oilT_FR) {
+      OilT_max = oilT;
+      OilT_min = oilT;
+      updateOilTMinMax(OilT_min,OilT_max);
+      oilT_FR = true;
+    }
+  }
+  moloch.tick(false);
   #endif
 
   //Update the canState in case of silent connection
-  if(millis()-lastConnected>2000) {
+  if(millis()-lastConnected_ts>2000) {
     canState = false;
     }
   else {
@@ -243,7 +349,8 @@ void loop() {
   }
 
   //Refresh the items in the UI
-  if(refreshValues) {
+  if(currentMillis-lastValueRefresh_ts>VALUE_REFRESH_INTERVAL) {
+    lastValueRefresh_ts = currentMillis;
     setCanState(canState);
     setIgnitionState(ignitionOn);
     setKeyPresence(keyPresence);
@@ -279,18 +386,49 @@ void loop() {
     }
 
     //Voltage Screen
-    if(controlModuleVoltage_FR) {
-      updateVoltageScr(controlModuleVoltage);
-      if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
-        controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
-        controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
-        updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+    // if(controlModuleVoltage_FR) {
+      // updateVoltageScr(controlModuleVoltage);
+      // if((controlModuleVoltage_min>controlModuleVoltage) || (controlModuleVoltage_max<controlModuleVoltage))  {
+      //   controlModuleVoltage_max = max(controlModuleVoltage_max,controlModuleVoltage);
+      //   controlModuleVoltage_min = min(controlModuleVoltage_min,controlModuleVoltage);
+      //   updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+      // }
+    // }
+
+    //MAF
+    if(MAF_FR) {
+      updateMAFScr(MAF);
+      if((MAF_min>MAF) || (MAF_max<MAF))  {
+        MAF_max = max(MAF_max,MAF);
+        MAF_min = min(MAF_min,MAF);
+        updateMAFMinMax(MAF_min,MAF_max);
+      }
+    }
+
+    //HPFP
+    if(HPFP_FR) {
+      updateHPFPScr(HPFP);
+      if((HPFP_min>HPFP) || (HPFP_max<HPFP))  {
+        HPFP_max = max(HPFP_max,HPFP);
+        HPFP_min = min(HPFP_min,HPFP);
+        updateHPFPMinMax(HPFP_min,HPFP_max);
+      }
+    }
+
+    //OilT
+    if(oilT_FR) {
+      updateOilTScr(oilT);
+      if((OilT_min>oilT) || (OilT_max<oilT))  {
+        OilT_max = max(OilT_max,oilT);
+        OilT_min = min(OilT_min,oilT);
+        updateOilTMinMax(OilT_min,OilT_max);
       }
     }
   }
   
   //Loop LVGL
-  if(tickerLVGL) {
+  if(currentMillis-lastLVGL_ts>=TICKS) {
+    lastLVGL_ts = currentMillis;
     lv_task_handler();
     lv_tick_inc(TICKS);
   }
