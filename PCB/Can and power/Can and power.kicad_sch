@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Main Schematic")
-		(date "2025-09-22")
-		(rev "6.1")
+		(date "2026-11-11")
+		(rev "6.2")
 		(company "Martin Roger")
 	)
 	(lib_symbols
@@ -2315,7 +2315,7 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Pin" "1=K 2=A"
+			(property "Sim.Pins" "1=K 2=A"
 				(at 0 0 0)
 				(effects
 					(font
@@ -2729,21 +2729,19 @@
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "R"
-				(at 0.762 0.508 0)
+				(at 0 0 90)
 				(effects
 					(font
-						(size 1.27 1.27)
+						(size 1.016 1.016)
 					)
-					(justify left)
 				)
 			)
 			(property "Value" "R_Small"
-				(at 0.762 -1.016 0)
+				(at 1.778 0 90)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 				)
 			)
 			(property "Footprint" ""
@@ -2933,7 +2931,7 @@
 					(hide yes)
 				)
 			)
-			(property "Sim.Library" "${KICAD7_SYMBOL_DIR}/Simulation_SPICE.sp"
+			(property "Sim.Library" "${KICAD9_SYMBOL_DIR}/Simulation_SPICE.sp"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3274,7 +3272,7 @@
 				(offset 0)
 				(hide yes)
 			)
-			(exclude_from_sim yes)
+			(exclude_from_sim no)
 			(in_bom no)
 			(on_board yes)
 			(property "Reference" "JP"
@@ -3464,12 +3462,15 @@
 			(embedded_fonts no)
 		)
 		(symbol "Jumper:SolderJumper_2_Open"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 0)
 				(hide yes)
 			)
 			(exclude_from_sim no)
-			(in_bom yes)
+			(in_bom no)
 			(on_board yes)
 			(property "Reference" "JP"
 				(at 0 2.032 0)
@@ -3671,7 +3672,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "DIY:DIONC1005X43N"
+			(property "Footprint" "Project_footprints:DIONC1005X43N"
 				(at 12.7 3.81 0)
 				(effects
 					(font
@@ -3914,7 +3915,7 @@
 					)
 				)
 			)
-			(property "Footprint" "DIY:INDC6060X450N"
+			(property "Footprint" "Project_footprints:INDC6060X450N"
 				(at 16.51 1.27 0)
 				(effects
 					(font
@@ -4147,7 +4148,7 @@
 					(justify left)
 				)
 			)
-			(property "Footprint" "DIY:SODFL3617X108N"
+			(property "Footprint" "Project_footprints:SODFL3617X108N"
 				(at 12.7 3.81 0)
 				(effects
 					(font
@@ -4386,7 +4387,7 @@
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "J1"
+			(property "Reference" "U"
 				(at 15.24 7.62 0)
 				(effects
 					(font
@@ -4402,7 +4403,7 @@
 					)
 				)
 			)
-			(property "Footprint" "DIY:SOIC127P600X175-8N"
+			(property "Footprint" "Project_footprints:SOIC127P600X175-8N"
 				(at 26.67 2.54 0)
 				(effects
 					(font
@@ -7982,7 +7983,7 @@
 			(uuid "697ff09b-ca6f-4bb0-a250-862c6e276da4")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "F1")
 					(unit 1)
@@ -7997,7 +7998,7 @@
 		(exclude_from_sim yes)
 		(in_bom no)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "06bb0abe-26f8-4a8e-81e3-968920ff6d60")
 		(property "Reference" "JP4"
 			(at 182.88 136.398 0)
@@ -8065,7 +8066,7 @@
 			(uuid "063c05ad-6049-4c8e-bf59-ece2dc93f138")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "JP4")
 					(unit 1)
@@ -8695,7 +8696,7 @@
 			(uuid "501e2e54-996f-4c70-8a1e-3c02e7424c48")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "J3")
 					(unit 1)
@@ -10365,7 +10366,7 @@
 			(uuid "390df77a-2720-499b-b6c0-75b532692b6d")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "J6")
 					(unit 1)
@@ -10740,7 +10741,7 @@
 			(uuid "42336929-210d-4b4f-ae3f-e0893bd0b679")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "J7")
 					(unit 1)
@@ -12791,7 +12792,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "a96aebc9-7faf-4a4c-adfc-d0a81a98626f")
-		(property "Reference" "J1"
+		(property "Reference" "U2"
 			(at 207.01 127 0)
 			(effects
 				(font
@@ -12970,7 +12971,7 @@
 		(instances
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "J1")
+					(reference "U2")
 					(unit 1)
 				)
 			)
@@ -14667,7 +14668,7 @@
 			(uuid "ecf31724-79e5-4a1d-83f9-833ebbee7ed3")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "J5")
 					(unit 1)
@@ -15240,7 +15241,7 @@
 			(uuid "6e8f6137-af96-4ded-84aa-6ef53476b6ad")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "RV1")
 					(unit 1)

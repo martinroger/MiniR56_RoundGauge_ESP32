@@ -27,7 +27,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "DIY:DIONC1005X43N"
+		(property "Footprint" "Project_footprints:DIONC1005X43N"
 			(at 12.7 3.81 0)
 			(effects
 				(font
@@ -270,7 +270,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DIY:INDC6060X450N"
+		(property "Footprint" "Project_footprints:INDC6060X450N"
 			(at 16.51 1.27 0)
 			(effects
 				(font
@@ -503,7 +503,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "DIY:SODFL3617X108N"
+		(property "Footprint" "Project_footprints:SODFL3617X108N"
 			(at 12.7 3.81 0)
 			(effects
 				(font
@@ -742,7 +742,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(property "Reference" "J1"
+		(property "Reference" "U"
 			(at 15.24 7.62 0)
 			(effects
 				(font
@@ -758,7 +758,7 @@
 				)
 			)
 		)
-		(property "Footprint" "DIY:SOIC127P600X175-8N"
+		(property "Footprint" "Project_footprints:SOIC127P600X175-8N"
 			(at 26.67 2.54 0)
 			(effects
 				(font
