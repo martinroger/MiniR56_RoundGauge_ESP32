@@ -6,8 +6,8 @@
 	(paper "A4")
 	(title_block
 		(title "Main Schematic")
-		(date "2026-11-11")
-		(rev "6.2")
+		(date "2026-11-13")
+		(rev "7.0")
 		(company "Martin Roger")
 	)
 	(lib_symbols
@@ -1820,6 +1820,168 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:C_Polarized_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "C"
+				(at 0.254 1.778 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "C_Polarized_Small"
+				(at 0.254 -2.032 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Polarized capacitor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "cap capacitor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "CP_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "C_Polarized_Small_0_1"
+				(rectangle
+					(start -1.524 0.6858)
+					(end 1.524 0.3048)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.524 -0.3048)
+					(end 1.524 -0.6858)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.27 1.524) (xy -0.762 1.524)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.27) (xy -1.016 1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "C_Polarized_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 1.8542)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 1.8542)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Device:C_Small"
 			(pin_numbers
 				(hide yes)
@@ -3033,42 +3195,35 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Interface_CAN_LIN:SN65HVD230"
+		(symbol "Diode:SS26"
+			(pin_numbers
+				(hide yes)
+			)
 			(pin_names
 				(offset 1.016)
+				(hide yes)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "U"
-				(at -2.54 10.16 0)
+			(property "Reference" "D"
+				(at 0 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
 				)
 			)
-			(property "Value" "SN65HVD230"
-				(at -2.54 7.62 0)
+			(property "Value" "SS26"
+				(at 0 -2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify right)
 				)
 			)
-			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
-				(at 0 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/sn65hvd230.pdf"
-				(at -2.54 10.16 0)
+			(property "Footprint" "Diode_SMD:D_SMA"
+				(at 0 -4.445 0)
 				(effects
 					(font
 						(size 1.27 1.27)
@@ -3076,7 +3231,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "CAN Bus Transceivers, 3.3V, 1Mbps, Low-Power capabilities, SOIC-8"
+			(property "Datasheet" "https://www.vishay.com/docs/88748/ss22.pdf"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3085,7 +3240,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "can transeiver ti low-power"
+			(property "Description" "60V 2A Schottky Diode, SMA"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3094,7 +3249,7 @@
 					(hide yes)
 				)
 			)
-			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+			(property "ki_keywords" "diode Schottky"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3103,24 +3258,58 @@
 					(hide yes)
 				)
 			)
-			(symbol "SN65HVD230_0_1"
-				(rectangle
-					(start -7.62 5.08)
-					(end 7.62 -7.62)
+			(property "ki_fp_filters" "D*SMA*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SS26_0_1"
+				(polyline
+					(pts
+						(xy -1.905 0.635) (xy -1.905 1.27) (xy -1.27 1.27) (xy -1.27 -1.27) (xy -0.635 -1.27) (xy -0.635 -0.635)
+					)
 					(stroke
 						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type background)
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
+					)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 0) (xy -1.27 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
 					)
 				)
 			)
-			(symbol "SN65HVD230_1_1"
-				(pin input line
-					(at -10.16 2.54 0)
+			(symbol "SS26_1_1"
+				(pin passive line
+					(at -3.81 0 0)
 					(length 2.54)
-					(name "D"
+					(name "K"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3135,17 +3324,17 @@
 						)
 					)
 				)
-				(pin output line
-					(at -10.16 0 0)
+				(pin passive line
+					(at 3.81 0 180)
 					(length 2.54)
-					(name "R"
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "4"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3153,17 +3342,222 @@
 						)
 					)
 				)
-				(pin output line
-					(at -10.16 -2.54 0)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Jumper:SolderJumper_3_Bridged12"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(property "Reference" "JP"
+				(at -2.54 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SolderJumper_3_Bridged12"
+				(at 0 2.794 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "3-pole Solder Jumper, pins 1+2 closed/bridged"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "Solder Jumper SPDT"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SolderJumper*Bridged12*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SolderJumper_3_Bridged12_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy -2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -1.016 1.016) (xy -1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(rectangle
+					(start -1.016 0.508)
+					(end -0.508 -0.508)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(arc
+					(start -1.016 -1.016)
+					(mid -2.0276 0)
+					(end -1.016 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start -1.016 -1.016)
+					(mid -2.0276 0)
+					(end -1.016 1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(rectangle
+					(start -0.508 1.016)
+					(end 0.508 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.016 1.016)
+					(mid 2.0276 0)
+					(end 1.016 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(arc
+					(start 1.016 1.016)
+					(mid 2.0276 0)
+					(end 1.016 -1.016)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.016 1.016) (xy 1.016 -1.016)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0) (xy 2.032 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "SolderJumper_3_Bridged12_1_1"
+				(pin passive line
+					(at -5.08 0 0)
 					(length 2.54)
-					(name "Vref"
+					(name "A"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "5"
+					(number "1"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3171,17 +3565,17 @@
 						)
 					)
 				)
-				(pin input line
-					(at -10.16 -5.08 0)
+				(pin passive line
+					(at 0 -3.81 90)
 					(length 2.54)
-					(name "Rs"
+					(name "C"
 						(effects
 							(font
 								(size 1.27 1.27)
 							)
 						)
 					)
-					(number "8"
+					(number "2"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3189,10 +3583,10 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 7.62 270)
+				(pin passive line
+					(at 5.08 0 180)
 					(length 2.54)
-					(name "VCC"
+					(name "B"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3207,91 +3601,54 @@
 						)
 					)
 				)
-				(pin power_in line
-					(at 0 -10.16 90)
-					(length 2.54)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 10.16 0 180)
-					(length 2.54)
-					(name "CANH"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin bidirectional line
-					(at 10.16 -2.54 180)
-					(length 2.54)
-					(name "CANL"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Jumper:SolderJumper_2_Bridged"
-			(pin_numbers
-				(hide yes)
-			)
+		(symbol "Power_Protection:SZNUP2105L"
 			(pin_names
-				(offset 0)
 				(hide yes)
 			)
 			(exclude_from_sim no)
-			(in_bom no)
+			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "JP"
-				(at 0 2.032 0)
+			(property "Reference" "D"
+				(at 5.715 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Value" "SolderJumper_2_Bridged"
-				(at 0 -2.54 0)
+			(property "Value" "SZNUP2105L"
+				(at 5.715 0.635 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify left)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.715 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pub_link/Collateral/NUP2105L-D.PDF"
+				(at 3.175 3.175 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Dual Line CAN Bus Protector, 24Vrwm, Automotive Grade"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3300,7 +3657,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "ki_keywords" "can esd protection suppression transient automotive"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3309,7 +3666,7 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Solder Jumper, 2-pole, closed/bridged"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3318,39 +3675,41 @@
 					(hide yes)
 				)
 			)
-			(property "ki_keywords" "solder jumper SPST"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
+			(symbol "SZNUP2105L_0_0"
+				(pin passive line
+					(at 0 -5.08 90)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(hide yes)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
 				)
 			)
-			(property "ki_fp_filters" "SolderJumper*Bridged*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SolderJumper_2_Bridged_0_1"
+			(symbol "SZNUP2105L_0_1"
 				(rectangle
-					(start -0.508 0.508)
-					(end 0.508 -0.508)
+					(start -4.445 2.54)
+					(end 4.445 -2.54)
 					(stroke
-						(width 0)
+						(width 0.254)
 						(type default)
 					)
 					(fill
-						(type outline)
+						(type background)
 					)
 				)
 				(polyline
 					(pts
-						(xy -0.254 1.016) (xy -0.254 -1.016)
+						(xy -3.81 1.27) (xy -3.175 0.635) (xy -1.905 0.635) (xy -1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -3358,59 +3717,107 @@
 					)
 					(fill
 						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
 					)
 				)
 				(polyline
 					(pts
-						(xy 0.254 1.016) (xy 0.254 -1.016)
+						(xy -2.54 2.54) (xy -2.54 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0.635) (xy -2.54 -1.27) (xy 2.54 -1.27) (xy 2.54 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0.635) (xy -1.905 -0.635) (xy -3.175 -0.635) (xy -2.54 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy -2.54 0.635) (xy -3.175 1.905) (xy -1.905 1.905) (xy -2.54 0.635) (xy -2.54 1.27)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0 -1.27) (xy 0 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 1.27 1.27) (xy 1.905 0.635) (xy 2.54 0.635) (xy 3.175 0.635) (xy 3.81 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 2.54) (xy 2.54 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0.635) (xy 1.905 -0.635) (xy 3.175 -0.635) (xy 2.54 0.635)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.54 0.635) (xy 3.175 1.905) (xy 1.905 1.905) (xy 2.54 0.635)
 					)
 					(stroke
 						(width 0)
@@ -3421,11 +3828,11 @@
 					)
 				)
 			)
-			(symbol "SolderJumper_2_Bridged_1_1"
+			(symbol "SZNUP2105L_1_1"
 				(pin passive line
-					(at -3.81 0 0)
+					(at -2.54 5.08 270)
 					(length 2.54)
-					(name "A"
+					(name "K"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3441,9 +3848,9 @@
 					)
 				)
 				(pin passive line
-					(at 3.81 0 180)
+					(at 2.54 5.08 270)
 					(length 2.54)
-					(name "B"
+					(name "K"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3461,26 +3868,25 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Jumper:SolderJumper_2_Open"
+		(symbol "Reference_Voltage:TL431DBZ"
 			(pin_numbers
 				(hide yes)
 			)
 			(pin_names
-				(offset 0)
 				(hide yes)
 			)
 			(exclude_from_sim no)
-			(in_bom no)
+			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "JP"
-				(at 0 2.032 0)
+			(property "Reference" "U"
+				(at -2.54 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 				)
 			)
-			(property "Value" "SolderJumper_2_Open"
+			(property "Value" "TL431DBZ"
 				(at 0 -2.54 0)
 				(effects
 					(font
@@ -3488,7 +3894,36 @@
 					)
 				)
 			)
-			(property "Footprint" ""
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 0 -4.826 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "http://www.ti.com/lit/ds/symlink/tl431.pdf"
+				(at 1.778 -9.144 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+						(italic yes)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Shunt Regulator, SOT-23"
+				(at 0 -7.112 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode device shunt regulator"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3497,7 +3932,7 @@
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "~"
+			(property "ki_fp_filters" "SOT?23*"
 				(at 0 0 0)
 				(effects
 					(font
@@ -3506,37 +3941,10 @@
 					(hide yes)
 				)
 			)
-			(property "Description" "Solder Jumper, 2-pole, open"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_keywords" "solder jumper SPST"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "SolderJumper*Open*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "SolderJumper_2_Open_0_1"
+			(symbol "TL431DBZ_0_1"
 				(polyline
 					(pts
-						(xy -0.254 1.016) (xy -0.254 -1.016)
+						(xy -1.27 0) (xy 0 0) (xy 1.27 0)
 					)
 					(stroke
 						(width 0)
@@ -3546,46 +3954,10 @@
 						(type none)
 					)
 				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
+				(polyline
+					(pts
+						(xy -0.762 -0.762) (xy -0.762 0.762) (xy 0.762 0) (xy -0.762 -0.762)
 					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start -0.254 -1.016)
-					(mid -1.2656 0)
-					(end -0.254 1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
-					(stroke
-						(width 0)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(arc
-					(start 0.254 1.016)
-					(mid 1.2656 0)
-					(end 0.254 -1.016)
 					(stroke
 						(width 0)
 						(type default)
@@ -3596,10 +3968,10 @@
 				)
 				(polyline
 					(pts
-						(xy 0.254 1.016) (xy 0.254 -1.016)
+						(xy 0.254 -0.762) (xy 0.762 -0.762) (xy 0.762 0.762) (xy 0.762 0.762)
 					)
 					(stroke
-						(width 0)
+						(width 0.254)
 						(type default)
 					)
 					(fill
@@ -3607,9 +3979,9 @@
 					)
 				)
 			)
-			(symbol "SolderJumper_2_Open_1_1"
+			(symbol "TL431DBZ_1_1"
 				(pin passive line
-					(at -3.81 0 0)
+					(at -2.54 0 0)
 					(length 2.54)
 					(name "A"
 						(effects
@@ -3618,7 +3990,7 @@
 							)
 						)
 					)
-					(number "1"
+					(number "3"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3627,9 +3999,9 @@
 					)
 				)
 				(pin passive line
-					(at 3.81 0 180)
+					(at 0 2.54 270)
 					(length 2.54)
-					(name "B"
+					(name "REF"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3644,131 +4016,107 @@
 						)
 					)
 				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Symbols:PESD0402-140"
+		(symbol "Symbols:LMR16010PDDA"
 			(pin_names
 				(offset 0.762)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
-			(property "Reference" "D2"
-				(at 8.8899 3.81 90)
+			(property "Reference" "U"
+				(at 15.24 7.62 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "LMR16010PDDAR"
+				(at 15.24 5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Package_SO:TI_SO-PowerPAD-8_ThermalVias"
+				(at 26.67 2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 					(justify left)
+					(hide yes)
 				)
 			)
-			(property "Value" "PESD0402-140"
-				(at 11.4299 3.81 90)
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr16010.pdf"
+				(at 26.67 0 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
 					(justify left)
-				)
-			)
-			(property "Footprint" "Project_footprints:DIONC1005X43N"
-				(at 12.7 3.81 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/product_specifications/polymer_esd_suppressors/littelfuse_polymer_esd_suppressor_pesd0402_140_product_specification.pdf.pdf"
-				(at 12.7 1.27 0)
+			(property "Description" "TI LMR16010 4.3-60 V, 1 A SIMPLE SWITCHER step-down converter, HSOIC-8 PowerPAD (DDA). Pin 9 (EP) is stacked on pin 7 (GND). Pinout from datasheet SNVSAH7 table; CHECK."
+				(at 26.67 -2.54 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Description" "LITTELFUSE - PESD0402-140 - ESD SUPPRESSOR, 0402, 14V, 0.25PF"
-				(at 12.7 -1.27 0)
+			(property "Height" "1.7"
+				(at 26.67 -5.08 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Height" "0.43"
-				(at 12.7 -3.81 0)
+			(property "Manufacturer_Name" "Texas Instruments"
+				(at 26.67 -7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
+					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Manufacturer_Name" "LITTELFUSE"
-				(at 12.7 -6.35 0)
+			(property "Manufacturer_Part_Number" "LMR16010PDDAR"
+				(at 26.67 -10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left bottom)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "PESD0402-140"
-				(at 12.7 -8.89 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "650-PESD0402-140"
-				(at 12.7 -11.43 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Littelfuse/PESD0402-140?qs=y1EbU1W0OrtTHVfbQV6MTg%3D%3D"
-				(at 12.7 -13.97 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "PESD0402-140"
-				(at 12.7 -16.51 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/pesd0402-140/littelfuse?region=nac"
-				(at 12.7 -19.05 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left bottom)
+					(justify left)
 					(hide yes)
 				)
 			)
@@ -3790,11 +4138,11 @@
 					(hide yes)
 				)
 			)
-			(symbol "PESD0402-140_0_0"
+			(symbol "LMR16010PDDA_0_0"
 				(pin passive line
 					(at 0 0 0)
 					(length 5.08)
-					(name "~"
+					(name "BOOT"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3810,9 +4158,369 @@
 					)
 				)
 				(pin passive line
-					(at 20.32 0 180)
+					(at 0 -2.54 0)
 					(length 5.08)
-					(name "~"
+					(name "VIN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -5.08 0)
+					(length 5.08)
+					(name "EN"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -7.62 0)
+					(length 5.08)
+					(name "RT/SYNC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "4"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 0 180)
+					(length 5.08)
+					(name "SW"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 -2.54 180)
+					(length 5.08)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 -2.54 180)
+					(length 5.08)
+					(name "EP"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "9"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 -5.08 180)
+					(length 5.08)
+					(name "PGOOD"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 30.48 -7.62 180)
+					(length 5.08)
+					(name "FB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "5"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(symbol "LMR16010PDDA_0_1"
+				(polyline
+					(pts
+						(xy 5.08 2.54) (xy 25.4 2.54) (xy 25.4 -10.16) (xy 5.08 -10.16) (xy 5.08 2.54)
+					)
+					(stroke
+						(width 0.1524)
+						(type solid)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
+		(symbol "Symbols:MMBT2907A"
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "Q"
+				(at 5.08 1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "MMBT2907A"
+				(at 5.08 -1.27 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+				(at 5.08 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mmbt2907alt1-d.pdf"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "-0.6 A Ic, -60 V Vce, PNP transistor, SOT-23 (1=B, 2=E, 3=C)"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Device" "PNP"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Sim.Pins" "1=B 2=E 3=C"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "PNP Transistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "SOT?23*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "MMBT2907A_0_1"
+				(polyline
+					(pts
+						(xy -2.54 0) (xy 0.635 0)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 1.905) (xy 0.635 -1.905)
+					)
+					(stroke
+						(width 0.508)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 0.635) (xy 2.54 2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 0.635 -0.635) (xy 2.54 -2.54)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.27 0)
+					(radius 2.8194)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(polyline
+					(pts
+						(xy 2.286 -1.778) (xy 1.778 -2.286) (xy 1.27 -1.27) (xy 2.286 -1.778)
+					)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type outline)
+					)
+				)
+			)
+			(symbol "MMBT2907A_1_1"
+				(pin input line
+					(at -5.08 0 0)
+					(length 2.54)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 5.08 270)
+					(length 2.54)
+					(name "C"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 -5.08 90)
+					(length 2.54)
+					(name "E"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -3828,14 +4536,88 @@
 					)
 				)
 			)
-			(symbol "PESD0402-140_0_1"
+			(embedded_fonts no)
+		)
+		(symbol "Symbols:SMBJ26A"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "D"
+				(at 0 2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "SMBJ26A"
+				(at 0 -2.54 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" "Diode_SMD:D_SMB"
+				(at 0 -5.08 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "https://www.diodes.com/assets/Datasheets/SMBJ5.0A-SMBJ200CA.pdf"
+				(at -1.27 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "600 W unidirectional TVS, 26 V Vrwm, 42.1 V clamp, SMB (DO-214AA). Pin 1 = cathode."
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "diode TVS voltage suppressor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "D*SMB*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "SMBJ26A_0_1"
 				(polyline
 					(pts
-						(xy 9.144 2.54) (xy 10.16 2.032)
+						(xy -0.762 1.27) (xy -1.27 1.27) (xy -1.27 -1.27)
 					)
 					(stroke
-						(width 0.1524)
-						(type solid)
+						(width 0.254)
+						(type default)
 					)
 					(fill
 						(type none)
@@ -3843,50 +4625,52 @@
 				)
 				(polyline
 					(pts
-						(xy 10.16 0) (xy 5.08 -2.54) (xy 5.08 2.54) (xy 10.16 0)
+						(xy 1.27 1.27) (xy 1.27 -1.27) (xy -1.27 0) (xy 1.27 1.27)
 					)
 					(stroke
-						(width 0.1524)
-						(type solid)
+						(width 0.254)
+						(type default)
 					)
 					(fill
 						(type none)
 					)
 				)
-				(polyline
-					(pts
-						(xy 10.16 0) (xy 15.24 -2.54) (xy 15.24 2.54) (xy 10.16 0)
+			)
+			(symbol "SMBJ26A_1_1"
+				(pin passive line
+					(at -3.81 0 0)
+					(length 2.54)
+					(name "K"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 10.16 -2.032) (xy 10.16 2.032)
-					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
-				(polyline
-					(pts
-						(xy 10.16 -2.032) (xy 11.176 -2.54)
+				(pin passive line
+					(at 3.81 0 180)
+					(length 2.54)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(stroke
-						(width 0.1524)
-						(type solid)
-					)
-					(fill
-						(type none)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -4380,130 +5164,50 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Symbols:TPS54232DR"
+		(symbol "Symbols:TJA1044VT"
 			(pin_names
-				(offset 0.762)
+				(offset 1.016)
 			)
 			(exclude_from_sim no)
 			(in_bom yes)
 			(on_board yes)
 			(property "Reference" "U"
-				(at 15.24 7.62 0)
+				(at -2.54 10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify right)
 				)
 			)
-			(property "Value" "TPS54232DR"
-				(at 15.24 5.08 0)
+			(property "Value" "TJA1044VT"
+				(at -2.54 7.62 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
+					(justify right)
 				)
 			)
-			(property "Footprint" "Project_footprints:SOIC127P600X175-8N"
-				(at 26.67 2.54 0)
+			(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
+				(at 0 -12.7 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftps54232"
-				(at 26.67 0 0)
+			(property "Datasheet" "https://www.nxp.com/docs/en/data-sheet/TJA1044.pdf"
+				(at -2.54 10.16 0)
 				(effects
 					(font
 						(size 1.27 1.27)
 					)
-					(justify left)
 					(hide yes)
 				)
 			)
-			(property "Description" "TEXAS INSTRUMENTS - TPS54232DR - DC-DC Switching Buck Step Down Regulator, Adjustable, 3.5V-28Vin, 1 MHz, 0.8V-25V/2Aout, SOIC-8"
-				(at 26.67 -2.54 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Height" "1.75"
-				(at 26.67 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Name" "Texas Instruments"
-				(at 26.67 -7.62 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Manufacturer_Part_Number" "TPS54232DR"
-				(at 26.67 -10.16 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Part Number" "595-TPS54232DR"
-				(at 26.67 -12.7 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS54232DR?qs=7IaIRco65pmiGIR3AGvboA%3D%3D"
-				(at 26.67 -15.24 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Part Number" "TPS54232DR"
-				(at 26.67 -17.78 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "Arrow Price/Stock" "https://www.arrow.com/en/products/tps54232dr/texas-instruments?region=nac"
-				(at 26.67 -20.32 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(justify left)
-					(hide yes)
-				)
-			)
-			(property "MPN" ""
+			(property "Description" "High-speed CAN transceiver with Standby mode, VIO variant (TJA1044VT/3, AEC-Q100), SO-8. Pin 5 = VIO, pin 8 = STB (high = standby, internal pull-up). Pinout copied from TJA1044GT/3 datasheet table; CHECK."
 				(at 0 0 0)
 				(effects
 					(font
@@ -4512,7 +5216,7 @@
 					(hide yes)
 				)
 			)
-			(property "Package" ""
+			(property "ki_keywords" "CAN transceiver NXP automotive standby VIO"
 				(at 0 0 0)
 				(effects
 					(font
@@ -4521,11 +5225,33 @@
 					(hide yes)
 				)
 			)
-			(symbol "TPS54232DR_0_0"
-				(pin passive line
-					(at 0 0 0)
-					(length 5.08)
-					(name "BOOT"
+			(property "ki_fp_filters" "SOIC*3.9x4.9mm*P1.27mm*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "TJA1044VT_0_1"
+				(rectangle
+					(start -7.62 5.08)
+					(end 7.62 -7.62)
+					(stroke
+						(width 0.254)
+						(type default)
+					)
+					(fill
+						(type background)
+					)
+				)
+			)
+			(symbol "TJA1044VT_1_1"
+				(pin input line
+					(at -10.16 2.54 0)
+					(length 2.54)
+					(name "TXD"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4540,46 +5266,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 0 -2.54 0)
-					(length 5.08)
-					(name "VIN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -5.08 0)
-					(length 5.08)
-					(name "EN"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 0 -7.62 0)
-					(length 5.08)
-					(name "SS"
+				(pin output line
+					(at -10.16 0 0)
+					(length 2.54)
+					(name "RXD"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4594,64 +5284,10 @@
 						)
 					)
 				)
-				(pin passive line
-					(at 30.48 0 180)
-					(length 5.08)
-					(name "PH"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "8"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 30.48 -2.54 180)
-					(length 5.08)
-					(name "GND"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "7"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 30.48 -5.08 180)
-					(length 5.08)
-					(name "COMP"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "6"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 30.48 -7.62 180)
-					(length 5.08)
-					(name "VSENSE"
+				(pin power_in line
+					(at -10.16 -2.54 0)
+					(length 2.54)
+					(name "VIO"
 						(effects
 							(font
 								(size 1.27 1.27)
@@ -4666,18 +5302,94 @@
 						)
 					)
 				)
-			)
-			(symbol "TPS54232DR_0_1"
-				(polyline
-					(pts
-						(xy 5.08 2.54) (xy 25.4 2.54) (xy 25.4 -10.16) (xy 5.08 -10.16) (xy 5.08 2.54)
+				(pin input line
+					(at -10.16 -5.08 0)
+					(length 2.54)
+					(name "STB"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(stroke
-						(width 0.1524)
-						(type solid)
+					(number "8"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
-					(fill
-						(type none)
+				)
+				(pin power_in line
+					(at 0 7.62 270)
+					(length 2.54)
+					(name "VCC"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "3"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin power_in line
+					(at 0 -10.16 90)
+					(length 2.54)
+					(name "GND"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 10.16 0 180)
+					(length 2.54)
+					(name "CANH"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "7"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin bidirectional line
+					(at 10.16 -2.54 180)
+					(length 2.54)
+					(name "CANL"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "6"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
 					)
 				)
 			)
@@ -5035,7 +5747,9 @@
 			(embedded_fonts no)
 		)
 	)
-	(text_box "Ren1 and Ren2 are technically calculated for a 12.0 - 12.2V hysteresis as per the datasheet.\nEffectively this is more like 11.4-11.8V hysteresis.\nWorkarounds can be :\n- An inline diode at 1V\n- 133k - 14.3k Ren1-2 pair for 12.35-12.75V hysteresis\n- 150k - 15k Ren1-2 pair for 13.15-13.6 hysteresis"
+	(text_box "LMR16010 EN: 1.2 V threshold, internal pull-up. Ren1 120k / Ren2 22k1 -> turn-on ~7.7 V (KL15 lockout, rides through cranking).
+JP4 selects KL15 (1-2, default bridged) or the KL30 hysteresis switch (2-3).
+FB 0.75 V: R9 43k / R10 7k5 -> 5.05 V. RT R12 39k -> ~620 kHz."
 		(exclude_from_sim no)
 		(at 153.67 97.79 0)
 		(size 67.31 17.78)
@@ -5056,18 +5770,6 @@
 		(uuid "ac2fa563-a76a-4893-b024-68e426379880")
 	)
 	(junction
-		(at 182.88 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "02d12d34-b146-4e02-957a-df18e860763d")
-	)
-	(junction
-		(at 220.98 45.72)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "060e17de-324c-40f3-9990-4d4c2898385c")
-	)
-	(junction
 		(at 234.95 118.11)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5084,12 +5786,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "29c85ec4-b985-4c89-9e1d-743291ea596a")
-	)
-	(junction
-		(at 113.03 120.65)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "6df826ae-d203-4a8f-9be1-54355aaf9ee9")
 	)
 	(junction
 		(at 86.36 175.26)
@@ -5128,12 +5824,6 @@
 		(uuid "ab023477-bf24-4919-90a7-2159a83a1e31")
 	)
 	(junction
-		(at 151.13 48.26)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "aeb82aa3-8744-4940-b0a5-e23eac0926f3")
-	)
-	(junction
 		(at 96.52 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5150,12 +5840,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "b4b3a328-e54c-4273-9464-90c644189aaf")
-	)
-	(junction
-		(at 261.62 157.48)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "b4be40a6-709e-4b89-8fbf-1d7b74a141d6")
 	)
 	(junction
 		(at 190.5 24.13)
@@ -5176,24 +5860,6 @@
 		(uuid "cc0648d0-aa89-4ef2-acc0-ce158f66f353")
 	)
 	(junction
-		(at 104.14 120.65)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d2095aeb-98be-40d5-ac57-f0a6f2cf7232")
-	)
-	(junction
-		(at 220.98 43.18)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d41d505d-7f7f-40ed-af5c-6a89ad355993")
-	)
-	(junction
-		(at 254 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "d6b9b6be-fdf4-44b2-a7eb-280c24d1b1b0")
-	)
-	(junction
 		(at 144.78 120.65)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -5204,12 +5870,6 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "e2cbb54d-0438-4f45-8d08-111535085ed2")
-	)
-	(junction
-		(at 170.18 139.7)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "f716b4ef-8015-4477-a648-55fce223f2df")
 	)
 	(junction
 		(at 129.54 120.65)
@@ -5318,10 +5978,6 @@
 		(uuid "94e1a7da-bd9f-46a3-8f24-cc54cee83a2c")
 	)
 	(no_connect
-		(at 186.69 45.72)
-		(uuid "a9eff974-f87f-464f-b4eb-876c1c606b09")
-	)
-	(no_connect
 		(at 48.26 130.81)
 		(uuid "aeefb61f-d3b1-42b2-897d-ff696981f276")
 	)
@@ -5391,16 +6047,6 @@
 	)
 	(wire
 		(pts
-			(xy 158.75 57.15) (xy 170.18 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "051f9055-75a5-46ea-a768-4ac4244f48d7")
-	)
-	(wire
-		(pts
 			(xy 182.88 43.18) (xy 186.69 43.18)
 		)
 		(stroke
@@ -5418,16 +6064,6 @@
 			(type default)
 		)
 		(uuid "07e673e3-2698-40fd-98a2-8b488de15077")
-	)
-	(wire
-		(pts
-			(xy 269.24 140.97) (xy 269.24 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "08fb4a5b-ddf1-4301-84c6-1ee24cce7d37")
 	)
 	(wire
 		(pts
@@ -5508,16 +6144,6 @@
 			(type default)
 		)
 		(uuid "13e3157e-2a22-4344-aa5f-e4b8dc5fafa4")
-	)
-	(wire
-		(pts
-			(xy 182.88 57.15) (xy 182.88 48.26)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "156253aa-1f1f-4a17-9e06-4e0746aab710")
 	)
 	(wire
 		(pts
@@ -5698,16 +6324,6 @@
 			(type default)
 		)
 		(uuid "2b282b3b-e447-433b-9a10-b2a4bfbdd591")
-	)
-	(wire
-		(pts
-			(xy 170.18 139.7) (xy 180.34 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "2bff90dd-ab50-4b6d-bc39-309c87855bb3")
 	)
 	(wire
 		(pts
@@ -6151,26 +6767,6 @@
 	)
 	(wire
 		(pts
-			(xy 177.8 57.15) (xy 182.88 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "71fe8024-c06e-4047-902e-222bcbfc8e26")
-	)
-	(wire
-		(pts
-			(xy 220.98 67.31) (xy 220.98 69.85)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "7202f784-0897-49ff-9989-340cb560c413")
-	)
-	(wire
-		(pts
 			(xy 171.45 24.13) (xy 179.07 24.13)
 		)
 		(stroke
@@ -6188,16 +6784,6 @@
 			(type default)
 		)
 		(uuid "73c877cb-151f-499b-b25d-208e03795acd")
-	)
-	(wire
-		(pts
-			(xy 261.62 157.48) (xy 254 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "73dbf2b4-cbb2-42db-ba79-51d669583611")
 	)
 	(wire
 		(pts
@@ -6361,16 +6947,6 @@
 	)
 	(wire
 		(pts
-			(xy 269.24 156.21) (xy 269.24 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "85248b52-4694-4236-8190-18945e6d0691")
-	)
-	(wire
-		(pts
 			(xy 113.03 120.65) (xy 113.03 123.19)
 		)
 		(stroke
@@ -6428,16 +7004,6 @@
 			(type default)
 		)
 		(uuid "91b47a2a-6bb4-4424-8bb8-e257318ad380")
-	)
-	(wire
-		(pts
-			(xy 254 139.7) (xy 254 140.97)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "936b4548-162a-4f96-b9bf-3f19d02e263b")
 	)
 	(wire
 		(pts
@@ -6571,16 +7137,6 @@
 	)
 	(wire
 		(pts
-			(xy 220.98 45.72) (xy 220.98 46.99)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "a9381a91-e7a0-4942-942d-d94c16fcd862")
-	)
-	(wire
-		(pts
 			(xy 30.48 105.41) (xy 35.56 105.41)
 		)
 		(stroke
@@ -6588,16 +7144,6 @@
 			(type default)
 		)
 		(uuid "abf41b7d-0ec5-458f-a0dc-b130c670e82a")
-	)
-	(wire
-		(pts
-			(xy 254 139.7) (xy 269.24 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "ae78f327-d4ae-48ac-ab93-1a02ce488025")
 	)
 	(wire
 		(pts
@@ -6658,26 +7204,6 @@
 			(type default)
 		)
 		(uuid "b4c55a10-e862-4a59-b73c-0ea51ce06452")
-	)
-	(wire
-		(pts
-			(xy 220.98 41.91) (xy 220.98 43.18)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b5fe2310-ac0c-43c2-bc0c-be32228f32f6")
-	)
-	(wire
-		(pts
-			(xy 269.24 146.05) (xy 269.24 148.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "b61dd922-1685-4ece-8d0d-7d8caf285c57")
 	)
 	(wire
 		(pts
@@ -6751,26 +7277,6 @@
 	)
 	(wire
 		(pts
-			(xy 113.03 120.65) (xy 104.14 120.65)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "c55fc4a1-9682-439a-b86c-6b570a6c56c4")
-	)
-	(wire
-		(pts
-			(xy 151.13 48.26) (xy 151.13 57.15)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cb570dc8-aca4-4331-b31e-8e1ea1e8acdb")
-	)
-	(wire
-		(pts
 			(xy 158.75 48.26) (xy 182.88 48.26)
 		)
 		(stroke
@@ -6798,16 +7304,6 @@
 			(type default)
 		)
 		(uuid "cfd43397-006d-4922-879c-04e397900a60")
-	)
-	(wire
-		(pts
-			(xy 261.62 157.48) (xy 269.24 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "cfd7b50d-d7a5-4979-9d15-4b30cadc3d20")
 	)
 	(wire
 		(pts
@@ -6868,26 +7364,6 @@
 			(type default)
 		)
 		(uuid "dce67714-f175-4e30-9f3e-d21d57aea7f5")
-	)
-	(wire
-		(pts
-			(xy 222.25 139.7) (xy 254 139.7)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dd1d0e3d-8418-4acc-a90f-fefe3ed62e75")
-	)
-	(wire
-		(pts
-			(xy 220.98 20.32) (xy 220.98 21.59)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "dda7aebc-c5cf-4f84-91fc-35e3c2631ca8")
 	)
 	(wire
 		(pts
@@ -7001,16 +7477,6 @@
 	)
 	(wire
 		(pts
-			(xy 254 146.05) (xy 254 157.48)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "f40404c1-b050-4ca9-968c-38c8d4383cea")
-	)
-	(wire
-		(pts
 			(xy 203.2 31.75) (xy 203.2 30.48)
 		)
 		(stroke
@@ -7099,7 +7565,7 @@
 		)
 		(uuid "01c10383-6687-4bec-b5a0-86906f3084ed")
 	)
-	(label "175_RXD"
+	(label "175_GPIO16"
 		(at 88.9 172.72 0)
 		(effects
 			(font
@@ -7159,7 +7625,7 @@
 		)
 		(uuid "115386a6-1dc4-4284-a989-8bc53bbc1ae2")
 	)
-	(label "175_GPIO18"
+	(label "175_GPIO16"
 		(at 39.37 157.48 180)
 		(effects
 			(font
@@ -7189,7 +7655,7 @@
 		)
 		(uuid "15e472d9-43a1-40b5-8dd3-9125ec048bcc")
 	)
-	(label "175_GPIO17"
+	(label "175_GPIO18"
 		(at 39.37 160.02 180)
 		(effects
 			(font
@@ -7319,7 +7785,7 @@
 		)
 		(uuid "7fd946f2-a4df-4967-ba08-c1bb14df317f")
 	)
-	(label "146_GPIO13"
+	(label "146_GPIO17"
 		(at 88.9 161.29 0)
 		(effects
 			(font
@@ -7349,7 +7815,7 @@
 		)
 		(uuid "95a6a3db-7421-4e4a-8f14-b5956c6632ec")
 	)
-	(label "175_TXD"
+	(label "175_GPIO17"
 		(at 88.9 158.75 0)
 		(effects
 			(font
@@ -7359,7 +7825,7 @@
 		)
 		(uuid "9644dd2f-a4bd-4752-a9c2-b62687245426")
 	)
-	(label "175_GPIO16"
+	(label "175_GPIO17"
 		(at 39.37 162.56 180)
 		(effects
 			(font
@@ -7399,7 +7865,7 @@
 		)
 		(uuid "a8cdbb38-bf6d-4f72-87f8-8a8d60fa7b59")
 	)
-	(label "143_GPIO2"
+	(label "143_GPIO16"
 		(at 88.9 177.8 0)
 		(effects
 			(font
@@ -7449,7 +7915,7 @@
 		)
 		(uuid "cab5f556-1465-44e6-9a96-9b7ae261c4d3")
 	)
-	(label "143_GPIO3"
+	(label "143_GPIO17"
 		(at 88.9 163.83 0)
 		(effects
 			(font
@@ -7589,7 +8055,7 @@
 		)
 		(uuid "fece33d6-ea4a-48d5-937f-686734ae85d7")
 	)
-	(label "146_GPIO12"
+	(label "146_GPIO16"
 		(at 88.9 175.26 0)
 		(effects
 			(font
@@ -7992,212 +8458,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Bridged")
-		(at 184.15 139.7 0)
-		(unit 1)
-		(exclude_from_sim yes)
-		(in_bom no)
-		(on_board yes)
-		(dnp yes)
-		(uuid "06bb0abe-26f8-4a8e-81e3-968920ff6d60")
-		(property "Reference" "JP4"
-			(at 182.88 136.398 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Use IGN"
-			(at 184.658 143.256 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Bridged_RoundedPad1.0x1.5mm"
-			(at 184.15 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 184.15 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Solder Jumper, 2-pole, closed/bridged"
-			(at 184.15 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." ""
-			(at 184.15 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 184.15 139.7 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "7660502c-5732-46eb-8d31-9a7d2b008ee7")
-		)
-		(pin "2"
-			(uuid "063c05ad-6049-4c8e-bf59-ece2dc93f138")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "JP4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:R")
-		(at 154.94 57.15 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "095ff673-aff4-46b6-af27-2e834318817e")
-		(property "Reference" "R2"
-			(at 155.575 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "10k2"
-			(at 153.035 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 154.94 58.928 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RES 10.2K OHM 1% 1/10W 0603"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "YAGEO"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0710K2L"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C183219"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C183219"
-			(at 154.94 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "ecc30e58-89af-4f69-ab55-081c614f0a8d")
-		)
-		(pin "2"
-			(uuid "46d7f681-69a3-4521-8d2d-d9750faeb5bd")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "R2")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 154.94 48.26 270)
 		(mirror x)
@@ -8207,7 +8467,7 @@
 		(on_board yes)
 		(dnp no)
 		(uuid "0c73376a-5dbd-49e9-ae3b-300f4d85e5d6")
-		(property "Reference" "R8"
+		(property "Reference" "R14"
 			(at 154.94 53.34 90)
 			(effects
 				(font
@@ -8215,7 +8475,7 @@
 				)
 			)
 		)
-		(property "Value" "47k"
+		(property "Value" "10k"
 			(at 154.94 50.8 90)
 			(effects
 				(font
@@ -8232,7 +8492,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://industrial.panasonic.com/cdbs/www-data/pdf/RDA0000/AOA0000C304.pdf"
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8241,7 +8501,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES SMD 47K OHM 1% 1/10W 0603"
+		(property "Description" "RES 10K OHM 1% 1/10W 0603 (STB pull-down -> normal mode)"
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8250,7 +8510,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Panasonic Electronic Components"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8259,7 +8519,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "ERJ-3EKF4702V"
+		(property "Manufacturer_Part_Number" "RC0603FR-0710KL"
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8286,7 +8546,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C105579"
+		(property "LCSC alt." ""
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8295,7 +8555,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C278626"
+		(property "LCSC" "C98220"
 			(at 154.94 48.26 0)
 			(effects
 				(font
@@ -8313,186 +8573,7 @@
 		(instances
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "R8")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Symbols:PESD0402-140")
-		(at 220.98 46.99 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "19c28b8a-4d16-497d-a5f1-84cb463eed4b")
-		(property "Reference" "D2"
-			(at 224.79 55.8799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "PESD0402-140"
-			(at 224.79 58.4199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Project_footprints:DIONC1005X43N"
-			(at 224.79 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/product_specifications/polymer_esd_suppressors/littelfuse_polymer_esd_suppressor_pesd0402_140_product_specification.pdf.pdf"
-			(at 222.25 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Description" "LITTELFUSE - PESD0402-140 - ESD SUPPRESSOR, 0402, 14V, 0.25PF"
-			(at 219.71 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.43"
-			(at 217.17 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "LITTELFUSE"
-			(at 214.63 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "PESD0402-140"
-			(at 212.09 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "650-PESD0402-140"
-			(at 209.55 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Littelfuse/PESD0402-140?qs=y1EbU1W0OrtTHVfbQV6MTg%3D%3D"
-			(at 207.01 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "PESD0402-140"
-			(at 204.47 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/pesd0402-140/littelfuse?region=nac"
-			(at 201.93 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 220.98 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 220.98 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C19626256"
-			(at 220.98 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C10662"
-			(at 220.98 46.99 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "6f9bda98-7abd-4677-a626-5605dedcea98")
-		)
-		(pin "2"
-			(uuid "82d7cc75-6749-40cd-bd00-a5415a8b0487")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "D2")
+					(reference "R14")
 					(unit 1)
 				)
 			)
@@ -9038,7 +9119,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:D_Zener")
+		(lib_id "Symbols:SMBJ26A")
 		(at 104.14 125.73 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -9055,7 +9136,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "18V"
+		(property "Value" "SMBJ26A"
 			(at 106.68 127.635 90)
 			(effects
 				(font
@@ -9064,7 +9145,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Diode_SMD:D_SOD-123"
+		(property "Footprint" "Diode_SMD:D_SMB"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9073,7 +9154,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.mccsemi.com/pdf/Products/BZT52C2V4~BZT52C75(500mW)(SOD-123).pdf"
+		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/SMBJ5.0A-SMBJ200CA.pdf"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9082,7 +9163,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "DIODE ZENER 18V 200MW SOD123"
+		(property "Description" "TVS DIODE 26VWM 42.1VC 600W SMB (unidirectional)"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9091,7 +9172,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Micro Commercial Co"
+		(property "Manufacturer_Name" "Diodes Incorporated"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9100,7 +9181,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "BZT52C18-TP"
+		(property "Manufacturer_Part_Number" "SMBJ26A-13-F"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9109,7 +9190,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C467525"
+		(property "LCSC alt." "C123820"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9118,7 +9199,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C668896"
+		(property "LCSC" "C135062"
 			(at 104.14 125.73 0)
 			(effects
 				(font
@@ -9171,7 +9252,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "7k5"
+		(property "Value" "22k1"
 			(at 172.72 145.415 0)
 			(effects
 				(font
@@ -9189,7 +9270,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
+		(property "Datasheet" ""
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9198,7 +9279,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 7.5K OHM 1% 1/10W 0603"
+		(property "Description" "RES 22.1K OHM 1% 0603 (UVLO ~7.7 V)"
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9207,7 +9288,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "FOJAN"
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9216,7 +9297,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-077K5L"
+		(property "Manufacturer_Part_Number" "FRC0603F2212TS"
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9243,7 +9324,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C114634"
+		(property "LCSC alt." ""
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9252,7 +9333,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C114634"
+		(property "LCSC" "C2960862"
 			(at 170.18 143.51 0)
 			(effects
 				(font
@@ -9295,7 +9376,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "66k5"
+		(property "Value" "120k"
 			(at 172.72 137.795 0)
 			(effects
 				(font
@@ -9322,7 +9403,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 66.5K OHM 1% 1/10W 0603"
+		(property "Description" "RES 120K OHM 1% 1/10W 0603 (UVLO ~7.7 V)"
 			(at 170.18 135.89 0)
 			(effects
 				(font
@@ -9340,7 +9421,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0766K5L"
+		(property "Manufacturer_Part_Number" "RC0603FR-07120KL"
 			(at 170.18 135.89 0)
 			(effects
 				(font
@@ -9367,7 +9448,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C137691"
+		(property "LCSC alt." ""
 			(at 170.18 135.89 0)
 			(effects
 				(font
@@ -9376,7 +9457,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C137691"
+		(property "LCSC" "C114607"
 			(at 170.18 135.89 0)
 			(effects
 				(font
@@ -11021,7 +11102,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "10k2"
+		(property "Value" "43k"
 			(at 227.965 144.78 0)
 			(effects
 				(font
@@ -11048,7 +11129,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 10.2K OHM 1% 1/10W 0603"
+		(property "Description" "RES 43K OHM 1% 1/10W 0603"
 			(at 229.87 142.24 0)
 			(effects
 				(font
@@ -11066,7 +11147,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0710K2L"
+		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
 			(at 229.87 142.24 0)
 			(effects
 				(font
@@ -11093,7 +11174,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C183219"
+		(property "LCSC alt." ""
 			(at 229.87 142.24 0)
 			(effects
 				(font
@@ -11102,7 +11183,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C183219"
+		(property "LCSC" ""
 			(at 229.87 142.24 0)
 			(effects
 				(font
@@ -11127,7 +11208,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Interface_CAN_LIN:SN65HVD230")
+		(lib_id "Symbols:TJA1044VT")
 		(at 196.85 43.18 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11145,7 +11226,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SN65HVD230"
+		(property "Value" "TJA1044VT/3"
 			(at 198.9933 35.56 0)
 			(effects
 				(font
@@ -11163,7 +11244,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/lit/ds/symlink/sn65hvd230.pdf"
+		(property "Datasheet" "https://www.nxp.com/docs/en/data-sheet/TJA1044.pdf"
 			(at 194.31 33.02 0)
 			(effects
 				(font
@@ -11172,7 +11253,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "IC TRANSCEIVER HALF 1/1 8SOIC"
+		(property "Description" "CAN transceiver, HS, standby, VIO, AEC-Q100, SO-8 (stock). Alt TJA1051T/3/1J (same pinout, pin 8 = S)"
 			(at 196.85 43.18 0)
 			(effects
 				(font
@@ -11199,7 +11280,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Texas Instruments"
+		(property "Manufacturer_Name" "NXP"
 			(at 196.85 43.18 0)
 			(effects
 				(font
@@ -11208,7 +11289,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "SN65HVD230DR"
+		(property "Manufacturer_Part_Number" "TJA1044VT/3Z"
 			(at 196.85 43.18 0)
 			(effects
 				(font
@@ -11217,7 +11298,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C12084"
+		(property "LCSC alt." "C38695"
 			(at 196.85 43.18 0)
 			(effects
 				(font
@@ -11226,7 +11307,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C12084"
+		(property "LCSC" "C3234097"
 			(at 196.85 43.18 0)
 			(effects
 				(font
@@ -11263,130 +11344,6 @@
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "U1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 269.24 143.51 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "7989840b-1499-41d8-8018-58fff951c9fa")
-		(property "Reference" "C7"
-			(at 273.05 142.875 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4700pF"
-			(at 273.05 145.415 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 270.2052 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://connect.kemet.com:7667/gateway/IntelliData-ComponentDocumentation/1.0/download/datasheet/C0603C472K4RACTU"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 4700PF 16V X7R 0603"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "KEMET"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "C0603C472K4RAC7867"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C505480"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C3899730"
-			(at 269.24 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "0365b2cd-6f5e-4449-8439-3bf362a2ac10")
-		)
-		(pin "2"
-			(uuid "48b24aa8-178f-4dfe-afa5-4f0c131def54")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "C7")
 					(unit 1)
 				)
 			)
@@ -11533,7 +11490,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "22uF 10V"
 			(at 279.4 123.825 0)
 			(effects
 				(font
@@ -11542,7 +11499,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
 			(at 276.5552 125.73 0)
 			(effects
 				(font
@@ -11560,7 +11517,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 10V X5R 0603"
+		(property "Description" "CAP CER 22UF 10V X7R 1206 (stock; ~10uF at 5V). Alt CL31A226KAHNNNE 25V"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -11569,7 +11526,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL10A106KP8NNNC"
+		(property "Manufacturer_Part_Number" "CL31B226KPHNNNE"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -11578,7 +11535,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "SAMSUNG"
+		(property "Manufacturer_Name" "Samsung"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -11605,7 +11562,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C6119842"
+		(property "LCSC alt." "C12891"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -11614,7 +11571,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C19702"
+		(property "LCSC" "C87996"
 			(at 275.59 121.92 0)
 			(effects
 				(font
@@ -11921,7 +11878,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "10uF"
+		(property "Value" "10uF 50V"
 			(at 154.94 142.2462 0)
 			(effects
 				(font
@@ -11948,7 +11905,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 25V X7R 1206"
+		(property "Description" "CAP CER 10UF 50V X7R 1206"
 			(at 152.4 140.97 0)
 			(effects
 				(font
@@ -11966,7 +11923,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL31B106KAHNNNE"
+		(property "Manufacturer_Part_Number" "CL31B106KBHNNNE"
 			(at 152.4 140.97 0)
 			(effects
 				(font
@@ -11993,7 +11950,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C14860"
+		(property "LCSC alt." ""
 			(at 152.4 140.97 0)
 			(effects
 				(font
@@ -12002,7 +11959,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14860"
+		(property "LCSC" "C89632"
 			(at 152.4 140.97 0)
 			(effects
 				(font
@@ -12210,185 +12167,6 @@
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "D4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Symbols:PESD0402-140")
-		(at 220.98 41.91 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "8b9bbfe9-c7bf-4074-9acf-082eb109dc16")
-		(property "Reference" "D1"
-			(at 224.79 30.4799 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "PESD0402-140"
-			(at 224.79 33.0199 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Project_footprints:DIONC1005X43N"
-			(at 217.17 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.littelfuse.com/~/media/electronics/product_specifications/polymer_esd_suppressors/littelfuse_polymer_esd_suppressor_pesd0402_140_product_specification.pdf.pdf"
-			(at 219.71 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Description" "LITTELFUSE - PESD0402-140 - ESD SUPPRESSOR, 0402, 14V, 0.25PF"
-			(at 222.25 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Height" "0.43"
-			(at 224.79 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "LITTELFUSE"
-			(at 227.33 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "PESD0402-140"
-			(at 229.87 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "650-PESD0402-140"
-			(at 232.41 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Littelfuse/PESD0402-140?qs=y1EbU1W0OrtTHVfbQV6MTg%3D%3D"
-			(at 234.95 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "PESD0402-140"
-			(at 237.49 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/pesd0402-140/littelfuse?region=nac"
-			(at 240.03 29.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left bottom)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 220.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 220.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C19626256"
-			(at 220.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C10662"
-			(at 220.98 41.91 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "02a1c70b-6812-4bf6-a625-27a51a8da013")
-		)
-		(pin "2"
-			(uuid "41dfabf8-b327-4304-808c-b23577057a72")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "D1")
 					(unit 1)
 				)
 			)
@@ -12783,7 +12561,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Symbols:TPS54232DR")
+		(lib_id "Symbols:LMR16010PDDA")
 		(at 191.77 134.62 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -12800,7 +12578,7 @@
 				)
 			)
 		)
-		(property "Value" "TPS54232DR"
+		(property "Value" "LMR16010PDDAR"
 			(at 207.01 129.54 0)
 			(effects
 				(font
@@ -12808,7 +12586,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Project_footprints:SOIC127P600X175-8N"
+		(property "Footprint" "Package_SO:TI_SO-PowerPAD-8_ThermalVias"
 			(at 218.44 132.08 0)
 			(effects
 				(font
@@ -12818,7 +12596,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "http://www.ti.com/general/docs/suppproductinfo.tsp?distId=10&gotoUrl=http%3A%2F%2Fwww.ti.com%2Flit%2Fgpn%2Ftps54232"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/lmr16010.pdf"
 			(at 218.44 134.62 0)
 			(effects
 				(font
@@ -12828,7 +12606,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TEXAS INSTRUMENTS - TPS54232DR - DC-DC Switching Buck Step Down Regulator, Adjustable, 3.5V-28Vin, 1 MHz, 0.8V-25V/2Aout, SOIC-8"
+		(property "Description" "IC REG BUCK ADJ 1A 4.3-60V HSOIC-8 PowerPAD, internal comp, 4 ms internal soft start"
 			(at 218.44 137.16 0)
 			(effects
 				(font
@@ -12858,48 +12636,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "TPS54232DR"
+		(property "Manufacturer_Part_Number" "LMR16010PDDAR"
 			(at 218.44 144.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "595-TPS54232DR"
-			(at 218.44 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/Texas-Instruments/TPS54232DR?qs=7IaIRco65pmiGIR3AGvboA%3D%3D"
-			(at 218.44 149.86 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "TPS54232DR"
-			(at 218.44 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/tps54232dr/texas-instruments?region=nac"
-			(at 218.44 154.94 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -12926,7 +12664,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C52653"
+		(property "LCSC alt." "C2687968"
 			(at 191.77 134.62 0)
 			(effects
 				(font
@@ -12935,7 +12673,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C52653"
+		(property "LCSC" "C183084"
 			(at 191.77 134.62 0)
 			(effects
 				(font
@@ -12945,28 +12683,31 @@
 			)
 		)
 		(pin "1"
-			(uuid "08df30e0-f6d2-425d-baef-1c9a485ee3fa")
+			(uuid "1d2010ef-a8fc-4ace-b0a5-1d8f7c61b160")
 		)
 		(pin "2"
-			(uuid "712c0b7f-d3c4-47c7-b090-28af0e9ce06f")
+			(uuid "bbf16bc7-42fa-49ce-92be-b4de0555ddbb")
 		)
 		(pin "3"
-			(uuid "70cca00c-d14a-429b-9464-681f262ce44a")
+			(uuid "ee78e1f9-534f-4b4b-9dea-fc08cb573333")
 		)
 		(pin "4"
-			(uuid "c0c143b3-2362-4548-90fe-8effd7d22de1")
-		)
-		(pin "5"
-			(uuid "32474b65-0807-467d-b7df-83fb20a742a4")
-		)
-		(pin "6"
-			(uuid "dfb56bdd-c61c-4071-8592-896b08816ed0")
-		)
-		(pin "7"
-			(uuid "abfc82b0-38b5-4dae-b733-e48e2c56d77e")
+			(uuid "1af03db8-582a-4463-a50f-d1bfaa14874e")
 		)
 		(pin "8"
-			(uuid "63b9844d-ad9a-42ae-8783-82df21e49e3d")
+			(uuid "914e5c34-781d-4e8c-9007-b2e832c8491a")
+		)
+		(pin "7"
+			(uuid "0b55ba13-fc01-4a20-a076-b7b8fe3e7d97")
+		)
+		(pin "9"
+			(uuid "71cf4aa2-0426-45c2-8317-7787355fc453")
+		)
+		(pin "6"
+			(uuid "9157b07f-c528-4f2f-8e75-621a959bb824")
+		)
+		(pin "5"
+			(uuid "cf9fe25f-495d-4375-a34f-3f0498d8f6ae")
 		)
 		(instances
 			(project "Can and power"
@@ -13044,72 +12785,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 220.98 69.85 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "ab3f51db-0740-43df-8bf7-d17732af073c")
-		(property "Reference" "#PWR020"
-			(at 220.98 76.2 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 220.98 74.93 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 220.98 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 220.98 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 220.98 69.85 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7c0f9d38-4fa5-449d-9f4f-6fc12a0fb50b")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "#PWR020")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Device:R")
 		(at 222.25 152.4 180)
 		(unit 1)
@@ -13127,7 +12802,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "1k91"
+		(property "Value" "7k5"
 			(at 224.79 154.305 0)
 			(effects
 				(font
@@ -13154,7 +12829,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 1.91K OHM 1% 1/10W 0603"
+		(property "Description" "RES 7.5K OHM 1% 1/10W 0603"
 			(at 222.25 152.4 0)
 			(effects
 				(font
@@ -13172,7 +12847,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-071K91L"
+		(property "Manufacturer_Part_Number" "RC0603FR-077K5L"
 			(at 222.25 152.4 0)
 			(effects
 				(font
@@ -13199,7 +12874,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C185353"
+		(property "LCSC alt." "C114634"
 			(at 222.25 152.4 0)
 			(effects
 				(font
@@ -13208,7 +12883,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C185353"
+		(property "LCSC" "C114634"
 			(at 222.25 152.4 0)
 			(effects
 				(font
@@ -13574,131 +13249,8 @@
 		)
 	)
 	(symbol
-		(lib_id "Device:R")
-		(at 269.24 152.4 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "b45af931-8f3c-43b1-82fb-e21a4bffbf8b")
-		(property "Reference" "R4"
-			(at 271.78 151.765 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "12k7"
-			(at 271.78 154.305 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
-			(at 271.018 152.4 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "RES 12.7K OHM 1% 1/10W 0603"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "YAGEO"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0712K7L"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C22866"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C185374"
-			(at 269.24 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "f62c7587-94cb-4d79-a30a-357ac4d4e0bc")
-		)
-		(pin "2"
-			(uuid "9df5aad0-e382-457f-96ef-482357123f8f")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Symbols:SS24FL")
-		(at 234.95 118.11 270)
+		(lib_id "Diode:SS26")
+		(at 234.95 124.46 270)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -13715,7 +13267,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "SS24FL"
+		(property "Value" "SS26"
 			(at 238.76 129.5399 90)
 			(effects
 				(font
@@ -13724,7 +13276,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Project_footprints:SODFL3617X108N"
+		(property "Footprint" "Diode_SMD:D_SMA"
 			(at 238.76 130.81 0)
 			(effects
 				(font
@@ -13734,7 +13286,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/SS26FL-D.PDF"
+		(property "Datasheet" "https://www.lcsc.com/datasheet/C14238.pdf"
 			(at 236.22 130.81 0)
 			(effects
 				(font
@@ -13744,7 +13296,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "ON SEMICONDUCTOR - SS24FL - SCHOTTKY RECT, AEC-Q101, 40V, SOD-123F"
+		(property "Description" "DIODE SCHOTTKY 60V 2A SMA (buck catch diode)"
 			(at 233.68 130.81 0)
 			(effects
 				(font
@@ -13754,17 +13306,7 @@
 				(hide yes)
 			)
 		)
-		(property "Height" "1.08"
-			(at 231.14 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "onsemi"
+		(property "Manufacturer_Name" "MDD"
 			(at 228.6 130.81 0)
 			(effects
 				(font
@@ -13774,48 +13316,8 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "SS24FL"
+		(property "Manufacturer_Part_Number" "SS26"
 			(at 226.06 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Part Number" "512-SS24FL"
-			(at 223.52 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Mouser Price/Stock" "https://www.mouser.co.uk/ProductDetail/onsemi-Fairchild/SS24FL?qs=tqW9UTzndZyvT5hdH%252BfSxg%3D%3D"
-			(at 220.98 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Part Number" "SS24FL"
-			(at 218.44 130.81 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Arrow Price/Stock" "https://www.arrow.com/en/products/ss24fl/on-semiconductor?region=nac"
-			(at 215.9 130.81 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -13842,7 +13344,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C894433"
+		(property "LCSC alt." ""
 			(at 234.95 118.11 0)
 			(effects
 				(font
@@ -13851,7 +13353,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C894433"
+		(property "LCSC" "C14238"
 			(at 234.95 118.11 0)
 			(effects
 				(font
@@ -13936,130 +13438,6 @@
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "#PWR024")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
-		(at 254 143.51 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "cb2905ad-3ac4-47d6-8da4-309f58fa2735")
-		(property "Reference" "C8"
-			(at 257.81 142.875 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100pF"
-			(at 257.81 145.415 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
-			(at 254.9652 147.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://datasheets.kyocera-avx.com/KGM_X7R.pdf"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "CAP CER 100PF 16V X7R 0603"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Name" "KYOCERA AVX"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer_Part_Number" "KGM15AR71C101KT"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "MPN" ""
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." "C519407"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C20218600"
-			(at 254 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "479c191b-28a3-4636-ae7b-f48dd96db132")
-		)
-		(pin "2"
-			(uuid "a5e70db0-03da-403f-870a-4333cb262482")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "C8")
 					(unit 1)
 				)
 			)
@@ -14264,73 +13642,7 @@
 		)
 	)
 	(symbol
-		(lib_id "power:GND")
-		(at 220.98 20.32 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "d55b576e-7052-4b5f-bd04-47723cf4875b")
-		(property "Reference" "#PWR019"
-			(at 220.98 13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 220.98 16.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 220.98 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 220.98 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 220.98 20.32 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "7ae21feb-6a48-4d1e-95c2-dc9043308467")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "#PWR019")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:C_Small")
+		(lib_id "Device:R_Small")
 		(at 189.23 149.86 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -14339,7 +13651,7 @@
 		(dnp no)
 		(fields_autoplaced yes)
 		(uuid "db722dd4-c90c-4513-a307-e3e08382c809")
-		(property "Reference" "C6"
+		(property "Reference" "R12"
 			(at 193.04 149.225 0)
 			(effects
 				(font
@@ -14348,7 +13660,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "8200pF"
+		(property "Value" "39k"
 			(at 193.04 151.765 0)
 			(effects
 				(font
@@ -14357,7 +13669,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
 			(at 190.1952 153.67 0)
 			(effects
 				(font
@@ -14366,7 +13678,7 @@
 				(hide yes)
 			)
 		)
-		(property "Datasheet" "https://connect.kemet.com:7667/gateway/IntelliData-ComponentDocumentation/1.0/download/datasheet/C0603C822J3GACTU"
+		(property "Datasheet" "https://www.yageo.com/upload/media/product/products/datasheet/rchip/PYu-RC_Group_51_RoHS_L_12.pdf"
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14375,7 +13687,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 8200PF 25V NP0 0603"
+		(property "Description" "RES 39K OHM 1% 1/10W 0603. RT/SYNC: ~620 kHz (34k8 gives 700 kHz)"
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14384,7 +13696,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "KEMET"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14393,7 +13705,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "C0603C822J3GAC7867"
+		(property "Manufacturer_Part_Number" "RC0603FR-0739KL"
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14420,7 +13732,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC alt." "C1856442"
+		(property "LCSC alt." ""
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14429,7 +13741,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C3883923"
+		(property "LCSC" ""
 			(at 189.23 149.86 0)
 			(effects
 				(font
@@ -14447,73 +13759,7 @@
 		(instances
 			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "C6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:GND")
-		(at 261.62 157.48 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "e19dc23b-9556-4d43-8bea-d7d37145b833")
-		(property "Reference" "#PWR027"
-			(at 261.62 163.83 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "GND"
-			(at 261.62 162.56 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" ""
-			(at 261.62 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 261.62 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
-			(at 261.62 157.48 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eed4d3df-156f-44f8-9d9d-d457f5e8ea12")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "#PWR027")
+					(reference "R12")
 					(unit 1)
 				)
 			)
@@ -15105,7 +14351,7 @@
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
-		(dnp no)
+		(dnp yes)
 		(uuid "f623eaf7-5914-4bfa-8281-33150dc3a53b")
 		(property "Reference" "RV1"
 			(at 93.98 125.9232 0)
@@ -15316,108 +14562,7 @@
 		)
 	)
 	(symbol
-		(lib_id "Jumper:SolderJumper_2_Open")
-		(at 173.99 57.15 0)
-		(mirror x)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom no)
-		(on_board yes)
-		(dnp no)
-		(uuid "faaa300c-dc73-47f8-9be1-2466c557cd5f")
-		(property "Reference" "JP1"
-			(at 173.99 62.23 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "High RS"
-			(at 173.99 59.69 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Jumper:SolderJumper-2_P1.3mm_Open_RoundedPad1.0x1.5mm"
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "MPN" ""
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Package" ""
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC alt." ""
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "LCSC" ""
-			(at 173.99 57.15 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "b1a693ea-6f09-471f-86f5-579ff5b2972c")
-		)
-		(pin "2"
-			(uuid "383b897d-351d-48a7-9327-e15290011f5a")
-		)
-		(instances
-			(project "Can and power"
-				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
-					(reference "JP1")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3V3")
+		(lib_id "power:+5V")
 		(at 203.2 31.75 270)
 		(unit 1)
 		(exclude_from_sim no)
@@ -15435,7 +14580,7 @@
 				(hide yes)
 			)
 		)
-		(property "Value" "+3V3"
+		(property "Value" "+5V"
 			(at 208.28 31.75 0)
 			(effects
 				(font
@@ -15461,7 +14606,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
 			(at 203.2 31.75 0)
 			(effects
 				(font
@@ -15488,4 +14633,3183 @@
 		)
 	)
 	(embedded_fonts no)
+	(label "VBAT_IN"
+		(at 97.79 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "675b9218-5c65-438c-b2e2-842709b6c3b8")
+	)
+	(label "VBAT_PROT"
+		(at 114.3 120.65 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f7d31c86-6222-4a97-96ed-18e5a1c2218d")
+	)
+	(no_connect
+		(at 222.25 139.7)
+		(uuid "c662e471-6ae2-4fcf-9f92-3d7b281b08d3")
+	)
+	(wire
+		(pts
+			(xy 234.95 128.27) (xy 234.95 135.89)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "f9b8051d-35c9-42b1-b3be-65d8673bb8dd")
+	)
+	(wire
+		(pts
+			(xy 186.69 45.72) (xy 184.15 45.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74933492-9c8d-4786-9aec-d2964f702f77")
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 184.15 45.72 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "b7163c2a-bee8-4f85-8fa2-48198ede4f18")
+		(property "Reference" "#PWR036"
+			(at 184.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 184.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 184.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 184.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 184.15 45.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8fc9fbb9-343a-43d6-addc-e1ecfe77cb00")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Power_Protection:SZNUP2105L")
+		(at 233.68 60.96 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "dc7c613c-bb6d-4ccb-89ee-e2790a5231a8")
+		(property "Reference" "D1"
+			(at 236.22 59.69 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SZNUP2105LT1G"
+			(at 236.22 62.23 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/nup2105l-d.pdf"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "TVS DIODE 24VWM DUAL CAN BUS SOT-23 AEC-Q101. Place at J7."
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "onsemi"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SZNUP2105LT1G"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C233494"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." "C20235756"
+			(at 233.68 60.96 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "cf87cd5f-f7b0-460e-afed-cff3da21fd64")
+		)
+		(pin "1"
+			(uuid "c80f8276-c500-4b30-ab62-65001229574f")
+		)
+		(pin "2"
+			(uuid "348ea51b-9e5b-4b21-b42c-4923ced82b4e")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "D1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 55.88) (xy 231.14 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "4257e31b-043a-469b-87ba-7b50bc519d06")
+	)
+	(label "CAN_H"
+		(at 231.14 53.34 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0e7121ef-e3a4-447b-b979-d9385ad4c318")
+	)
+	(wire
+		(pts
+			(xy 236.22 55.88) (xy 236.22 53.34)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e2db8779-1322-4968-a979-3ce930f33bf3")
+	)
+	(label "CAN_L"
+		(at 236.22 53.34 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "175d21e3-8a05-4071-ac6a-408f3a7f7d80")
+	)
+	(wire
+		(pts
+			(xy 233.68 66.04) (xy 233.68 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6c6eaf3e-6d06-442b-a5a3-a39f7fdb4e90")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 233.68 68.58 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a0fdd594-cecc-4c70-83a1-baa7ea89c81e")
+		(property "Reference" "#PWR037"
+			(at 233.68 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 233.68 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 233.68 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 233.68 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 233.68 68.58 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "e92e5827-4194-4114-ab8c-1eccc85e7259")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR037")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 182.88 165.1 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "379684f4-a35f-45b4-bb34-f8c2e4161462")
+		(property "Reference" "R16"
+			(at 185.42 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 185.42 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 10K OHM 1% 1/10W 0603 (TX_CAN pull-up, recessive during boot)"
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-0710KL"
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C98220"
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 182.88 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c2199220-3538-4c1f-a6de-6a8b2027a05b")
+		)
+		(pin "2"
+			(uuid "6d698499-92b3-4f44-864e-c986cadcc86f")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 182.88 162.56) (xy 182.88 160.02)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "df3f001f-d4a0-4cc1-9a48-aa1782bf3e19")
+	)
+	(symbol
+		(lib_id "power:+3V3")
+		(at 182.88 160.02 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "4fce5ae3-650d-41ba-9c46-bfe395bbf9a6")
+		(property "Reference" "#PWR038"
+			(at 182.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "+3V3"
+			(at 182.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 182.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 182.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+3V3\""
+			(at 182.88 160.02 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "eedae444-deb1-48f1-8b8a-dba8771ccbdb")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR038")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 182.88 167.64) (xy 182.88 170.18)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e8cfb7d5-81d8-4bd6-80ad-3d51fc1cadeb")
+	)
+	(global_label "TX_CAN"
+		(shape bidirectional)
+		(at 182.88 170.18 270)
+		(fields_autoplaced yes)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "8ed06546-c190-4c80-8da1-726dd8ae8a69")
+		(property "Intersheetrefs" "${INTERSHEET_REFS}"
+			(at 182.88 170.18 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Symbols:SS24FL")
+		(at 129.54 165.1 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c4621192-5983-431e-8f6f-595e507be45e")
+		(property "Reference" "D7"
+			(at 132.08 163.83 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "SS24FL"
+			(at 132.08 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Project_footprints:SODFL3617X108N"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pub/Collateral/SS26FL-D.PDF"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "SCHOTTKY 40V 2A SOD-123F, reverse-polarity series diode (stock; checklist part SS34 C8678)"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "onsemi"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SS24FL"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C894433"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." "C8678"
+			(at 129.54 165.1 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "ffe16d5a-2ca7-456d-86d1-21698a3891e6")
+		)
+		(pin "2"
+			(uuid "4898900c-d02b-406b-bc60-27a1eb9f433d")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "D7")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 111.76 165.1) (xy 109.22 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3aba5c58-8b8d-4242-a732-85e079f7c87b")
+	)
+	(label "VBAT_IN"
+		(at 109.22 165.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "0d010367-14b1-46dd-9299-d4150318075a")
+	)
+	(wire
+		(pts
+			(xy 127 165.1) (xy 129.54 165.1)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6a5d0b88-d294-412d-92da-aa80717dbc1f")
+	)
+	(label "VBAT_PROT"
+		(at 129.54 165.1 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "ec0f8ffd-ae24-44b8-9f22-83d36c7df968")
+	)
+	(symbol
+		(lib_id "Device:C_Polarized_Small")
+		(at 142.24 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "843c9548-4864-487c-beef-b2bb5b02781d")
+		(property "Reference" "C13"
+			(at 144.78 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "47uF 50V"
+			(at 144.78 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x7.7"
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP ALU 47UF 50V 6.3x7.7 105C, input bulk/damping on VBAT_PROT"
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "CX"
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RVT1H470M0607"
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C82001"
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 142.24 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "63387e4b-39eb-4cc3-8f42-39f80acd1019")
+		)
+		(pin "2"
+			(uuid "57051742-5fb2-4228-87ea-4b28efc8a2a3")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "C13")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 142.24 165.1) (xy 142.24 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5e26a36a-412a-4c9d-90fe-bedea787ece1")
+	)
+	(label "VBAT_PROT"
+		(at 142.24 162.56 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "f108fcce-77f4-4952-898d-db6500e0681e")
+	)
+	(wire
+		(pts
+			(xy 142.24 170.18) (xy 142.24 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "cfc5cebf-c6db-47d0-885a-552f570a3730")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 142.24 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "57109028-1b12-478f-a2a1-53c262bf68a1")
+		(property "Reference" "#PWR039"
+			(at 142.24 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 142.24 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 142.24 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 142.24 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 142.24 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "799e7eec-2d5d-444f-9893-037e7cab80d8")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR039")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 152.4 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "43086b36-81df-4d4a-9817-b2c8cd2cb9e1")
+		(property "Reference" "C14"
+			(at 154.94 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF 10V"
+			(at 154.94 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 22UF 10V X7R 1206 (stock). Buck output, next to L2"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Samsung"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL31B226KPHNNNE"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C87996"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." "C12891"
+			(at 152.4 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5e0ba411-5188-48c8-833a-4b3acf4068d1")
+		)
+		(pin "2"
+			(uuid "7e7605a9-fdb1-49a2-8c39-90000b13d534")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "C14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 152.4 165.1) (xy 152.4 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ccc6866c-0157-488f-acf3-ad9c1ead1129")
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 152.4 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "3cc8c3ee-e563-4f7b-9e29-491d35fdb93e")
+		(property "Reference" "#PWR040"
+			(at 152.4 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 152.4 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 152.4 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "8e9ce920-cd30-4f44-82aa-58a01ca91cd3")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 152.4 170.18) (xy 152.4 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3f90e774-73c6-4591-abd1-29dc0c6f00a0")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 152.4 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "1862c9a3-c6d5-4ff4-88a0-0740aac88f09")
+		(property "Reference" "#PWR041"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 152.4 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0614de68-91a0-47b9-afcf-b3f882a3e736")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR041")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:C_Small")
+		(at 160.02 167.64 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "379c015d-30b4-4054-8125-30d240f0dc7c")
+		(property "Reference" "C15"
+			(at 162.56 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "22uF 10V"
+			(at 162.56 168.91 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:C_1206_3216Metric"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "CAP CER 22UF 10V X7R 1206 (stock). Buck output, next to L2"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Samsung"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL31B226KPHNNNE"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C87996"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." "C12891"
+			(at 160.02 167.64 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "4fa42c5c-09c6-4b07-8516-79f9757c99ba")
+		)
+		(pin "2"
+			(uuid "8ef66c47-5606-4979-b562-b21ae0ff8da6")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "C15")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 160.02 165.1) (xy 160.02 162.56)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0c226952-8ed0-4d77-b443-895949731185")
+	)
+	(symbol
+		(lib_id "power:+5V")
+		(at 160.02 162.56 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "49cc7b30-e1f1-44a8-86d9-6d22607b4015")
+		(property "Reference" "#PWR042"
+			(at 160.02 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "+5V"
+			(at 160.02 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 160.02 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 160.02 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"+5V\""
+			(at 160.02 162.56 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "43577701-0ccd-40f0-a9e5-9bdeafcbf117")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR042")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 160.02 170.18) (xy 160.02 172.72)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7fe2da38-cdf0-468b-bc39-e5992d42bbd0")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 160.02 172.72 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "e5412800-59ff-4dda-be31-cdcb8c8f338c")
+		(property "Reference" "#PWR043"
+			(at 160.02 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 160.02 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 160.02 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 160.02 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 160.02 172.72 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a4da7e29-eb60-4054-9965-f1e575e1d797")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR043")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(label "EN_KL15"
+		(at 170.18 139.7 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "d8bf915f-b736-4f6c-8396-a9bd2e17d94e")
+	)
+	(label "EN"
+		(at 187.96 139.7 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "84d686fa-f6ba-4c90-88a5-7fbea0683c15")
+	)
+	(symbol
+		(lib_id "Jumper:SolderJumper_3_Bridged12")
+		(at 236.22 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(dnp no)
+		(uuid "e0517279-962b-4d0a-bdbb-268921860012")
+		(property "Reference" "JP4"
+			(at 238.76 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "KL15|KL30"
+			(at 238.76 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Jumper:SolderJumper-3_P1.3mm_Bridged12_RoundedPad1.0x1.5mm"
+			(at 236.22 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 236.22 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "3-pad solder jumper: 1-2 bridged = KL15 (UVLO divider), 2-3 = KL30 (hysteresis switch)"
+			(at 236.22 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6c17aff4-16d9-4a41-9f99-502f4ea0e5bd")
+		)
+		(pin "2"
+			(uuid "71f7eb0d-a7f3-49fe-8b3e-f2599ec0738e")
+		)
+		(pin "3"
+			(uuid "fcf8a295-8290-4787-a156-38bcadb5b713")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "JP4")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 231.14 80.01) (xy 228.6 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "13afd25b-f2fc-4bcc-97e0-6184af6447dd")
+	)
+	(label "EN_KL15"
+		(at 228.6 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1d97df7a-eed9-4bcc-bbe7-714d1b4f9e25")
+	)
+	(wire
+		(pts
+			(xy 236.22 83.82) (xy 236.22 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1099ae60-672b-45b3-87b9-5b17e8e202b2")
+	)
+	(label "EN"
+		(at 236.22 86.36 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d720fc0c-30ac-4cbd-8bfb-e300f1910ffd")
+	)
+	(wire
+		(pts
+			(xy 241.3 80.01) (xy 243.84 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7657f60d-5d53-4dfa-b2c7-3d9a493e00be")
+	)
+	(label "EN_KL30"
+		(at 243.84 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "3f6f34ec-ff15-4cbc-81c6-593cbf25d73e")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 124.46 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "865529e9-263c-4aeb-967e-ef6add2c342d")
+		(property "Reference" "R25"
+			(at 127 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "43k"
+			(at 127 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 43K 1% 0603 (KL30 window top)"
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" ""
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 124.46 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "b1d66542-c5bc-432f-b06f-34051d8b4a97")
+		)
+		(pin "2"
+			(uuid "1687f1a9-85b4-4598-bae2-beb8fda17666")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R25")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 124.46 69.85) (xy 124.46 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d57490f1-835d-455b-a9b8-a446a3a0e2db")
+	)
+	(label "VBAT_PROT"
+		(at 124.46 67.31 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "8358fdf5-bde8-4d09-85a0-81ed5f223460")
+	)
+	(wire
+		(pts
+			(xy 124.46 74.93) (xy 124.46 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "097215a6-7430-42e2-b9c3-fef3dda5db61")
+	)
+	(label "KL30_REF"
+		(at 124.46 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c0acc35c-a419-4938-b7d1-767a0cd82d12")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 124.46 85.09 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "fce501a7-1392-498a-bc72-9d91b877d6dd")
+		(property "Reference" "R26"
+			(at 127 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 127 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 10K 1% 0603 (KL30 window bottom)"
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-0710KL"
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C98220"
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 124.46 85.09 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "5c205942-03e7-4367-90cc-2b33f25a29d8")
+		)
+		(pin "2"
+			(uuid "79d2644f-8fc8-4d5a-b2a8-cf807380c389")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R26")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 124.46 82.55) (xy 124.46 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1721f39e-07a3-465c-b5ea-c859dd830775")
+	)
+	(label "KL30_REF"
+		(at 124.46 80.01 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "1f3f6f60-a9fd-4120-bee8-ef476db03aba")
+	)
+	(wire
+		(pts
+			(xy 124.46 87.63) (xy 124.46 90.17)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "6ca229bf-4382-4839-bff9-4fb06d9c7ab1")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 124.46 90.17 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "9900f2ed-52f8-41fb-a00a-19ebfd2677ad")
+		(property "Reference" "#PWR044"
+			(at 124.46 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 124.46 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 124.46 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 124.46 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 124.46 90.17 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "a7adc0e6-4213-42aa-b965-ccd56c989120")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR044")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Reference_Voltage:TL431DBZ")
+		(at 139.7 80.01 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "594a47a3-8d31-45e0-8999-996c7ff3c7ed")
+		(property "Reference" "U3"
+			(at 142.24 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "TL431BIDBZR"
+			(at 142.24 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/tl431.pdf"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Shunt reference 2.495 V 0.5% SOT-23 (KL30 comparator)"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Texas Instruments"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "TL431BIDBZR"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C41283"
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 139.7 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "3"
+			(uuid "5e4c320c-77a0-48a8-8fe0-712495432405")
+		)
+		(pin "2"
+			(uuid "3159c8d8-dff0-4ece-aabe-af1f2d4fa178")
+		)
+		(pin "1"
+			(uuid "9ae7789b-9b84-4458-a7d5-81566db76694")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "U3")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 142.24 80.01) (xy 144.78 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "737b0a33-5148-4063-aaec-eabcd3d0eb44")
+	)
+	(label "KL30_K"
+		(at 144.78 80.01 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0f7cda95-d68c-4d30-a9f9-ebf6f99b8ede")
+	)
+	(wire
+		(pts
+			(xy 139.7 77.47) (xy 139.7 74.93)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3803d7ad-2ba9-4e95-9fd9-92bcd8ba5463")
+	)
+	(label "KL30_REF"
+		(at 139.7 74.93 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "5d12c4fe-383a-48e4-a855-82925f68ab01")
+	)
+	(wire
+		(pts
+			(xy 137.16 80.01) (xy 134.62 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "46845367-eb15-4b26-bb58-16124e5fe1e1")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 134.62 80.01 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "c2fb12ca-c011-4ad3-aa52-ee066ff982d4")
+		(property "Reference" "#PWR045"
+			(at 134.62 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 134.62 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 134.62 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 134.62 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 134.62 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "d8b08457-0f44-4979-8914-0b4262762f52")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR045")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:D_Zener")
+		(at 154.94 80.01 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "798b7579-625d-47b1-89df-1cafcc0c7a9f")
+		(property "Reference" "D9"
+			(at 157.48 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "18V"
+			(at 157.48 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Diode_SMD:D_SOD-123"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "DIODE ZENER 18V 200MW SOD123 (clamps TL431 cathode)"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Micro Commercial Co"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "BZT52C18-TP"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C668896"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." "C467525"
+			(at 154.94 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "0872c32e-bcc1-48ba-bcdc-a44f3de6263b")
+		)
+		(pin "2"
+			(uuid "e2b13776-2bfd-460b-88aa-3aa7218a3b1f")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "D9")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 154.94 76.2) (xy 154.94 73.66)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d12cd394-6702-42e2-9610-f33fdfccf0e7")
+	)
+	(label "KL30_K"
+		(at 154.94 73.66 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "85aa6f05-e71e-4500-94b4-ec58efd85831")
+	)
+	(wire
+		(pts
+			(xy 154.94 83.82) (xy 154.94 86.36)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "7447602a-9900-4f6f-a8fc-b4367f9f1e12")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 154.94 86.36 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "f036854c-2d87-42a5-8cea-0eb6254ef908")
+		(property "Reference" "#PWR046"
+			(at 154.94 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 154.94 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 154.94 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 154.94 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 154.94 86.36 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "29d5f33d-121b-495e-b40d-ec5ef9ffba59")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR046")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 167.64 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "02061fd5-96ec-4640-b808-7ec8314893cf")
+		(property "Reference" "R29"
+			(at 170.18 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "4k7"
+			(at 170.18 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 4.7K 1% 0603 (Q1 base)"
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-074K7L"
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C99782"
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 167.64 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "22503026-ea9e-4a2d-8b1d-868d234e5771")
+		)
+		(pin "2"
+			(uuid "d64275f5-1a2f-49bb-9010-3ed0e83bf8aa")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R29")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 167.64 69.85) (xy 167.64 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "9eb3df29-fb91-47fe-8656-b00f6e9761d4")
+	)
+	(label "KL30_BASE"
+		(at 167.64 67.31 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "fb6b9b54-1409-4d8f-9474-f016725a8f21")
+	)
+	(wire
+		(pts
+			(xy 167.64 74.93) (xy 167.64 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0018d708-0932-425e-b3d5-32544771b49c")
+	)
+	(label "KL30_K"
+		(at 167.64 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a0c97f33-5f1f-4868-b923-3172d38926f7")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 180.34 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "d58e5a69-0540-451c-b8b6-b551cdf8a1b1")
+		(property "Reference" "R28"
+			(at 182.88 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 182.88 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 10K 1% 0603 (Q1 base-emitter)"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-0710KL"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C98220"
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 180.34 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "188468ac-2210-4132-a996-1fff91cccb43")
+		)
+		(pin "2"
+			(uuid "f4a1c5b2-8491-4010-a3ec-9b6b7a03a39e")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R28")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 180.34 69.85) (xy 180.34 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "53b4e14b-22b3-4a7e-af3c-5a930cd99e02")
+	)
+	(label "VBAT_PROT"
+		(at 180.34 67.31 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9e126a3e-2696-4a6c-a952-f987f47f0213")
+	)
+	(wire
+		(pts
+			(xy 180.34 74.93) (xy 180.34 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5209249d-334e-4b29-a06e-124be83f0148")
+	)
+	(label "KL30_BASE"
+		(at 180.34 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "77a0f605-3951-4327-8949-07f627738535")
+	)
+	(symbol
+		(lib_id "Symbols:MMBT2907A")
+		(at 195.58 80.01 0)
+		(mirror x)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "2d6f9661-5044-463e-85ea-013658c7c23d")
+		(property "Reference" "Q1"
+			(at 198.12 78.74 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "MMBT2907A"
+			(at 198.12 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Package_TO_SOT_SMD:SOT-23"
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://www.onsemi.com/pdf/datasheet/mmbt2907alt1-d.pdf"
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "PNP 60V 0.6A SOT-23 (KL30 high-side switch into EN)"
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" ""
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "MMBT2907A"
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C43692"
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 195.58 80.01 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "6c87b4ff-0045-42b3-ae7b-3fb49a564e92")
+		)
+		(pin "3"
+			(uuid "b64a5ee2-7809-4ab6-b3fd-62f245b79f4e")
+		)
+		(pin "2"
+			(uuid "7ad78a9b-7193-4403-944b-2590387cb409")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "Q1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 190.5 80.01) (xy 187.96 80.01)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "74eb7af8-b9ed-4818-931f-eb24af9b0f5d")
+	)
+	(label "KL30_BASE"
+		(at 187.96 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "a2f6e0fc-f93e-4202-8512-6b489921ed32")
+	)
+	(wire
+		(pts
+			(xy 198.12 74.93) (xy 198.12 72.39)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "ecc187b3-7060-4c23-bf5b-032dc1ce9456")
+	)
+	(label "VBAT_PROT"
+		(at 198.12 72.39 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "926581f9-cd56-4b93-bf04-ac2b2b3f05a4")
+	)
+	(wire
+		(pts
+			(xy 198.12 85.09) (xy 198.12 87.63)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "560c6df6-adf3-4cdf-bbed-0ad7c31036e9")
+	)
+	(label "EN_KL30"
+		(at 198.12 87.63 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "40b67969-aa6e-44a6-87b1-e73330ba2590")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 208.28 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "a1b99e6b-bc4f-4f97-b1ec-85e4a772c756")
+		(property "Reference" "R27"
+			(at 210.82 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "1M"
+			(at 210.82 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 1M 1% 0603 (KL30 hysteresis)"
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-071ML"
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C105578"
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 208.28 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "85672714-1a73-46cc-8295-bfc01263864d")
+		)
+		(pin "2"
+			(uuid "99073a27-4875-49cf-8cc2-8e3c2a80f9a9")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R27")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 208.28 69.85) (xy 208.28 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "34b03d4a-aa8e-427f-830a-ca0e455d1386")
+	)
+	(label "KL30_REF"
+		(at 208.28 67.31 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "9b1c2bb9-3394-438f-8ae0-f6bb18cf2073")
+	)
+	(wire
+		(pts
+			(xy 208.28 74.93) (xy 208.28 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "02333c77-6ffb-42dc-a8f4-2bcef9dacd56")
+	)
+	(label "EN_KL30"
+		(at 208.28 77.47 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ff4f7c34-1de4-4b62-a526-d646127a20a7")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 226.06 72.39 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "ba0d29d4-cc06-4ae8-be7d-fc0c4024b025")
+		(property "Reference" "R30"
+			(at 228.6 71.12 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100k"
+			(at 228.6 73.66 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "RES 100K 1% 0603 (EN pull-down when Q1 off)"
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "YAGEO"
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "RC0603FR-07100KL"
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14675"
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC alt." ""
+			(at 226.06 72.39 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "995b21c7-aa97-440a-9a82-41082aab271e")
+		)
+		(pin "2"
+			(uuid "4e2ebd32-955c-40db-ba97-6fbe54c7086a")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "R30")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(wire
+		(pts
+			(xy 226.06 69.85) (xy 226.06 67.31)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bb1ad5c8-a523-42e0-a1fe-dbcff5d36646")
+	)
+	(label "EN_KL30"
+		(at 226.06 67.31 90)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "e88cb784-7154-45c5-9d9c-05e7a4f3d947")
+	)
+	(wire
+		(pts
+			(xy 226.06 74.93) (xy 226.06 77.47)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5844352c-fd29-4ff3-b3a7-f546f4925951")
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 226.06 77.47 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "111b57fd-d0ff-48f1-a9b1-358f32b65a43")
+		(property "Reference" "#PWR047"
+			(at 226.06 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 226.06 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" ""
+			(at 226.06 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 226.06 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 226.06 77.47 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "c89fbfa1-efed-4a8d-805b-a44aa1c19e6a")
+		)
+		(instances
+			(project "Can and power"
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
+					(reference "#PWR047")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(text "Rev 7 pre-build (2026-11-13). KL30 engine-running switch: U3 TL431B + Q1 PNP.\nOn ~13.2 V, off ~12.8 V (+/-0.2 V). JP4 1-2 = KL15 (UVLO ~7.7 V via Ren1/Ren2), 2-3 = KL30.\nOption (not fitted): TJA1043T/1J (SOIC-14, C140826) for CAN wake on KL30, INH -> JP4 KL30 pad."
+		(exclude_from_sim no)
+		(at 119.38 60.96 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "06568ca5-c750-4bfb-8431-2da9e6f196d8")
+	)
+	(text "Power entry: J7 -> F1 -> VBAT_IN (D6 TVS, RV1 DNP) -> D7 -> VBAT_PROT (C1, C13) -> FB1 -> VIN"
+		(exclude_from_sim no)
+		(at 96.52 157.48 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "2b3107c2-16b4-4378-b908-a2a990c8fb22")
+	)
+	(text "CAN TX = GPIO17, RX = GPIO16 on all headers (J3.6/J3.8, J5.2/J5.4, J6.3/J6.1).\nGPIO43/44 (UART0) freed. C18 STB RC not fitted (CAN no longer on UART0)."
+		(exclude_from_sim no)
+		(at 96.52 185.42 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "6c4b6b4b-7e2f-40c5-b69c-23598b9c280b")
+	)
 )
