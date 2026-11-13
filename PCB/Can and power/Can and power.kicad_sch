@@ -5747,9 +5747,7 @@
 			(embedded_fonts no)
 		)
 	)
-	(text_box "LMR16010 EN: 1.2 V threshold, internal pull-up. Ren1 120k / Ren2 22k1 -> turn-on ~7.7 V (KL15 lockout, rides through cranking).
-JP4 selects KL15 (1-2, default bridged) or the KL30 hysteresis switch (2-3).
-FB 0.75 V: R9 43k / R10 7k5 -> 5.05 V. RT R12 39k -> ~620 kHz."
+	(text_box "LMR16010 EN: 1.2 V threshold, internal pull-up. Ren1 120k / Ren2 22k1 -> turn-on ~7.7 V (KL15 lockout, rides through cranking).\nJP4 selects KL15 (1-2, default bridged) or the KL30 hysteresis switch (2-3).\nFB 0.75 V: R9 43k / R10 7k5 -> 5.05 V. RT R12 39k -> ~620 kHz."
 		(exclude_from_sim no)
 		(at 153.67 97.79 0)
 		(size 67.31 17.78)
