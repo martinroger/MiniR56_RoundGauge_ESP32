@@ -58,7 +58,12 @@
           "width": 0.0
         }
       ],
-      "drc_exclusions": [],
+      "drc_exclusions": [
+        [
+          "silk_overlap|133369000|107023500|925c788a-e657-40f4-a04e-121531a7724a|e8969c97-c427-4f1b-b932-8e16c548e215",
+          ""
+        ]
+      ],
       "meta": {
         "filename": "board_design_settings.json",
         "version": 2
