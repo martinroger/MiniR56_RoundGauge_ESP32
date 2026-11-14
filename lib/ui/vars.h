@@ -6,16 +6,25 @@
 
 
 
-int32_t engineCoolantTemp_max ;
-int32_t engineCoolantTemp_min ;
+extern double engineCoolantTemp_max ;
+extern double engineCoolantTemp_min ;
 
-int32_t boostPressure_max ;
-int32_t boostPressure_min ;
+extern double boostPressure_max ;
+extern double boostPressure_min ;
 
-int32_t intakeTemp_max ;
-int32_t intakeTemp_min ;
+extern double intakeTemp_max ;
+extern double intakeTemp_min ;
 
-int32_t controlModuleVoltage_max;
-int32_t controlModuleVoltage_min;
+extern double controlModuleVoltage_max;
+extern double controlModuleVoltage_min;
+
+extern double MAF_max;
+extern double MAF_min;
+
+extern double HPFP_max;
+extern double HPFP_min;
+
+extern double OilT_max;
+extern double OilT_min;
 
 #endif /*EEZ_LVGL_UI_VARS_H*/

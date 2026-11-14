@@ -25,3 +25,6 @@ _autosave-*
 *.csv
 
 Can and power-backups/*
+# KiCad caches and per-user state
+fp-info-cache
+*.kicad_prl

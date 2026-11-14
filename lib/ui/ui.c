@@ -55,7 +55,7 @@ void animateTargetArc(lv_obj_t* targetArc, int32_t targetValue) {
 }
 
 void action_go_to_next_screen(lv_event_t * e) {
-    if(currentScreen==3) {
+    if(currentScreen==5) {
         loadScreen(1,true);
     }
     else {
@@ -71,9 +71,19 @@ void action_go_to_next_screen(lv_event_t * e) {
         case SCREEN_ID_IAT_SCR:
             updateIatMinMax(intakeTemp_min,intakeTemp_max);
             break;
-        case SCREEN_ID_VOLTAGE_SCR:
+/*        case SCREEN_ID_VOLTAGE_SCR:
             updateVoltageMinMax(controlModuleVoltage_min,controlModuleVoltage_max);
+            break;*/
+        case SCREEN_ID_MAF_SCR:
+            updateMAFMinMax(MAF_min,MAF_max);
             break;
+        case SCREEN_ID_HPFP_SCR:
+            updateHPFPMinMax(HPFP_min,HPFP_max);
+            break;
+        case SCREEN_ID_OIL_TSCR:
+            updateOilTMinMax(OilT_min,OilT_max);
+            break;
+        //Need to add the other screens, or move this to event-driven actions
     }
 }
 
@@ -83,27 +93,27 @@ void resetCoolantMinMax(int32_t value) {
     //Should mostly happen when in the coolant screen
     lv_arc_set_value(objects.coolant_scr_minarc,value);
     lv_arc_set_value(objects.coolant_scr_maxarc,value);
-    engineCoolantTemp_max = value;
-    engineCoolantTemp_min = value;
+    engineCoolantTemp_max = value/10.0;
+    engineCoolantTemp_min = value/10.0;
 }
 
 void action_reset_coolant_min_max(lv_event_t * e) {
     resetCoolantMinMax(lv_arc_get_value(objects.coolant_scr_arc));
 }
 
-void updateCoolantMinMax(int32_t minValue, int32_t maxValue) {
+void updateCoolantMinMax(double minValue, double maxValue) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
-        animateTargetArc(objects.coolant_scr_minarc,minValue);
-        animateTargetArc(objects.coolant_scr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.coolant_scr_min,"%d",minValue);
-        lv_label_set_text_fmt(objects.coolant_scr_max,"%d",maxValue);
+        animateTargetArc(objects.coolant_scr_minarc,(int32_t)(minValue*10));
+        animateTargetArc(objects.coolant_scr_maxarc,(int32_t)(maxValue*10));
+        lv_label_set_text_fmt(objects.coolant_scr_min,"%02.1f",minValue);
+        lv_label_set_text_fmt(objects.coolant_scr_max,"%02.1f",maxValue);
     }
 }
 
-void updateCoolantScr(int32_t value) {
+void updateCoolantScr(double value) {
     if(currentScreen + 1 == SCREEN_ID_COOLANT_SCR) {
-        animateTargetArc(objects.coolant_scr_arc,value);
-        lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%d",value);
+        animateTargetArc(objects.coolant_scr_arc,(int32_t)(value*10));
+        lv_label_set_text_fmt(objects.coolant_scr_currentvalue,"%02.1f",value);
     }
 }
 
@@ -113,27 +123,27 @@ void resetBoostMinMax(int32_t value) {
     //Should mostly happen when in the boost screen
     lv_arc_set_value(objects.boost_scr_minarc,value);
     lv_arc_set_value(objects.boost_scr_maxarc,value);
-    boostPressure_max = value;
-    boostPressure_min = value;
+    boostPressure_max = value/10.0;
+    boostPressure_min = value/10.0;
 }
 
 void action_reset_boost_min_max(lv_event_t * e) {
     resetBoostMinMax(lv_arc_get_value(objects.boost_scr_arc));
 }
 
-void updateBoostMinMax(int32_t minValue, int32_t maxValue) {
+void updateBoostMinMax(double minValue, double maxValue) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
-        animateTargetArc(objects.boost_scr_minarc,minValue);
-        animateTargetArc(objects.boost_scr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.boost_scr_min,"%d",minValue);
-        lv_label_set_text_fmt(objects.boost_scr_max,"%d",maxValue);
+        animateTargetArc(objects.boost_scr_minarc,(int32_t)(minValue*10));
+        animateTargetArc(objects.boost_scr_maxarc,(int32_t)(maxValue*10));
+        lv_label_set_text_fmt(objects.boost_scr_min,"%01.2f",minValue);
+        lv_label_set_text_fmt(objects.boost_scr_max,"%01.2f",maxValue);
     }
 }
 
-void updateBoostScr(int32_t value) {
+void updateBoostScr(double value) {
     if(currentScreen + 1 == SCREEN_ID_BOOST_SCR) {
-        animateTargetArc(objects.boost_scr_arc,value);
-        lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%d",value);
+        animateTargetArc(objects.boost_scr_arc,(int32_t)(value*10));
+        lv_label_set_text_fmt(objects.boost_scr_currentvalue,"%01.2f",value);
     }
 }
 
@@ -143,32 +153,32 @@ void resetIatMinMax(int32_t value) {
     //Should mostly happen when in the IAT screen
     lv_arc_set_value(objects.iat_scr_minarc,value);
     lv_arc_set_value(objects.iat_scr_maxarc,value);
-    intakeTemp_max = value;
-    intakeTemp_min = value;
+    intakeTemp_max = value/10.0;
+    intakeTemp_min = value/10.0;
 }
 
 void action_reset_iat_min_max(lv_event_t * e) {
     resetIatMinMax(lv_arc_get_value(objects.iat_scr_arc));
 }
 
-void updateIatMinMax(int32_t minValue, int32_t maxValue) {
+void updateIatMinMax(double minValue, double maxValue) {
     if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
-        animateTargetArc(objects.iat_scr_minarc,minValue);
-        animateTargetArc(objects.iat_scr_maxarc,maxValue);
-        lv_label_set_text_fmt(objects.iat_scr_min,"%d",minValue);
-        lv_label_set_text_fmt(objects.iat_scr_max,"%d",maxValue);
+        animateTargetArc(objects.iat_scr_minarc,(int32_t)(minValue*10));
+        animateTargetArc(objects.iat_scr_maxarc,(int32_t)(maxValue*10));
+        lv_label_set_text_fmt(objects.iat_scr_min,"%02.1f",minValue);
+        lv_label_set_text_fmt(objects.iat_scr_max,"%02.1f",maxValue);
     }
 }
 
-void updateIatScr(int32_t value) {
+void updateIatScr(double value) {
     if(currentScreen + 1 == SCREEN_ID_IAT_SCR) {
-        animateTargetArc(objects.iat_scr_arc,value);
-        lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%d",value);
+        animateTargetArc(objects.iat_scr_arc,(int32_t)(value*10));
+        lv_label_set_text_fmt(objects.iat_scr_currentvalue,"%02.1f",value);
     }
 }
 
 //Module voltage
-
+/*
 void resetVoltageMinMax(int32_t value) {
     //Should mostly happen when in the IAT screen
     lv_arc_set_value(objects.voltage_scr_minarc,value);
@@ -195,6 +205,93 @@ void updateVoltageScr(int32_t value) {
         animateTargetArc(objects.voltage_scr_arc,value);
         lv_label_set_text_fmt(objects.voltage_scr_currentvalue,"%02.1f",(float)(value/1000.0));
     }
+}*/
+
+//MAF
+
+void resetMAFMinMax(int32_t value) {
+    lv_arc_set_value(objects.maf_scr_minarc,value);
+    lv_arc_set_value(objects.maf_scr_maxarc,value);
+    MAF_max = value/10.0;
+    MAF_min = value/10.0;
+}
+
+void action_reset_maf_min_max(lv_event_t *e) {
+    resetMAFMinMax(lv_arc_get_value(objects.maf_scr_arc));
+}
+
+void updateMAFMinMax(double minValue, double maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_MAF_SCR) {
+        animateTargetArc(objects.maf_scr_minarc,(int32_t)(minValue*10));
+        animateTargetArc(objects.maf_scr_maxarc,(int32_t)(maxValue*10));
+        lv_label_set_text_fmt(objects.maf_scr_min,"%02.1f",minValue);
+        lv_label_set_text_fmt(objects.maf_scr_max,"%02.1f",maxValue);
+    } 
+}
+
+void updateMAFScr(double value){
+    if(currentScreen + 1 == SCREEN_ID_MAF_SCR) {
+        animateTargetArc(objects.maf_scr_arc,(int32_t)(value*10));
+        lv_label_set_text_fmt(objects.maf_scr_currentvalue,"%02.1f",value);
+    }
+}
+
+//HPFP
+
+void resetHPFPMinMax(int32_t value) {
+    lv_arc_set_value(objects.hpfp_scr_minarc,value);
+    lv_arc_set_value(objects.hpfp_scr_maxarc,value);
+    HPFP_max = value/10.0;
+    HPFP_min = value/10.0;
+}
+
+void action_reset_hpfp_min_max(lv_event_t *e) {
+    resetHPFPMinMax(lv_arc_get_value(objects.hpfp_scr_arc));
+}
+
+void updateHPFPMinMax(double minValue, double maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_HPFP_SCR) {
+        animateTargetArc(objects.hpfp_scr_minarc,(int32_t)(minValue*10));
+        animateTargetArc(objects.hpfp_scr_maxarc,(int32_t)(maxValue*10));
+        lv_label_set_text_fmt(objects.hpfp_scr_min,"%02.1f",minValue);
+        lv_label_set_text_fmt(objects.hpfp_scr_max,"%02.1f",maxValue);
+    } 
+}
+
+void updateHPFPScr(double value) {
+    if(currentScreen + 1 == SCREEN_ID_HPFP_SCR) {
+        animateTargetArc(objects.hpfp_scr_arc,(int32_t)(value*10));
+        lv_label_set_text_fmt(objects.hpfp_scr_currentvalue,"%02.1f",value);
+    }
+}
+
+//OilTemp
+
+void resetOilTMinMax(int32_t value) {
+    lv_arc_set_value(objects.oil_tscr_minarc,value);
+    lv_arc_set_value(objects.oil_tscr_maxarc,value);
+    OilT_max = value*1.0;
+    OilT_min = value*1.0;
+}
+
+void action_reset_oil_tmin_max(lv_event_t *e) {
+    resetOilTMinMax(lv_arc_get_value(objects.oil_tscr_arc));
+}
+
+void updateOilTMinMax(double minValue, double maxValue) {
+    if(currentScreen + 1 == SCREEN_ID_OIL_TSCR) {
+        animateTargetArc(objects.oil_tscr_minarc,(int32_t)(minValue*1));
+        animateTargetArc(objects.oil_tscr_maxarc,(int32_t)(maxValue*1));
+        lv_label_set_text_fmt(objects.oil_tscr_min,"%d",(int32_t)minValue);
+        lv_label_set_text_fmt(objects.oil_tscr_max,"%d",(int32_t)maxValue);
+    } 
+}
+
+void updateOilTScr(double value) {
+    if(currentScreen + 1 == SCREEN_ID_OIL_TSCR) {
+        animateTargetArc(objects.oil_tscr_arc,(int32_t)(value*1));
+        lv_label_set_text_fmt(objects.oil_tscr_currentvalue,"%d",(int32_t)value);
+    }
 }
 
 //CAN State warning
@@ -204,13 +301,19 @@ void setCanState(bool canState) {
         lv_obj_remove_state(objects.coolant_scr_can,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.boost_scr_can,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.iat_scr_can,LV_STATE_DISABLED);
-        lv_obj_remove_state(objects.voltage_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.maf_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.hpfp_scr_can,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.oil_tscr_can,LV_STATE_DISABLED);
+        //lv_obj_remove_state(objects.voltage_scr_can,LV_STATE_DISABLED);
     }
     else {
         lv_obj_add_state(objects.coolant_scr_can,LV_STATE_DISABLED);
         lv_obj_add_state(objects.boost_scr_can,LV_STATE_DISABLED);
         lv_obj_add_state(objects.iat_scr_can,LV_STATE_DISABLED);
-        lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.maf_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.hpfp_scr_can,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.oil_tscr_can,LV_STATE_DISABLED);
+        //lv_obj_add_state(objects.voltage_scr_can,LV_STATE_DISABLED);
     }
 }
 
@@ -221,13 +324,19 @@ void setIgnitionState(bool ignitionOn)  {
         lv_obj_remove_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.boost_scr_kl15,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.iat_scr_kl15,LV_STATE_DISABLED);
-        lv_obj_remove_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.maf_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.hpfp_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.oil_tscr_kl15,LV_STATE_DISABLED);
+        //lv_obj_remove_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
     }
     else {
         lv_obj_add_state(objects.coolant_scr_kl15,LV_STATE_DISABLED);
         lv_obj_add_state(objects.boost_scr_kl15,LV_STATE_DISABLED);
         lv_obj_add_state(objects.iat_scr_kl15,LV_STATE_DISABLED);
-        lv_obj_add_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.maf_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.hpfp_scr_kl15,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.oil_tscr_kl15,LV_STATE_DISABLED);
+        //lv_obj_add_state(objects.voltage_scr_kl15,LV_STATE_DISABLED);
     }
 }
 
@@ -238,12 +347,18 @@ void setKeyPresence(bool keyPresence) {
         lv_obj_remove_state(objects.coolant_scr_key,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.boost_scr_key,LV_STATE_DISABLED);
         lv_obj_remove_state(objects.iat_scr_key,LV_STATE_DISABLED);
-        lv_obj_remove_state(objects.voltage_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.maf_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.hpfp_scr_key,LV_STATE_DISABLED);
+        lv_obj_remove_state(objects.oil_tscr_key,LV_STATE_DISABLED);
+        //lv_obj_remove_state(objects.voltage_scr_key,LV_STATE_DISABLED);
     }
     else {
         lv_obj_add_state(objects.coolant_scr_key,LV_STATE_DISABLED);
         lv_obj_add_state(objects.boost_scr_key,LV_STATE_DISABLED);
         lv_obj_add_state(objects.iat_scr_key,LV_STATE_DISABLED);
-        lv_obj_add_state(objects.voltage_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.maf_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.hpfp_scr_key,LV_STATE_DISABLED);
+        lv_obj_add_state(objects.oil_tscr_key,LV_STATE_DISABLED);
+        //lv_obj_add_state(objects.voltage_scr_key,LV_STATE_DISABLED);
     }
 }

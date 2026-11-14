@@ -1,0 +1,192 @@
+(footprint "SODFL3617X108N"
+	(version 20241229)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "SS24FL-1")
+	(tags "Schottky Diode")
+	(property "Reference" "D**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "09a730e9-bae3-4bdd-83a1-e3cf7e8f2a6b")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Value" "SODFL3617X108N"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "d80b1c82-cf14-4931-9ef1-99c46afbee2f")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.254)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2a8ef3b7-4ca9-43d3-aa79-4fb9153e363e")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "2f5ed6ec-4ba2-4f63-b333-969e1c5883e4")
+		(effects
+			(font
+				(size 1.27 1.27)
+				(thickness 0.15)
+			)
+		)
+	)
+	(attr smd)
+	(fp_line
+		(start -2.155 -0.862)
+		(end 1.375 -0.862)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "ca7bdde7-8ca9-4cef-ad30-1b34f53434bc")
+	)
+	(fp_line
+		(start -1.375 0.862)
+		(end 1.375 0.862)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "50cc743c-d89a-4b49-bffb-2b8a0ee06219")
+	)
+	(fp_line
+		(start -2.305 -1.125)
+		(end 2.305 -1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "607f2d0a-ed34-4175-b27e-ae7d4600f017")
+	)
+	(fp_line
+		(start -2.305 1.125)
+		(end -2.305 -1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "a3d8c688-565f-479d-9dca-9e0c0d0bf896")
+	)
+	(fp_line
+		(start -1.375 -0.862)
+		(end 1.375 -0.862)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "6f47b6d1-c554-4c57-a63d-34dc3e012e0a")
+	)
+	(fp_line
+		(start -1.375 -0.232)
+		(end -0.745 -0.862)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "04b5bfb5-2d7e-4340-b7f5-80b9b6c4e595")
+	)
+	(fp_line
+		(start -1.375 0.862)
+		(end -1.375 -0.862)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "81ff7127-69f0-4482-9dd1-7b8f427b2143")
+	)
+	(fp_line
+		(start 1.375 -0.862)
+		(end 1.375 0.862)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "cd77ae53-43be-46bb-96bb-1b0d532a127e")
+	)
+	(fp_line
+		(start 1.375 0.862)
+		(end -1.375 0.862)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "315f1329-3cf0-4b18-85f9-e521639b9012")
+	)
+	(fp_line
+		(start 2.305 -1.125)
+		(end 2.305 1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "bee53ade-b553-41f0-a071-1732c9b81392")
+	)
+	(fp_line
+		(start 2.305 1.125)
+		(end -2.305 1.125)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "Dwgs.User")
+		(uuid "c0ad268e-f831-48b0-97f2-eafe16845e96")
+	)
+	(pad "1" smd rect
+		(at -1.525 0 90)
+		(size 1.17 1.26)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "f2906cb9-e8df-40f5-9455-99542cd11692")
+	)
+	(pad "2" smd rect
+		(at 1.525 0 90)
+		(size 1.17 1.26)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "60ee5b70-6343-4da4-a111-50cc0546e432")
+	)
+	(embedded_fonts no)
+	(model "${KIPRJMOD}/libs/3d models/SS24FL.step"
+		(offset
+			(xyz 0 0 0)
+		)
+		(scale
+			(xyz 1 1 1)
+		)
+		(rotate
+			(xyz 0 0 0)
+		)
+	)
+)
