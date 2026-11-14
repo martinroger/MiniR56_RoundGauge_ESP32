@@ -37,7 +37,7 @@
         "other_text_thickness": 0.15,
         "other_text_upright": false,
         "pads": {
-          "drill": 0.7,
+          "drill": 0.65,
           "height": 1.0,
           "width": 1.0
         },
@@ -251,7 +251,16 @@
     "equivalence_files": []
   },
   "erc": {
-    "erc_exclusions": [],
+    "erc_exclusions": [
+      [
+        "lib_symbol_mismatch|2362200|1143000|3d29b21d-a691-43cc-9fc9-51e0b80feb5d|00000000-0000-0000-0000-000000000000|||",
+        ""
+      ],
+      [
+        "lib_symbol_mismatch|330200|215900|86399a91-5df0-463e-94dd-5d29abab6852|00000000-0000-0000-0000-000000000000|||",
+        ""
+      ]
+    ],
     "meta": {
       "version": 0
     },
@@ -543,7 +552,9 @@
       "version": 4
     },
     "net_colors": {
-      "GND": "rgb(80, 255, 184)"
+      "+3V3": "rgb(204, 102, 0)",
+      "GND": "rgb(80, 255, 184)",
+      "VSYS": "rgb(194, 194, 0)"
     },
     "netclass_assignments": null,
     "netclass_patterns": []
@@ -809,6 +820,14 @@
     [
       "08be56a3-d518-4fe9-9ee2-7d0676f84726",
       "Step_down"
+    ],
+    [
+      "729c5826-5243-48e8-9fe6-146704d1d268",
+      "CAN XCVR"
+    ],
+    [
+      "f3d8b411-c450-4f12-bb7f-e10e5cc8cb6a",
+      "KL30_EN"
     ]
   ],
   "text_variables": {}
