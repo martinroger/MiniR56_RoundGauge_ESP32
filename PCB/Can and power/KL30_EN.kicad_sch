@@ -160,6 +160,133 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Device:R_Small"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0.254)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(property "Reference" "R"
+				(at 0.762 0.508 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Value" "R_Small"
+				(at 0.762 -1.016 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(justify left)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Datasheet" "~"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "Description" "Resistor, small symbol"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_keywords" "R resistor"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(property "ki_fp_filters" "R_*"
+				(at 0 0 0)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+					(hide yes)
+				)
+			)
+			(symbol "R_Small_0_1"
+				(rectangle
+					(start -0.762 1.778)
+					(end 0.762 -1.778)
+					(stroke
+						(width 0.2032)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "R_Small_1_1"
+				(pin passive line
+					(at 0 2.54 270)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 0 -2.54 90)
+					(length 0.762)
+					(name "~"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "R_Small_1"
 			(pin_numbers
 				(hide yes)
@@ -771,6 +898,12 @@
 		(uuid "8499b2df-2280-4571-a694-6f183f8b624d")
 	)
 	(junction
+		(at 185.42 101.6)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "ab0a8139-f4b1-45b1-b13f-9f73e39fed4a")
+	)
+	(junction
 		(at 153.67 74.93)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -791,6 +924,16 @@
 			(type default)
 		)
 		(uuid "00440c05-341e-40a7-814b-8a8de8ea5e72")
+	)
+	(wire
+		(pts
+			(xy 185.42 147.32) (xy 185.42 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0701dc3b-10ac-4202-84ce-1385c0e5d699")
 	)
 	(wire
 		(pts
@@ -834,6 +977,26 @@
 	)
 	(wire
 		(pts
+			(xy 151.13 147.32) (xy 185.42 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f6db27c-5399-4d13-b94a-08dbda07e744")
+	)
+	(wire
+		(pts
+			(xy 111.76 113.03) (xy 123.19 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2401d34a-95ac-4826-a6a8-e23d7124c820")
+	)
+	(wire
+		(pts
 			(xy 153.67 85.09) (xy 153.67 90.17)
 		)
 		(stroke
@@ -841,6 +1004,26 @@
 			(type default)
 		)
 		(uuid "26b32c80-7862-4522-b544-4a3aaeb6fce8")
+	)
+	(wire
+		(pts
+			(xy 146.05 147.32) (xy 111.76 147.32)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2985f06a-b207-4434-918a-504a80d76456")
+	)
+	(wire
+		(pts
+			(xy 185.42 101.6) (xy 193.04 101.6)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "3bc5f081-68b6-44f0-9084-b71eef7bd6ce")
 	)
 	(wire
 		(pts
@@ -854,7 +1037,7 @@
 	)
 	(wire
 		(pts
-			(xy 171.45 101.6) (xy 180.34 101.6)
+			(xy 171.45 101.6) (xy 185.42 101.6)
 		)
 		(stroke
 			(width 0)
@@ -911,6 +1094,16 @@
 			(type default)
 		)
 		(uuid "8e7d1c52-664f-4815-a7cc-6a71a5109e83")
+	)
+	(wire
+		(pts
+			(xy 111.76 147.32) (xy 111.76 113.03)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "aa2cf3f1-20a7-415e-8240-d8eaf98613ad")
 	)
 	(wire
 		(pts
@@ -995,7 +1188,7 @@
 	)
 	(hierarchical_label "KL30_EN"
 		(shape output)
-		(at 180.34 101.6 0)
+		(at 193.04 101.6 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -1003,6 +1196,74 @@
 			(justify left)
 		)
 		(uuid "f0c597a5-b6d7-4b9e-a061-dfd302d63701")
+	)
+	(symbol
+		(lib_id "Device:R_Small")
+		(at 148.59 147.32 90)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "019e2ae7-0a19-4c52-ab99-cd4a1d652ea2")
+		(property "Reference" "R13"
+			(at 148.59 142.24 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "1M"
+			(at 148.59 144.78 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0603_1608Metric"
+			(at 148.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 148.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Resistor, small symbol"
+			(at 148.59 147.32 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "af6e67dd-d9de-4016-be35-9033a919e1f8")
+		)
+		(pin "2"
+			(uuid "e9923b1f-9eea-4016-bcd0-d16d68d13c64")
+		)
+		(instances
+			(project ""
+				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/f3d8b411-c450-4f12-bb7f-e10e5cc8cb6a"
+					(reference "R13")
+					(unit 1)
+				)
+			)
+		)
 	)
 	(symbol
 		(lib_id "power:GND")
