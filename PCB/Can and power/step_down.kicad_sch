@@ -1991,6 +1991,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "Samsung"
+			(at 224.79 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL21A226MAQNNNE"
+			(at 224.79 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 224.79 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "22c56ff2-318f-4184-84f2-5ae27c952c89")
 		)
@@ -2654,7 +2681,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C137719"
 			(at 245.11 82.55 0)
 			(effects
 				(font
@@ -2928,7 +2955,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" ""
+		(property "Manufacturer_Name" "Samsung"
 			(at 83.82 90.17 0)
 			(effects
 				(font
@@ -2937,7 +2964,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" ""
+		(property "Manufacturer_Part_Number" "CL31A106KBHNNNE"
 			(at 83.82 90.17 0)
 			(effects
 				(font
@@ -2973,7 +3000,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C13585"
 			(at 83.82 90.17 0)
 			(effects
 				(font
@@ -3090,6 +3117,33 @@
 		)
 		(property "Description" "DIODE SCHOTTKY 60V SMA(DO-214AC)"
 			(at 153.67 81.28 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "MDD"
+			(at 156.21 79.7559 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SS26"
+			(at 156.21 79.7559 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C14238"
+			(at 156.21 79.7559 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -3343,7 +3397,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" ""
+		(property "LCSC" "C114634"
 			(at 245.11 96.52 0)
 			(effects
 				(font
@@ -3842,6 +3896,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "Samsung"
+			(at 210.82 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL21A226MAQNNNE"
+			(at 210.82 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 210.82 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "bbc63664-ac18-4e4e-bb28-b1ba34434249")
 		)
@@ -3905,6 +3986,33 @@
 		)
 		(property "Description" ""
 			(at 193.04 83.82 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "Samsung"
+			(at 195.58 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "CL21A226MAQNNNE"
+			(at 195.58 82.5562 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C45783"
+			(at 195.58 82.5562 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -4197,6 +4305,33 @@
 		)
 		(property "Description" ""
 			(at 102.87 95.25 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 105.41 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF3482T5E"
+			(at 105.41 93.9799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23141"
+			(at 105.41 93.9799 0)
 			(effects
 				(font
 					(size 1.27 1.27)

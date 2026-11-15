@@ -1126,6 +1126,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 156.21 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1002T5E"
+			(at 156.21 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 156.21 81.2799 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "ff753cec-3f8e-455f-b982-7899f8d42c2d")
 		)
@@ -1216,6 +1243,15 @@
 				(hide yes)
 			)
 		)
+		(property "LCSC" "C137719"
+			(at 125.73 105.4099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "60bd2157-793a-46f1-aa43-4f5ebce9e5d0")
 		)
@@ -1280,6 +1316,33 @@
 		)
 		(property "Description" ""
 			(at 153.67 96.52 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 156.21 95.2499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF4701T5E"
+			(at 156.21 95.2499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C23162"
+			(at 156.21 95.2499 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1366,6 +1429,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "CJ"
+			(at 173.99 91.4401 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "MMBT2907A"
+			(at 173.99 91.4401 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "04972645-cc1f-43ca-b10b-1a107953acad")
 		)
@@ -1433,6 +1514,33 @@
 		)
 		(property "Description" ""
 			(at 171.45 111.76 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 173.99 110.4899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1003T5E"
+			(at 173.99 110.4899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25803"
+			(at 173.99 110.4899 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1512,6 +1620,24 @@
 		)
 		(property "LCSC" "C668896"
 			(at 153.67 113.03 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "MCC"
+			(at 156.21 111.7599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "BZT52C18-TP"
+			(at 156.21 111.7599 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -1730,6 +1856,24 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "TI"
+			(at 139.7 111.7599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "TL431BIDBZR"
+			(at 139.7 111.7599 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "2"
 			(uuid "d4abd6bd-1285-4a89-b937-d429df26c989")
 		)
@@ -1797,6 +1941,33 @@
 		)
 		(property "Description" ""
 			(at 123.19 119.38 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 125.73 118.1099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1002T5E"
+			(at 125.73 118.1099 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 125.73 118.1099 0)
 			(effects
 				(font
 					(size 1.27 1.27)

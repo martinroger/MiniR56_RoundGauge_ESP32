@@ -1493,6 +1493,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "NXP"
+			(at 153.2733 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "TJA1051T/3/1J"
+			(at 153.2733 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C38695"
+			(at 153.2733 100.33 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "7"
 			(uuid "90dfe90f-09ba-4f0a-8b90-b52b7655907a")
 		)
@@ -1574,6 +1601,33 @@
 		)
 		(property "Description" ""
 			(at 133.35 125.73 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 135.89 124.4599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1002T5E"
+			(at 135.89 124.4599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 135.89 124.4599 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -2018,6 +2072,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 137.16 99.0599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1002T5E"
+			(at 137.16 99.0599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C25804"
+			(at 137.16 99.0599 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "f25b1da2-2f43-4ddf-bedf-467d24123375")
 		)
@@ -2091,6 +2172,24 @@
 		)
 		(property "LCSC" "C233494"
 			(at 204.47 130.81 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Name" "onsemi"
+			(at 210.82 129.5399 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "SZNUP2105LT1G"
+			(at 210.82 129.5399 0)
 			(effects
 				(font
 					(size 1.27 1.27)
