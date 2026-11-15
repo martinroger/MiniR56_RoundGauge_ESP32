@@ -4897,6 +4897,16 @@
 		)
 		(uuid "060761cc-3246-45d4-abef-33bf5e04b98d")
 	)
+	(label "146_GPIO17"
+		(at 45.72 41.91 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "0c7358dd-d941-4454-a260-94f518cfa733")
+	)
 	(label "143_GPIO7"
 		(at 30.48 67.31 180)
 		(effects
@@ -5017,6 +5027,16 @@
 		)
 		(uuid "3fd89fb4-c0c0-411f-abfd-4db6a3565eec")
 	)
+	(label "143_GPIO39"
+		(at 45.72 53.34 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "40017186-2385-40ed-8a9e-bb2852d010c3")
+	)
 	(label "143_GPIO18"
 		(at 30.48 105.41 180)
 		(effects
@@ -5026,6 +5046,16 @@
 			(justify right bottom)
 		)
 		(uuid "47ce1f63-32e4-4e47-94b3-08a3691f680f")
+	)
+	(label "143_GPIO18"
+		(at 45.72 44.45 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "498fa651-5879-4206-bf78-6793f661cea5")
 	)
 	(label "143_SCL"
 		(at 53.34 102.87 0)
@@ -5167,16 +5197,6 @@
 		)
 		(uuid "9d61be7d-c45c-4c43-ba58-35c578c5ffca")
 	)
-	(label "146_GPIO17"
-		(at 45.72 50.8 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "a7b332c3-eae7-4ecb-8857-eb949d68644c")
-	)
 	(label "146_GPIO0"
 		(at 53.34 133.35 0)
 		(effects
@@ -5188,14 +5208,14 @@
 		(uuid "a8cdbb38-bf6d-4f72-87f8-8a8d60fa7b59")
 	)
 	(label "146_GPIO16"
-		(at 45.72 41.91 0)
+		(at 45.72 50.8 0)
 		(effects
 			(font
 				(size 1.27 1.27)
 			)
 			(justify left bottom)
 		)
-		(uuid "aed507bd-ab34-4f35-8fd2-77a959ebe7c6")
+		(uuid "ae498311-603e-43ca-8af5-c310f990a6dd")
 	)
 	(label "143_RXD"
 		(at 53.34 95.25 0)
@@ -5207,16 +5227,6 @@
 		)
 		(uuid "b12b66eb-7943-4c1f-8781-07101233e231")
 	)
-	(label "143_GPIO39"
-		(at 45.72 44.45 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "bd19cdd5-035b-4366-a9cf-24b41dfb6fc7")
-	)
 	(label "V BAT PROT"
 		(at 111.76 161.29 0)
 		(effects
@@ -5226,16 +5236,6 @@
 			(justify left bottom)
 		)
 		(uuid "c2b8ce17-cd90-414d-8dd3-2be3eec23b72")
-	)
-	(label "143_GPIO18"
-		(at 45.72 53.34 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left bottom)
-		)
-		(uuid "c76eb82e-d23a-4cbc-bdb0-c06a1cdaf47e")
 	)
 	(label "146_SCL"
 		(at 30.48 138.43 180)
