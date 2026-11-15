@@ -1241,7 +1241,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "Resistor, small symbol"
+		(property "Description" "RES 1MΩ ±1% 100mW 0603"
 			(at 148.59 147.32 0)
 			(effects
 				(font
@@ -1405,7 +1405,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 153.67 82.55 0)
 			(effects
 				(font
@@ -1503,7 +1503,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 43K OHM 1% 1/10W 0603"
+		(property "Description" "RES 43kΩ ±1% 100mW 0603"
 			(at 123.19 106.68 0)
 			(effects
 				(font
@@ -1602,7 +1602,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
 			(at 153.67 96.52 0)
 			(effects
 				(font
@@ -1800,7 +1800,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 100kΩ ±1% 100mW 0603"
 			(at 171.45 111.76 0)
 			(effects
 				(font
@@ -2227,7 +2227,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 123.19 119.38 0)
 			(effects
 				(font

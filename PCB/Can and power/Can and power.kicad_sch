@@ -6452,7 +6452,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 22kΩ ±1% 100mW 0603"
 			(at 236.22 121.92 0)
 			(effects
 				(font
@@ -6621,7 +6621,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 120kΩ ±1% 100mW 0603"
 			(at 236.22 114.3 0)
 			(effects
 				(font
@@ -6788,7 +6788,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "FERRITE BEAD 120 OHM 0805 1LN"
+		(property "Description" "FERRITE BEAD 120Ω 0805 1LN"
 			(at 153.67 161.29 0)
 			(effects
 				(font
@@ -7076,7 +7076,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CONN HEADER VERT 8POS 2.54MM"
+		(property "Description" "CONN HEADER 8POS 2.54mm SINGLE ROW TH"
 			(at 50.8 165.1 0)
 			(effects
 				(font
@@ -7527,7 +7527,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CONN HEADER VERT 4POS 2.5MM"
+		(property "Description" "CONN HEADER TH 4POS 2mm"
 			(at 152.4 40.64 0)
 			(effects
 				(font
@@ -8032,7 +8032,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LED ORANGE DIFFUSED 0603 SMD"
+		(property "Description" "LED ORANGE WATER CLEAR 0603 SMD"
 			(at 33.02 21.59 0)
 			(effects
 				(font
@@ -8428,7 +8428,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 1K OHM 1% 1/10W 0603"
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
 			(at 45.72 21.59 0)
 			(effects
 				(font
@@ -9292,7 +9292,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 1K OHM 1% 1/10W 0603"
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
 			(at 45.72 29.21 0)
 			(effects
 				(font
@@ -9459,7 +9459,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "LED ORANGE DIFFUSED 0603 SMD"
+		(property "Description" "LED ORANGE WATER CLEAR 0603 SMD"
 			(at 33.02 29.21 0)
 			(effects
 				(font

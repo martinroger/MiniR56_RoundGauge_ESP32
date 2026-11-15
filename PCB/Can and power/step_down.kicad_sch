@@ -1982,7 +1982,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 222.25 83.82 0)
 			(effects
 				(font
@@ -2327,7 +2327,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 16V X7R 0603"
+		(property "Description" "CAP CER 100nF 16V X7R 0603"
 			(at 142.24 69.85 0)
 			(effects
 				(font
@@ -2627,7 +2627,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 43K OHM 1% 1/10W 0603"
+		(property "Description" "RES 43kΩ ±1% 100mW 0603"
 			(at 245.11 82.55 0)
 			(effects
 				(font
@@ -2946,7 +2946,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 10UF 50V X7R 1206"
+		(property "Description" "CAP CER 10uF 50V X7R 1206"
 			(at 83.82 90.17 0)
 			(effects
 				(font
@@ -3343,7 +3343,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "RES 7.5K OHM 1% 1/10W 0603"
+		(property "Description" "RES 7.5kΩ ±1% 100mW 0603"
 			(at 245.11 96.52 0)
 			(effects
 				(font
@@ -3511,7 +3511,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 1UF 50V X5R 0603"
+		(property "Description" "CAP CER 1uF 50V X5R 0603"
 			(at 69.85 90.17 0)
 			(effects
 				(font
@@ -3887,7 +3887,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 208.28 83.82 0)
 			(effects
 				(font
@@ -3984,7 +3984,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 193.04 83.82 0)
 			(effects
 				(font
@@ -4081,7 +4081,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "BOURNS - SRN6045TA-150M - INDUCTOR, AEC-Q200, 15UH, 2.8A, 20%"
+		(property "Description" "FIXED IND 15uH 2.8A 71mΩ SMD,6x6mm"
 			(at 179.07 77.47 0)
 			(effects
 				(font
@@ -4276,7 +4276,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "34k8"
+		(property "Value" "39k"
 			(at 105.41 96.5199 0)
 			(effects
 				(font
@@ -4303,7 +4303,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 39kΩ ±1% 100mW 0603"
 			(at 102.87 95.25 0)
 			(effects
 				(font
@@ -4321,7 +4321,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0603WAF3482T5E"
+		(property "Manufacturer_Part_Number" "0603WAF3902T5E"
 			(at 105.41 93.9799 0)
 			(effects
 				(font
@@ -4330,7 +4330,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C23141"
+		(property "LCSC" "C23153"
 			(at 105.41 93.9799 0)
 			(effects
 				(font
