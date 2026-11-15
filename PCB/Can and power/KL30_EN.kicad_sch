@@ -1512,7 +1512,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 125.73 109.2199 0)
 			(effects
 				(font
@@ -1522,7 +1522,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
+		(property "Manufacturer_Part_Number" "0603WAF4302T5E"
 			(at 123.19 106.68 0)
 			(effects
 				(font
@@ -1531,7 +1531,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C137719"
+		(property "LCSC" "C23172"
 			(at 125.73 105.4099 0)
 			(effects
 				(font
@@ -1708,7 +1708,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C43692"
+		(property "LCSC" "C7420352"
 			(at 176.53 80.772 0)
 			(effects
 				(font
@@ -1717,7 +1717,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "CJ"
+		(property "Manufacturer_Name" "R+O"
 			(at 173.99 91.4401 0)
 			(effects
 				(font
@@ -1897,7 +1897,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "DIODE ZENER 18V 500mW SOD-123"
+		(property "Description" "DIODE ZENER 18V 350mW SOD-123"
 			(at 153.67 113.03 0)
 			(effects
 				(font
@@ -1906,7 +1906,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C668896"
+		(property "LCSC" "C19077414"
 			(at 153.67 113.03 90)
 			(effects
 				(font
@@ -1915,7 +1915,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "MCC"
+		(property "Manufacturer_Name" "R+O"
 			(at 156.21 111.7599 90)
 			(effects
 				(font
@@ -1924,7 +1924,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "BZT52C18-TP"
+		(property "Manufacturer_Part_Number" "BZT52C18"
 			(at 156.21 111.7599 90)
 			(effects
 				(font

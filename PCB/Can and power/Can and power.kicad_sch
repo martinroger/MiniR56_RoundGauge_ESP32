@@ -7311,7 +7311,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "TVS DIODE 26VWM 42.1VC SMB"
+		(property "Description" "TVS DIODE 26VWM 42.1VC DO-214AA(SMB)"
 			(at 102.87 167.64 0)
 			(effects
 				(font
@@ -7320,7 +7320,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C135062"
+		(property "LCSC" "C19077580"
 			(at 102.87 167.64 90)
 			(effects
 				(font
@@ -7338,7 +7338,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Diodes"
+		(property "Manufacturer_Name" "R+O"
 			(at 102.87 167.64 90)
 			(effects
 				(font
@@ -7347,7 +7347,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "SMBJ26A-13-F"
+		(property "Manufacturer_Part_Number" "SMBJ26A"
 			(at 102.87 167.64 90)
 			(effects
 				(font

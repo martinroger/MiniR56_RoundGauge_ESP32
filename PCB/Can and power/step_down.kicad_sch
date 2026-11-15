@@ -2636,7 +2636,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 245.11 82.55 0)
 			(effects
 				(font
@@ -2645,7 +2645,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
+		(property "Manufacturer_Part_Number" "0603WAF4302T5E"
 			(at 245.11 82.55 0)
 			(effects
 				(font
@@ -2681,7 +2681,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C137719"
+		(property "LCSC" "C23172"
 			(at 245.11 82.55 0)
 			(effects
 				(font
@@ -3124,7 +3124,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "MDD"
+		(property "Manufacturer_Name" "R+O"
 			(at 156.21 79.7559 90)
 			(effects
 				(font
@@ -3142,7 +3142,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C14238"
+		(property "LCSC" "C7420363"
 			(at 156.21 79.7559 90)
 			(effects
 				(font
