@@ -8774,7 +8774,7 @@
 			(uuid "79f31ce1-710c-42e7-81d0-1ab2959b63a6")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de"
 					(reference "C11")
 					(unit 1)

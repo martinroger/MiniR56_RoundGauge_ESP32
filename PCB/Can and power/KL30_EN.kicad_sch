@@ -1284,7 +1284,7 @@
 			(uuid "e9923b1f-9eea-4016-bcd0-d16d68d13c64")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/f3d8b411-c450-4f12-bb7f-e10e5cc8cb6a"
 					(reference "R13")
 					(unit 1)

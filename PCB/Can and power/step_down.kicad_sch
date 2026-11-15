@@ -4027,7 +4027,7 @@
 			(uuid "1903dd93-4230-4a8a-b294-79985455f7c8")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/08be56a3-d518-4fe9-9ee2-7d0676f84726"
 					(reference "C6")
 					(unit 1)

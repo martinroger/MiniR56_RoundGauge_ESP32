@@ -1545,7 +1545,7 @@
 			(uuid "52491a55-cee4-4160-a924-b62cf868895b")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/729c5826-5243-48e8-9fe6-146704d1d268"
 					(reference "U1")
 					(unit 1)
@@ -1642,7 +1642,7 @@
 			(uuid "23a86167-6880-43f0-9e20-f626bebab960")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/729c5826-5243-48e8-9fe6-146704d1d268"
 					(reference "R2")
 					(unit 1)
@@ -2207,7 +2207,7 @@
 			(uuid "d198bb51-343a-4bf9-8c7f-b64f192554c9")
 		)
 		(instances
-			(project ""
+			(project "Can and power"
 				(path "/81a7cfcd-072f-485b-9296-819a4dd752de/729c5826-5243-48e8-9fe6-146704d1d268"
 					(reference "D1")
 					(unit 1)
