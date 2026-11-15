@@ -1250,6 +1250,33 @@
 				(hide yes)
 			)
 		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 148.59 142.24 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1004T5E"
+			(at 148.59 142.24 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C22935"
+			(at 148.59 142.24 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
 		(pin "1"
 			(uuid "af6e67dd-d9de-4016-be35-9033a919e1f8")
 		)
