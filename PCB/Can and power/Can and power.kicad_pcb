@@ -131,7 +131,6 @@
 			(psnegative no)
 			(psa4output no)
 			(plot_black_and_white yes)
-			(plotinvisibletext no)
 			(sketchpadsonfab no)
 			(plotpadnumbers no)
 			(hidednponfab no)
@@ -250,7 +249,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 1K OHM 1% 1/10W 0603"
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -274,7 +273,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -286,7 +285,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-071KL"
+		(property "Manufacturer_Part_Number" "0603WAF1001T5E"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -323,7 +322,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C22548"
+		(property "LCSC" "C21190"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -405,7 +404,7 @@
 		(path "/e74984f3-3a7b-4ce7-95f4-a40668e28905")
 		(sheetname "/")
 		(sheetfile "Can and power.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.237258 -0.5225)
 			(end 0.237258 -0.5225)
@@ -590,7 +589,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 120kΩ ±1% 100mW 0603"
 			(at 269.332 221.844 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -917,7 +916,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -930,7 +929,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1158,7 +1157,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -1182,7 +1181,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C43692"
+		(property "LCSC" "C7420352"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1195,7 +1194,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "CJ"
+		(property "Manufacturer_Name" "R+O"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -1450,7 +1449,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -2254,7 +2253,7 @@
 				)
 			)
 		)
-		(property "Description" "BOURNS - SRN6045TA-150M - INDUCTOR, AEC-Q200, 15UH, 2.8A, 20%"
+		(property "Description" "FIXED IND 15uH 2.8A 71mΩ SMD,6x6mm"
 			(at 0 0 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -2641,7 +2640,7 @@
 				)
 			)
 		)
-		(property "Description" "CONN HEADER VERT 4POS 2.5MM"
+		(property "Description" "CONN HEADER TH 4POS 2mm"
 			(at -3 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3316,7 +3315,7 @@
 				)
 			)
 		)
-		(property "Description" "High-Speed CAN Transceiver, separate VIO, silent mode, SOIC-8"
+		(property "Description" "High-speed CAN transceiver"
 			(at 0 0 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -3660,7 +3659,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 1UF 50V X5R 0603"
+		(property "Description" "CAP CER 1uF 50V X5R 0603"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3712,7 +3711,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "Taiyo Yuden"
+		(property "Manufacturer_Name" "Samsung"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3725,7 +3724,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "UMK107BJ105KA-T"
+		(property "Manufacturer_Part_Number" "CL10A105KB8NNNC"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -3751,7 +3750,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C92848"
+		(property "LCSC" "C15849"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4018,7 +4017,7 @@
 				)
 			)
 		)
-		(property "Description" "LED ORANGE DIFFUSED 0603 SMD"
+		(property "Description" "LED ORANGE WATER CLEAR 0603 SMD"
 			(at 298.796 196.444 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -4173,7 +4172,7 @@
 		(path "/e91095f0-c0b1-4412-b6ec-d8f22d598810")
 		(sheetname "/")
 		(sheetfile "Can and power.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -1.485 -0.735)
 			(end -1.485 0.735)
@@ -4367,7 +4366,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4380,7 +4379,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4921,7 +4920,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -4934,7 +4933,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5175,7 +5174,7 @@
 				)
 			)
 		)
-		(property "Description" "TVS DIODE 26VWM 42.1VC SMB"
+		(property "Description" "TVS DIODE 26VWM 42.1VC DO-214AA(SMB)"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5188,7 +5187,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C135062"
+		(property "LCSC" "C19077580"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5214,7 +5213,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "Diodes"
+		(property "Manufacturer_Name" "R+O"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5227,7 +5226,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "SMBJ26A-13-F"
+		(property "Manufacturer_Part_Number" "SMBJ26A"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5542,7 +5541,7 @@
 				)
 			)
 		)
-		(property "Value" "34k8"
+		(property "Value" "39k"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "99401d8d-24ac-4e07-9575-e27c048a83a3")
@@ -5553,7 +5552,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5566,7 +5565,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 39kΩ ±1% 100mW 0603"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5592,7 +5591,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0603WAF3482T5E"
+		(property "Manufacturer_Part_Number" "0603WAF3902T5E"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5605,7 +5604,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C23141"
+		(property "LCSC" "C23153"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5783,7 +5782,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF 16V"
+		(property "Value" "0.1uF 50V"
 			(at 0 1.43 90)
 			(layer "F.Fab")
 			(uuid "d95adebc-37e4-467d-8a32-d24490056733")
@@ -5807,7 +5806,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 16V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5833,7 +5832,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CC0603KRX7R7BB104"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -5885,7 +5884,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C108079"
+		(property "LCSC" "C14663"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6139,7 +6138,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6152,7 +6151,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "CAP CER 22uF 25V X5R 0805"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6380,7 +6379,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6393,7 +6392,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6610,7 +6609,7 @@
 				)
 			)
 		)
-		(property "Value" "22k1"
+		(property "Value" "22k"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6634,7 +6633,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 22kΩ ±1% 100mW 0603"
 			(at 275.936 221.844 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6670,7 +6669,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0603WAF2212T5E"
+		(property "Manufacturer_Part_Number" "0603WAF2202T5E"
 			(at 275.936 221.844 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -6707,7 +6706,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C25961"
+		(property "LCSC" "C31850"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6961,7 +6960,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -6974,7 +6973,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7202,7 +7201,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7215,7 +7214,7 @@
 				)
 			)
 		)
-		(property "Description" "DIODE ZENER 18V 500mW SOD-123"
+		(property "Description" "DIODE ZENER 18V 350mW SOD-123"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7228,7 +7227,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C668896"
+		(property "LCSC" "C19077414"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7241,7 +7240,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "MCC"
+		(property "Manufacturer_Name" "R+O"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7254,7 +7253,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "BZT52C18-TP"
+		(property "Manufacturer_Part_Number" "BZT52C18"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7538,7 +7537,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 7.5K OHM 1% 1/10W 0603"
+		(property "Description" "RES 7.5kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7551,7 +7550,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7564,7 +7563,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-077K5L"
+		(property "Manufacturer_Part_Number" "0603WAF7501T5E"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7616,7 +7615,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C114634"
+		(property "LCSC" "C23234"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7859,7 +7858,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF 16V"
+		(property "Value" "0.1uF 50V"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "9f31bb54-ccad-4eb4-825e-48c753625e79")
@@ -7883,7 +7882,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 16V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7909,7 +7908,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CC0603KRX7R7BB104"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -7961,7 +7960,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C108079"
+		(property "LCSC" "C14663"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8204,7 +8203,7 @@
 				)
 			)
 		)
-		(property "Value" "0.1uF 16V"
+		(property "Value" "0.1uF 50V"
 			(at 0 1.43 0)
 			(layer "F.Fab")
 			(uuid "ea8514cb-8600-4be9-8b07-c839dab0d652")
@@ -8228,7 +8227,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 16V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8254,7 +8253,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CC0603KRX7R7BB104"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8306,7 +8305,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C108079"
+		(property "LCSC" "C14663"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8560,7 +8559,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -8573,7 +8572,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 4.7kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9107,7 +9106,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 10UF 50V X7R 1206"
+		(property "Description" "CAP CER 10uF 50V X7R 1206"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9133,7 +9132,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL31A106KBHNNNE"
+		(property "Manufacturer_Part_Number" "CL31B106KBHNNNE"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9185,7 +9184,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C13585"
+		(property "LCSC" "C89632"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9439,7 +9438,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9452,7 +9451,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 43K OHM 1% 1/10W 0603"
+		(property "Description" "RES 43kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9465,7 +9464,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9478,7 +9477,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
+		(property "Manufacturer_Part_Number" "0603WAF4302T5E"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9491,7 +9490,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C137719"
+		(property "LCSC" "C23172"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -9693,7 +9692,7 @@
 				)
 			)
 		)
-		(property "Description" "FERRITE BEAD 120 OHM 0805 1LN"
+		(property "Description" "FERRITE BEAD 120Ω 0805 1LN"
 			(at 269.84 229.464 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10009,7 +10008,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 43K OHM 1% 1/10W 0603"
+		(property "Description" "RES 43kΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10022,7 +10021,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10035,7 +10034,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-0743KL"
+		(property "Manufacturer_Part_Number" "0603WAF4302T5E"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10087,7 +10086,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C137719"
+		(property "LCSC" "C23172"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10354,7 +10353,7 @@
 				)
 			)
 		)
-		(property "Description" "RES 1K OHM 1% 1/10W 0603"
+		(property "Description" "RES 1kΩ ±1% 100mW 0603"
 			(at 292.192 192.888 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10378,7 +10377,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 292.192 192.888 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10390,7 +10389,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-071KL"
+		(property "Manufacturer_Part_Number" "0603WAF1001T5E"
 			(at 292.192 192.888 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -10427,7 +10426,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C22548"
+		(property "LCSC" "C21190"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10509,7 +10508,7 @@
 		(path "/9e0d2970-9b0b-423c-8637-6c17c3600e28")
 		(sheetname "/")
 		(sheetfile "Can and power.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start -0.237258 -0.5225)
 			(end 0.237258 -0.5225)
@@ -10681,7 +10680,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10707,7 +10706,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "MDD"
+		(property "Manufacturer_Name" "R+O"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -10733,7 +10732,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C14238"
+		(property "LCSC" "C7420363"
 			(at 0 0 180)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11438,7 +11437,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 23.744 251.684 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11450,7 +11449,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "Samsung"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 23.744 251.684 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11462,7 +11461,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL10B104KB8NNWC"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 23.744 251.684 0)
 			(layer "F.Fab")
 			(hide yes)
@@ -11487,7 +11486,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C16194176"
+		(property "LCSC" "C14663"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11741,7 +11740,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11754,7 +11753,7 @@
 				)
 			)
 		)
-		(property "Description" "Resistor, small symbol"
+		(property "Description" "RES 1MΩ ±1% 100mW 0603"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11763,6 +11762,45 @@
 			(effects
 				(font
 					(size 1.27 1.27)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_Name" "UNI-ROYAL"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "447f60b0-7fbd-4703-995d-713e51533cf9")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "Manufacturer_Part_Number" "0603WAF1004T5E"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "ae01fe4e-936b-408d-9012-a8bc73a4654d")
+			(effects
+				(font
+					(size 1 1)
+					(thickness 0.15)
+				)
+			)
+		)
+		(property "LCSC" "C22935"
+			(at 0 0 0)
+			(unlocked yes)
+			(layer "F.Fab")
+			(hide yes)
+			(uuid "60dab93d-1dcc-48d1-b8c2-7e43f1d4c071")
+			(effects
+				(font
+					(size 1 1)
 					(thickness 0.15)
 				)
 			)
@@ -11943,7 +11981,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -11956,7 +11994,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 100kΩ ±1% 100mW 0603"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12197,7 +12235,7 @@
 				)
 			)
 		)
-		(property "Description" "LED ORANGE DIFFUSED 0603 SMD"
+		(property "Description" "LED ORANGE WATER CLEAR 0603 SMD"
 			(at 298.796 192.888 90)
 			(layer "F.Fab")
 			(hide yes)
@@ -12352,7 +12390,7 @@
 		(path "/86399a91-5df0-463e-94dd-5d29abab6852")
 		(sheetname "/")
 		(sheetfile "Can and power.kicad_sch")
-		(attr smd)
+		(attr smd exclude_from_bom dnp)
 		(fp_line
 			(start 0.8 -0.735)
 			(end -1.485 -0.735)
@@ -12546,7 +12584,7 @@
 				)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12559,7 +12597,7 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "RES 10kΩ ±1% 100mW 0603"
 			(at 0 0 270)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12800,7 +12838,7 @@
 				)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12813,7 +12851,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL10B104KB8NNWC"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12826,7 +12864,7 @@
 				)
 			)
 		)
-		(property "Manufacturer_Name" "Samsung"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -12852,7 +12890,7 @@
 				)
 			)
 		)
-		(property "LCSC" "C16194176"
+		(property "LCSC" "C14663"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "F.Fab")
@@ -13415,7 +13453,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Description" "CONN HEADER VERT 8POS 2.54MM"
+		(property "Description" "CONN HEADER 8POS 2.54mm SINGLE ROW TH"
 			(at 0 0 0)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -15075,7 +15113,7 @@
 				(justify mirror)
 			)
 		)
-		(property "Datasheet" ""
+		(property "Datasheet" "~"
 			(at 0 0 90)
 			(unlocked yes)
 			(layer "B.Fab")
@@ -16060,28 +16098,6 @@
 		)
 	)
 	(gr_line
-		(start 135.427159 114.75)
-		(end 144.627159 114.75)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "04f1696e-5b38-450c-885a-51348aa9d6a5")
-	)
-	(gr_line
-		(start 148.656483 85.194532)
-		(end 156.39434 94.922351)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "0eab5ee6-9f6d-4315-8197-06a3fbbb4e3f")
-	)
-	(gr_line
 		(start 121.347159 89.575)
 		(end 121.347159 110.425)
 		(stroke
@@ -16091,127 +16107,6 @@
 		(locked yes)
 		(layer "Dwgs.User")
 		(uuid "1dfe8bcf-2ee4-41bc-87b4-d8062bd68af4")
-	)
-	(gr_line
-		(start 153.733472 97.038901)
-		(end 156.39434 94.922351)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "2719e319-7186-4231-be41-c9c7880de086")
-	)
-	(gr_line
-		(start 135.427159 117.75)
-		(end 144.627159 117.75)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "2fc916ac-8f35-4a76-a626-4d583d2e0ded")
-	)
-	(gr_line
-		(start 145.995615 87.311081)
-		(end 153.733472 97.038901)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "37f8ef33-8c78-4c18-bd8c-d4e5e974022f")
-	)
-	(gr_line
-		(start 144.627159 114.75)
-		(end 144.627159 117.75)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "6869cdad-9f7d-4736-b459-c706244b9215")
-	)
-	(gr_line
-		(start 135.427159 82.25)
-		(end 144.627159 82.25)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "6f6370be-9448-4ee9-94b5-14d9701b0f5f")
-	)
-	(gr_line
-		(start 123.747159 110.425)
-		(end 121.347159 110.425)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "816363d2-e906-4b30-936e-06748d174b8b")
-	)
-	(gr_line
-		(start 135.427159 85.25)
-		(end 135.427159 82.25)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "86459aa8-b9e3-425f-8707-2ad368b2aa20")
-	)
-	(gr_line
-		(start 144.627159 85.25)
-		(end 144.627159 82.25)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "91ec5708-b238-4921-98f2-9dc82c0d3c6c")
-	)
-	(gr_line
-		(start 135.427159 114.75)
-		(end 135.427159 117.75)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "bc33c1f5-d900-47d3-8f97-e4d844c42f64")
-	)
-	(gr_line
-		(start 135.427159 85.25)
-		(end 144.627159 85.25)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "c8072228-e8c9-484c-9fc9-e8709f937526")
-	)
-	(gr_line
-		(start 123.747159 89.575)
-		(end 123.747159 110.425)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(locked yes)
-		(layer "Dwgs.User")
-		(uuid "d3f08c6c-dae3-4ba7-8aa7-f31c48e07bdd")
 	)
 	(gr_line
 		(start 123.747159 89.575)
@@ -16225,6 +16120,116 @@
 		(uuid "dab6f7d0-7303-4861-b807-7d622b95ec0f")
 	)
 	(gr_line
+		(start 123.747159 89.575)
+		(end 123.747159 110.425)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "d3f08c6c-dae3-4ba7-8aa7-f31c48e07bdd")
+	)
+	(gr_line
+		(start 123.747159 110.425)
+		(end 121.347159 110.425)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "816363d2-e906-4b30-936e-06748d174b8b")
+	)
+	(gr_line
+		(start 135.427159 82.25)
+		(end 144.627159 82.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "6f6370be-9448-4ee9-94b5-14d9701b0f5f")
+	)
+	(gr_line
+		(start 135.427159 85.25)
+		(end 135.427159 82.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "86459aa8-b9e3-425f-8707-2ad368b2aa20")
+	)
+	(gr_line
+		(start 135.427159 85.25)
+		(end 144.627159 85.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "c8072228-e8c9-484c-9fc9-e8709f937526")
+	)
+	(gr_line
+		(start 135.427159 114.75)
+		(end 135.427159 117.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "bc33c1f5-d900-47d3-8f97-e4d844c42f64")
+	)
+	(gr_line
+		(start 135.427159 114.75)
+		(end 144.627159 114.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "04f1696e-5b38-450c-885a-51348aa9d6a5")
+	)
+	(gr_line
+		(start 135.427159 117.75)
+		(end 144.627159 117.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "2fc916ac-8f35-4a76-a626-4d583d2e0ded")
+	)
+	(gr_line
+		(start 144.627159 85.25)
+		(end 144.627159 82.25)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "91ec5708-b238-4921-98f2-9dc82c0d3c6c")
+	)
+	(gr_line
+		(start 144.627159 114.75)
+		(end 144.627159 117.75)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "6869cdad-9f7d-4736-b459-c706244b9215")
+	)
+	(gr_line
 		(start 145.995615 87.311081)
 		(end 148.656483 85.194532)
 		(stroke
@@ -16235,17 +16240,122 @@
 		(layer "Dwgs.User")
 		(uuid "fa26257f-0eaf-4b9d-a0be-622bfdb1cbff")
 	)
+	(gr_line
+		(start 145.995615 87.311081)
+		(end 153.733472 97.038901)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "37f8ef33-8c78-4c18-bd8c-d4e5e974022f")
+	)
+	(gr_line
+		(start 148.656483 85.194532)
+		(end 156.39434 94.922351)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "0eab5ee6-9f6d-4315-8197-06a3fbbb4e3f")
+	)
+	(gr_line
+		(start 153.733472 97.038901)
+		(end 156.39434 94.922351)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(locked yes)
+		(layer "Dwgs.User")
+		(uuid "2719e319-7186-4231-be41-c9c7880de086")
+	)
 	(gr_arc
-		(start 161.721561 101.554168)
-		(mid 118.277159 100)
-		(end 161.721561 98.445832)
+		(start 125.624039 114.377992)
+		(mid 125.899167 112.84688)
+		(end 127.430279 113.122008)
 		(stroke
 			(width 0.2)
 			(type default)
 		)
 		(locked yes)
 		(layer "Edge.Cuts")
-		(uuid "0b63aaf7-f1b8-468b-aca8-376f9dee4231")
+		(uuid "f6a4b46b-7376-431c-ab44-5b3d5b6618ba")
+	)
+	(gr_arc
+		(start 127.369869 84.553544)
+		(mid 127.251783 85.035894)
+		(end 126.776119 85.178544)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "569c1bbb-3758-4f02-ae81-53e3c2764e94")
+	)
+	(gr_arc
+		(start 127.369869 84.553544)
+		(mid 128.472952 83.150953)
+		(end 129.455532 84.640446)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "4e05828a-027c-4abb-8aa3-8b2fd4c0a52b")
+	)
+	(gr_arc
+		(start 127.410103 86.906057)
+		(mid 125.494503 86.628976)
+		(end 126.776119 85.178544)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "c48c080b-68d2-4d11-a47d-36287651ff97")
+	)
+	(gr_arc
+		(start 127.410103 86.906057)
+		(mid 127.782657 86.705093)
+		(end 128.175842 86.861902)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "c671d60d-dc6d-49f2-812e-ac94e156af22")
+	)
+	(gr_arc
+		(start 127.753709 116.61975)
+		(mid 126.603433 115.58004)
+		(end 125.624039 114.377992)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "56aa22c4-6566-47f3-bc4c-32c0c2f2d237")
+	)
+	(gr_arc
+		(start 129.100609 114.88025)
+		(mid 128.198432 114.064791)
+		(end 127.430279 113.122008)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "dacb5833-83ad-4d34-a4b0-492a0723caa7")
 	)
 	(gr_arc
 		(start 129.100609 114.88025)
@@ -16260,8 +16370,20 @@
 		(uuid "1ddba08c-f39c-4d27-9b52-fbb808c24b21")
 	)
 	(gr_arc
-		(start 127.369869 84.553544)
-		(mid 128.472952 83.150953)
+		(start 129.627522 85.221291)
+		(mid 129.801328 86.837641)
+		(end 128.175842 86.861902)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "9e09ab3b-3444-47fc-9d4e-eba87b375955")
+	)
+	(gr_arc
+		(start 129.627522 85.221291)
+		(mid 129.44355 84.95988)
 		(end 129.455532 84.640446)
 		(stroke
 			(width 0.2)
@@ -16269,7 +16391,55 @@
 		)
 		(locked yes)
 		(layer "Edge.Cuts")
-		(uuid "4e05828a-027c-4abb-8aa3-8b2fd4c0a52b")
+		(uuid "c35cd387-f953-4e52-8304-ae076265f6fe")
+	)
+	(gr_circle
+		(center 139.942455 119.170168)
+		(end 141.042455 119.170168)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "eaa70174-990d-4a59-9dbd-59ebdb822afd")
+	)
+	(gr_circle
+		(center 151.527159 84.25)
+		(end 152.627159 84.25)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(fill no)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "fe061701-c6f2-449c-a080-7066f9a95bb1")
+	)
+	(gr_circle
+		(center 151.527159 115.75)
+		(end 152.627159 115.75)
+		(stroke
+			(width 0.2)
+			(type default)
+		)
+		(fill no)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "d4bcfb43-044b-4a3d-9a36-e9e3f38c0026")
+	)
+	(gr_circle
+		(center 158.676308 104.907477)
+		(end 159.776308 104.907477)
+		(stroke
+			(width 0.2)
+			(type solid)
+		)
+		(fill no)
+		(locked yes)
+		(layer "Edge.Cuts")
+		(uuid "fa1e36ee-e9c7-4ae4-89ab-b3bd45f072a2")
 	)
 	(gr_arc
 		(start 161.380439 101.043928)
@@ -16296,42 +16466,6 @@
 		(uuid "4ff9fae0-a46f-4129-ba8c-bb192aec3adb")
 	)
 	(gr_arc
-		(start 127.369869 84.553544)
-		(mid 127.251783 85.035894)
-		(end 126.776119 85.178544)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "569c1bbb-3758-4f02-ae81-53e3c2764e94")
-	)
-	(gr_arc
-		(start 127.753709 116.61975)
-		(mid 126.603433 115.58004)
-		(end 125.624039 114.377992)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "56aa22c4-6566-47f3-bc4c-32c0c2f2d237")
-	)
-	(gr_arc
-		(start 129.627522 85.221291)
-		(mid 129.801328 86.837641)
-		(end 128.175842 86.861902)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "9e09ab3b-3444-47fc-9d4e-eba87b375955")
-	)
-	(gr_arc
 		(start 161.721561 98.445832)
 		(mid 161.638518 98.759468)
 		(end 161.380439 98.956072)
@@ -16344,124 +16478,16 @@
 		(uuid "b070b4f2-500c-4884-9c1f-990fe2471bb6")
 	)
 	(gr_arc
-		(start 129.627522 85.221291)
-		(mid 129.44355 84.95988)
-		(end 129.455532 84.640446)
+		(start 161.721561 101.554168)
+		(mid 118.277159 100)
+		(end 161.721561 98.445832)
 		(stroke
 			(width 0.2)
 			(type default)
 		)
 		(locked yes)
 		(layer "Edge.Cuts")
-		(uuid "c35cd387-f953-4e52-8304-ae076265f6fe")
-	)
-	(gr_arc
-		(start 127.410103 86.906057)
-		(mid 125.494503 86.628976)
-		(end 126.776119 85.178544)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "c48c080b-68d2-4d11-a47d-36287651ff97")
-	)
-	(gr_arc
-		(start 127.410103 86.906057)
-		(mid 127.782657 86.705093)
-		(end 128.175842 86.861902)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "c671d60d-dc6d-49f2-812e-ac94e156af22")
-	)
-	(gr_circle
-		(center 151.527159 115.75)
-		(end 152.627159 115.75)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(fill no)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "d4bcfb43-044b-4a3d-9a36-e9e3f38c0026")
-	)
-	(gr_arc
-		(start 129.100609 114.88025)
-		(mid 128.198432 114.064791)
-		(end 127.430279 113.122008)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "dacb5833-83ad-4d34-a4b0-492a0723caa7")
-	)
-	(gr_circle
-		(center 139.942455 119.170168)
-		(end 141.042455 119.170168)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "eaa70174-990d-4a59-9dbd-59ebdb822afd")
-	)
-	(gr_arc
-		(start 125.624039 114.377992)
-		(mid 125.899167 112.84688)
-		(end 127.430279 113.122008)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "f6a4b46b-7376-431c-ab44-5b3d5b6618ba")
-	)
-	(gr_circle
-		(center 158.676308 104.907477)
-		(end 159.776308 104.907477)
-		(stroke
-			(width 0.2)
-			(type solid)
-		)
-		(fill no)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "fa1e36ee-e9c7-4ae4-89ab-b3bd45f072a2")
-	)
-	(gr_circle
-		(center 151.527159 84.25)
-		(end 152.627159 84.25)
-		(stroke
-			(width 0.2)
-			(type default)
-		)
-		(fill no)
-		(locked yes)
-		(layer "Edge.Cuts")
-		(uuid "fe061701-c6f2-449c-a080-7066f9a95bb1")
-	)
-	(gr_text "3V3"
-		(at 143.302 79.553 270)
-		(layer "F.SilkS")
-		(uuid "015a6373-4f2b-4a18-b4ed-9eebaa00df08")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-			(justify left bottom)
-		)
+		(uuid "0b63aaf7-f1b8-468b-aca8-376f9dee4231")
 	)
 	(gr_text "VSYS"
 		(at 123.617 111.049 0)
@@ -16473,30 +16499,6 @@
 				(thickness 0.15)
 			)
 			(justify left)
-		)
-	)
-	(gr_text "VSYS"
-		(at 155.621 96.952 0)
-		(layer "F.SilkS")
-		(uuid "8fb0ec72-f8fc-4210-b333-9ef23cffbb93")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-			(justify left bottom)
-		)
-	)
-	(gr_text "VSYS"
-		(at 142.54 117.653 90)
-		(layer "F.SilkS")
-		(uuid "a34d2a86-8688-4639-ba6c-dd25e377a898")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.15)
-			)
-			(justify right)
 		)
 	)
 	(gr_text "3V3"
@@ -16511,10 +16513,10 @@
 			(justify left bottom)
 		)
 	)
-	(gr_text "3V3"
-		(at 135.555 79.553 270)
+	(gr_text "VSYS"
+		(at 155.621 96.952 0)
 		(layer "F.SilkS")
-		(uuid "c5b3fa7f-cf56-486a-8bdd-d8155bd3db86")
+		(uuid "8fb0ec72-f8fc-4210-b333-9ef23cffbb93")
 		(effects
 			(font
 				(size 1 1)
@@ -16535,34 +16537,70 @@
 			(justify left)
 		)
 	)
-	(gr_text "1.75in"
-		(at 120.696 100 270)
-		(layer "B.SilkS")
-		(uuid "013b0c9d-cae7-4226-823d-a3cfb6f93878")
+	(gr_text "VSYS"
+		(at 142.54 117.653 90)
+		(layer "F.SilkS")
+		(uuid "a34d2a86-8688-4639-ba6c-dd25e377a898")
 		(effects
 			(font
 				(size 1 1)
 				(thickness 0.15)
 			)
-			(justify top mirror)
+			(justify right)
 		)
 	)
-	(gr_text "(c) ${COMPANY} - ${ISSUE_DATE}\n${TITLE} v${REVISION}"
-		(at 154.605 112.446 0)
-		(layer "B.SilkS")
-		(uuid "4d47a5de-9106-40e1-8a5b-38546d53d301")
+	(gr_text "3V3"
+		(at 135.555 79.553 270)
+		(layer "F.SilkS")
+		(uuid "c5b3fa7f-cf56-486a-8bdd-d8155bd3db86")
 		(effects
 			(font
 				(size 1 1)
 				(thickness 0.15)
 			)
-			(justify left bottom mirror)
+			(justify left bottom)
+		)
+	)
+	(gr_text "3V3"
+		(at 143.302 79.553 270)
+		(layer "F.SilkS")
+		(uuid "015a6373-4f2b-4a18-b4ed-9eebaa00df08")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom)
+		)
+	)
+	(gr_text "CAN_L"
+		(at 131.618 98.349 0)
+		(layer "B.SilkS")
+		(uuid "ae2b2abc-6f4e-4856-8ef2-3891d35f4893")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.125)
+			)
+			(justify top mirror)
 		)
 	)
 	(gr_text "CAN_H"
 		(at 131.618 100.381 0)
 		(layer "B.SilkS")
 		(uuid "4d4c7073-232b-4376-a43c-e81eb8de90e1")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.125)
+			)
+			(justify top mirror)
+		)
+	)
+	(gr_text "GND"
+		(at 131.745 96.444 -0)
+		(layer "B.SilkS")
+		(uuid "a19c0253-686f-452f-9577-332fef1e13f9")
 		(effects
 			(font
 				(size 1 1)
@@ -16583,16 +16621,16 @@
 			(justify bottom mirror)
 		)
 	)
-	(gr_text "1.46in"
-		(at 152.7 89.84 308.5)
+	(gr_text "1.43in"
+		(at 135.43 83.744 0)
 		(layer "B.SilkS")
-		(uuid "64898c7c-3b1b-44df-9ca1-ed17e90e7142")
+		(uuid "8ab4d70a-4c9c-4557-8d33-0626435f52ce")
 		(effects
 			(font
 				(size 1 1)
 				(thickness 0.15)
 			)
-			(justify bottom mirror)
+			(justify left mirror)
 		)
 	)
 	(gr_text "1.43in"
@@ -16607,6 +16645,30 @@
 			(justify left mirror)
 		)
 	)
+	(gr_text "(c) ${COMPANY} - ${ISSUE_DATE}\n${TITLE} v${REVISION}"
+		(at 154.605 112.446 0)
+		(layer "B.SilkS")
+		(uuid "4d47a5de-9106-40e1-8a5b-38546d53d301")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify left bottom mirror)
+		)
+	)
+	(gr_text "KL15"
+		(at 136.698 99.873 0)
+		(layer "B.SilkS")
+		(uuid "cdb6dadf-84f5-489c-bbcf-bec1f5092c53")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+			(justify bottom mirror)
+		)
+	)
 	(gr_text "KL30"
 		(at 136.698 105.588 0)
 		(layer "B.SilkS")
@@ -16619,46 +16681,22 @@
 			(justify bottom mirror)
 		)
 	)
-	(gr_text "1.43in"
-		(at 135.43 83.744 0)
+	(gr_text "1.75in"
+		(at 120.696 100 270)
 		(layer "B.SilkS")
-		(uuid "8ab4d70a-4c9c-4557-8d33-0626435f52ce")
+		(uuid "013b0c9d-cae7-4226-823d-a3cfb6f93878")
 		(effects
 			(font
 				(size 1 1)
 				(thickness 0.15)
 			)
-			(justify left mirror)
-		)
-	)
-	(gr_text "GND"
-		(at 131.745 96.444 -0)
-		(layer "B.SilkS")
-		(uuid "a19c0253-686f-452f-9577-332fef1e13f9")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.125)
-			)
 			(justify top mirror)
 		)
 	)
-	(gr_text "CAN_L"
-		(at 131.618 98.349 0)
+	(gr_text "1.46in"
+		(at 152.7 89.84 308.5)
 		(layer "B.SilkS")
-		(uuid "ae2b2abc-6f4e-4856-8ef2-3891d35f4893")
-		(effects
-			(font
-				(size 1 1)
-				(thickness 0.125)
-			)
-			(justify top mirror)
-		)
-	)
-	(gr_text "KL15"
-		(at 136.698 99.873 0)
-		(layer "B.SilkS")
-		(uuid "cdb6dadf-84f5-489c-bbcf-bec1f5092c53")
+		(uuid "64898c7c-3b1b-44df-9ca1-ed17e90e7142")
 		(effects
 			(font
 				(size 1 1)
