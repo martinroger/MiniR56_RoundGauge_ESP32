@@ -6425,7 +6425,7 @@
 				(justify right)
 			)
 		)
-		(property "Value" "22k1"
+		(property "Value" "22k"
 			(at 238.76 123.825 0)
 			(effects
 				(font
@@ -6470,7 +6470,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "0603WAF2212T5E"
+		(property "Manufacturer_Part_Number" "0603WAF2202T5E"
 			(at 236.22 121.92 0)
 			(effects
 				(font
@@ -6506,7 +6506,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C25961"
+		(property "LCSC" "C31850"
 			(at 236.22 121.92 0)
 			(effects
 				(font
