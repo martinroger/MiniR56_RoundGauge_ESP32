@@ -7682,7 +7682,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 146.05 168.91 0)
 			(effects
 				(font
@@ -7691,7 +7691,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL10B104KB8NNWC"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 146.05 168.91 0)
 			(effects
 				(font
@@ -7700,7 +7700,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Samsung"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 146.05 168.91 0)
 			(effects
 				(font
@@ -7718,7 +7718,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C16194176"
+		(property "LCSC" "C14663"
 			(at 146.05 168.91 0)
 			(effects
 				(font
@@ -8437,7 +8437,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 45.72 21.59 0)
 			(effects
 				(font
@@ -8446,7 +8446,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-071KL"
+		(property "Manufacturer_Part_Number" "0603WAF1001T5E"
 			(at 45.72 21.59 0)
 			(effects
 				(font
@@ -8482,7 +8482,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C22548"
+		(property "LCSC" "C21190"
 			(at 45.72 21.59 0)
 			(effects
 				(font
@@ -9301,7 +9301,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 45.72 29.21 0)
 			(effects
 				(font
@@ -9310,7 +9310,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-071KL"
+		(property "Manufacturer_Part_Number" "0603WAF1001T5E"
 			(at 45.72 29.21 0)
 			(effects
 				(font
@@ -9346,7 +9346,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C22548"
+		(property "LCSC" "C21190"
 			(at 45.72 29.21 0)
 			(effects
 				(font

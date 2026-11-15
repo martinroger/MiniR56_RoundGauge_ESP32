@@ -2300,7 +2300,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0.1uF 16V"
+		(property "Value" "0.1uF 50V"
 			(at 146.05 71.755 0)
 			(effects
 				(font
@@ -2327,7 +2327,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 100nF 16V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 142.24 69.85 0)
 			(effects
 				(font
@@ -2345,7 +2345,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CC0603KRX7R7BB104"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 142.24 69.85 0)
 			(effects
 				(font
@@ -2381,7 +2381,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C108079"
+		(property "LCSC" "C14663"
 			(at 142.24 69.85 0)
 			(effects
 				(font
@@ -2796,7 +2796,7 @@
 				(hide yes)
 			)
 		)
-		(property "Description" "CAP CER 0.1UF 50V X7R 0603"
+		(property "Description" "CAP CER 100nF 50V X7R 0603"
 			(at 55.88 90.17 0)
 			(effects
 				(font
@@ -2805,7 +2805,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "CL10B104KB8NNWC"
+		(property "Manufacturer_Part_Number" "CC0603KRX7R9BB104"
 			(at 55.88 90.17 0)
 			(effects
 				(font
@@ -2814,7 +2814,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Samsung"
+		(property "Manufacturer_Name" "YAGEO"
 			(at 55.88 90.17 0)
 			(effects
 				(font
@@ -2832,7 +2832,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C16194176"
+		(property "LCSC" "C14663"
 			(at 55.88 90.17 0)
 			(effects
 				(font
@@ -3352,7 +3352,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "YAGEO"
+		(property "Manufacturer_Name" "UNI-ROYAL"
 			(at 245.11 96.52 0)
 			(effects
 				(font
@@ -3361,7 +3361,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "RC0603FR-077K5L"
+		(property "Manufacturer_Part_Number" "0603WAF7501T5E"
 			(at 245.11 96.52 0)
 			(effects
 				(font
@@ -3397,7 +3397,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C114634"
+		(property "LCSC" "C23234"
 			(at 245.11 96.52 0)
 			(effects
 				(font
@@ -3547,7 +3547,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Name" "Taiyo Yuden"
+		(property "Manufacturer_Name" "Samsung"
 			(at 69.85 90.17 0)
 			(effects
 				(font
@@ -3556,7 +3556,7 @@
 				(hide yes)
 			)
 		)
-		(property "Manufacturer_Part_Number" "UMK107BJ105KA-T"
+		(property "Manufacturer_Part_Number" "CL10A105KB8NNNC"
 			(at 69.85 90.17 0)
 			(effects
 				(font
@@ -3574,7 +3574,7 @@
 				(hide yes)
 			)
 		)
-		(property "LCSC" "C92848"
+		(property "LCSC" "C15849"
 			(at 69.85 90.17 0)
 			(effects
 				(font
